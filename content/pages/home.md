@@ -1,4 +1,5 @@
 Title: PrivateBin
+Summary: General information on the PrivateBin project.
 Menulabel: Home
 URL:
 save_as: index.html
