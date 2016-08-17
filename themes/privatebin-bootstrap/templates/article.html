@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
+{% block html_lang %}{{ article.lang }}{% endblock %}
+{% block meta %}
+	{% if article.author %}
+		<meta name="author" content="{{ article.author }}" />
+	{% else %}
+		<meta name="author" content="{{ AUTHOR }}" />
+	{% endif %}
+	{% if article.tags %}
+		<meta name="keywords" content="{{ article.tags|join(',')|striptags }}" />
+	{% endif %}
+	{% if article.summary %}
+		<meta name="description" content="{{ article.summary|striptags|escape }}" />
+	{% endif %}
+{% endblock %}
+
+{% block canonical_rel %}
+		<link rel="canonical" href="{{ SITEURL }}/{{ article.url }}">
+{% endblock %}
+
+{% block breadcrumbs %}
+	{% if DISPLAY_BREADCRUMBS %}
+		{% if DISPLAY_CATEGORY_IN_BREADCRUMBS %}
+					<ol class="breadcrumb">
+						<li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+						<li><a href="{{ SITEURL }}/{{ article.category.url }}" title="{{ article.category }}">{{ article.category }}</a></li>
+						<li class="active">{{ article.title }}</li>
+					</ol>
+		{% else %}
+					<ol class="breadcrumb">
+						<li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
+						<li class="active">{{ article.title }}</li>
+					</ol>
+		{% endif %}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+					<section id="content">
+						<article>
+							<header class="page-header">
+								<h1>
+									<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+								</h1>
+							</header>
+							<div class="entry-content">
+								<div class="panel">
+									<div class="panel-body">
+										<span class="label label-default">Date</span>
+										<span class="published">
+											<i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+										</span>
+	{% if SHOW_DATE_MODIFIED %}
+		{% if article.modified %}
+										<span class="label label-default">Modified</span>
+										<span class="modified">
+											<i class="fa fa-calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+										</span>
+		{% endif %}
+	{% endif %}
+	{% if SHOW_SERIES %}
+		{% if article.series %}
+										<span class="label label-default">Series</span>
+										Part {{ article.series.index}} of {{ article.series.name }}
+		{% endif %}
+	{% endif %}
+	{% if SHOW_ARTICLE_AUTHOR %}
+		{% if article.author %}
+										<span class="label label-default">By</span>
+										<a href="{{ SITEURL }}/{{ article.author.url }}"><i class="fa fa-user"></i> {{ article.author }}</a>
+		{% endif %}
+	{% endif %}
+	{% if SHOW_ARTICLE_CATEGORY %}
+										<span class="label label-default">Category</span>
+										<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+	{% endif %}
+	{% if article.tags %}
+										<span class="label label-default">Tags</span>
+		{% for tag in article.tags %}
+										<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+			{% if not loop.last %}
+										/
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+	{% if article.translations %}
+										<span class="label label-default">Lang</span>
+		{% for translation in article.translations %}
+										<a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+		{% endfor %}
+	{% endif %}
+									</div>
+								</div>
+								{{ article.content }}
+							</div>
+{% if article.related_posts %}
+							<section class="well" id="related-posts">
+								<h4>{{ RELATED_POSTS_TEXT|default('Related Posts:') }}</h4>
+								<ul>
+	{% for related_post in article.related_posts %}
+									<li><a href="{{ SITEURL }}/{{ related_post.url }}">{{ related_post.title }}</a></li>
+	{% endfor %}
+								</ul>
+							</section>
+{% endif %}
+{% if article.series %}
+							<section class="well" id="related-posts">
+	{% set text = SERIES_TEXT|default('Part %(index)s of the %(name)s series') %}
+								<h4>{{ text|format(index=article.series.index, name=article.series.name) }}</h4>
+	{% if article.series.all_previous %}
+									<h5>Previous articles</h5>
+									<ul>
+		{% for article in article.series.all_previous %}
+										<li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+		{% endfor %}
+									</ul>
+	{% endif %}
+	{% if article.series.all_next %}
+									<h5>Next articles</h5>
+									<ul>
+		{% for article in article.series.all_next %}
+										<li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+		{% endfor %}
+									</ul>
+	{% endif %}
+							</section>
+{% endif %}
+						</article>
+					</section>
+{% endblock %}

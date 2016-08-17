@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+	{% if articles %}
+		{% for article in (articles_page.object_list if articles_page else articles) %}
+					<article>
+						<h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+			{% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
+							<div class="well well-sm">
+								<span class="label label-default">Date</span>
+								<span class="published">
+									<i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+								</span>
+				{% if SHOW_DATE_MODIFIED %}
+					{% if article.modified %}
+								<span class="label label-default">Modified</span>
+								<span class="modified">
+									<i class="fa fa-calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+								</span>
+					{% endif %}
+				{% endif %}
+				{% if SHOW_SERIES %}
+					{% if article.series %}
+								<span class="label label-default">Series</span>
+								Part {{ article.series.index}} of {{ article.series.name }}
+					{% endif %}
+				{% endif %}
+				{% if SHOW_ARTICLE_AUTHOR %}
+					{% if article.author %}
+								<span class="label label-default">By</span>
+								<a href="{{ SITEURL }}/{{ article.author.url }}"><i class="fa fa-user"></i> {{ article.author }}</a>
+					{% endif %}
+				{% endif %}
+				{% if SHOW_ARTICLE_CATEGORY %}
+								<span class="label label-default">Category</span>
+								<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+				{% endif %}
+				{% if article.tags %}
+								<span class="label label-default">Tags</span>
+					{% for tag in article.tags %}
+								<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+						{% if not loop.last %}
+								/
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+				{% if article.translations %}
+								<span class="label label-default">Lang</span>
+						{% for translation in article.translations %}
+								<a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+						{% endfor %}
+				{% endif %}
+							</div>
+			{% endif %}
+				<div class="summary">
+					{{ article.summary }}
+					<a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
+				</div>
+			</article>
+			<hr/>
+		{% endfor %}
+	{% endif %}
+{% if articles_page and articles_paginator.num_pages > 1 %}
+	{% if USE_PAGER %}
+		<ul class="pager">
+			{% if articles_page.has_previous() %}
+				<li class="previous"><a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&larr; Newer</a></li>
+			{% else %}
+				<li class="previous disabled"><a href="#">&larr; Newer</a></li>
+			{% endif %}
+			{% if articles_page.has_next() %}
+				<li class="next"><a
+						href="{{ SITEURL }}/{{ articles_next_page.url }}">Older &rarr;</a></li>
+			{% else %}
+				<li class="next disabled"><a href="#">Older &rarr;</a></li>
+			{% endif %}
+		</ul>
+	{% else %}
+		<ul class="pagination">
+			{% if articles_page.has_previous() %}
+				{% set num = articles_page.previous_page_number() %}
+				<li class="prev"><a href="{{ SITEURL }}/{{ articles_previous_page.url }}">&laquo;</a>
+				</li>
+			{% else %}
+				<li class="prev disabled"><a href="#">&laquo;</a></li>
+			{% endif %}
+			{% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+					<li class="{{ 'active' if num == articles_page.number else '' }}"><a
+							href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+				{% endfor %}
+			{% if articles_page.has_next() %}
+				<li class="next"><a
+						href="{{ SITEURL }}/{{ articles_next_page.url }}">&raquo;</a></li>
+			{% else %}
+				<li class="next disabled"><a href="#">&raquo;</a></li>
+			{% endif %}
+		</ul>
+	{% endif %}
+{% endif %}
+{% endblock content %}
