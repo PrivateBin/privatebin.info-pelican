@@ -12,6 +12,9 @@
 		<link type="text/css" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap-3.3.5.css" />
 		<link type="text/css" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap-theme-3.3.5.css" />
 		<link type="text/css" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/privatebin.css" />
+{% if GITHUB_RIBBON_URL is defined %}
+		<link type="text/css" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/gh-fork-ribbon.css" />
+{% endif %}
 {% if CUSTOM_CSS %}
 		<link type="text/css" rel="stylesheet" href="{{ SITEURL }}/{{ CUSTOM_CSS }}" />
 {% endif %}
@@ -57,7 +60,7 @@
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 {% if GITHUB_RIBBON_URL is defined %}
-				<a href="{{ GITHUB_RIBBON_URL }}" target="_blank" rel="noopener noreferrer"><img id="github-ribbon" alt="Fork me on GitHub" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/forkme_right_red_aa0000.png"></a>
+				<a class="github-fork-ribbon" href="{{ GITHUB_RIBBON_URL }}" title="Fork me on GitHub">Fork me on GitHub</a>
 {% endif %}
 {% if NEW_BUTTON_URL is defined %}
 				<ul class="nav navbar-nav">
