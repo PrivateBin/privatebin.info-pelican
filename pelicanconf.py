@@ -28,7 +28,7 @@ AUTHOR_FEED_RSS = None
 # Navigation
 MENUITEMS = (('Wiki', 'https://github.com/PrivateBin/PrivateBin/wiki'),
              ('Issues', 'https://github.com/PrivateBin/PrivateBin/issues'),
-             ('API', '/api/'),
+             ('PHPDOC', '/phpdoc/'),
              ('Test Coverage', '/coverage/'),)
 
 # Blogroll
