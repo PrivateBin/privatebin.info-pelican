@@ -46,7 +46,7 @@ SOCIAL = ()
 # Theme specific settings
 DISPLAY_ARTICLE_INFO_ON_INDEX = True
 GITHUB_RIBBON_URL = 'https://github.com/PrivateBin/PrivateBin'
-TRYITOUT_BUTTON_URL = 'http://privatebin.net/'
+TRYITOUT_BUTTON_URL = 'https://privatebin.net/'
 
 DEFAULT_PAGINATION = 10
 
