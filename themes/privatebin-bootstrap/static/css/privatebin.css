@@ -37,8 +37,7 @@ p img {
 }
 
 .navbar-brand {
-	padding: 3px;
-	padding-left: 8px;
+	padding: 6px 4px 0 8px;
 }
 
 .list-group-item .list-group-item {
