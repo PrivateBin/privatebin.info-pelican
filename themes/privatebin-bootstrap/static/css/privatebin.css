@@ -13,6 +13,12 @@ h5 {
 	font-weight: bold;
 }
 
+p img {
+	display: inline-block;
+	max-width: 100%;
+	height: auto;
+}
+
 .nav.navbar-nav {
 	margin-left: 8px;
 }
