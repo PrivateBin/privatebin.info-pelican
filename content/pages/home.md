@@ -1,6 +1,7 @@
 Title: PrivateBin
 Summary: General information on the PrivateBin project.
 Menulabel: Home
+Sortorder: 1
 URL:
 save_as: index.html
 

@@ -31,7 +31,7 @@ MENUITEMS = (('Wiki', 'https://github.com/PrivateBin/PrivateBin/wiki'),
              ('Issues', 'https://github.com/PrivateBin/PrivateBin/issues'),)
 
 # Blogroll
-LINKS = (('Project on GitHub', 'https://github.com/PrivateBin/PrivateBin'),
+LINKS = (('PrivateBin Directory', 'https://github.com/PrivateBin/PrivateBin/wiki/PrivateBin-Directory'),
          ('Installation guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Installation'),
          ('Upgrading from ZeroBin 0.19 Alpha', 'https://github.com/PrivateBin/PrivateBin/wiki/Upgrading-from-ZeroBin-0.19-Alpha'),
          ('Configuration guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Configuration'),

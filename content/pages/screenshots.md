@@ -1,5 +1,6 @@
 Title: Screenshots
 Summary: Screenshots of the various templates of PrivateBin.
+Sortorder: 5
 URL: screenshots.html
 save_as: screenshots.html
 
