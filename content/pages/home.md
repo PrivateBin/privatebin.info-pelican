@@ -4,6 +4,8 @@ Menulabel: Home
 URL:
 save_as: index.html
 
+<img alt="PrivateBin" src="https://cdn.rawgit.com/PrivateBin/assets/master/images/minified/logo.svg" width="500" />
+
 [![Build Status](https://travis-ci.org/PrivateBin/PrivateBin.svg?branch=master)](https://travis-ci.org/PrivateBin/PrivateBin) [![Build Status](https://scrutinizer-ci.com/g/PrivateBin/PrivateBin/badges/build.png?b=master)](https://scrutinizer-ci.com/g/PrivateBin/PrivateBin/build-status/master)  
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/094500f62abf4c9aa0c8a8a4520e4789)](https://www.codacy.com/app/PrivateBin/PrivateBin)
 [![Code Climate](https://codeclimate.com/github/PrivateBin/PrivateBin/badges/gpa.svg)](https://codeclimate.com/github/PrivateBin/PrivateBin)
@@ -11,6 +13,8 @@ save_as: index.html
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/57c9e74e-c6f9-4de6-a876-df66ec2ea1ff/mini.png)](https://insight.sensiolabs.com/projects/57c9e74e-c6f9-4de6-a876-df66ec2ea1ff)  
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/094500f62abf4c9aa0c8a8a4520e4789)](https://www.codacy.com/app/PrivateBin/PrivateBin)
 [![Test Coverage](https://codeclimate.com/github/PrivateBin/PrivateBin/badges/coverage.svg)](https://codeclimate.com/github/PrivateBin/PrivateBin/coverage) [![Code Coverage](https://scrutinizer-ci.com/g/PrivateBin/PrivateBin/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/PrivateBin/PrivateBin/?branch=master)
+
+*Current version: 0.22*
 
 **PrivateBin** is a minimalist, open source online pastebin where the server has
 zero knowledge of pasted data.
@@ -23,8 +27,6 @@ to allow easier and cleaner extensions and has now much more features than the
 original. It is however still fully compatible to the original ZeroBin 0.19
 data storage scheme. Therefore such installations can be upgraded to this fork
 without loosing any data.
-
-<img src="https://cdn.rawgit.com/PrivateBin/PrivateBin/master/img/icon.svg" height="200" />
 
 ## What PrivateBin provides
 
