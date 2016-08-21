@@ -27,9 +27,7 @@ AUTHOR_FEED_RSS = None
 
 # Navigation
 MENUITEMS = (('Wiki', 'https://github.com/PrivateBin/PrivateBin/wiki'),
-             ('Issues', 'https://github.com/PrivateBin/PrivateBin/issues'),
-             ('PHPDOC', '/phpdoc/'),
-             ('Test Coverage', '/coverage/'),)
+             ('Issues', 'https://github.com/PrivateBin/PrivateBin/issues'),)
 
 # Blogroll
 LINKS = (('Project on GitHub', 'https://github.com/PrivateBin/PrivateBin'),
@@ -38,7 +36,8 @@ LINKS = (('Project on GitHub', 'https://github.com/PrivateBin/PrivateBin'),
          ('Configuration guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Configuration'),
          ('Template guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Templates'),
          ('Developer guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Development'),
-         ('Report an issue', 'https://github.com/PrivateBin/PrivateBin/issues'),)
+         ('Code Documentation', '/codedoc/'),
+         ('Test Coverage', '/coverage/'),)
 
 # Social widget
 SOCIAL = ()
@@ -46,7 +45,7 @@ SOCIAL = ()
 # Theme specific settings
 DISPLAY_ARTICLE_INFO_ON_INDEX = True
 GITHUB_RIBBON_URL = 'https://github.com/PrivateBin/PrivateBin'
-NEW_BUTTON_URL = 'http://privatebin.net/'
+TRYITOUT_BUTTON_URL = 'http://privatebin.net/'
 
 DEFAULT_PAGINATION = 10
 
