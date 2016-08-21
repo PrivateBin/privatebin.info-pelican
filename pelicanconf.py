@@ -9,6 +9,7 @@ SITEURL = ''
 
 
 PATH = 'content'
+STATIC_PATHS = ['img']
 THEME = 'themes/privatebin-bootstrap'
 
 TIMEZONE = 'Europe/Zurich'
