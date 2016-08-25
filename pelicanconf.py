@@ -27,7 +27,8 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Navigation
-MENUITEMS = (('Wiki', 'https://github.com/PrivateBin/PrivateBin/wiki'),
+MENUITEMS = (('FAQ', 'https://github.com/PrivateBin/PrivateBin/wiki/FAQ'),
+             ('Wiki', 'https://github.com/PrivateBin/PrivateBin/wiki'),
              ('Issues', 'https://github.com/PrivateBin/PrivateBin/issues'),)
 
 # Blogroll

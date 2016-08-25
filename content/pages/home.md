@@ -15,7 +15,7 @@ save_as: index.html
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/094500f62abf4c9aa0c8a8a4520e4789)](https://www.codacy.com/app/PrivateBin/PrivateBin)
 [![Test Coverage](https://codeclimate.com/github/PrivateBin/PrivateBin/badges/coverage.svg)](https://codeclimate.com/github/PrivateBin/PrivateBin/coverage) [![Code Coverage](https://scrutinizer-ci.com/g/PrivateBin/PrivateBin/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/PrivateBin/PrivateBin/?branch=master)
 
-*Current version: 0.22*
+*Current version: 1.0*
 
 **PrivateBin** is a minimalist, open source online pastebin where the server has
 zero knowledge of pasted data.
@@ -48,9 +48,10 @@ without loosing any data.
 
 - As a user you have to trust the server administrator, your internet provider
   and any country the traffic passes not to inject any malicious javascript code.
-  Ideally, the PrivateBin installation used should provide HTTPS, secured by
+  For a basic security the PrivateBin installation *has to provide HTTPS*!
+  Additionally it should be secured by
   [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) and
-  [HPKP](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning) using a
+  ideally by [HPKP](https://en.wikipedia.org/wiki/HTTP_Public_Key_Pinning) using a
   certificate either validated by a trusted third party (check the certificate
   when first using a new PrivateBin instance) or self-signed by the server
   operator, validated using a
