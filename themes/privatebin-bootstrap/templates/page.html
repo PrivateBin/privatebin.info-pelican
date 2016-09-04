@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ page.title }} - {{ SITENAME }}{% endblock %}
+{% block title %}{% if page.title != SITENAME %}{{ page.title }} - {% endif %}{{ SITENAME }}{% endblock %}
 {% block html_lang %}{{ page.lang }}{% endblock %}
 {% block meta %}
 	{% if page.author %}
@@ -29,7 +29,7 @@
 
 {% block content %}
 					<section id="content" class="body">
-	{% if page.title %}
+	{% if page.title != SITENAME %}
 						<h1>{{ page.title }}</h1>
 	{% endif %}
 						{{ page.content }}
