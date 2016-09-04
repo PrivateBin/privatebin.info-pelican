@@ -12,12 +12,12 @@ Simon Rupf - current developer and maintainer of the PrivateBin fork
 * Alexey Gladkov - syntax highlighting
 * Greg Knaddison - robots.txt
 * MrKooky - HTML5 markup, CSS cleanup
-* Simon Rupf - MVC refactoring, configuration, i18n and unit tests
+* Simon Rupf - MVC refactoring, configuration, i18n and unit tests (git signing key [4096R/6BD81F92]({filename}/key/elrido.asc))
 * Hexalyse - Password protection
 * Viktor Stanchev - File upload support
 * azlux - Tab character input support
 * Adam Fisher - Favicons
-* rugk - various stuff, logo and icons
+* rugk - various stuff, logo and icons (git signing key [4096R/6AFAB34D]({filename}/key/rugk.asc))
 * Sobak - PSR-4 and PSR-2 refactoring
 
 ## Translation
