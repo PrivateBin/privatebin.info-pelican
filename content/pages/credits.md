@@ -6,8 +6,8 @@ save_as: credits.html
 
 ## Active contributors
 
-Simon Rupf - current developer and maintainer  
-rugk - security review, doc improvment & various other stuff
+Simon Rupf - current developer and maintainer (git signing key [4096R/6BD81F92]({filename}/key/elrido.asc))  
+rugk - security review, doc improvment & various other stuff (git signing key [4096R/6AFAB34D]({filename}/key/rugk.asc))
 
 ## Past contributions
 
