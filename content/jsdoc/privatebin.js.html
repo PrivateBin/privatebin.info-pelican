@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: privatebin.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: privatebin.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * PrivateBin
+ *
+ * a zero-knowledge paste bin
+ *
+ * @see       {@link https://github.com/PrivateBin/PrivateBin}
+ * @copyright 2012 Sébastien SAUVAGE ({@link http://sebsauvage.net})
+ * @license   {@link https://www.opensource.org/licenses/zlib-license.php The zlib/libpng License}
+ * @version   1.1
+ * @name      PrivateBin
+ * @namespace
+ */
+
+'use strict';
+/** global: Base64 */
+/** global: FileReader */
+/** global: RawDeflate */
+/** global: history */
+/** global: navigator */
+/** global: prettyPrint */
+/** global: prettyPrintOne */
+/** global: showdown */
+/** global: sjcl */
+
+// Immediately start random number generator collector.
+sjcl.random.startCollectors();
+
+$(function() {
+    /**
+     * static helper methods
+     *
+     * @name helper
+     * @class
+     */
+    var helper = {
+        /**
+         * converts a duration (in seconds) into human friendly approximation
+         *
+         * @name helper.secondsToHuman
+         * @function
+         * @param  {number} seconds
+         * @return {Array}
+         */
+        secondsToHuman: function(seconds)
+        {
+            var v;
+            if (seconds &lt; 60)
+            {
+                v = Math.floor(seconds);
+                return [v, 'second'];
+            }
+            if (seconds &lt; 60 * 60)
+            {
+                v = Math.floor(seconds / 60);
+                return [v, 'minute'];
+            }
+            if (seconds &lt; 60 * 60 * 24)
+            {
+                v = Math.floor(seconds / (60 * 60));
+                return [v, 'hour'];
+            }
+            // If less than 2 months, display in days:
+            if (seconds &lt; 60 * 60 * 24 * 60)
+            {
+                v = Math.floor(seconds / (60 * 60 * 24));
+                return [v, 'day'];
+            }
+            v = Math.floor(seconds / (60 * 60 * 24 * 30));
+            return [v, 'month'];
+        },
+
+        /**
+         * converts an associative array to an encoded string
+         * for appending to the anchor
+         *
+         * @name   helper.hashToParameterString
+         * @function
+         * @param  {Object} associative_array - Object to be serialized
+         * @return {string}
+         */
+        hashToParameterString: function(associativeArray)
+        {
+            var parameterString = '';
+            for (var key in associativeArray)
+            {
+                if(parameterString === '')
+                {
+                    parameterString = encodeURIComponent(key);
+                    parameterString += '=' + encodeURIComponent(associativeArray[key]);
+                }
+                else
+                {
+                    parameterString += '&amp;' + encodeURIComponent(key);
+                    parameterString += '=' + encodeURIComponent(associativeArray[key]);
+                }
+            }
+            // padding for URL shorteners
+            parameterString += '&amp;p=p';
+
+            return parameterString;
+        },
+
+        /**
+         * converts a anchor string to an associative array
+         *
+         * @name   helper.parameterStringToHash
+         * @function
+         * @param  {string} parameter_string - String containing parameters
+         * @return {Object}
+         */
+        parameterStringToHash: function(parameterString)
+        {
+            var parameterHash = {};
+            var parameterArray = parameterString.split('&amp;');
+            for (var i = 0; i &lt; parameterArray.length; i++)
+            {
+                var pair = parameterArray[i].split('=');
+                var key = decodeURIComponent(pair[0]);
+                var value = decodeURIComponent(pair[1]);
+                parameterHash[key] = value;
+            }
+
+            return parameterHash;
+        },
+
+        /**
+         * get an associative array of the parameters found in the anchor
+         *
+         * @name   helper.getParameterHash
+         * @function
+         * @return {Object}
+         */
+        getParameterHash: function()
+        {
+            var hashIndex = window.location.href.indexOf('#');
+            if (hashIndex >= 0)
+            {
+                return this.parameterStringToHash(window.location.href.substring(hashIndex + 1));
+            }
+            else
+            {
+                return {};
+            }
+        },
+
+        /**
+         * text range selection
+         *
+         * @see    {@link https://stackoverflow.com/questions/985272/jquery-selecting-text-in-an-element-akin-to-highlighting-with-your-mouse}
+         * @name   helper.selectText
+         * @function
+         * @param  {string} element - Indentifier of the element to select (id="")
+         */
+        selectText: function(element)
+        {
+            var doc = document,
+                text = doc.getElementById(element),
+                range,
+                selection;
+
+            // MS
+            if (doc.body.createTextRange)
+            {
+                range = doc.body.createTextRange();
+                range.moveToElementText(text);
+                range.select();
+            }
+            // all others
+            else if (window.getSelection)
+            {
+                selection = window.getSelection();
+                range = doc.createRange();
+                range.selectNodeContents(text);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            }
+        },
+
+        /**
+         * set text of a DOM element (required for IE),
+         * this is equivalent to element.text(text)
+         *
+         * @name   helper.setElementText
+         * @function
+         * @param  {Object} element - a DOM element
+         * @param  {string} text - the text to enter
+         */
+        setElementText: function(element, text)
+        {
+            // For IE&lt;10: Doesn't support white-space:pre-wrap; so we have to do this...
+            if ($('#oldienotice').is(':visible')) {
+                var html = this.htmlEntities(text).replace(/\n/ig,'\r\n&lt;br>');
+                element.html('&lt;pre>'+html+'&lt;/pre>');
+            }
+            // for other (sane) browsers:
+            else
+            {
+                element.text(text);
+            }
+        },
+
+        /**
+         * replace last child of element with message
+         *
+         * @name   helper.setMessage
+         * @function
+         * @param  {Object} element - a jQuery wrapped DOM element
+         * @param  {string} message - the message to append
+         */
+        setMessage: function(element, message)
+        {
+            var content = element.contents();
+            if (content.length > 0)
+            {
+                content[content.length - 1].nodeValue = ' ' + message;
+            }
+            else
+            {
+                this.setElementText(element, message);
+            }
+        },
+
+        /**
+         * convert URLs to clickable links.
+         * URLs to handle:
+         * &lt;pre>
+         *     magnet:?xt.1=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C&amp;xt.2=urn:sha1:TXGCZQTH26NL6OUQAJJPFALHG2LTGBC7
+         *     http://example.com:8800/zero/?6f09182b8ea51997#WtLEUO5Epj9UHAV9JFs+6pUQZp13TuspAUjnF+iM+dM=
+         *     http://user:example.com@localhost:8800/zero/?6f09182b8ea51997#WtLEUO5Epj9UHAV9JFs+6pUQZp13TuspAUjnF+iM+dM=
+         * &lt;/pre>
+         *
+         * @name   helper.urls2links
+         * @function
+         * @param  {Object} element - a jQuery DOM element
+         */
+        urls2links: function(element)
+        {
+            var markup = '&lt;a href="$1" rel="nofollow">$1&lt;/a>';
+            element.html(
+                element.html().replace(
+                    /((http|https|ftp):\/\/[\w?=&amp;.\/-;#@~%+-]+(?![\w\s?&amp;.\/;#~%"=-]*>))/ig,
+                    markup
+                )
+            );
+            element.html(
+                element.html().replace(
+                    /((magnet):[\w?=&amp;.\/-;#@~%+-]+)/ig,
+                    markup
+                )
+            );
+        },
+
+        /**
+         * minimal sprintf emulation for %s and %d formats
+         *
+         * @see    {@link https://stackoverflow.com/questions/610406/javascript-equivalent-to-printf-string-format#4795914}
+         * @name   helper.sprintf
+         * @function
+         * @param  {string} format
+         * @param  {...*} args - one or multiple parameters injected into format string
+         * @return {string}
+         */
+        sprintf: function()
+        {
+            var args = arguments;
+            if (typeof arguments[0] === 'object')
+            {
+                args = arguments[0];
+            }
+            var string = args[0],
+                i = 1;
+            return string.replace(/%((%)|s|d)/g, function (m) {
+                // m is the matched format, e.g. %s, %d
+                var val;
+                if (m[2]) {
+                    val = m[2];
+                } else {
+                    val = args[i];
+                    // A switch statement so that the formatter can be extended.
+                    switch (m)
+                    {
+                        case '%d':
+                            val = parseFloat(val);
+                            if (isNaN(val)) {
+                                val = 0;
+                            }
+                            break;
+                        default:
+                            // Default is %s
+                    }
+                    ++i;
+                }
+                return val;
+            });
+        },
+
+        /**
+         * get value of cookie, if it was set, empty string otherwise
+         *
+         * @see    {@link http://www.w3schools.com/js/js_cookies.asp}
+         * @name   helper.getCookie
+         * @function
+         * @param  {string} cname
+         * @return {string}
+         */
+        getCookie: function(cname) {
+            var name = cname + '=';
+            var ca = document.cookie.split(';');
+            for (var i = 0; i &lt; ca.length; ++i) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1);
+                if (c.indexOf(name) === 0)
+                {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return '';
+        },
+
+        /**
+         * convert all applicable characters to HTML entities
+         *
+         * @see    {@link https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet#RULE_.231_-_HTML_Escape_Before_Inserting_Untrusted_Data_into_HTML_Element_Content}
+         * @name   helper.htmlEntities
+         * @function
+         * @param  {string} str
+         * @return {string} escaped HTML
+         */
+        htmlEntities: function(str) {
+            return String(str).replace(
+                /[&amp;&lt;>"'`=\/]/g, function(s) {
+                    return helper.entityMap[s];
+                });
+        },
+
+        /**
+         * character to HTML entity lookup table
+         *
+         * @see    {@link https://github.com/janl/mustache.js/blob/master/mustache.js#L60}
+         * @name   helper.entityMap
+         * @enum   {Object}
+         * @readonly
+         */
+        entityMap: {
+            '&amp;': '&amp;amp;',
+            '&lt;': '&amp;lt;',
+            '>': '&amp;gt;',
+            '"': '&amp;quot;',
+            "'": '&amp;#39;',
+            '/': '&amp;#x2F;',
+            '`': '&amp;#x60;',
+            '=': '&amp;#x3D;'
+        }
+    };
+
+    /**
+     * internationalization methods
+     *
+     * @name i18n
+     * @class
+     */
+    var i18n = {
+        /**
+         * supported languages, minus the built in 'en'
+         *
+         * @name   i18n.supportedLanguages
+         * @prop   {string[]}
+         * @readonly
+         */
+        supportedLanguages: ['de', 'es', 'fr', 'it', 'no', 'pl', 'oc', 'ru', 'sl', 'zh'],
+
+        /**
+         * translate a string, alias for i18n.translate()
+         *
+         * @name   i18n._
+         * @function
+         * @param  {string} messageId
+         * @param  {...*} args - one or multiple parameters injected into placeholders
+         * @return {string}
+         */
+        _: function()
+        {
+            return this.translate(arguments);
+        },
+
+        /**
+         * translate a string
+         *
+         * @name   i18n.translate
+         * @function
+         * @param  {string} messageId
+         * @param  {...*} args - one or multiple parameters injected into placeholders
+         * @return {string}
+         */
+        translate: function()
+        {
+            var args = arguments, messageId;
+            if (typeof arguments[0] === 'object')
+            {
+                args = arguments[0];
+            }
+            var usesPlurals = $.isArray(args[0]);
+            if (usesPlurals)
+            {
+                // use the first plural form as messageId, otherwise the singular
+                messageId = (args[0].length > 1 ? args[0][1] : args[0][0]);
+            }
+            else
+            {
+                messageId = args[0];
+            }
+            if (messageId.length === 0)
+            {
+                return messageId;
+            }
+            if (!this.translations.hasOwnProperty(messageId))
+            {
+                if (this.language !== 'en')
+                {
+                    console.debug(
+                        'Missing ' + this.language + ' translation for: ' + messageId
+                    );
+                }
+                this.translations[messageId] = args[0];
+            }
+            if (usesPlurals &amp;&amp; $.isArray(this.translations[messageId]))
+            {
+                var n = parseInt(args[1] || 1, 10),
+                    key = this.getPluralForm(n),
+                    maxKey = this.translations[messageId].length - 1;
+                if (key > maxKey)
+                {
+                    key = maxKey;
+                }
+                args[0] = this.translations[messageId][key];
+                args[1] = n;
+            }
+            else
+            {
+                args[0] = this.translations[messageId];
+            }
+            return helper.sprintf(args);
+        },
+
+        /**
+         * per language functions to use to determine the plural form
+         *
+         * @see    {@link http://localization-guide.readthedocs.org/en/latest/l10n/pluralforms.html}
+         * @name   i18n.getPluralForm
+         * @function
+         * @param  {number} n
+         * @return {number} array key
+         */
+        getPluralForm: function(n) {
+            switch (this.language)
+            {
+                case 'fr':
+                case 'oc':
+                case 'zh':
+                    return (n > 1 ? 1 : 0);
+                case 'pl':
+                    return (n === 1 ? 0 : (n % 10 >= 2 &amp;&amp; n %10 &lt;=4 &amp;&amp; (n % 100 &lt; 10 || n % 100 >= 20) ? 1 : 2));
+                case 'ru':
+                    return (n % 10 === 1 &amp;&amp; n % 100 !== 11 ? 0 : (n % 10 >= 2 &amp;&amp; n % 10 &lt;= 4 &amp;&amp; (n % 100 &lt; 10 || n % 100 >= 20) ? 1 : 2));
+                case 'sl':
+                    return (n % 100 === 1 ? 1 : (n % 100 === 2 ? 2 : (n % 100 === 3 || n % 100 === 4 ? 3 : 0)));
+                // de, en, es, it, no
+                default:
+                    return (n !== 1 ? 1 : 0);
+            }
+        },
+
+        /**
+         * load translations into cache, then execute callback function
+         *
+         * @name   i18n.loadTranslations
+         * @function
+         * @param  {Function} callback
+         */
+        loadTranslations: function(callback)
+        {
+            var selectedLang = helper.getCookie('lang');
+            var language = selectedLang.length > 0 ? selectedLang : (navigator.language || navigator.userLanguage).substring(0, 2);
+            // note that 'en' is built in, so no translation is necessary
+            if (this.supportedLanguages.indexOf(language) === -1)
+            {
+                callback();
+            }
+            else
+            {
+                $.getJSON('i18n/' + language + '.json', function(data) {
+                    i18n.language = language;
+                    i18n.translations = data;
+                    callback();
+                });
+            }
+        },
+
+        /**
+         * built in language
+         *
+         * @name   i18n.language
+         * @prop   {string}
+         */
+        language: 'en',
+
+        /**
+         * translation cache
+         *
+         * @name   i18n.translations
+         * @enum   {Object}
+         */
+        translations: {}
+    };
+
+    /**
+     * filter methods
+     *
+     * @name filter
+     * @class
+     */
+    var filter = {
+        /**
+         * compress a message (deflate compression), returns base64 encoded data
+         *
+         * @name   filter.compress
+         * @function
+         * @param  {string} message
+         * @return {string} base64 data
+         */
+        compress: function(message)
+        {
+            return Base64.toBase64( RawDeflate.deflate( Base64.utob(message) ) );
+        },
+
+        /**
+         * decompress a message compressed with filter.compress()
+         *
+         * @name   filter.decompress
+         * @function
+         * @param  {string} base64 data
+         * @return {string} message
+         */
+        decompress: function(data)
+        {
+            return Base64.btou( RawDeflate.inflate( Base64.fromBase64(data) ) );
+        },
+
+        /**
+         * compress, then encrypt message with given key and password
+         *
+         * @name   filter.cipher
+         * @function
+         * @param  {string} key
+         * @param  {string} password
+         * @param  {string} message
+         * @return {string} JSON with encrypted data
+         */
+        cipher: function(key, password, message)
+        {
+            // Galois Counter Mode, keysize 256 bit, authentication tag 128 bit
+            var options = {mode: 'gcm', ks: 256, ts: 128};
+            if ((password || '').trim().length === 0)
+            {
+                return sjcl.encrypt(key, this.compress(message), options);
+            }
+            return sjcl.encrypt(key + sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(password)), this.compress(message), options);
+        },
+
+        /**
+         * decrypt message with key, then decompress
+         *
+         * @name   filter.decipher
+         * @function
+         * @param  {string} key
+         * @param  {string} password
+         * @param  {string} JSON with encrypted data
+         * @return {string} decrypted message
+         */
+        decipher: function(key, password, data)
+        {
+            if (data !== undefined)
+            {
+                try
+                {
+                    return this.decompress(sjcl.decrypt(key, data));
+                }
+                catch(err)
+                {
+                    try
+                    {
+                        return this.decompress(sjcl.decrypt(key + sjcl.codec.hex.fromBits(sjcl.hash.sha256.hash(password)), data));
+                    }
+                    catch(e)
+                    {}
+                }
+            }
+            return '';
+        }
+    };
+
+    /**
+     * PrivateBin logic
+     *
+     * @name privatebin
+     * @class
+     */
+    var privatebin = {
+        /**
+         * headers to send in AJAX requests
+         *
+         * @name   privatebin.headers
+         * @enum   {Object}
+         */
+        headers: {'X-Requested-With': 'JSONHttpRequest'},
+
+        /**
+         * URL shortners create address
+         *
+         * @name   privatebin.shortenerUrl
+         * @prop   {string}
+         */
+        shortenerUrl: '',
+
+        /**
+         * URL of newly created paste
+         *
+         * @name   privatebin.createdPasteUrl
+         * @prop   {string}
+         */
+        createdPasteUrl: '',
+
+        /**
+         * get the current script location (without search or hash part of the URL),
+         * eg. http://example.com/zero/?aaaa#bbbb --> http://example.com/zero/
+         *
+         * @name   privatebin.scriptLocation
+         * @function
+         * @return {string} current script location
+         */
+        scriptLocation: function()
+        {
+            var scriptLocation = window.location.href.substring(0,window.location.href.length
+                - window.location.search.length - window.location.hash.length),
+                hashIndex = scriptLocation.indexOf('#');
+            if (hashIndex !== -1)
+            {
+                scriptLocation = scriptLocation.substring(0, hashIndex);
+            }
+            return scriptLocation;
+        },
+
+        /**
+         * get the pastes unique identifier from the URL,
+         * eg. http://example.com/zero/?c05354954c49a487#c05354954c49a487 returns c05354954c49a487
+         *
+         * @name   privatebin.pasteID
+         * @function
+         * @return {string} unique identifier
+         */
+        pasteID: function()
+        {
+            return window.location.search.substring(1);
+        },
+
+        /**
+         * return the deciphering key stored in anchor part of the URL
+         *
+         * @name   privatebin.pageKey
+         * @function
+         * @return {string} key
+         */
+        pageKey: function()
+        {
+            // Some web 2.0 services and redirectors add data AFTER the anchor
+            // (such as &amp;utm_source=...). We will strip any additional data.
+
+            var key = window.location.hash.substring(1),    // Get key
+                i = key.indexOf('=');
+
+            // First, strip everything after the equal sign (=) which signals end of base64 string.
+            if (i > -1)
+            {
+                key = key.substring(0, i + 1);
+            }
+
+            // If the equal sign was not present, some parameters may remain:
+            i = key.indexOf('&amp;');
+            if (i > -1)
+            {
+                key = key.substring(0, i);
+            }
+
+            // Then add trailing equal sign if it's missing
+            if (key.charAt(key.length - 1) !== '=')
+            {
+                key += '=';
+            }
+
+            return key;
+        },
+
+        /**
+         * ask the user for the password and set it
+         *
+         * @name   privatebin.requestPassword
+         * @function
+         */
+        requestPassword: function()
+        {
+            if (this.passwordModal.length === 0) {
+                var password = prompt(i18n._('Please enter the password for this paste:'), '');
+                if (password === null)
+                {
+                    throw 'password prompt canceled';
+                }
+                if (password.length === 0)
+                {
+                    this.requestPassword();
+                } else {
+                    this.passwordInput.val(password);
+                    this.displayMessages();
+                }
+            } else {
+                this.passwordModal.modal();
+            }
+        },
+
+        /**
+         * use given format on paste, defaults to plain text
+         *
+         * @name   privatebin.formatPaste
+         * @function
+         * @param  {string} format
+         * @param  {string} text
+         */
+        formatPaste: function(format, text)
+        {
+            helper.setElementText(this.clearText, text);
+            helper.setElementText(this.prettyPrint, text);
+            switch (format || 'plaintext')
+            {
+                case 'markdown':
+                    if (typeof showdown === 'object')
+                    {
+                        showdown.setOption('strikethrough', true);
+                        showdown.setOption('tables', true);
+                        showdown.setOption('tablesHeaderId', true);
+                        var converter = new showdown.Converter();
+                        this.clearText.html(
+                            converter.makeHtml(text)
+                        );
+                        // add table classes from bootstrap css
+                        this.clearText.find('table').addClass('table-condensed table-bordered');
+
+                        this.clearText.removeClass('hidden');
+                    }
+                    this.prettyMessage.addClass('hidden');
+                    break;
+                case 'syntaxhighlighting':
+                    if (typeof prettyPrintOne === 'function')
+                    {
+                        if (typeof prettyPrint === 'function')
+                        {
+                            prettyPrint();
+                        }
+                        this.prettyPrint.html(
+                            prettyPrintOne(
+                                helper.htmlEntities(text), null, true
+                            )
+                        );
+                    }
+                    // fall through, as the rest is the same
+                default:
+                    // convert URLs to clickable links
+                    helper.urls2links(this.clearText);
+                    helper.urls2links(this.prettyPrint);
+                    this.clearText.addClass('hidden');
+                    if (format === 'plaintext')
+                    {
+                        this.prettyPrint.css('white-space', 'pre-wrap');
+                        this.prettyPrint.css('word-break', 'normal');
+                        this.prettyPrint.removeClass('prettyprint');
+                    }
+                    this.prettyMessage.removeClass('hidden');
+            }
+        },
+
+        /**
+         * show decrypted text in the display area, including discussion (if open)
+         *
+         * @name   privatebin.displayMessages
+         * @function
+         * @param  {Object} [paste] - (optional) object including comments to display (items = array with keys ('data','meta'))
+         */
+        displayMessages: function(paste)
+        {
+            paste = paste || $.parseJSON(this.cipherData.text());
+            var key = this.pageKey();
+            var password = this.passwordInput.val();
+            if (!this.prettyPrint.hasClass('prettyprinted')) {
+                // Try to decrypt the paste.
+                try
+                {
+                    if (paste.attachment)
+                    {
+                        var attachment = filter.decipher(key, password, paste.attachment);
+                        if (attachment.length === 0)
+                        {
+                            if (password.length === 0)
+                            {
+                                this.requestPassword();
+                                return;
+                            }
+                            attachment = filter.decipher(key, password, paste.attachment);
+                        }
+                        if (attachment.length === 0)
+                        {
+                            throw 'failed to decipher attachment';
+                        }
+
+                        if (paste.attachmentname)
+                        {
+                            var attachmentname = filter.decipher(key, password, paste.attachmentname);
+                            if (attachmentname.length > 0)
+                            {
+                                this.attachmentLink.attr('download', attachmentname);
+                            }
+                        }
+                        this.attachmentLink.attr('href', attachment);
+                        this.attachment.removeClass('hidden');
+
+                        // if the attachment is an image, display it
+                        var imagePrefix = 'data:image/';
+                        if (attachment.substring(0, imagePrefix.length) === imagePrefix)
+                        {
+                            this.image.html(
+                                $(document.createElement('img'))
+                                    .attr('src', attachment)
+                                    .attr('class', 'img-thumbnail')
+                            );
+                            this.image.removeClass('hidden');
+                        }
+                    }
+                    var cleartext = filter.decipher(key, password, paste.data);
+                    if (cleartext.length === 0 &amp;&amp; password.length === 0 &amp;&amp; !paste.attachment)
+                    {
+                        this.requestPassword();
+                        return;
+                    }
+                    if (cleartext.length === 0 &amp;&amp; !paste.attachment)
+                    {
+                        throw 'failed to decipher message';
+                    }
+
+                    this.passwordInput.val(password);
+                    if (cleartext.length > 0)
+                    {
+                        $('#pasteFormatter').val(paste.meta.formatter);
+                        this.formatPaste(paste.meta.formatter, cleartext);
+                    }
+                }
+                catch(err)
+                {
+                    this.clearText.addClass('hidden');
+                    this.prettyMessage.addClass('hidden');
+                    this.cloneButton.addClass('hidden');
+                    this.showError(i18n._('Could not decrypt data (Wrong key?)'));
+                    return;
+                }
+            }
+
+            // display paste expiration / for your eyes only
+            if (paste.meta.expire_date)
+            {
+                var expiration = helper.secondsToHuman(paste.meta.remaining_time),
+                    expirationLabel = [
+                        'This document will expire in %d ' + expiration[1] + '.',
+                        'This document will expire in %d ' + expiration[1] + 's.'
+                    ];
+                helper.setMessage(this.remainingTime, i18n._(expirationLabel, expiration[0]));
+                this.remainingTime.removeClass('foryoureyesonly')
+                                  .removeClass('hidden');
+            }
+            if (paste.meta.burnafterreading)
+            {
+                // unfortunately many web servers don't support DELETE (and PUT) out of the box
+                $.ajax({
+                    type: 'POST',
+                    url: this.scriptLocation() + '?' + this.pasteID(),
+                    data: {deletetoken: 'burnafterreading'},
+                    dataType: 'json',
+                    headers: this.headers
+                })
+                .fail(function() {
+                    privatebin.showError(i18n._('Could not delete the paste, it was not stored in burn after reading mode.'));
+                });
+                helper.setMessage(this.remainingTime, i18n._(
+                    'FOR YOUR EYES ONLY. Don\'t close this window, this message can\'t be displayed again.'
+                ));
+                this.remainingTime.addClass('foryoureyesonly')
+                                  .removeClass('hidden');
+                // discourage cloning (as it can't really be prevented)
+                this.cloneButton.addClass('hidden');
+            }
+
+            // if the discussion is opened on this paste, display it
+            if (paste.meta.opendiscussion)
+            {
+                this.comments.html('');
+
+                // iterate over comments
+                for (var i = 0; i &lt; paste.comments.length; ++i)
+                {
+                    var place = this.comments;
+                    var comment = paste.comments[i];
+                    var commenttext = filter.decipher(key, password, comment.data);
+                    // if parent comment exists, display below (CSS will automatically shift it to the right)
+                    var cname = '#comment_' + comment.parentid;
+
+                    // if the element exists in page
+                    if ($(cname).length)
+                    {
+                        place = $(cname);
+                    }
+                    var divComment = $('&lt;article>&lt;div class="comment" id="comment_' + comment.id + '">'
+                                   + '&lt;div class="commentmeta">&lt;span class="nickname">&lt;/span>&lt;span class="commentdate">&lt;/span>&lt;/div>&lt;div class="commentdata">&lt;/div>'
+                                   + '&lt;button class="btn btn-default btn-sm">' + i18n._('Reply') + '&lt;/button>'
+                                   + '&lt;/div>&lt;/article>');
+                    divComment.find('button').click({commentid: comment.id}, $.proxy(this.openReply, this));
+                    helper.setElementText(divComment.find('div.commentdata'), commenttext);
+                    helper.urls2links(divComment.find('div.commentdata'));
+
+                    // try to get optional nickname
+                    var nick = filter.decipher(key, password, comment.meta.nickname);
+                    if (nick.length > 0)
+                    {
+                        divComment.find('span.nickname').text(nick);
+                    }
+                    else
+                    {
+                        divComment.find('span.nickname').html('&lt;i>' + i18n._('Anonymous') + '&lt;/i>');
+                    }
+                    divComment.find('span.commentdate')
+                              .text(' (' + (new Date(comment.meta.postdate * 1000).toLocaleString()) + ')')
+                              .attr('title', 'CommentID: ' + comment.id);
+
+                    // if an avatar is available, display it
+                    if (comment.meta.vizhash)
+                    {
+                        divComment.find('span.nickname')
+                                  .before(
+                                    '&lt;img src="' + comment.meta.vizhash + '" class="vizhash" title="' +
+                                    i18n._('Anonymous avatar (Vizhash of the IP address)') + '" /> '
+                                  );
+                    }
+
+                    place.append(divComment);
+                }
+                var divComment = $(
+                    '&lt;div class="comment">&lt;button class="btn btn-default btn-sm">' +
+                    i18n._('Add comment') + '&lt;/button>&lt;/div>'
+                );
+                divComment.find('button').click({commentid: this.pasteID()}, $.proxy(this.openReply, this));
+                this.comments.append(divComment);
+                this.discussion.removeClass('hidden');
+            }
+        },
+
+        /**
+         * open the comment entry when clicking the "Reply" button of a comment
+         *
+         * @name   privatebin.openReply
+         * @function
+         * @param  {Event} event
+         */
+        openReply: function(event)
+        {
+            event.preventDefault();
+            var source = $(event.target),
+                commentid = event.data.commentid,
+                hint = i18n._('Optional nickname...');
+
+            // remove any other reply area
+            $('div.reply').remove();
+            var reply = $(
+                '&lt;div class="reply">' +
+                '&lt;input type="text" id="nickname" class="form-control" title="' + hint + '" placeholder="' + hint + '" />' +
+                '&lt;textarea id="replymessage" class="replymessage form-control" cols="80" rows="7">&lt;/textarea>' +
+                '&lt;br />&lt;div id="replystatus">&lt;/div>&lt;button id="replybutton" class="btn btn-default btn-sm">' +
+                i18n._('Post comment') + '&lt;/button>&lt;/div>'
+            );
+            reply.find('button').click({parentid: commentid}, $.proxy(this.sendComment, this));
+            source.after(reply);
+            this.replyStatus = $('#replystatus');
+            $('#replymessage').focus();
+        },
+
+        /**
+         * send a reply in a discussion
+         *
+         * @name   privatebin.sendComment
+         * @function
+         * @param  {Event} event
+         */
+        sendComment: function(event)
+        {
+            event.preventDefault();
+            this.errorMessage.addClass('hidden');
+            // do not send if no data
+            var replyMessage = $('#replymessage');
+            if (replyMessage.val().length === 0)
+            {
+                return;
+            }
+
+            this.showStatus(i18n._('Sending comment...'), true);
+            var parentid = event.data.parentid;
+            var cipherdata = filter.cipher(this.pageKey(), this.passwordInput.val(), replyMessage.val());
+            var ciphernickname = '';
+            var nick = $('#nickname').val();
+            if (nick !== '')
+            {
+                ciphernickname = filter.cipher(this.pageKey(), this.passwordInput.val(), nick);
+            }
+            var data_to_send = {
+                data:     cipherdata,
+                parentid: parentid,
+                pasteid:  this.pasteID(),
+                nickname: ciphernickname
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: this.scriptLocation(),
+                data: data_to_send,
+                dataType: 'json',
+                headers: this.headers,
+                success: function(data)
+                {
+                    if (data.status === 0)
+                    {
+                        privatebin.showStatus(i18n._('Comment posted.'));
+                        $.ajax({
+                            type: 'GET',
+                            url: privatebin.scriptLocation() + '?' + privatebin.pasteID(),
+                            dataType: 'json',
+                            headers: privatebin.headers,
+                            success: function(data)
+                            {
+                                if (data.status === 0)
+                                {
+                                    privatebin.displayMessages(data);
+                                }
+                                else if (data.status === 1)
+                                {
+                                    privatebin.showError(i18n._('Could not refresh display: %s', data.message));
+                                }
+                                else
+                                {
+                                    privatebin.showError(i18n._('Could not refresh display: %s', i18n._('unknown status')));
+                                }
+                            }
+                        })
+                        .fail(function() {
+                            privatebin.showError(i18n._('Could not refresh display: %s', i18n._('server error or not responding')));
+                        });
+                    }
+                    else if (data.status === 1)
+                    {
+                        privatebin.showError(i18n._('Could not post comment: %s', data.message));
+                    }
+                    else
+                    {
+                        privatebin.showError(i18n._('Could not post comment: %s', i18n._('unknown status')));
+                    }
+                }
+            })
+            .fail(function() {
+                privatebin.showError(i18n._('Could not post comment: %s', i18n._('server error or not responding')));
+            });
+        },
+
+        /**
+         * send a new paste to server
+         *
+         * @name   privatebin.sendData
+         * @function
+         * @param  {Event} event
+         */
+        sendData: function(event)
+        {
+            event.preventDefault();
+            var file = document.getElementById('file'),
+                files = (file &amp;&amp; file.files) ? file.files : null; // FileList object
+
+            // do not send if no data.
+            if (this.message.val().length === 0 &amp;&amp; !(files &amp;&amp; files[0]))
+            {
+                return;
+            }
+
+            // if sjcl has not collected enough entropy yet, display a message
+            if (!sjcl.random.isReady())
+            {
+                this.showStatus(i18n._('Sending paste (Please move your mouse for more entropy)...'), true);
+                sjcl.random.addEventListener('seeded', function() {
+                    this.sendData(event);
+                });
+                return;
+            }
+
+            $('.navbar-toggle').click();
+            this.password.addClass('hidden');
+            this.showStatus(i18n._('Sending paste...'), true);
+
+            var randomkey = sjcl.codec.base64.fromBits(sjcl.random.randomWords(8, 0), 0);
+            var password = this.passwordInput.val();
+            if(files &amp;&amp; files[0])
+            {
+                if(typeof FileReader === undefined)
+                {
+                    this.showError(i18n._('Your browser does not support uploading encrypted files. Please use a newer browser.'));
+                    return;
+                }
+                var reader = new FileReader();
+                // closure to capture the file information
+                reader.onload = (function(theFile)
+                {
+                    return function(e) {
+                        privatebin.sendDataContinue(
+                            randomkey,
+                            filter.cipher(randomkey, password, e.target.result),
+                            filter.cipher(randomkey, password, theFile.name)
+                        );
+                    };
+                })(files[0]);
+                reader.readAsDataURL(files[0]);
+            }
+            else if(this.attachmentLink.attr('href'))
+            {
+                this.sendDataContinue(
+                    randomkey,
+                    filter.cipher(randomkey, password, this.attachmentLink.attr('href')),
+                    this.attachmentLink.attr('download')
+                );
+            }
+            else
+            {
+                this.sendDataContinue(randomkey, '', '');
+            }
+        },
+
+        /**
+         * send a new paste to server, step 2
+         *
+         * @name   privatebin.sendDataContinue
+         * @function
+         * @param  {string} randomkey
+         * @param  {string} cipherdata_attachment
+         * @param  {string} cipherdata_attachment_name
+         */
+        sendDataContinue: function(randomkey, cipherdata_attachment, cipherdata_attachment_name)
+        {
+            var cipherdata = filter.cipher(randomkey, this.passwordInput.val(), this.message.val());
+            var data_to_send = {
+                data:             cipherdata,
+                expire:           $('#pasteExpiration').val(),
+                formatter:        $('#pasteFormatter').val(),
+                burnafterreading: this.burnAfterReading.is(':checked') ? 1 : 0,
+                opendiscussion:   this.openDiscussion.is(':checked') ? 1 : 0
+            };
+            if (cipherdata_attachment.length > 0)
+            {
+                data_to_send.attachment = cipherdata_attachment;
+                if (cipherdata_attachment_name.length > 0)
+                {
+                    data_to_send.attachmentname = cipherdata_attachment_name;
+                }
+            }
+            $.ajax({
+                type: 'POST',
+                url: this.scriptLocation(),
+                data: data_to_send,
+                dataType: 'json',
+                headers: this.headers,
+                success: function(data)
+                {
+                    if (data.status === 0) {
+                        privatebin.stateExistingPaste();
+                        var url = privatebin.scriptLocation() + '?' + data.id + '#' + randomkey;
+                        var deleteUrl = privatebin.scriptLocation() + '?pasteid=' + data.id + '&amp;deletetoken=' + data.deletetoken;
+                        privatebin.showStatus('');
+                        privatebin.errorMessage.addClass('hidden');
+
+                        $('#pastelink').html(
+                            i18n._(
+                                'Your paste is &lt;a id="pasteurl" href="%s">%s&lt;/a> &lt;span id="copyhint">(Hit [Ctrl]+[c] to copy)&lt;/span>',
+                                url, url
+                            ) + privatebin.shortenUrl(url)
+                        );
+                        var shortenButton = $('#shortenbutton');
+                        if (shortenButton) {
+                            shortenButton.click($.proxy(privatebin.sendToShortener, privatebin));
+                        }
+                        $('#deletelink').html('&lt;a href="' + deleteUrl + '">' + i18n._('Delete data') + '&lt;/a>');
+                        privatebin.pasteResult.removeClass('hidden');
+                        // we pre-select the link so that the user only has to [Ctrl]+[c] the link
+                        helper.selectText('pasteurl');
+                        privatebin.showStatus('');
+                        privatebin.formatPaste(data_to_send.formatter, privatebin.message.val());
+                    }
+                    else if (data.status === 1)
+                    {
+                        privatebin.showError(i18n._('Could not create paste: %s', data.message));
+                    }
+                    else
+                    {
+                        privatebin.showError(i18n._('Could not create paste: %s', i18n._('unknown status')));
+                    }
+                }
+            })
+            .fail(function()
+            {
+                privatebin.showError(i18n._('Could not create paste: %s', i18n._('server error or not responding')));
+            });
+        },
+
+        /**
+         * check if a URL shortener was defined and create HTML containing a link to it
+         *
+         * @name   privatebin.shortenUrl
+         * @function
+         * @param  {string} url
+         * @return {string} html
+         */
+        shortenUrl: function(url)
+        {
+            var shortenerHtml = $('#shortenbutton');
+            if (shortenerHtml) {
+                this.shortenerUrl = shortenerHtml.data('shortener');
+                this.createdPasteUrl = url;
+                return ' ' + $('&lt;div />').append(shortenerHtml.clone()).html();
+            }
+            return '';
+        },
+
+        /**
+         * put the screen in "New paste" mode
+         *
+         * @name   privatebin.stateNewPaste
+         * @function
+         */
+        stateNewPaste: function()
+        {
+            this.message.text('');
+            this.attachment.addClass('hidden');
+            this.cloneButton.addClass('hidden');
+            this.rawTextButton.addClass('hidden');
+            this.remainingTime.addClass('hidden');
+            this.pasteResult.addClass('hidden');
+            this.clearText.addClass('hidden');
+            this.discussion.addClass('hidden');
+            this.prettyMessage.addClass('hidden');
+            this.sendButton.removeClass('hidden');
+            this.expiration.removeClass('hidden');
+            this.formatter.removeClass('hidden');
+            this.burnAfterReadingOption.removeClass('hidden');
+            this.openDisc.removeClass('hidden');
+            this.newButton.removeClass('hidden');
+            this.password.removeClass('hidden');
+            this.attach.removeClass('hidden');
+            this.message.removeClass('hidden');
+            this.preview.removeClass('hidden');
+            this.message.focus();
+        },
+
+        /**
+         * put the screen in "Existing paste" mode
+         *
+         * @name   privatebin.stateExistingPaste
+         * @function
+         * @param  {boolean} [preview=false] - (optional) tell if the preview tabs should be displayed, defaults to false
+         */
+        stateExistingPaste: function(preview)
+        {
+            preview = preview || false;
+
+            if (!preview)
+            {
+                // no "clone" for IE&lt;10.
+                if ($('#oldienotice').is(":visible"))
+                {
+                    this.cloneButton.addClass('hidden');
+                }
+                else
+                {
+                    this.cloneButton.removeClass('hidden');
+                }
+
+                this.rawTextButton.removeClass('hidden');
+                this.sendButton.addClass('hidden');
+                this.attach.addClass('hidden');
+                this.expiration.addClass('hidden');
+                this.formatter.addClass('hidden');
+                this.burnAfterReadingOption.addClass('hidden');
+                this.openDisc.addClass('hidden');
+                this.newButton.removeClass('hidden');
+                this.preview.addClass('hidden');
+            }
+
+            this.pasteResult.addClass('hidden');
+            this.message.addClass('hidden');
+            this.clearText.addClass('hidden');
+            this.prettyMessage.addClass('hidden');
+        },
+
+        /**
+         * when "burn after reading" is checked, disable discussion
+         *
+         * @name   privatebin.changeBurnAfterReading
+         * @function
+         */
+        changeBurnAfterReading: function()
+        {
+            if (this.burnAfterReading.is(':checked') )
+            {
+                this.openDisc.addClass('buttondisabled');
+                this.openDiscussion.attr({checked: false, disabled: true});
+            }
+            else
+            {
+                this.openDisc.removeClass('buttondisabled');
+                this.openDiscussion.removeAttr('disabled');
+            }
+        },
+
+        /**
+         * when discussion is checked, disable "burn after reading"
+         *
+         * @name   privatebin.changeOpenDisc
+         * @function
+         */
+        changeOpenDisc: function()
+        {
+            if (this.openDiscussion.is(':checked') )
+            {
+                this.burnAfterReadingOption.addClass('buttondisabled');
+                this.burnAfterReading.attr({checked: false, disabled: true});
+            }
+            else
+            {
+                this.burnAfterReadingOption.removeClass('buttondisabled');
+                this.burnAfterReading.removeAttr('disabled');
+            }
+        },
+
+        /**
+         * forward to URL shortener
+         *
+         * @name   privatebin.sendToShortener
+         * @function
+         * @param  {Event} event
+         */
+        sendToShortener: function(event)
+        {
+            event.preventDefault();
+            window.location.href = this.shortenerUrl + encodeURIComponent(this.createdPasteUrl);
+        },
+
+        /**
+         * reload the page
+         *
+         * @name   privatebin.reloadPage
+         * @function
+         * @param  {Event} event
+         */
+        reloadPage: function(event)
+        {
+            event.preventDefault();
+            window.location.href = this.scriptLocation();
+        },
+
+        /**
+         * return raw text
+         *
+         * @name   privatebin.rawText
+         * @function
+         * @param  {Event} event
+         */
+        rawText: function(event)
+        {
+            event.preventDefault();
+            var paste = $('#pasteFormatter').val() === 'markdown' ?
+                this.prettyPrint.text() : this.clearText.text();
+            history.pushState(
+                null, document.title, this.scriptLocation() + '?' +
+                this.pasteID() + '#' + this.pageKey()
+            );
+            // we use text/html instead of text/plain to avoid a bug when
+            // reloading the raw text view (it reverts to type text/html)
+            var newDoc = document.open('text/html', 'replace');
+            newDoc.write('&lt;pre>' + helper.htmlEntities(paste) + '&lt;/pre>');
+            newDoc.close();
+        },
+
+        /**
+         * clone the current paste
+         *
+         * @name   privatebin.clonePaste
+         * @function
+         * @param  {Event} event
+         */
+        clonePaste: function(event)
+        {
+            event.preventDefault();
+            this.stateNewPaste();
+
+            // erase the id and the key in url
+            history.replaceState(null, document.title, this.scriptLocation());
+
+            this.showStatus('');
+            if (this.attachmentLink.attr('href'))
+            {
+                this.clonedFile.removeClass('hidden');
+                this.fileWrap.addClass('hidden');
+            }
+            this.message.text(
+                $('#pasteFormatter').val() === 'markdown' ?
+                    this.prettyPrint.text() : this.clearText.text()
+            );
+            $('.navbar-toggle').click();
+        },
+
+        /**
+         * set the expiration on bootstrap templates
+         *
+         * @name   privatebin.setExpiration
+         * @function
+         * @param  {Event} event
+         */
+        setExpiration: function(event)
+        {
+            event.preventDefault();
+            var target = $(event.target);
+            $('#pasteExpiration').val(target.data('expiration'));
+            $('#pasteExpirationDisplay').text(target.text());
+        },
+
+        /**
+         * set the format on bootstrap templates
+         *
+         * @name   privatebin.setFormat
+         * @function
+         * @param  {Event} event
+         */
+        setFormat: function(event)
+        {
+            event.preventDefault();
+            var target = $(event.target);
+            $('#pasteFormatter').val(target.data('format'));
+            $('#pasteFormatterDisplay').text(target.text());
+
+            if (this.messagePreview.parent().hasClass('active')) {
+                this.viewPreview(event);
+            }
+        },
+
+        /**
+         * set the language in a cookie and reload the page
+         *
+         * @name   privatebin.setLanguage
+         * @function
+         * @param  {Event} event
+         */
+        setLanguage: function(event)
+        {
+            document.cookie = 'lang=' + $(event.target).data('lang');
+            this.reloadPage(event);
+        },
+
+        /**
+         * support input of tab character
+         *
+         * @name   privatebin.supportTabs
+         * @function
+         * @param  {Event} event
+         */
+        supportTabs: function(event)
+        {
+            var keyCode = event.keyCode || event.which;
+            // tab was pressed
+            if (keyCode === 9)
+            {
+                // prevent the textarea to lose focus
+                event.preventDefault();
+                // get caret position &amp; selection
+                var val   = this.value,
+                    start = this.selectionStart,
+                    end   = this.selectionEnd;
+                // set textarea value to: text before caret + tab + text after caret
+                this.value = val.substring(0, start) + '\t' + val.substring(end);
+                // put caret at right position again
+                this.selectionStart = this.selectionEnd = start + 1;
+            }
+        },
+
+        /**
+         * view the editor tab
+         *
+         * @name   privatebin.viewEditor
+         * @function
+         * @param  {Event} event
+         */
+        viewEditor: function(event)
+        {
+            event.preventDefault();
+            this.messagePreview.parent().removeClass('active');
+            this.messageEdit.parent().addClass('active');
+            this.message.focus();
+            this.stateNewPaste();
+        },
+
+        /**
+         * view the preview tab
+         *
+         * @name   privatebin.viewPreview
+         * @function
+         * @param  {Event} event
+         */
+        viewPreview: function(event)
+        {
+            event.preventDefault();
+            this.messageEdit.parent().removeClass('active');
+            this.messagePreview.parent().addClass('active');
+            this.message.focus();
+            this.stateExistingPaste(true);
+            this.formatPaste($('#pasteFormatter').val(), this.message.val());
+        },
+
+        /**
+         * create a new paste
+         *
+         * @name   privatebin.newPaste
+         * @function
+         */
+        newPaste: function()
+        {
+            this.stateNewPaste();
+            this.showStatus('');
+            this.message.text('');
+            this.changeBurnAfterReading();
+            this.changeOpenDisc();
+        },
+
+        /**
+         * removes an attachment
+         *
+         * @name   privatebin.removeAttachment
+         * @function
+         */
+        removeAttachment: function()
+        {
+            this.clonedFile.addClass('hidden');
+            // removes the saved decrypted file data
+            this.attachmentLink.attr('href', '');
+            // the only way to deselect the file is to recreate the input
+            this.fileWrap.html(this.fileWrap.html());
+            this.fileWrap.removeClass('hidden');
+        },
+
+        /**
+         * focus on the modal password dialog
+         *
+         * @name   privatebin.focusPasswordModal
+         * @function
+         */
+        focusPasswordModal: function()
+        {
+            this.passwordDecrypt.focus();
+        },
+
+        /**
+         * decrypt using the password from the modal dialog
+         *
+         * @name   privatebin.decryptPasswordModal
+         * @function
+         */
+        decryptPasswordModal: function()
+        {
+            this.passwordInput.val(this.passwordDecrypt.val());
+            this.displayMessages();
+        },
+
+        /**
+         * submit a password in the modal dialog
+         *
+         * @name   privatebin.submitPasswordModal
+         * @function
+         * @param  {Event} event
+         */
+        submitPasswordModal: function(event)
+        {
+            event.preventDefault();
+            this.passwordModal.modal('hide');
+        },
+
+        /**
+         * display an error message,
+         * we use the same function for paste and reply to comments
+         *
+         * @name   privatebin.showError
+         * @function
+         * @param  {string} message - text to display
+         */
+        showError: function(message)
+        {
+            if (this.status.length)
+            {
+                this.status.addClass('errorMessage').text(message);
+            }
+            else
+            {
+                this.errorMessage.removeClass('hidden');
+                helper.setMessage(this.errorMessage, message);
+            }
+            if (typeof this.replyStatus !== 'undefined') {
+                this.replyStatus.addClass('errorMessage');
+                this.replyStatus.addClass(this.errorMessage.attr('class'));
+                if (this.status.length)
+                {
+                    this.replyStatus.html(this.status.html());
+                }
+                else
+                {
+                    this.replyStatus.html(this.errorMessage.html());
+                }
+            }
+        },
+
+        /**
+         * display a status message,
+         * we use the same function for paste and reply to comments
+         *
+         * @name   privatebin.showStatus
+         * @function
+         * @param  {string} message - text to display
+         * @param  {boolean} [spin=false] - (optional) tell if the "spinning" animation should be displayed, defaults to false
+         */
+        showStatus: function(message, spin)
+        {
+            if (spin || false)
+            {
+                var img = '&lt;img src="img/busy.gif" style="width:16px;height:9px;margin:0 4px 0 0;" />';
+                this.status.prepend(img);
+                if (typeof this.replyStatus !== 'undefined') {
+                    this.replyStatus.prepend(img);
+                }
+            }
+            if (typeof this.replyStatus !== 'undefined') {
+                this.replyStatus.removeClass('errorMessage').text(message);
+            }
+            if (!message)
+            {
+                this.status.html(' ');
+                return;
+            }
+            if (message === '')
+            {
+                this.status.html(' ');
+                return;
+            }
+            this.status.removeClass('errorMessage').text(message);
+        },
+
+        /**
+         * bind events to DOM elements
+         *
+         * @name   privatebin.bindEvents
+         * @function
+         */
+        bindEvents: function()
+        {
+            this.burnAfterReading.change($.proxy(this.changeBurnAfterReading, this));
+            this.openDisc.change($.proxy(this.changeOpenDisc, this));
+            this.sendButton.click($.proxy(this.sendData, this));
+            this.cloneButton.click($.proxy(this.clonePaste, this));
+            this.rawTextButton.click($.proxy(this.rawText, this));
+            this.fileRemoveButton.click($.proxy(this.removeAttachment, this));
+            $('.reloadlink').click($.proxy(this.reloadPage, this));
+            this.message.keydown(this.supportTabs);
+            this.messageEdit.click($.proxy(this.viewEditor, this));
+            this.messagePreview.click($.proxy(this.viewPreview, this));
+
+            // bootstrap template drop downs
+            $('ul.dropdown-menu li a', $('#expiration').parent()).click($.proxy(this.setExpiration, this));
+            $('ul.dropdown-menu li a', $('#formatter').parent()).click($.proxy(this.setFormat, this));
+            $('#language ul.dropdown-menu li a').click($.proxy(this.setLanguage, this));
+
+            // page template drop down
+            $('#language select option').click($.proxy(this.setLanguage, this));
+
+            // handle modal password request on decryption
+            this.passwordModal.on('shown.bs.modal', $.proxy(this.focusPasswordModal, this));
+            this.passwordModal.on('hidden.bs.modal', $.proxy(this.decryptPasswordModal, this));
+            this.passwordForm.submit($.proxy(this.submitPasswordModal, this));
+        },
+
+        /**
+         * main application
+         *
+         * @name   privatebin.init
+         * @function
+         */
+        init: function()
+        {
+            // hide "no javascript" message
+            $('#noscript').hide();
+
+            // preload jQuery wrapped DOM elements and bind events
+            this.attach = $('#attach');
+            this.attachment = $('#attachment');
+            this.attachmentLink = $('#attachment a');
+            this.burnAfterReading = $('#burnafterreading');
+            this.burnAfterReadingOption = $('#burnafterreadingoption');
+            this.cipherData = $('#cipherdata');
+            this.clearText = $('#cleartext');
+            this.cloneButton = $('#clonebutton');
+            this.clonedFile = $('#clonedfile');
+            this.comments = $('#comments');
+            this.discussion = $('#discussion');
+            this.errorMessage = $('#errormessage');
+            this.expiration = $('#expiration');
+            this.fileRemoveButton = $('#fileremovebutton');
+            this.fileWrap = $('#filewrap');
+            this.formatter = $('#formatter');
+            this.image = $('#image');
+            this.message = $('#message');
+            this.messageEdit = $('#messageedit');
+            this.messagePreview = $('#messagepreview');
+            this.newButton = $('#newbutton');
+            this.openDisc = $('#opendisc');
+            this.openDiscussion = $('#opendiscussion');
+            this.password = $('#password');
+            this.passwordInput = $('#passwordinput');
+            this.passwordModal = $('#passwordmodal');
+            this.passwordForm = $('#passwordform');
+            this.passwordDecrypt = $('#passworddecrypt');
+            this.pasteResult = $('#pasteresult');
+            this.prettyMessage = $('#prettymessage');
+            this.prettyPrint = $('#prettyprint');
+            this.preview = $('#preview');
+            this.rawTextButton = $('#rawtextbutton');
+            this.remainingTime = $('#remainingtime');
+            this.sendButton = $('#sendbutton');
+            this.status = $('#status');
+            this.bindEvents();
+
+            // display status returned by php code, if any (eg. paste was properly deleted)
+            if (this.status.text().length > 0)
+            {
+                this.showStatus(this.status.text());
+                return;
+            }
+
+            // keep line height even if content empty
+            this.status.html(' ');
+
+            // display an existing paste
+            if (this.cipherData.text().length > 1)
+            {
+                // missing decryption key in URL?
+                if (window.location.hash.length === 0)
+                {
+                    this.showError(i18n._('Cannot decrypt paste: Decryption key missing in URL (Did you use a redirector or an URL shortener which strips part of the URL?)'));
+                    return;
+                }
+
+                // show proper elements on screen
+                this.stateExistingPaste();
+                this.displayMessages();
+            }
+            // display error message from php code
+            else if (this.errorMessage.text().length > 1)
+            {
+                this.showError(this.errorMessage.text());
+            }
+            // create a new paste
+            else
+            {
+                this.newPaste();
+            }
+        }
+    }
+
+    /**
+     * main application start, called when DOM is fully loaded
+     * runs privatebin when translations were loaded
+     */
+    i18n.loadTranslations($.proxy(privatebin.init, privatebin));
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="filter.html">filter</a></li><li><a href="helper.html">helper</a></li><li><a href="i18n.html">i18n</a></li><li><a href="privatebin.html">privatebin</a></li></ul><h3>Namespaces</h3><ul><li><a href="PrivateBin_.html">PrivateBin</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sat Jan 14 2017 15:17:18 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

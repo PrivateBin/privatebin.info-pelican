@@ -9,7 +9,8 @@ SITEURL = ''
 
 
 PATH = 'content'
-STATIC_PATHS = ['img','key']
+STATIC_PATHS = ['codedoc','coverage','img','jsdoc','key']
+ARTICLE_EXCLUDES = ['codedoc','coverage','jsdoc']
 THEME = 'themes/privatebin-bootstrap'
 
 TIMEZONE = 'Europe/Zurich'
@@ -38,8 +39,9 @@ LINKS = (('PrivateBin Directory', 'https://github.com/PrivateBin/PrivateBin/wiki
          ('Configuration guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Configuration'),
          ('Template guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Templates'),
          ('Developer guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Development'),
-         ('Code Documentation', '/codedoc/'),
-         ('Test Coverage', '/coverage/'),)
+         ('PHP Code Documentation', '/codedoc/'),
+         ('PHP Unit Test Coverage', '/coverage/'),
+         ('JS Code Documentation', '/jsdoc/'),)
 
 # Social widget
 SOCIAL = ()
