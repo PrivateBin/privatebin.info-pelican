@@ -26,7 +26,7 @@ This is a fork of ZeroBin, originally developed by
 to allow easier and cleaner extensions and has now much more features than the
 original. It is however still fully compatible to the original ZeroBin 0.19
 data storage scheme. Therefore such installations can be upgraded to this fork
-without loosing any data.
+without losing any data.
 
 ## What PrivateBin provides
 
