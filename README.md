@@ -1,21 +1,21 @@
-# [privatebin.info](https://privatebin.info)
+# PrivateBin website
 
-This repository hosts the files used to generate Privatebin's website, hosted
-at https://privatebin.info .
+This repository hosts the files used to generate the PrivateBin website,
+hosted at https://privatebin.info.
 
 The files are generated with [Pelican](https://blog.getpelican.com/).
 
 ## Setup
 
-**Requirements :** You will need Pelican and the markdown parser :
+**Requirements:** You will need Pelican and the markdown parser :
 ```
 pip install pelican markdown
 ```
 
-Then type `make html` to generate the html files in the `output` directory.
+Type `make html` to generate the html files. They are saved in the `output`
+directory.
 
-Other options are available, you can get more information about them by simply
-typing `make`:
+Other options are available. Type `make` to get more information:
 
 ```
    make html                           (re)generate the web site          
