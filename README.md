@@ -7,7 +7,7 @@ The files are generated with [Pelican](https://blog.getpelican.com/).
 
 ## Setup
 
-**Requirements:** You will need Pelican and the markdown parser :
+**Requirements:** You will need Pelican and the markdown parser:
 ```
 pip install pelican markdown
 ```
