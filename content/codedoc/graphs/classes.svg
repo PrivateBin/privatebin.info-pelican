@@ -17,84 +17,84 @@
 <path fill="none" stroke="gray" d="M28,-16C28,-16 364,-16 364,-16 370,-16 376,-22 376,-28 376,-28 376,-1020 376,-1020 376,-1026 370,-1032 364,-1032 364,-1032 28,-1032 28,-1032 22,-1032 16,-1026 16,-1020 16,-1020 16,-28 16,-28 16,-22 22,-16 28,-16"/>
 <text text-anchor="middle" x="196" y="-1019.2" font-family="Times,serif" font-size="11.00" fill="gray">PrivateBin</text>
 </g>
-<g id="clust3" class="cluster"><title>cluster_\PrivateBin\Persistence</title>
-<path fill="none" stroke="gray" d="M36,-824C36,-824 356,-824 356,-824 362,-824 368,-830 368,-836 368,-836 368,-992 368,-992 368,-998 362,-1004 356,-1004 356,-1004 36,-1004 36,-1004 30,-1004 24,-998 24,-992 24,-992 24,-836 24,-836 24,-830 30,-824 36,-824"/>
-<text text-anchor="middle" x="196" y="-991.2" font-family="Times,serif" font-size="11.00" fill="gray">Persistence</text>
+<g id="clust3" class="cluster"><title>cluster_\PrivateBin\Data</title>
+<path fill="none" stroke="gray" d="M59.5,-878C59.5,-878 342.5,-878 342.5,-878 348.5,-878 354.5,-884 354.5,-890 354.5,-890 354.5,-992 354.5,-992 354.5,-998 348.5,-1004 342.5,-1004 342.5,-1004 59.5,-1004 59.5,-1004 53.5,-1004 47.5,-998 47.5,-992 47.5,-992 47.5,-890 47.5,-890 47.5,-884 53.5,-878 59.5,-878"/>
+<text text-anchor="middle" x="201" y="-991.2" font-family="Times,serif" font-size="11.00" fill="gray">Data</text>
 </g>
-<g id="clust4" class="cluster"><title>cluster_\PrivateBin\Data</title>
-<path fill="none" stroke="gray" d="M59.5,-690C59.5,-690 342.5,-690 342.5,-690 348.5,-690 354.5,-696 354.5,-702 354.5,-702 354.5,-804 354.5,-804 354.5,-810 348.5,-816 342.5,-816 342.5,-816 59.5,-816 59.5,-816 53.5,-816 47.5,-810 47.5,-804 47.5,-804 47.5,-702 47.5,-702 47.5,-696 53.5,-690 59.5,-690"/>
-<text text-anchor="middle" x="201" y="-803.2" font-family="Times,serif" font-size="11.00" fill="gray">Data</text>
+<g id="clust4" class="cluster"><title>cluster_\PrivateBin\Persistence</title>
+<path fill="none" stroke="gray" d="M36,-690C36,-690 356,-690 356,-690 362,-690 368,-696 368,-702 368,-702 368,-858 368,-858 368,-864 362,-870 356,-870 356,-870 36,-870 36,-870 30,-870 24,-864 24,-858 24,-858 24,-702 24,-702 24,-696 30,-690 36,-690"/>
+<text text-anchor="middle" x="196" y="-857.2" font-family="Times,serif" font-size="11.00" fill="gray">Persistence</text>
 </g>
 <g id="clust5" class="cluster"><title>cluster_\PrivateBin\Model</title>
 <path fill="none" stroke="gray" d="M56.5,-556C56.5,-556 332.5,-556 332.5,-556 338.5,-556 344.5,-562 344.5,-568 344.5,-568 344.5,-670 344.5,-670 344.5,-676 338.5,-682 332.5,-682 332.5,-682 56.5,-682 56.5,-682 50.5,-682 44.5,-676 44.5,-670 44.5,-670 44.5,-568 44.5,-568 44.5,-562 50.5,-556 56.5,-556"/>
 <text text-anchor="middle" x="194.5" y="-669.2" font-family="Times,serif" font-size="11.00" fill="gray">Model</text>
 </g>
-<!-- \\PrivateBin\\Persistence\\TrafficLimiter -->
-<g id="node1" class="node"><title>\\PrivateBin\\Persistence\\TrafficLimiter</title>
-<polygon fill="none" stroke="black" points="360,-976 249,-976 249,-940 360,-940 360,-976"/>
-<text text-anchor="middle" x="304.5" y="-955.2" font-family="Courier,monospace" font-size="11.00">TrafficLimiter</text>
-</g>
-<!-- \\PrivateBin\\Persistence\\AbstractPersistence -->
-<g id="node3" class="node"><title>\\PrivateBin\\Persistence\\AbstractPersistence</title>
-<polygon fill="none" stroke="black" points="177,-922 32,-922 32,-886 177,-886 177,-922"/>
-<text text-anchor="start" x="70.5" y="-907.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="40" y="-895.2" font-family="Courier,monospace" font-size="11.00">AbstractPersistence</text>
-</g>
-<!-- \\PrivateBin\\Persistence\\TrafficLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence -->
-<g id="edge1" class="edge"><title>\\PrivateBin\\Persistence\\TrafficLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence</title>
-<path fill="none" stroke="black" d="M248.871,-943.101C228.032,-937.418 203.885,-930.832 181.418,-924.705"/>
-<polygon fill="none" stroke="black" points="182.138,-921.274 171.57,-922.019 180.297,-928.027 182.138,-921.274"/>
-</g>
-<!-- \\PrivateBin\\Persistence\\PurgeLimiter -->
-<g id="node2" class="node"><title>\\PrivateBin\\Persistence\\PurgeLimiter</title>
-<polygon fill="none" stroke="black" points="353.5,-922 255.5,-922 255.5,-886 353.5,-886 353.5,-922"/>
-<text text-anchor="middle" x="304.5" y="-901.2" font-family="Courier,monospace" font-size="11.00">PurgeLimiter</text>
-</g>
-<!-- \\PrivateBin\\Persistence\\PurgeLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence -->
-<g id="edge2" class="edge"><title>\\PrivateBin\\Persistence\\PurgeLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence</title>
-<path fill="none" stroke="black" d="M255.317,-904C234.876,-904 210.469,-904 187.349,-904"/>
-<polygon fill="none" stroke="black" points="187.187,-900.5 177.186,-904 187.186,-907.5 187.187,-900.5"/>
-</g>
-<!-- \\PrivateBin\\Persistence\\ServerSalt -->
-<g id="node4" class="node"><title>\\PrivateBin\\Persistence\\ServerSalt</title>
-<polygon fill="none" stroke="black" points="346.5,-868 262.5,-868 262.5,-832 346.5,-832 346.5,-868"/>
-<text text-anchor="middle" x="304.5" y="-847.2" font-family="Courier,monospace" font-size="11.00">ServerSalt</text>
-</g>
-<!-- \\PrivateBin\\Persistence\\ServerSalt&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence -->
-<g id="edge6" class="edge"><title>\\PrivateBin\\Persistence\\ServerSalt&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence</title>
-<path fill="none" stroke="black" d="M262.474,-861.189C239.17,-867.544 209.249,-875.705 181.791,-883.193"/>
-<polygon fill="none" stroke="black" points="180.53,-879.909 171.803,-885.917 182.372,-886.663 180.53,-879.909"/>
+<!-- \\PrivateBin\\Data\\Filesystem -->
+<g id="node1" class="node"><title>\\PrivateBin\\Data\\Filesystem</title>
+<polygon fill="none" stroke="black" points="346.5,-976 262.5,-976 262.5,-940 346.5,-940 346.5,-976"/>
+<text text-anchor="middle" x="304.5" y="-955.2" font-family="Courier,monospace" font-size="11.00">Filesystem</text>
 </g>
 <!-- \\PrivateBin\\Data\\AbstractData -->
-<g id="node5" class="node"><title>\\PrivateBin\\Data\\AbstractData</title>
-<polygon fill="none" stroke="black" points="153.5,-761 55.5,-761 55.5,-725 153.5,-725 153.5,-761"/>
-<text text-anchor="start" x="70.5" y="-746.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="63.5" y="-734.2" font-family="Courier,monospace" font-size="11.00">AbstractData</text>
-</g>
-<!-- \\PrivateBin\\Data\\Filesystem -->
-<g id="node6" class="node"><title>\\PrivateBin\\Data\\Filesystem</title>
-<polygon fill="none" stroke="black" points="346.5,-788 262.5,-788 262.5,-752 346.5,-752 346.5,-788"/>
-<text text-anchor="middle" x="304.5" y="-767.2" font-family="Courier,monospace" font-size="11.00">Filesystem</text>
+<g id="node3" class="node"><title>\\PrivateBin\\Data\\AbstractData</title>
+<polygon fill="none" stroke="black" points="153.5,-949 55.5,-949 55.5,-913 153.5,-913 153.5,-949"/>
+<text text-anchor="start" x="70.5" y="-934.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="63.5" y="-922.2" font-family="Courier,monospace" font-size="11.00">AbstractData</text>
 </g>
 <!-- \\PrivateBin\\Data\\Filesystem&#45;&gt;\\PrivateBin\\Data\\AbstractData -->
-<g id="edge3" class="edge"><title>\\PrivateBin\\Data\\Filesystem&#45;&gt;\\PrivateBin\\Data\\AbstractData</title>
-<path fill="none" stroke="black" d="M262.474,-764.406C233.958,-760.517 195.532,-755.277 163.837,-750.955"/>
-<polygon fill="none" stroke="black" points="164.185,-747.47 153.804,-749.587 163.239,-754.406 164.185,-747.47"/>
+<g id="edge1" class="edge"><title>\\PrivateBin\\Data\\Filesystem&#45;&gt;\\PrivateBin\\Data\\AbstractData</title>
+<path fill="none" stroke="black" d="M262.474,-952.406C233.958,-948.517 195.532,-943.277 163.837,-938.955"/>
+<polygon fill="none" stroke="black" points="164.185,-935.47 153.804,-937.587 163.239,-942.406 164.185,-935.47"/>
 </g>
 <!-- \\PrivateBin\\Data\\Database -->
-<g id="node7" class="node"><title>\\PrivateBin\\Data\\Database</title>
-<polygon fill="none" stroke="black" points="340,-734 269,-734 269,-698 340,-698 340,-734"/>
-<text text-anchor="middle" x="304.5" y="-713.2" font-family="Courier,monospace" font-size="11.00">Database</text>
+<g id="node2" class="node"><title>\\PrivateBin\\Data\\Database</title>
+<polygon fill="none" stroke="black" points="340,-922 269,-922 269,-886 340,-886 340,-922"/>
+<text text-anchor="middle" x="304.5" y="-901.2" font-family="Courier,monospace" font-size="11.00">Database</text>
 </g>
 <!-- \\PrivateBin\\Data\\Database&#45;&gt;\\PrivateBin\\Data\\AbstractData -->
-<g id="edge5" class="edge"><title>\\PrivateBin\\Data\\Database&#45;&gt;\\PrivateBin\\Data\\AbstractData</title>
-<path fill="none" stroke="black" d="M268.557,-720.765C239.682,-724.702 198.065,-730.377 164.104,-735.009"/>
-<polygon fill="none" stroke="black" points="163.268,-731.59 153.832,-736.409 164.214,-738.526 163.268,-731.59"/>
+<g id="edge2" class="edge"><title>\\PrivateBin\\Data\\Database&#45;&gt;\\PrivateBin\\Data\\AbstractData</title>
+<path fill="none" stroke="black" d="M268.557,-908.765C239.682,-912.702 198.065,-918.377 164.104,-923.009"/>
+<polygon fill="none" stroke="black" points="163.268,-919.59 153.832,-924.409 164.214,-926.526 163.268,-919.59"/>
 </g>
-<!-- \\PrivateBin\\Model\\Paste -->
-<g id="node8" class="node"><title>\\PrivateBin\\Model\\Paste</title>
-<polygon fill="none" stroke="black" points="331.5,-654 277.5,-654 277.5,-618 331.5,-618 331.5,-654"/>
-<text text-anchor="middle" x="304.5" y="-633.2" font-family="Courier,monospace" font-size="11.00">Paste</text>
+<!-- \\PrivateBin\\Persistence\\TrafficLimiter -->
+<g id="node4" class="node"><title>\\PrivateBin\\Persistence\\TrafficLimiter</title>
+<polygon fill="none" stroke="black" points="360,-842 249,-842 249,-806 360,-806 360,-842"/>
+<text text-anchor="middle" x="304.5" y="-821.2" font-family="Courier,monospace" font-size="11.00">TrafficLimiter</text>
+</g>
+<!-- \\PrivateBin\\Persistence\\AbstractPersistence -->
+<g id="node5" class="node"><title>\\PrivateBin\\Persistence\\AbstractPersistence</title>
+<polygon fill="none" stroke="black" points="177,-788 32,-788 32,-752 177,-752 177,-788"/>
+<text text-anchor="start" x="70.5" y="-773.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="40" y="-761.2" font-family="Courier,monospace" font-size="11.00">AbstractPersistence</text>
+</g>
+<!-- \\PrivateBin\\Persistence\\TrafficLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence -->
+<g id="edge3" class="edge"><title>\\PrivateBin\\Persistence\\TrafficLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence</title>
+<path fill="none" stroke="black" d="M248.871,-809.101C228.032,-803.418 203.885,-796.832 181.418,-790.705"/>
+<polygon fill="none" stroke="black" points="182.138,-787.274 171.57,-788.019 180.297,-794.027 182.138,-787.274"/>
+</g>
+<!-- \\PrivateBin\\Persistence\\PurgeLimiter -->
+<g id="node6" class="node"><title>\\PrivateBin\\Persistence\\PurgeLimiter</title>
+<polygon fill="none" stroke="black" points="353.5,-788 255.5,-788 255.5,-752 353.5,-752 353.5,-788"/>
+<text text-anchor="middle" x="304.5" y="-767.2" font-family="Courier,monospace" font-size="11.00">PurgeLimiter</text>
+</g>
+<!-- \\PrivateBin\\Persistence\\PurgeLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence -->
+<g id="edge4" class="edge"><title>\\PrivateBin\\Persistence\\PurgeLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence</title>
+<path fill="none" stroke="black" d="M255.317,-770C234.876,-770 210.469,-770 187.349,-770"/>
+<polygon fill="none" stroke="black" points="187.187,-766.5 177.186,-770 187.186,-773.5 187.187,-766.5"/>
+</g>
+<!-- \\PrivateBin\\Persistence\\ServerSalt -->
+<g id="node7" class="node"><title>\\PrivateBin\\Persistence\\ServerSalt</title>
+<polygon fill="none" stroke="black" points="346.5,-734 262.5,-734 262.5,-698 346.5,-698 346.5,-734"/>
+<text text-anchor="middle" x="304.5" y="-713.2" font-family="Courier,monospace" font-size="11.00">ServerSalt</text>
+</g>
+<!-- \\PrivateBin\\Persistence\\ServerSalt&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence -->
+<g id="edge5" class="edge"><title>\\PrivateBin\\Persistence\\ServerSalt&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence</title>
+<path fill="none" stroke="black" d="M262.474,-727.189C239.17,-733.544 209.249,-741.705 181.791,-749.193"/>
+<polygon fill="none" stroke="black" points="180.53,-745.909 171.803,-751.917 182.372,-752.663 180.53,-745.909"/>
+</g>
+<!-- \\PrivateBin\\Model\\Comment -->
+<g id="node8" class="node"><title>\\PrivateBin\\Model\\Comment</title>
+<polygon fill="none" stroke="black" points="336.5,-654 272.5,-654 272.5,-618 336.5,-618 336.5,-654"/>
+<text text-anchor="middle" x="304.5" y="-633.2" font-family="Courier,monospace" font-size="11.00">Comment</text>
 </g>
 <!-- \\PrivateBin\\Model\\AbstractModel -->
 <g id="node9" class="node"><title>\\PrivateBin\\Model\\AbstractModel</title>
@@ -102,70 +102,70 @@
 <text text-anchor="start" x="70.5" y="-612.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
 <text text-anchor="start" x="60.5" y="-600.2" font-family="Courier,monospace" font-size="11.00">AbstractModel</text>
 </g>
-<!-- \\PrivateBin\\Model\\Paste&#45;&gt;\\PrivateBin\\Model\\AbstractModel -->
-<g id="edge4" class="edge"><title>\\PrivateBin\\Model\\Paste&#45;&gt;\\PrivateBin\\Model\\AbstractModel</title>
-<path fill="none" stroke="black" d="M277.207,-632.415C249.226,-628.599 203.975,-622.428 166.95,-617.38"/>
-<polygon fill="none" stroke="black" points="167.128,-613.871 156.746,-615.988 166.182,-620.807 167.128,-613.871"/>
-</g>
-<!-- \\PrivateBin\\Model\\Comment -->
-<g id="node10" class="node"><title>\\PrivateBin\\Model\\Comment</title>
-<polygon fill="none" stroke="black" points="336.5,-600 272.5,-600 272.5,-564 336.5,-564 336.5,-600"/>
-<text text-anchor="middle" x="304.5" y="-579.2" font-family="Courier,monospace" font-size="11.00">Comment</text>
-</g>
 <!-- \\PrivateBin\\Model\\Comment&#45;&gt;\\PrivateBin\\Model\\AbstractModel -->
-<g id="edge7" class="edge"><title>\\PrivateBin\\Model\\Comment&#45;&gt;\\PrivateBin\\Model\\AbstractModel</title>
-<path fill="none" stroke="black" d="M272.126,-586.278C243.94,-590.122 201.745,-595.876 166.869,-600.631"/>
-<polygon fill="none" stroke="black" points="166.211,-597.189 156.776,-602.008 167.157,-604.125 166.211,-597.189"/>
+<g id="edge6" class="edge"><title>\\PrivateBin\\Model\\Comment&#45;&gt;\\PrivateBin\\Model\\AbstractModel</title>
+<path fill="none" stroke="black" d="M272.126,-631.722C243.94,-627.878 201.745,-622.124 166.869,-617.369"/>
+<polygon fill="none" stroke="black" points="167.157,-613.875 156.776,-615.992 166.211,-620.811 167.157,-613.875"/>
 </g>
-<!-- \\PrivateBin\\Json -->
-<g id="node11" class="node"><title>\\PrivateBin\\Json</title>
-<polygon fill="none" stroke="black" points="331.5,-546 277.5,-546 277.5,-510 331.5,-510 331.5,-546"/>
-<text text-anchor="middle" x="304.5" y="-525.2" font-family="Courier,monospace" font-size="11.00">Json</text>
+<!-- \\PrivateBin\\Model\\Paste -->
+<g id="node10" class="node"><title>\\PrivateBin\\Model\\Paste</title>
+<polygon fill="none" stroke="black" points="331.5,-600 277.5,-600 277.5,-564 331.5,-564 331.5,-600"/>
+<text text-anchor="middle" x="304.5" y="-579.2" font-family="Courier,monospace" font-size="11.00">Paste</text>
 </g>
-<!-- \\PrivateBin\\Configuration -->
-<g id="node12" class="node"><title>\\PrivateBin\\Configuration</title>
-<polygon fill="none" stroke="black" points="356.5,-492 252.5,-492 252.5,-456 356.5,-456 356.5,-492"/>
-<text text-anchor="middle" x="304.5" y="-471.2" font-family="Courier,monospace" font-size="11.00">Configuration</text>
-</g>
-<!-- \\PrivateBin\\Request -->
-<g id="node13" class="node"><title>\\PrivateBin\\Request</title>
-<polygon fill="none" stroke="black" points="336.5,-438 272.5,-438 272.5,-402 336.5,-402 336.5,-438"/>
-<text text-anchor="middle" x="304.5" y="-417.2" font-family="Courier,monospace" font-size="11.00">Request</text>
-</g>
-<!-- \\PrivateBin\\PrivateBin -->
-<g id="node14" class="node"><title>\\PrivateBin\\PrivateBin</title>
-<polygon fill="none" stroke="black" points="346.5,-384 262.5,-384 262.5,-348 346.5,-348 346.5,-384"/>
-<text text-anchor="middle" x="304.5" y="-363.2" font-family="Courier,monospace" font-size="11.00">PrivateBin</text>
-</g>
-<!-- \\PrivateBin\\View -->
-<g id="node15" class="node"><title>\\PrivateBin\\View</title>
-<polygon fill="none" stroke="black" points="331.5,-330 277.5,-330 277.5,-294 331.5,-294 331.5,-330"/>
-<text text-anchor="middle" x="304.5" y="-309.2" font-family="Courier,monospace" font-size="11.00">View</text>
-</g>
-<!-- \\PrivateBin\\Vizhash16x16 -->
-<g id="node16" class="node"><title>\\PrivateBin\\Vizhash16x16</title>
-<polygon fill="none" stroke="black" points="353.5,-276 255.5,-276 255.5,-240 353.5,-240 353.5,-276"/>
-<text text-anchor="middle" x="304.5" y="-255.2" font-family="Courier,monospace" font-size="11.00">Vizhash16x16</text>
+<!-- \\PrivateBin\\Model\\Paste&#45;&gt;\\PrivateBin\\Model\\AbstractModel -->
+<g id="edge7" class="edge"><title>\\PrivateBin\\Model\\Paste&#45;&gt;\\PrivateBin\\Model\\AbstractModel</title>
+<path fill="none" stroke="black" d="M277.207,-585.585C249.226,-589.401 203.975,-595.572 166.95,-600.62"/>
+<polygon fill="none" stroke="black" points="166.182,-597.193 156.746,-602.012 167.128,-604.129 166.182,-597.193"/>
 </g>
 <!-- \\PrivateBin\\Filter -->
-<g id="node17" class="node"><title>\\PrivateBin\\Filter</title>
-<polygon fill="none" stroke="black" points="333,-222 276,-222 276,-186 333,-186 333,-222"/>
-<text text-anchor="middle" x="304.5" y="-201.2" font-family="Courier,monospace" font-size="11.00">Filter</text>
+<g id="node11" class="node"><title>\\PrivateBin\\Filter</title>
+<polygon fill="none" stroke="black" points="333,-546 276,-546 276,-510 333,-510 333,-546"/>
+<text text-anchor="middle" x="304.5" y="-525.2" font-family="Courier,monospace" font-size="11.00">Filter</text>
 </g>
 <!-- \\PrivateBin\\Model -->
-<g id="node18" class="node"><title>\\PrivateBin\\Model</title>
-<polygon fill="none" stroke="black" points="331.5,-168 277.5,-168 277.5,-132 331.5,-132 331.5,-168"/>
-<text text-anchor="middle" x="304.5" y="-147.2" font-family="Courier,monospace" font-size="11.00">Model</text>
+<g id="node12" class="node"><title>\\PrivateBin\\Model</title>
+<polygon fill="none" stroke="black" points="331.5,-492 277.5,-492 277.5,-456 331.5,-456 331.5,-492"/>
+<text text-anchor="middle" x="304.5" y="-471.2" font-family="Courier,monospace" font-size="11.00">Model</text>
 </g>
-<!-- \\PrivateBin\\I18n -->
-<g id="node19" class="node"><title>\\PrivateBin\\I18n</title>
-<polygon fill="none" stroke="black" points="331.5,-114 277.5,-114 277.5,-78 331.5,-78 331.5,-114"/>
-<text text-anchor="middle" x="304.5" y="-93.2" font-family="Courier,monospace" font-size="11.00">I18n</text>
+<!-- \\PrivateBin\\View -->
+<g id="node13" class="node"><title>\\PrivateBin\\View</title>
+<polygon fill="none" stroke="black" points="331.5,-438 277.5,-438 277.5,-402 331.5,-402 331.5,-438"/>
+<text text-anchor="middle" x="304.5" y="-417.2" font-family="Courier,monospace" font-size="11.00">View</text>
 </g>
 <!-- \\PrivateBin\\Sjcl -->
-<g id="node20" class="node"><title>\\PrivateBin\\Sjcl</title>
-<polygon fill="none" stroke="black" points="331.5,-60 277.5,-60 277.5,-24 331.5,-24 331.5,-60"/>
-<text text-anchor="middle" x="304.5" y="-39.2" font-family="Courier,monospace" font-size="11.00">Sjcl</text>
+<g id="node14" class="node"><title>\\PrivateBin\\Sjcl</title>
+<polygon fill="none" stroke="black" points="331.5,-384 277.5,-384 277.5,-348 331.5,-348 331.5,-384"/>
+<text text-anchor="middle" x="304.5" y="-363.2" font-family="Courier,monospace" font-size="11.00">Sjcl</text>
+</g>
+<!-- \\PrivateBin\\Request -->
+<g id="node15" class="node"><title>\\PrivateBin\\Request</title>
+<polygon fill="none" stroke="black" points="336.5,-330 272.5,-330 272.5,-294 336.5,-294 336.5,-330"/>
+<text text-anchor="middle" x="304.5" y="-309.2" font-family="Courier,monospace" font-size="11.00">Request</text>
+</g>
+<!-- \\PrivateBin\\I18n -->
+<g id="node16" class="node"><title>\\PrivateBin\\I18n</title>
+<polygon fill="none" stroke="black" points="331.5,-276 277.5,-276 277.5,-240 331.5,-240 331.5,-276"/>
+<text text-anchor="middle" x="304.5" y="-255.2" font-family="Courier,monospace" font-size="11.00">I18n</text>
+</g>
+<!-- \\PrivateBin\\Configuration -->
+<g id="node17" class="node"><title>\\PrivateBin\\Configuration</title>
+<polygon fill="none" stroke="black" points="356.5,-222 252.5,-222 252.5,-186 356.5,-186 356.5,-222"/>
+<text text-anchor="middle" x="304.5" y="-201.2" font-family="Courier,monospace" font-size="11.00">Configuration</text>
+</g>
+<!-- \\PrivateBin\\PrivateBin -->
+<g id="node18" class="node"><title>\\PrivateBin\\PrivateBin</title>
+<polygon fill="none" stroke="black" points="346.5,-168 262.5,-168 262.5,-132 346.5,-132 346.5,-168"/>
+<text text-anchor="middle" x="304.5" y="-147.2" font-family="Courier,monospace" font-size="11.00">PrivateBin</text>
+</g>
+<!-- \\PrivateBin\\Json -->
+<g id="node19" class="node"><title>\\PrivateBin\\Json</title>
+<polygon fill="none" stroke="black" points="331.5,-114 277.5,-114 277.5,-78 331.5,-78 331.5,-114"/>
+<text text-anchor="middle" x="304.5" y="-93.2" font-family="Courier,monospace" font-size="11.00">Json</text>
+</g>
+<!-- \\PrivateBin\\Vizhash16x16 -->
+<g id="node20" class="node"><title>\\PrivateBin\\Vizhash16x16</title>
+<polygon fill="none" stroke="black" points="353.5,-60 255.5,-60 255.5,-24 353.5,-24 353.5,-60"/>
+<text text-anchor="middle" x="304.5" y="-39.2" font-family="Courier,monospace" font-size="11.00">Vizhash16x16</text>
 </g>
 </g>
 </svg>
