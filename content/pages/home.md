@@ -16,8 +16,8 @@ save_as: index.html
 
 *Current version: 1.1.1*
 
-**PrivateBin** is a minimalist, open source online pastebin where the server has
-zero knowledge of pasted data.
+**PrivateBin** is a minimalist, open source online [pastebin](https://en.wikipedia.org/wiki/Pastebin)
+where the server has zero knowledge of pasted data.
 
 Data is encrypted/decrypted in the browser using 256bit AES in [Galois Counter mode](https://en.wikipedia.org/wiki/Galois/Counter_Mode).
 
@@ -75,7 +75,7 @@ without losing any data.
   PrivateBin.  
   Therefore do not access any PrivateBin instance if you think it has been
   compromised. As long as no user accesses this instance with a previously
-  generated URL, the content can''t be decrypted.
+  generated URL, the content can't be decrypted.
 
 ## Options
 
