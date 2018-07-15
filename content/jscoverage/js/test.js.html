@@ -1,0 +1,4916 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for js/test.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">js/</a> test.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.72% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>619/627</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.57% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>151/158</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">99.37% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>157/158</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">98.72% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>616/624</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818
+819
+820
+821
+822
+823
+824
+825
+826
+827
+828
+829
+830
+831
+832
+833
+834
+835
+836
+837
+838
+839
+840
+841
+842
+843
+844
+845
+846
+847
+848
+849
+850
+851
+852
+853
+854
+855
+856
+857
+858
+859
+860
+861
+862
+863
+864
+865
+866
+867
+868
+869
+870
+871
+872
+873
+874
+875
+876
+877
+878
+879
+880
+881
+882
+883
+884
+885
+886
+887
+888
+889
+890
+891
+892
+893
+894
+895
+896
+897
+898
+899
+900
+901
+902
+903
+904
+905
+906
+907
+908
+909
+910
+911
+912
+913
+914
+915
+916
+917
+918
+919
+920
+921
+922
+923
+924
+925
+926
+927
+928
+929
+930
+931
+932
+933
+934
+935
+936
+937
+938
+939
+940
+941
+942
+943
+944
+945
+946
+947
+948
+949
+950
+951
+952
+953
+954
+955
+956
+957
+958
+959
+960
+961
+962
+963
+964
+965
+966
+967
+968
+969
+970
+971
+972
+973
+974
+975
+976
+977
+978
+979
+980
+981
+982
+983
+984
+985
+986
+987
+988
+989
+990
+991
+992
+993
+994
+995
+996
+997
+998
+999
+1000
+1001
+1002
+1003
+1004
+1005
+1006
+1007
+1008
+1009
+1010
+1011
+1012
+1013
+1014
+1015
+1016
+1017
+1018
+1019
+1020
+1021
+1022
+1023
+1024
+1025
+1026
+1027
+1028
+1029
+1030
+1031
+1032
+1033
+1034
+1035
+1036
+1037
+1038
+1039
+1040
+1041
+1042
+1043
+1044
+1045
+1046
+1047
+1048
+1049
+1050
+1051
+1052
+1053
+1054
+1055
+1056
+1057
+1058
+1059
+1060
+1061
+1062
+1063
+1064
+1065
+1066
+1067
+1068
+1069
+1070
+1071
+1072
+1073
+1074
+1075
+1076
+1077
+1078
+1079
+1080
+1081
+1082
+1083
+1084
+1085
+1086
+1087
+1088
+1089
+1090
+1091
+1092
+1093
+1094
+1095
+1096
+1097
+1098
+1099
+1100
+1101
+1102
+1103
+1104
+1105
+1106
+1107
+1108
+1109
+1110
+1111
+1112
+1113
+1114
+1115
+1116
+1117
+1118
+1119
+1120
+1121
+1122
+1123
+1124
+1125
+1126
+1127
+1128
+1129
+1130
+1131
+1132
+1133
+1134
+1135
+1136
+1137
+1138
+1139
+1140
+1141
+1142
+1143
+1144
+1145
+1146
+1147
+1148
+1149
+1150
+1151
+1152
+1153
+1154
+1155
+1156
+1157
+1158
+1159
+1160
+1161
+1162
+1163
+1164
+1165
+1166
+1167
+1168
+1169
+1170
+1171
+1172
+1173
+1174
+1175
+1176
+1177
+1178
+1179
+1180
+1181
+1182
+1183
+1184
+1185
+1186
+1187
+1188
+1189
+1190
+1191
+1192
+1193
+1194
+1195
+1196
+1197
+1198
+1199
+1200
+1201
+1202
+1203
+1204
+1205
+1206
+1207
+1208
+1209
+1210
+1211
+1212
+1213
+1214
+1215
+1216
+1217
+1218
+1219
+1220
+1221
+1222
+1223
+1224
+1225
+1226
+1227
+1228
+1229
+1230
+1231
+1232
+1233
+1234
+1235
+1236
+1237
+1238
+1239
+1240
+1241
+1242
+1243
+1244
+1245
+1246
+1247
+1248
+1249
+1250
+1251
+1252
+1253
+1254
+1255
+1256
+1257
+1258
+1259
+1260
+1261
+1262
+1263
+1264
+1265
+1266
+1267
+1268
+1269
+1270
+1271
+1272
+1273
+1274
+1275
+1276
+1277
+1278
+1279
+1280
+1281
+1282
+1283
+1284
+1285
+1286
+1287
+1288
+1289
+1290
+1291
+1292
+1293
+1294
+1295
+1296
+1297
+1298
+1299
+1300
+1301
+1302
+1303
+1304
+1305
+1306
+1307
+1308
+1309
+1310
+1311
+1312
+1313
+1314
+1315
+1316
+1317
+1318
+1319
+1320
+1321
+1322
+1323
+1324
+1325
+1326
+1327
+1328
+1329
+1330
+1331
+1332
+1333
+1334
+1335
+1336
+1337
+1338
+1339
+1340
+1341
+1342
+1343
+1344
+1345
+1346
+1347
+1348
+1349
+1350
+1351
+1352
+1353
+1354
+1355
+1356
+1357
+1358
+1359
+1360
+1361
+1362
+1363
+1364
+1365
+1366
+1367
+1368
+1369
+1370
+1371
+1372
+1373
+1374
+1375
+1376
+1377
+1378
+1379
+1380
+1381
+1382
+1383
+1384
+1385
+1386
+1387
+1388
+1389
+1390
+1391
+1392
+1393
+1394
+1395
+1396
+1397
+1398
+1399
+1400
+1401
+1402
+1403
+1404
+1405
+1406
+1407
+1408
+1409
+1410
+1411
+1412
+1413
+1414
+1415
+1416
+1417
+1418
+1419
+1420
+1421
+1422
+1423
+1424
+1425
+1426
+1427
+1428
+1429
+1430
+1431
+1432
+1433
+1434
+1435
+1436
+1437
+1438
+1439
+1440
+1441
+1442
+1443
+1444
+1445
+1446
+1447
+1448
+1449
+1450
+1451
+1452
+1453
+1454
+1455
+1456
+1457
+1458
+1459
+1460
+1461
+1462
+1463
+1464
+1465
+1466
+1467
+1468
+1469
+1470
+1471
+1472
+1473
+1474
+1475
+1476
+1477
+1478
+1479
+1480
+1481
+1482
+1483
+1484
+1485
+1486
+1487
+1488
+1489
+1490
+1491
+1492
+1493
+1494
+1495
+1496
+1497
+1498
+1499
+1500
+1501
+1502
+1503
+1504
+1505
+1506
+1507
+1508
+1509
+1510
+1511
+1512
+1513
+1514
+1515
+1516
+1517
+1518
+1519
+1520
+1521
+1522
+1523
+1524
+1525
+1526
+1527
+1528
+1529
+1530
+1531
+1532
+1533
+1534
+1535
+1536
+1537
+1538
+1539
+1540
+1541
+1542
+1543
+1544
+1545
+1546
+1547
+1548
+1549
+1550
+1551
+1552
+1553
+1554
+1555
+1556
+1557
+1558
+1559
+1560
+1561
+1562
+1563
+1564
+1565
+1566
+1567
+1568
+1569
+1570
+1571
+1572
+1573
+1574
+1575
+1576
+1577
+1578
+1579
+1580
+1581
+1582
+1583
+1584
+1585
+1586
+1587
+1588
+1589
+1590
+1591
+1592
+1593
+1594
+1595
+1596
+1597
+1598
+1599
+1600
+1601
+1602
+1603
+1604
+1605
+1606
+1607
+1608
+1609
+1610
+1611
+1612
+1613
+1614
+1615
+1616
+1617
+1618</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1099×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">835×</span>
+<span class="cline-any cline-yes">835×</span>
+<span class="cline-any cline-yes">835×</span>
+<span class="cline-any cline-yes">835×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">835×</span>
+<span class="cline-any cline-yes">835×</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">835×</span>
+<span class="cline-any cline-yes">835×</span>
+<span class="cline-any cline-yes">413×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">835×</span>
+<span class="cline-any cline-yes">789×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1901×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">241×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">258×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">258×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">258×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">258×</span>
+<span class="cline-any cline-yes">258×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">212×</span>
+<span class="cline-any cline-yes">212×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">208×</span>
+<span class="cline-any cline-yes">208×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">208×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">235×</span>
+<span class="cline-any cline-yes">235×</span>
+<span class="cline-any cline-yes">83×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">235×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">441×</span>
+<span class="cline-any cline-yes">441×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">55×</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">800×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">66×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">500×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">100×</span>
+<span class="cline-any cline-yes">704×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+var jsc = require('jsverify'),
+    jsdom = require('jsdom-global'),
+    cleanup = jsdom(),
+&nbsp;
+    a2zString = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
+                 'n','o','p','q','r','s','t','u','v','w','x','y','z'],
+    alnumString = a2zString.concat(['0','1','2','3','4','5','6','7','8','9']),
+    queryString = alnumString.concat(['+','%','&amp;','.','*','-','_']),
+    base64String = alnumString.concat(['+','/','=']).concat(
+        a2zString.map(function(c) {
+            return c.toUpperCase();
+        })
+    ),
+    // schemas supported by the whatwg-url library
+    schemas = ['ftp','gopher','http','https','ws','wss'],
+    supportedLanguages = ['de', 'es', 'fr', 'it', 'no', 'pl', 'pt', 'oc', 'ru', 'sl', 'zh'],
+&nbsp;
+    /**
+     * character to HTML entity lookup table
+     *
+     * @see    {@link https://github.com/janl/mustache.js/blob/master/mustache.js#L60}
+     */
+    entityMap = {
+        '&amp;': '&amp;amp;',
+        '&lt;': '&amp;lt;',
+        '&gt;': '&amp;gt;',
+        '"': '&amp;quot;',
+        "'": '&amp;#39;',
+        '/': '&amp;#x2F;',
+        '`': '&amp;#x60;',
+        '=': '&amp;#x3D;'
+    },
+    logFile = require('fs').createWriteStream('test.log'),
+    mimeTypes = ['image/png','application/octet-stream'],
+    mimeFile = require('fs').createReadStream('/etc/mime.types'),
+    mimeLine = '';
+&nbsp;
+global.$ = global.jQuery = require('./jquery-3.1.1');
+global.sjcl = require('./sjcl-1.0.6');
+global.Base64 = require('./base64-2.1.9').Base64;
+global.RawDeflate = require('./rawdeflate-0.5').RawDeflate;
+global.RawDeflate.inflate = require('./rawinflate-0.3').RawDeflate.inflate;
+require('./prettify');
+global.prettyPrint = window.PR.prettyPrint;
+global.prettyPrintOne = window.PR.prettyPrintOne;
+global.showdown = require('./showdown-1.6.1');
+global.DOMPurify = require('./purify.min');
+require('./bootstrap-3.3.7');
+require('./privatebin');
+&nbsp;
+// redirect console messages to log file
+console.info = console.warn = console.error = function () {
+    logFile.write(Array.prototype.slice.call(arguments).join('') + '\n');
+}
+&nbsp;
+// populate mime types from environment
+mimeFile.on('data', function(data) {
+    mimeLine += data;
+    var index = mimeLine.indexOf('\n');
+    while (index &gt; -1) {
+        var line = mimeLine.substring(0, index);
+        mimeLine = mimeLine.substring(index + 1);
+        parseMime(line);
+        index = mimeLine.indexOf('\n');
+    }
+});
+&nbsp;
+mimeFile.on('end', function() {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (mimeLine.length &gt; 0) {
+<span class="cstat-no" title="statement not covered" >        parseMime(mimeLine);</span>
+    }
+});
+&nbsp;
+function parseMime(line) {
+    // ignore comments
+    var index = line.indexOf('#');
+    if (index &gt; -1) {
+        line = line.substring(0, index);
+    }
+&nbsp;
+    // ignore bits after tabs
+    index = line.indexOf('\t');
+    if (index &gt; -1) {
+        line = line.substring(0, index);
+    }
+    if (line.length &gt; 0) {
+        mimeTypes.push(line);
+    }
+}
+&nbsp;
+/**
+ * convert all applicable characters to HTML entities
+ *
+ * @see    {@link https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet#RULE_.231_-_HTML_Escape_Before_Inserting_Untrusted_Data_into_HTML_Element_Content}
+ * @name   htmlEntities
+ * @function
+ * @param  {string} str
+ * @return {string} escaped HTML
+ */
+function htmlEntities(str) {
+    return String(str).replace(
+        /[&amp;&lt;&gt;"'`=\/]/g, function(s) {
+            return entityMap[s];
+        });
+}
+&nbsp;
+describe('Helper', function () {
+    describe('secondsToHuman', function () {
+        after(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property('returns an array with a number and a word', 'integer', function (number) {
+            var result = $.PrivateBin.Helper.secondsToHuman(number);
+            return Array.isArray(result) &amp;&amp;
+                result.length === 2 &amp;&amp;
+                result[0] === parseInt(result[0], 10) &amp;&amp;
+                typeof result[1] === 'string';
+        });
+        jsc.property('returns seconds on the first array position', 'integer 59', function (number) {
+            return $.PrivateBin.Helper.secondsToHuman(number)[0] === number;
+        });
+        jsc.property('returns seconds on the second array position', 'integer 59', function (number) {
+            return $.PrivateBin.Helper.secondsToHuman(number)[1] === 'second';
+        });
+        jsc.property('returns minutes on the first array position', 'integer 60 3599', function (number) {
+            return $.PrivateBin.Helper.secondsToHuman(number)[0] === Math.floor(number / 60);
+        });
+        jsc.property('returns minutes on the second array position', 'integer 60 3599', function (number) {
+            return $.PrivateBin.Helper.secondsToHuman(number)[1] === 'minute';
+        });
+        jsc.property('returns hours on the first array position', 'integer 3600 86399', function (number) {
+            return $.PrivateBin.Helper.secondsToHuman(number)[0] === Math.floor(number / (60 * 60));
+        });
+        jsc.property('returns hours on the second array position', 'integer 3600 86399', function (number) {
+            return $.PrivateBin.Helper.secondsToHuman(number)[1] === 'hour';
+        });
+        jsc.property('returns days on the first array position', 'integer 86400 5184000', function (number) {
+            return $.PrivateBin.Helper.secondsToHuman(number)[0] === Math.floor(number / (60 * 60 * 24));
+        });
+        jsc.property('returns days on the second array position', 'integer 86400 5184000', function (number) {
+            return $.PrivateBin.Helper.secondsToHuman(number)[1] === 'day';
+        });
+        // max safe integer as per http://ecma262-5.com/ELS5_HTML.htm#Section_8.5
+        jsc.property('returns months on the first array position', 'integer 5184000 9007199254740991', function (number) {
+            return $.PrivateBin.Helper.secondsToHuman(number)[0] === Math.floor(number / (60 * 60 * 24 * 30));
+        });
+        jsc.property('returns months on the second array position', 'integer 5184000 9007199254740991', function (number) {
+            return $.PrivateBin.Helper.secondsToHuman(number)[1] === 'month';
+        });
+    });
+&nbsp;
+    // this test is not yet meaningful using jsdom, as it does not contain getSelection support.
+    // TODO: This needs to be tested using a browser.
+    describe('selectText', function () {
+        this.timeout(30000);
+        jsc.property(
+            'selection contains content of given ID',
+            jsc.nearray(jsc.nearray(jsc.elements(alnumString))),
+            'nearray string',
+            function (ids, contents) {
+                var html = '',
+                    result = true;
+                ids.forEach(function(item, i) {
+                    html += '&lt;div id="' + item.join('') + '"&gt;' + htmlEntities(contents[i] || contents[0]) + '&lt;/div&gt;';
+                });
+                var clean = jsdom(html);
+                ids.forEach(function(item, i) {
+                    $.PrivateBin.Helper.selectText(item.join(''));
+                    // TODO: As per https://github.com/tmpvar/jsdom/issues/321 there is no getSelection in jsdom, yet.
+                    // Once there is one, uncomment the line below to actually check the result.
+                    //result *= (contents[i] || contents[0]) === window.getSelection().toString();
+                });
+                clean();
+                return Boolean(result);
+            }
+        );
+    });
+&nbsp;
+    describe('urls2links', function () {
+        after(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'ignores non-URL content',
+            'string',
+            function (content) {
+                return content === $.PrivateBin.Helper.urls2links(content);
+            }
+        );
+        jsc.property(
+            'replaces URLs with anchors',
+            'string',
+            jsc.elements(['http', 'https', 'ftp']),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.array(jsc.elements(queryString)),
+            jsc.array(jsc.elements(queryString)),
+            'string',
+            function (prefix, schema, address, query, fragment, postfix) {
+                var query = query.join(''),
+                    fragment = fragment.join(''),
+                    url = schema + '://' + address.join('') + '/?' + query + '#' + fragment,
+                    prefix = htmlEntities(prefix),
+                    postfix = ' ' + htmlEntities(postfix);
+&nbsp;
+                // special cases: When the query string and fragment imply the beginning of an HTML entity, eg. &amp;#0 or &amp;#x
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (
+                    query.slice(-1) === '&amp;' &amp;&amp;
+                    (parseInt(fragment.substring(0, 1), 10) &gt;= 0 || fragment.charAt(0) === 'x' )
+                )
+                {
+<span class="cstat-no" title="statement not covered" >                    url = schema + '://' + address.join('') + '/?' + query.substring(0, query.length - 1);</span>
+<span class="cstat-no" title="statement not covered" >                    postfix = '';</span>
+                }
+&nbsp;
+                return prefix + '&lt;a href="' + url + '" rel="nofollow"&gt;' + url + '&lt;/a&gt;' + postfix === $.PrivateBin.Helper.urls2links(prefix + url + postfix);
+            }
+        );
+        jsc.property(
+            'replaces magnet links with anchors',
+            'string',
+            jsc.array(jsc.elements(queryString)),
+            'string',
+            function (prefix, query, postfix) {
+                var url = 'magnet:?' + query.join('').replace(/^&amp;+|&amp;+$/gm,''),
+                    prefix = htmlEntities(prefix),
+                    postfix = htmlEntities(postfix);
+                return prefix + '&lt;a href="' + url + '" rel="nofollow"&gt;' + url + '&lt;/a&gt; ' + postfix === $.PrivateBin.Helper.urls2links(prefix + url + ' ' + postfix);
+            }
+        );
+    });
+&nbsp;
+    describe('sprintf', function () {
+        after(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'replaces %s in strings with first given parameter',
+            'string',
+            '(small nearray) string',
+            'string',
+            function (prefix, params, postfix) {
+                prefix    =    prefix.replace(/%(s|d)/g, '%%');
+                params[0] = params[0].replace(/%(s|d)/g, '%%');
+                postfix   =   postfix.replace(/%(s|d)/g, '%%');
+                var result = prefix + params[0] + postfix;
+                params.unshift(prefix + '%s' + postfix);
+                return result === $.PrivateBin.Helper.sprintf.apply(this, params);
+            }
+        );
+        jsc.property(
+            'replaces %d in strings with first given parameter',
+            'string',
+            '(small nearray) nat',
+            'string',
+            function (prefix, params, postfix) {
+                prefix  =  prefix.replace(/%(s|d)/g, '%%');
+                postfix = postfix.replace(/%(s|d)/g, '%%');
+                var result = prefix + params[0] + postfix;
+                params.unshift(prefix + '%d' + postfix);
+                return result === $.PrivateBin.Helper.sprintf.apply(this, params);
+            }
+        );
+        jsc.property(
+            'replaces %d in strings with 0 if first parameter is not a number',
+            'string',
+            '(small nearray) falsy',
+            'string',
+            function (prefix, params, postfix) {
+                prefix  =  prefix.replace(/%(s|d)/g, '%%');
+                postfix = postfix.replace(/%(s|d)/g, '%%');
+                var result = prefix + '0' + postfix;
+                params.unshift(prefix + '%d' + postfix);
+                return result === $.PrivateBin.Helper.sprintf.apply(this, params)
+            }
+        );
+        jsc.property(
+            'replaces %d and %s in strings in order',
+            'string',
+            'nat',
+            'string',
+            'string',
+            'string',
+            function (prefix, uint, middle, string, postfix) {
+                prefix  =  prefix.replace(/%(s|d)/g, '%%');
+                middle  =  middle.replace(/%(s|d)/g, '%%');
+                postfix = postfix.replace(/%(s|d)/g, '%%');
+                var params = [prefix + '%d' + middle + '%s' + postfix, uint, string],
+                    result = prefix + uint + middle + string + postfix;
+                return result === $.PrivateBin.Helper.sprintf.apply(this, params);
+            }
+        );
+        jsc.property(
+            'replaces %d and %s in strings in reverse order',
+            'string',
+            'nat',
+            'string',
+            'string',
+            'string',
+            function (prefix, uint, middle, string, postfix) {
+                prefix  =  prefix.replace(/%(s|d)/g, '%%');
+                middle  =  middle.replace(/%(s|d)/g, '%%');
+                postfix = postfix.replace(/%(s|d)/g, '%%');
+                var params = [prefix + '%s' + middle + '%d' + postfix, string, uint],
+                    result = prefix + string + middle + uint + postfix;
+                return result === $.PrivateBin.Helper.sprintf.apply(this, params);
+            }
+        );
+    });
+&nbsp;
+    describe('getCookie', function () {
+        this.timeout(30000);
+        jsc.property(
+            'returns the requested cookie',
+            'nearray asciinestring',
+            'nearray asciistring',
+            function (labels, values) {
+                var selectedKey = '', selectedValue = '',
+                    cookieArray = [],
+                    count = 0;
+                labels.forEach(function(item, i) {
+                    // deliberatly using a non-ascii key for replacing invalid characters
+                    var key = item.replace(/[\s;,=]/g, Array(i+2).join('£')),
+                        value = (values[i] || values[0]).replace(/[\s;,=]/g, '');
+                    cookieArray.push(key + '=' + value);
+                    if (Math.random() &lt; 1 / i || selectedKey === key)
+                    {
+                        selectedKey = key;
+                        selectedValue = value;
+                    }
+                });
+                var clean = jsdom('', {cookie: cookieArray}),
+                    result = $.PrivateBin.Helper.getCookie(selectedKey);
+                clean();
+                return result === selectedValue;
+            }
+        );
+    });
+&nbsp;
+    describe('baseUri', function () {
+        this.timeout(30000);
+        before(function () {
+            $.PrivateBin.Helper.reset();
+        });
+&nbsp;
+        jsc.property(
+            'returns the URL without query &amp; fragment',
+            jsc.elements(schemas),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.array(jsc.elements(queryString)),
+            'string',
+            function (schema, address, query, fragment) {
+                var expected = schema + '://' + address.join('') + '/',
+                    clean = jsdom('', {url: expected + '?' + query.join('') + '#' + fragment}),
+                    result = $.PrivateBin.Helper.baseUri();
+                $.PrivateBin.Helper.reset();
+                clean();
+                return expected === result;
+            }
+        );
+    });
+&nbsp;
+    describe('htmlEntities', function () {
+        after(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'removes all HTML entities from any given string',
+            'string',
+            function (string) {
+                var result = htmlEntities(string);
+                return !(/[&lt;&gt;"'`=\/]/.test(result)) &amp;&amp; !(string.indexOf('&amp;') &gt; -1 &amp;&amp; !(/&amp;amp;/.test(result)));
+            }
+        );
+    });
+});
+&nbsp;
+describe('I18n', function () {
+    describe('translate', function () {
+        before(function () {
+            $.PrivateBin.I18n.reset();
+        });
+&nbsp;
+        jsc.property(
+            'returns message ID unchanged if no translation found',
+            'string',
+            function (messageId) {
+                messageId   = messageId.replace(/%(s|d)/g, '%%');
+                var plurals = [messageId, messageId + 's'],
+                    fake    = [messageId],
+                    result  = $.PrivateBin.I18n.translate(messageId);
+                $.PrivateBin.I18n.reset();
+&nbsp;
+                var alias = $.PrivateBin.I18n._(messageId);
+                $.PrivateBin.I18n.reset();
+&nbsp;
+                var p_result = $.PrivateBin.I18n.translate(plurals);
+                $.PrivateBin.I18n.reset();
+&nbsp;
+                var p_alias = $.PrivateBin.I18n._(plurals);
+                $.PrivateBin.I18n.reset();
+&nbsp;
+                var f_result = $.PrivateBin.I18n.translate(fake);
+                $.PrivateBin.I18n.reset();
+&nbsp;
+                var f_alias = $.PrivateBin.I18n._(fake);
+                $.PrivateBin.I18n.reset();
+&nbsp;
+                return messageId === result &amp;&amp; messageId === alias &amp;&amp;
+                    messageId === p_result &amp;&amp; messageId === p_alias &amp;&amp;
+                    messageId === f_result &amp;&amp; messageId === f_alias;
+            }
+        );
+        jsc.property(
+            'replaces %s in strings with first given parameter',
+            'string',
+            '(small nearray) string',
+            'string',
+            function (prefix, params, postfix) {
+                prefix    =    prefix.replace(/%(s|d)/g, '%%');
+                params[0] = params[0].replace(/%(s|d)/g, '%%');
+                postfix   =   postfix.replace(/%(s|d)/g, '%%');
+                var translation = prefix + params[0] + postfix;
+                params.unshift(prefix + '%s' + postfix);
+                var result = $.PrivateBin.I18n.translate.apply(this, params);
+                $.PrivateBin.I18n.reset();
+                var alias = $.PrivateBin.I18n._.apply(this, params);
+                $.PrivateBin.I18n.reset();
+                return translation === result &amp;&amp; translation === alias;
+            }
+        );
+    });
+&nbsp;
+    describe('getPluralForm', function () {
+        before(function () {
+            $.PrivateBin.I18n.reset();
+        });
+&nbsp;
+        jsc.property(
+            'returns valid key for plural form',
+            jsc.elements(supportedLanguages),
+            'integer',
+            function(language, n) {
+                $.PrivateBin.I18n.reset(language);
+                var result = $.PrivateBin.I18n.getPluralForm(n);
+                // arabic seems to have the highest plural count with 6 forms
+                return result &gt;= 0 &amp;&amp; result &lt;= 5;
+            }
+        );
+    });
+&nbsp;
+    // loading of JSON via AJAX needs to be tested in the browser, this just mocks it
+    // TODO: This needs to be tested using a browser.
+    describe('loadTranslations', function () {
+        this.timeout(30000);
+        before(function () {
+            $.PrivateBin.I18n.reset();
+        });
+&nbsp;
+        jsc.property(
+            'downloads and handles any supported language',
+            jsc.elements(supportedLanguages),
+            function(language) {
+                var clean = jsdom('', {url: 'https://privatebin.net/', cookie: ['lang=' + language]});
+&nbsp;
+                $.PrivateBin.I18n.reset('en');
+                $.PrivateBin.I18n.loadTranslations();
+                $.PrivateBin.I18n.reset(language, require('../i18n/' + language + '.json'));
+                var result = $.PrivateBin.I18n.translate('en'),
+                    alias  = $.PrivateBin.I18n._('en');
+&nbsp;
+                clean();
+                return language === result &amp;&amp; language === alias;
+            }
+        );
+    });
+});
+&nbsp;
+describe('CryptTool', function () {
+    describe('cipher &amp; decipher', function () {
+        this.timeout(30000);
+        it('can en- and decrypt any message', function () {
+            jsc.check(jsc.forall(
+                'string',
+                'string',
+                'string',
+                function (key, password, message) {
+                    return message === $.PrivateBin.CryptTool.decipher(
+                        key,
+                        password,
+                        $.PrivateBin.CryptTool.cipher(key, password, message)
+                    );
+                }
+            ),
+            // reducing amount of checks as running 100 takes about 5 minutes
+            {tests: 5, quiet: true});
+        });
+&nbsp;
+        // The below static unit tests are included to ensure deciphering of "classic"
+        // SJCL based pastes still works
+        it(
+            'supports PrivateBin v1 ciphertext (SJCL &amp; Base64 2.1.9)',
+            function () {
+                // Of course you can easily decipher the following texts, if you like.
+                // Bonus points for finding their sources and hidden meanings.
+                var paste1 = $.PrivateBin.CryptTool.decipher(
+                    '6t2qsmLyfXIokNCL+3/yl15rfTUBQvm5SOnFPvNE7Q8=',
+                    // -- "That's amazing. I've got the same combination on my luggage."
+                    Array.apply(0, Array(6)).map(function(_,b) { return b + 1; }).join(''),
+                    '{"iv":"4HNFIl7eYbCh6HuShctTIA==","v":1,"iter":10000,"ks":256,"ts":128,"mode":"gcm","adata":"","cipher":"aes","salt":"u0lQvePq6L0=","ct":"fGPUVrDyaVr1ZDGb+kqQ3CPEW8x4YKGfzHDmA0Vjkh250aWNe7Cnigkps9aaFVMX9AaerrTp3yZbojJtNqVGMfLdUTu+53xmZHqRKxCCqSfDNSNoW4Oxk5OVgAtRyuG4bXHDsWTXDNz2xceqzVFqhkwTwlUchrV7uuFK/XUKTNjPFM744moivIcBbfM2FOeKlIFs8RYPYuvqQhp2rMLlNGwwKh//4kykQsHMQDeSDuJl8stMQzgWR/btUBZuwNZEydkMH6IPpTdf5WTSrZ+wC2OK0GutCm4UaEe6txzaTMfu+WRVu4PN6q+N+2zljWJ1XdpVcN/i0Sv4QVMym0Xa6y0eccEhj/69o47PmExmMMeEwExImPalMNT9JUSiZdOZJ/GdzwrwoIuq1mdQR6vSH+XJ/8jXJQ7bjjJVJYXTcT0Di5jixArI2Kpp1GGlGVFbLgPugwU1wczg+byqeDOAECXRRnQcogeaJtVcRwXwfy4j3ORFcblYMilxyHqKBewcYPRVBGtBs50cVjSIkAfR84rnc1nfvnxK/Gmm+4VBNHI6ODWNpRolVMCzXjbKYnV3Are5AgSpsTqaGl41VJGpcco6cAwi4K0Bys1seKR+bLSdUgqRrkEqSRSdu3/VTu9HhEk8an0rjTE4CBB5/LMn16p0TGLoOb32odKFIEtpanVvLjeyiVMvSxcgYLNnTi/5FiaAC4pJxRD+AZHedU1FICUeEXxIcac/4E5qjkHjX9SpQtLl80QLIVnjNliZm7QLB/nKu7W8Jb0+/CiTdV3Q9LhxlH4ciprnX+W0B00BKYFHnL9jRVzKdXhf1EHydbXMAfpCjHAXIVCkFakJinQBDIIw/SC6Yig0u0ddEID2B7LYAP1iE4RZwzTrxCB+ke2jQr8c20Jj6u6ShFOPC9DCw9XupZ4HAalVG00kSgjus+b8zrVji3/LKEhb4EBzp1ctBJCFTeXwej8ZETLoXTylev5dlwZSYAbuBPPcbFR/xAIPx3uDabd1E1gTqUc68ICIGhd197Mb2eRWiSvHr5SPsASerMxId6XA6+iQlRiI+NDR+TGVNmCnfxSlyPFMOHGTmslXOGIqGfBR8l4ft8YVZ70lCwmwTuViGc75ULSf9mM57/LmRzQFMYQtvI8IFK9JaQEMY5xz0HLtR4iyQUUdwR9e0ytBNdWF2a2WPDEnJuY/QJo4GzTlgv4QUxMXI5htsn2rf0HxCFu7Po8DNYLxTS+67hYjDIYWYaEIc8LXWMLyDm9C5fARPJ4F2BIWgzgzkNj+dVjusft2XnziamWdbS5u3kuRlVuz5LQj+R5imnqQAincdZTkTT1nYx+DatlOLllCYIHffpI="}'
+                ),
+                paste2 = $.PrivateBin.CryptTool.decipher(
+                    's9pmKZKOBN7EVvHpTA8jjLFH3Xlz/0l8lB4+ONPACrM=',
+                    '', // no password
+                    '{"iv":"WA42mdxIVXUwBqZu7JYNiw==","v":1,"iter":10000,"ks":256,"ts":128,"mode":"gcm","adata":"","cipher":"aes","salt":"jN6CjbQMJCM=","ct":"kYYMo5DFG1+w0UHiYXT5pdV0IUuXxzOlslkW/c3DRCbGFROCVkAskHce7HoRczee1N9c5MhHjVMJUIZE02qIS8UyHdJ/GqcPVidTUcj9rnDNWsTXkjVv8jCwHS/cwmAjDTWpwp5ThECN+ov/wNp/NdtTj8Qj7f/T3rfZIOCWfwLH9s4Des35UNcUidfPTNQ1l0Gm0X+r98CCUSYZjQxkZc6hRZBLPQ8EaNVooUwd5eP4GiYlmSDNA0wOSA+5isPYxomVCt+kFf58VBlNhpfNi7BLYAUTPpXT4SfH5drR9+C7NTeZ+tTCYjbU94PzYItOpu8vgnB1/a6BAM5h3m9w+giUb0df4hgTWeZnZxLjo5BN8WV+kdTXMj3/Vv0gw0DQrDcCuX/cBAjpy3lQGwlAN1vXoOIyZJUjMpQRrOLdKvLB+zcmVNtGDbgnfP2IYBzk9NtodpUa27ne0T0ZpwOPlVwevsIVZO224WLa+iQmmHOWDFFpVDlS0t0fLfOk7Hcb2xFsTxiCIiyKMho/IME1Du3X4e6BVa3hobSSZv0rRtNgY1KcyYPrUPW2fxZ+oik3y9SgGvb7XpjVIta8DWlDWRfZ9kzoweWEYqz9IA8Xd373RefpyuWI25zlHoX3nwljzsZU6dC//h/Dt2DNr+IAvKO3+u23cWoB9kgcZJ2FJuqjLvVfCF+OWcig7zs2pTYJW6Rg6lqbBCxiUUlae6xJrjfv0pzD2VYCLY7v1bVTagppwKzNI3WaluCOrdDYUCxUSe56yd1oAoLPRVbYvomRboUO6cjQhEknERyvt45og2kORJOEJayHW+jZgR0Y0jM3Nk17ubpij2gHxNx9kiLDOiCGSV5mn9mV7qd3HHcOMSykiBgbyzjobi96LT2dIGLeDXTIdPOog8wyobO4jWq0GGs0vBB8oSYXhHvixZLcSjX2KQuHmEoWzmJcr3DavdoXZmAurGWLKjzEdJc5dSD/eNr99gjHX7wphJ6umKMM+fn6PcbYJkhDh2GlJL5COXjXfm/5aj/vuyaRRWZMZtmnYpGAtAPg7AUG"}'
+                );
+&nbsp;
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!paste1.includes('securely packed in iron') || !paste2.includes('Sol is right')) {
+<span class="cstat-no" title="statement not covered" >                    throw Error('v1 (SJCL based) pastes could not be deciphered');</span>
+                }
+            }
+        );
+&nbsp;
+        it(
+            'supports ZeroBin ciphertext (SJCL &amp; Base64 1.7)',
+            function () {
+                var newBase64 = global.Base64;
+                global.Base64 = require('./base64-1.7').Base64;
+                jsdom();
+                delete require.cache[require.resolve('./privatebin')];
+                require('./privatebin');
+&nbsp;
+                // Of course you can easily decipher the following texts, if you like.
+                // Bonus points for finding their sources and hidden meanings.
+                var paste1 = $.PrivateBin.CryptTool.decipher(
+                    '6t2qsmLyfXIokNCL+3/yl15rfTUBQvm5SOnFPvNE7Q8=',
+                    // -- "That's amazing. I've got the same combination on my luggage."
+                    Array.apply(0, Array(6)).map(function(_,b) { return b + 1; }).join(''),
+                    '{"iv":"aTnR2qBL1CAmLX8FdWe3VA==","v":1,"iter":10000,"ks":256,"ts":128,"mode":"gcm","adata":"","cipher":"aes","salt":"u0lQvePq6L0=","ct":"A3nBTvICZtYy6xqbIJE0c8Veored5lMJUGgGUm4581wjrPFlU0Q0tUZSf+RUUoZj2jqDa4kiyyZ5YNMe30hNMV0oVSalNhRgD9svVMnPuF162IbyhVCwr7ULjT981CHxVlGNqGqmIU6L/XixgdArxAA8x1GCrfAkBWWGeq8Qw5vJPG/RCHpwR4Wy3azrluqeyERBzmaOQjO/kM35TiI6IrLYFyYyL7upYlxAaxS0XBMZvN8QU8Lnerwvh5JVC6OkkKrhogajTJIKozCF79yI78c50LUh7tTuI3Yoh7+fXxhoODvQdYFmoiUlrutN7Y5ZMRdITvVu8fTYtX9c7Fiufmcq5icEimiHp2g1bvfpOaGOsFT+XNFgC9215jcp5mpBdN852xs7bUtw+nDrf+LsDEX6iRpRZ+PYgLDN5xQT1ByEtYbeP+tO38pnx72oZdIB3cj8UkOxnxdNiZM5YB5egn4jUj1fHot1I69WoTiUJipZ5PIATv7ScymRB+AYzjxjurQ9lVfX9QtAbEH2dhdmoUo3IDRSXpWNCe9RC1aUIyWfZO7oI7FEohNscHNTLEcT+wFnFUPByLlXmjNZ7FKeNpvUm3jTY4t4sbZH8o2dUl624PAw1INcJ6FKqWGWwoFT2j1MYC+YV/LkLTdjuWfayvwLMh27G/FfKCRbW36vqinegqpPDylsx9+3oFkEw3y5Z8+44oN91rE/4Md7JhPJeRVlFC9TNCj4dA+EVhbbQqscvSnIH2uHkMw7mNNo7xba/YT9KoPDaniqnYqb+q2pX1WNWE7dLS2wfroMAS3kh8P22DAV37AeiNoD2PcI6ZcHbRdPa+XRrRcJhSPPW7UQ0z4OvBfjdu/w390QxAxSxvZewoh49fKKB6hTsRnZb4tpHkjlww=="}'
+                ),
+                paste2 = $.PrivateBin.CryptTool.decipher(
+                    's9pmKZKOBN7EVvHpTA8jjLFH3Xlz/0l8lB4+ONPACrM=',
+                    '', // no password
+                    '{"iv":"Z7lAZQbkrqGMvruxoSm6Pw==","v":1,"iter":10000,"ks":256,"ts":128,"mode":"gcm","adata":"","cipher":"aes","salt":"jN6CjbQMJCM=","ct":"PuOPWB3i2FPcreSrLYeQf84LdE8RHjsc+MGtiOr4b7doNyWKYtkNorbRadxaPnEee2/Utrp1MIIfY5juJSy8RGwEPX5ciWcYe6EzsXWznsnvhmpKNj9B7eIIrfSbxfy8E2e/g7xav1nive+ljToka3WT1DZ8ILQd/NbnJeHWaoSEOfvz8+d8QJPb1tNZvs7zEY95DumQwbyOsIMKAvcZHJ9OJNpujXzdMyt6DpcFcqlldWBZ/8q5rAUTw0HNx/rCgbhAxRYfNoTLIcMM4L0cXbPSgCjwf5FuO3EdE13mgEDhcClW79m0QvcnIh8xgzYoxLbp0+AwvC/MbZM8savN/0ieWr2EKkZ04ggiOIEyvfCUuNprQBYO+y8kKduNEN6by0Yf4LRCPfmwN+GezDLuzTnZIMhPbGqUAdgV6ExqK2ULEEIrQEMoOuQIxfoMhqLlzG79vXGt2O+BY+4IiYfvmuRLks4UXfyHqxPXTJg48IYbGs0j4TtJPUgp3523EyYLwEGyVTAuWhYAmVIwd/hoV7d7tmfcF73w9dufDFI3LNca2KxzBnWNPYvIZKBwWbq8ncxkb191dP6mjEi7NnhqVk5A6vIBbu4AC5PZf76l6yep4xsoy/QtdDxCMocCXeAML9MQ9uPQbuspOKrBvMfN5igA1kBqasnxI472KBNXsdZnaDddSVUuvhTcETM="}'
+                );
+&nbsp;
+                global.Base64 = newBase64;
+                jsdom();
+                delete require.cache[require.resolve('./privatebin')];
+                require('./privatebin');
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!paste1.includes('securely packed in iron') || !paste2.includes('Sol is right')) {
+<span class="cstat-no" title="statement not covered" >                    throw Error('v1 (SJCL based) pastes could not be deciphered');</span>
+                }
+            }
+        );
+    });
+&nbsp;
+    describe('isEntropyReady &amp; addEntropySeedListener', function () {
+        it(
+            'lets us know that enough entropy is collected or make us wait for it',
+            function(done) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if ($.PrivateBin.CryptTool.isEntropyReady()) {
+                    done();
+                } else {
+<span class="cstat-no" title="statement not covered" >                    $.PrivateBin.CryptTool.addEntropySeedListener(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                        done();</span>
+                    });
+                }
+            }
+        );
+    });
+&nbsp;
+    describe('getSymmetricKey', function () {
+        var keys = [];
+&nbsp;
+        // the parameter is used to ensure the test is run more then one time
+        jsc.property(
+            'returns random, non-empty keys',
+            'nat',
+            function(n) {
+                var key = $.PrivateBin.CryptTool.getSymmetricKey(),
+                    result = (key !== '' &amp;&amp; keys.indexOf(key) === -1);
+                keys.push(key);
+                return result;
+            }
+        );
+    });
+&nbsp;
+    describe('Base64.js vs SJCL.js vs abab.js', function () {
+        jsc.property(
+            'these all return the same base64 string',
+            'string',
+            function(string) {
+                var base64 = Base64.toBase64(string),
+                    sjcl = global.sjcl.codec.base64.fromBits(global.sjcl.codec.utf8String.toBits(string)),
+                    abab = window.btoa(Base64.utob(string));
+                return base64 === sjcl &amp;&amp; sjcl === abab;
+            }
+        );
+    });
+});
+&nbsp;
+describe('Model', function () {
+    describe('getExpirationDefault', function () {
+        before(function () {
+            $.PrivateBin.Model.reset();
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'returns the contents of the element with id "pasteExpiration"',
+            'array asciinestring',
+            'string',
+            'small nat',
+            function (keys, value, key) {
+                keys = keys.map(htmlEntities);
+                value = htmlEntities(value);
+                var content = keys.length &gt; key ? keys[key] : (keys.length &gt; 0 ? keys[0] : 'null'),
+                    contents = '&lt;select id="pasteExpiration" name="pasteExpiration"&gt;';
+                keys.forEach(function(item) {
+                    contents += '&lt;option value="' + item + '"';
+                    if (item === content) {
+                        contents += ' selected="selected"';
+                    }
+                    contents += '&gt;' + value + '&lt;/option&gt;';
+                });
+                contents += '&lt;/select&gt;';
+                $('body').html(contents);
+                var result = htmlEntities(
+                    $.PrivateBin.Model.getExpirationDefault()
+                );
+                $.PrivateBin.Model.reset();
+                return content === result;
+            }
+        );
+    });
+&nbsp;
+    describe('getFormatDefault', function () {
+        before(function () {
+            $.PrivateBin.Model.reset();
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'returns the contents of the element with id "pasteFormatter"',
+            'array asciinestring',
+            'string',
+            'small nat',
+            function (keys, value, key) {
+                keys = keys.map(htmlEntities);
+                value = htmlEntities(value);
+                var content = keys.length &gt; key ? keys[key] : (keys.length &gt; 0 ? keys[0] : 'null'),
+                    contents = '&lt;select id="pasteFormatter" name="pasteFormatter"&gt;';
+                keys.forEach(function(item) {
+                    contents += '&lt;option value="' + item + '"';
+                    if (item === content) {
+                        contents += ' selected="selected"';
+                    }
+                    contents += '&gt;' + value + '&lt;/option&gt;';
+                });
+                contents += '&lt;/select&gt;';
+                $('body').html(contents);
+                var result = htmlEntities(
+                    $.PrivateBin.Model.getFormatDefault()
+                );
+                $.PrivateBin.Model.reset();
+                return content === result;
+            }
+        );
+    });
+&nbsp;
+    describe('hasCipherData', function () {
+        before(function () {
+            $.PrivateBin.Model.reset();
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'checks if the element with id "cipherdata" contains any data',
+            'asciistring',
+            function (value) {
+                value = htmlEntities(value).trim();
+                $('body').html('&lt;div id="cipherdata"&gt;' + value + '&lt;/div&gt;');
+                $.PrivateBin.Model.init();
+                var result = $.PrivateBin.Model.hasCipherData();
+                $.PrivateBin.Model.reset();
+                return (value.length &gt; 0) === result;
+            }
+        );
+    });
+&nbsp;
+    describe('getCipherData', function () {
+        before(function () {
+            $.PrivateBin.Model.reset();
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'returns the contents of the element with id "cipherdata"',
+            'asciistring',
+            function (value) {
+                value = htmlEntities(value).trim();
+                $('body').html('&lt;div id="cipherdata"&gt;' + value + '&lt;/div&gt;');
+                $.PrivateBin.Model.init();
+                var result = htmlEntities(
+                    $.PrivateBin.Model.getCipherData()
+                );
+                $.PrivateBin.Model.reset();
+                return value === result;
+            }
+        );
+    });
+&nbsp;
+    describe('getPasteId', function () {
+        this.timeout(30000);
+        before(function () {
+            $.PrivateBin.Model.reset();
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'returns the query string without separator, if any',
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.nearray(jsc.elements(queryString)),
+            'string',
+            function (schema, address, query, fragment) {
+                var queryString = query.join(''),
+                    clean = jsdom('', {
+                        url: schema.join('') + '://' + address.join('') +
+                             '/?' + queryString + '#' + fragment
+                    }),
+                    result = $.PrivateBin.Model.getPasteId();
+                $.PrivateBin.Model.reset();
+                clean();
+                return queryString === result;
+            }
+        );
+        jsc.property(
+            'throws exception on empty query string',
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.nearray(jsc.elements(a2zString)),
+            'string',
+            function (schema, address, fragment) {
+                var clean = jsdom('', {
+                        url: schema.join('') + '://' + address.join('') +
+                             '/#' + fragment
+                    }),
+                    result = false;
+                try {
+                    $.PrivateBin.Model.getPasteId();
+                }
+                catch(err) {
+                    result = true;
+                }
+                $.PrivateBin.Model.reset();
+                clean();
+                return result;
+            }
+        );
+    });
+&nbsp;
+    describe('getPasteKey', function () {
+        this.timeout(30000);
+        jsc.property(
+            'returns the fragment of the URL',
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.array(jsc.elements(queryString)),
+            jsc.nearray(jsc.elements(base64String)),
+            function (schema, address, query, fragment) {
+                var fragmentString = fragment.join(''),
+                    clean = jsdom('', {
+                        url: schema.join('') + '://' + address.join('') +
+                             '/?' + query.join('') + '#' + fragmentString
+                    }),
+                    result = $.PrivateBin.Model.getPasteKey();
+                $.PrivateBin.Model.reset();
+                clean();
+                return fragmentString === result;
+            }
+        );
+        jsc.property(
+            'returns the fragment stripped of trailing query parts',
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.array(jsc.elements(queryString)),
+            jsc.nearray(jsc.elements(base64String)),
+            jsc.array(jsc.elements(queryString)),
+            function (schema, address, query, fragment, trail) {
+                var fragmentString = fragment.join(''),
+                    clean = jsdom('', {
+                        url: schema.join('') + '://' + address.join('') + '/?' +
+                             query.join('') + '#' + fragmentString + '&amp;' + trail.join('')
+                    }),
+                    result = $.PrivateBin.Model.getPasteKey();
+                $.PrivateBin.Model.reset();
+                clean();
+                return fragmentString === result;
+            }
+        );
+        jsc.property(
+            'throws exception on empty fragment of the URL',
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.array(jsc.elements(queryString)),
+            function (schema, address, query) {
+                var clean = jsdom('', {
+                        url: schema.join('') + '://' + address.join('') +
+                             '/?' + query.join('')
+                    }),
+                    result = false;
+                try {
+                    $.PrivateBin.Model.getPasteKey();
+                }
+                catch(err) {
+                    result = true;
+                }
+                $.PrivateBin.Model.reset();
+                clean();
+                return result;
+            }
+        );
+    });
+&nbsp;
+    describe('getTemplate', function () {
+        before(function () {
+            $.PrivateBin.Model.reset();
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'returns the contents of the element with id "[name]template"',
+            jsc.nearray(jsc.elements(alnumString)),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.nearray(jsc.elements(alnumString)),
+            function (id, element, value) {
+                id = id.join('');
+                element = element.join('');
+                value = value.join('').trim();
+&nbsp;
+                // &lt;br&gt;, &lt;hr&gt;, &lt;img&gt; and &lt;wbr&gt; tags can't contain strings,
+                // table tags can't be alone, so test with a &lt;p&gt; instead
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (['br', 'col', 'hr', 'img', 'tr', 'td', 'th', 'wbr'].indexOf(element) &gt;= 0) {
+<span class="cstat-no" title="statement not covered" >                    element = 'p';</span>
+                }
+&nbsp;
+                $('body').html(
+                    '&lt;div id="templates"&gt;&lt;' + element + ' id="' + id +
+                    'template"&gt;' + value + '&lt;/' + element + '&gt;&lt;/div&gt;'
+                );
+                $.PrivateBin.Model.init();
+                var template = '&lt;' + element + ' id="' + id + '"&gt;' + value +
+                    '&lt;/' + element + '&gt;',
+                    result = $.PrivateBin.Model.getTemplate(id).wrap('&lt;p/&gt;').parent().html();
+                $.PrivateBin.Model.reset();
+                return template === result;
+            }
+        );
+    });
+});
+&nbsp;
+describe('UiHelper', function () {
+    // TODO: As per https://github.com/tmpvar/jsdom/issues/1565 there is no navigation support in jsdom, yet.
+    // for now we use a mock function to trigger the event
+    describe('historyChange', function () {
+        this.timeout(30000);
+        before(function () {
+            $.PrivateBin.Helper.reset();
+        });
+&nbsp;
+        jsc.property(
+            'redirects to home, when the state is null',
+            jsc.elements(schemas),
+            jsc.nearray(jsc.elements(a2zString)),
+            function (schema, address) {
+                var expected = schema + '://' + address.join('') + '/',
+                    clean = jsdom('', {url: expected});
+&nbsp;
+                // make window.location.href writable
+                Object.defineProperty(window.location, 'href', {
+                    writable: true,
+                    value: window.location.href
+                });
+                $.PrivateBin.UiHelper.mockHistoryChange();
+                $.PrivateBin.Helper.reset();
+                var result = window.location.href;
+                clean();
+                return expected === result;
+            }
+        );
+&nbsp;
+        jsc.property(
+            'does not redirect to home, when a new paste is created',
+            jsc.elements(schemas),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.array(jsc.elements(queryString)),
+            jsc.nearray(jsc.elements(base64String)),
+            function (schema, address, query, fragment) {
+                var expected = schema + '://' + address.join('') + '/' + '?' +
+                               query.join('') + '#' + fragment.join(''),
+                    clean = jsdom('', {url: expected});
+&nbsp;
+                // make window.location.href writable
+                Object.defineProperty(window.location, 'href', {
+                    writable: true,
+                    value: window.location.href
+                });
+                $.PrivateBin.UiHelper.mockHistoryChange([
+                    {type: 'newpaste'}, '', expected
+                ]);
+                $.PrivateBin.Helper.reset();
+                var result = window.location.href;
+                clean();
+                return expected === result;
+            }
+        );
+    });
+&nbsp;
+    describe('reloadHome', function () {
+        this.timeout(30000);
+        before(function () {
+            $.PrivateBin.Helper.reset();
+        });
+&nbsp;
+        jsc.property(
+            'redirects to home',
+            jsc.elements(schemas),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.array(jsc.elements(queryString)),
+            jsc.nearray(jsc.elements(base64String)),
+            function (schema, address, query, fragment) {
+                var expected = schema + '://' + address.join('') + '/',
+                    clean = jsdom('', {
+                        url: expected + '?' + query.join('') + '#' + fragment.join('')
+                    });
+&nbsp;
+                // make window.location.href writable
+                Object.defineProperty(window.location, 'href', {
+                    writable: true,
+                    value: window.location.href
+                });
+                $.PrivateBin.UiHelper.reloadHome();
+                $.PrivateBin.Helper.reset();
+                var result = window.location.href;
+                clean();
+                return expected === result;
+            }
+        );
+    });
+&nbsp;
+    describe('isVisible', function () {
+        // TODO As per https://github.com/tmpvar/jsdom/issues/1048 there is no layout support in jsdom, yet.
+        // once it is supported or a workaround is found, uncomment the section below
+        /*
+        before(function () {
+            $.PrivateBin.Helper.reset();
+        });
+&nbsp;
+        jsc.property(
+            'detect visible elements',
+            jsc.nearray(jsc.elements(alnumString)),
+            jsc.nearray(jsc.elements(a2zString)),
+            function (id, element) {
+                id = id.join('');
+                element = element.join('');
+                var clean = jsdom(
+                    '&lt;' + element + ' id="' + id + '"&gt;&lt;/' + element + '&gt;'
+                );
+                var result = $.PrivateBin.UiHelper.isVisible($('#' + id));
+                clean();
+                return result;
+            }
+        );
+        */
+    });
+&nbsp;
+    describe('scrollTo', function () {
+        // TODO Did not find a way to test that, see isVisible test above
+    });
+});
+&nbsp;
+describe('Alert', function () {
+    describe('showStatus', function () {
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'shows a status message',
+            jsc.array(jsc.elements(alnumString)),
+            jsc.array(jsc.elements(alnumString)),
+            function (icon, message) {
+                icon = icon.join('');
+                message = message.join('');
+                var expected = '&lt;div id="status" role="alert" ' +
+                    'class="statusmessage alert alert-info"&gt;&lt;span ' +
+                    'class="glyphicon glyphicon-' + icon +
+                    '" aria-hidden="true"&gt;&lt;/span&gt; ' + message + '&lt;/div&gt;';
+                $('body').html(
+                    '&lt;div id="status" role="alert" class="statusmessage ' +
+                    'alert alert-info hidden"&gt;&lt;span class="glyphicon ' +
+                    'glyphicon-info-sign" aria-hidden="true"&gt;&lt;/span&gt; &lt;/div&gt;'
+                );
+                $.PrivateBin.Alert.init();
+                $.PrivateBin.Alert.showStatus(message, icon);
+                var result = $('body').html();
+                return expected === result;
+            }
+        );
+    });
+&nbsp;
+    describe('showError', function () {
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'shows an error message',
+            jsc.array(jsc.elements(alnumString)),
+            jsc.array(jsc.elements(alnumString)),
+            function (icon, message) {
+                icon = icon.join('');
+                message = message.join('');
+                var expected = '&lt;div id="errormessage" role="alert" ' +
+                    'class="statusmessage alert alert-danger"&gt;&lt;span ' +
+                    'class="glyphicon glyphicon-' + icon +
+                    '" aria-hidden="true"&gt;&lt;/span&gt; ' + message + '&lt;/div&gt;';
+                $('body').html(
+                    '&lt;div id="errormessage" role="alert" class="statusmessage ' +
+                    'alert alert-danger hidden"&gt;&lt;span class="glyphicon ' +
+                    'glyphicon-alert" aria-hidden="true"&gt;&lt;/span&gt; &lt;/div&gt;'
+                );
+                $.PrivateBin.Alert.init();
+                $.PrivateBin.Alert.showError(message, icon);
+                var result = $('body').html();
+                return expected === result;
+            }
+        );
+    });
+&nbsp;
+    describe('showRemaining', function () {
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'shows remaining time',
+            jsc.array(jsc.elements(alnumString)),
+            jsc.array(jsc.elements(alnumString)),
+            'integer',
+            function (message, string, number) {
+                message = message.join('');
+                string = string.join('');
+                var expected = '&lt;div id="remainingtime" role="alert" ' +
+                    'class="alert alert-info"&gt;&lt;span ' +
+                    'class="glyphicon glyphicon-fire" aria-hidden="true"&gt;' +
+                    '&lt;/span&gt; ' + string + message + number + '&lt;/div&gt;';
+                $('body').html(
+                    '&lt;div id="remainingtime" role="alert" class="hidden ' +
+                    'alert alert-info"&gt;&lt;span class="glyphicon ' +
+                    'glyphicon-fire" aria-hidden="true"&gt;&lt;/span&gt; &lt;/div&gt;'
+                );
+                $.PrivateBin.Alert.init();
+                $.PrivateBin.Alert.showRemaining(['%s' + message + '%d', string, number]);
+                var result = $('body').html();
+                return expected === result;
+            }
+        );
+    });
+&nbsp;
+    describe('showLoading', function () {
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'shows a loading message',
+            jsc.array(jsc.elements(alnumString)),
+            jsc.array(jsc.elements(alnumString)),
+            'integer',
+            function (icon, message, number) {
+                icon = icon.join('');
+                message = message.join('');
+                var default_message = 'Loading…';
+                if (message.length == 0) {
+                    message = default_message;
+                }
+                var expected = '&lt;ul class="nav navbar-nav"&gt;&lt;li ' +
+                    'id="loadingindicator" class="navbar-text"&gt;&lt;span ' +
+                    'class="glyphicon glyphicon-' + icon +
+                    '" aria-hidden="true"&gt;&lt;/span&gt; ' + message + '&lt;/li&gt;&lt;/ul&gt;';
+                $('body').html(
+                    '&lt;ul class="nav navbar-nav"&gt;&lt;li id="loadingindicator" ' +
+                    'class="navbar-text hidden"&gt;&lt;span class="glyphicon ' +
+                    'glyphicon-time" aria-hidden="true"&gt;&lt;/span&gt; ' +
+                    default_message + '&lt;/li&gt;&lt;/ul&gt;'
+                );
+                $.PrivateBin.Alert.init();
+                $.PrivateBin.Alert.showLoading(message, number, icon);
+                var result = $('body').html();
+                return expected === result;
+            }
+        );
+    });
+&nbsp;
+    describe('hideLoading', function () {
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        it(
+            'hides the loading message',
+            function() {
+                $('body').html(
+                    '&lt;ul class="nav navbar-nav"&gt;&lt;li id="loadingindicator" ' +
+                    'class="navbar-text"&gt;&lt;span class="glyphicon ' +
+                    'glyphicon-time" aria-hidden="true"&gt;&lt;/span&gt; ' +
+                    'Loading…&lt;/li&gt;&lt;/ul&gt;'
+                );
+                $('body').addClass('loading');
+                $.PrivateBin.Alert.init();
+                $.PrivateBin.Alert.hideLoading();
+                return !$('body').hasClass('loading') &amp;&amp;
+                    $('#loadingindicator').hasClass('hidden');
+            }
+        );
+    });
+&nbsp;
+    describe('hideMessages', function () {
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        it(
+            'hides all messages',
+            function() {
+                $('body').html(
+                    '&lt;div id="status" role="alert" class="statusmessage ' +
+                    'alert alert-info"&gt;&lt;span class="glyphicon ' +
+                    'glyphicon-info-sign" aria-hidden="true"&gt;&lt;/span&gt; &lt;/div&gt;' +
+                    '&lt;div id="errormessage" role="alert" class="statusmessage ' +
+                    'alert alert-danger"&gt;&lt;span class="glyphicon ' +
+                    'glyphicon-alert" aria-hidden="true"&gt;&lt;/span&gt; &lt;/div&gt;'
+                );
+                $.PrivateBin.Alert.init();
+                $.PrivateBin.Alert.hideMessages();
+                return $('#statusmessage').hasClass('hidden') &amp;&amp;
+<span class="branch-1 cbranch-no" title="branch not covered" >                    $('#errormessage').hasClass('hidden');</span>
+            }
+        );
+    });
+&nbsp;
+    describe('setCustomHandler', function () {
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'calls a given handler function',
+            'nat 3',
+            jsc.array(jsc.elements(alnumString)),
+            function (trigger, message) {
+                message = message.join('');
+                var handlerCalled = false,
+                    default_message = 'Loading…',
+                    functions = [
+                        $.PrivateBin.Alert.showStatus,
+                        $.PrivateBin.Alert.showError,
+                        $.PrivateBin.Alert.showRemaining,
+                        $.PrivateBin.Alert.showLoading
+                    ];
+                if (message.length == 0) {
+                    message = default_message;
+                }
+                $('body').html(
+                    '&lt;ul class="nav navbar-nav"&gt;&lt;li id="loadingindicator" ' +
+                    'class="navbar-text hidden"&gt;&lt;span class="glyphicon ' +
+                    'glyphicon-time" aria-hidden="true"&gt;&lt;/span&gt; ' +
+                    default_message + '&lt;/li&gt;&lt;/ul&gt;' +
+                    '&lt;div id="remainingtime" role="alert" class="hidden ' +
+                    'alert alert-info"&gt;&lt;span class="glyphicon ' +
+                    'glyphicon-fire" aria-hidden="true"&gt;&lt;/span&gt; &lt;/div&gt;' +
+                    '&lt;div id="status" role="alert" class="statusmessage ' +
+                    'alert alert-info"&gt;&lt;span class="glyphicon ' +
+                    'glyphicon-info-sign" aria-hidden="true"&gt;&lt;/span&gt; &lt;/div&gt;' +
+                    '&lt;div id="errormessage" role="alert" class="statusmessage ' +
+                    'alert alert-danger"&gt;&lt;span class="glyphicon ' +
+                    'glyphicon-alert" aria-hidden="true"&gt;&lt;/span&gt; &lt;/div&gt;'
+                );
+                $.PrivateBin.Alert.init();
+                $.PrivateBin.Alert.setCustomHandler(function(id, $element) {
+                    handlerCalled = true;
+                    return jsc.random(0, 1) ? true : $element;
+                });
+                functions[trigger](message);
+                return handlerCalled;
+            }
+        );
+    });
+});
+&nbsp;
+describe('PasteStatus', function () {
+    describe('createPasteNotification', function () {
+        this.timeout(30000);
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'creates a notification after a successfull paste upload',
+            jsc.elements(schemas),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.array(jsc.elements(queryString)),
+            'string',
+            jsc.elements(schemas),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.array(jsc.elements(queryString)),
+            function (
+                schema1, address1, query1, fragment1,
+                schema2, address2, query2
+            ) {
+                var expected1 = schema1 + '://' + address1.join('') + '/?' +
+                    encodeURI(query1.join('').replace(/^&amp;+|&amp;+$/gm,'') + '#' + fragment1),
+                    expected2 = schema2 + '://' + address2.join('') + '/?' +
+                    encodeURI(query2.join('')),
+                    clean = jsdom();
+                $('body').html('&lt;div&gt;&lt;div id="deletelink"&gt;&lt;/div&gt;&lt;div id="pastelink"&gt;&lt;/div&gt;&lt;/div&gt;');
+                $.PrivateBin.PasteStatus.init();
+                $.PrivateBin.PasteStatus.createPasteNotification(expected1, expected2);
+                var result1 = $('#pasteurl')[0].href,
+                    result2 = $('#deletelink a')[0].href;
+                clean();
+                return result1 == expected1 &amp;&amp; result2 == expected2;
+            }
+        );
+    });
+&nbsp;
+    describe('showRemainingTime', function () {
+        this.timeout(30000);
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'shows burn after reading message or remaining time',
+            'bool',
+            'nat',
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.nearray(jsc.elements(a2zString)),
+            jsc.array(jsc.elements(queryString)),
+            'string',
+            function (
+                burnafterreading, remaining_time,
+                schema, address, query, fragment
+            ) {
+                var clean = jsdom('', {
+                        url: schema.join('') + '://' + address.join('') +
+                             '/?' + queryString + '#' + fragment
+                    });
+                $('body').html('&lt;div id="remainingtime" class="hidden"&gt;&lt;/div&gt;');
+                $.PrivateBin.PasteStatus.init();
+                $.PrivateBin.PasteStatus.showRemainingTime({
+                    'burnafterreading': burnafterreading,
+                    'remaining_time': remaining_time,
+                    'expire_date': remaining_time ? ((new Date()).getTime() / 1000) + remaining_time : 0
+                });
+                if (burnafterreading) {
+                    var result = $('#remainingtime').hasClass('foryoureyesonly') &amp;&amp;
+                                !$('#remainingtime').hasClass('hidden');
+                } else if (remaining_time) {
+                    var result =!$('#remainingtime').hasClass('foryoureyesonly') &amp;&amp;
+                                !$('#remainingtime').hasClass('hidden');
+                } else {
+                    var result = $('#remainingtime').hasClass('hidden') &amp;&amp;
+                                !$('#remainingtime').hasClass('foryoureyesonly');
+                }
+                clean();
+                return result;
+            }
+        );
+    });
+&nbsp;
+    describe('hideMessages', function () {
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        it(
+            'hides all messages',
+            function() {
+                $('body').html(
+                    '&lt;div id="remainingtime"&gt;&lt;/div&gt;&lt;div id="pastesuccess"&gt;&lt;/div&gt;'
+                );
+                $.PrivateBin.PasteStatus.init();
+                $.PrivateBin.PasteStatus.hideMessages();
+                return $('#remainingtime').hasClass('hidden') &amp;&amp;
+                    $('#pastesuccess').hasClass('hidden');
+            }
+        );
+    });
+});
+&nbsp;
+describe('Prompt', function () {
+    // TODO: this does not test the prompt() fallback, since that isn't available
+    //       in nodejs -&gt; replace the prompt in the "page" template with a modal
+    describe('requestPassword &amp; getPassword', function () {
+        this.timeout(30000);
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'returns the password fed into the dialog',
+            'string',
+            function (password) {
+                password = password.replace(/\r+/g, '');
+                var clean = jsdom('', {url: 'ftp://example.com/#0'});
+                $('body').html(
+                    '&lt;div id="passwordmodal" class="modal fade" role="dialog"&gt;' +
+                    '&lt;div class="modal-dialog"&gt;&lt;div class="modal-content"&gt;' +
+                    '&lt;div class="modal-body"&gt;&lt;form id="passwordform" role="form"&gt;' +
+                    '&lt;div class="form-group"&gt;&lt;input id="passworddecrypt" ' +
+                    'type="password" class="form-control" placeholder="Enter ' +
+                    'password"&gt;&lt;/div&gt;&lt;button type="submit"&gt;Decrypt&lt;/button&gt;' +
+                    '&lt;/form&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div id="cipherdata"&gt;{}&lt;/div&gt;'
+                );
+                $.PrivateBin.Model.init();
+                $.PrivateBin.Prompt.init();
+                $.PrivateBin.Prompt.requestPassword();
+                $('#passworddecrypt').val(password);
+                $('#passwordform').submit();
+                var result = $.PrivateBin.Prompt.getPassword();
+                clean();
+                return result == password;
+            }
+        );
+    });
+});
+&nbsp;
+describe('Editor', function () {
+    describe('show, hide, getText, setText &amp; isPreview', function () {
+        this.timeout(30000);
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'returns text fed into the textarea, handles editor tabs',
+            'string',
+            function (text) {
+                var clean = jsdom(),
+                    results = [];
+                $('body').html(
+                    '&lt;ul id="editorTabs" class="nav nav-tabs hidden"&gt;&lt;li ' +
+                    'role="presentation" class="active"&gt;&lt;a id="messageedit" ' +
+                    'href="#"&gt;Editor&lt;/a&gt;&lt;/li&gt;&lt;li role="presentation"&gt;&lt;a ' +
+                    'id="messagepreview" href="#"&gt;Preview&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;div ' +
+                    'id="placeholder" class="hidden"&gt;+++ no paste text +++&lt;/div&gt;' +
+                    '&lt;div id="prettymessage" class="hidden"&gt;&lt;pre id="prettyprint" ' +
+                    'class="prettyprint linenums:1"&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div ' +
+                    'id="plaintext" class="hidden"&gt;&lt;/div&gt;&lt;p&gt;&lt;textarea ' +
+                    'id="message" name="message" cols="80" rows="25" ' +
+                    'class="form-control hidden"&gt;&lt;/textarea&gt;&lt;/p&gt;'
+                );
+                $.PrivateBin.Editor.init();
+                results.push(
+                    $('#editorTabs').hasClass('hidden') &amp;&amp;
+                    $('#message').hasClass('hidden')
+                );
+                $.PrivateBin.Editor.show();
+                results.push(
+                    !$('#editorTabs').hasClass('hidden') &amp;&amp;
+                    !$('#message').hasClass('hidden')
+                );
+                $.PrivateBin.Editor.hide();
+                results.push(
+                    $('#editorTabs').hasClass('hidden') &amp;&amp;
+                    $('#message').hasClass('hidden')
+                );
+                $.PrivateBin.Editor.show();
+                $.PrivateBin.Editor.focusInput();
+                results.push(
+                    $.PrivateBin.Editor.getText().length == 0
+                );
+                $.PrivateBin.Editor.setText(text);
+                results.push(
+                    $.PrivateBin.Editor.getText() == $('#message').val()
+                );
+                $.PrivateBin.Editor.setText();
+                results.push(
+                    !$.PrivateBin.Editor.isPreview() &amp;&amp;
+                    !$('#message').hasClass('hidden')
+                );
+                $('#messagepreview').click();
+                results.push(
+                    $.PrivateBin.Editor.isPreview() &amp;&amp;
+                    $('#message').hasClass('hidden')
+                );
+                $('#messageedit').click();
+                results.push(
+                    !$.PrivateBin.Editor.isPreview() &amp;&amp;
+                    !$('#message').hasClass('hidden')
+                );
+                clean();
+                return results.every(element =&gt; element);
+            }
+        );
+    });
+});
+&nbsp;
+describe('PasteViewer', function () {
+    describe('run, hide, getText, setText, getFormat, setFormat &amp; isPrettyPrinted', function () {
+        this.timeout(30000);
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'displays text according to format',
+            jsc.elements(['plaintext', 'markdown', 'syntaxhighlighting']),
+            'nestring',
+            function (format, text) {
+                var clean = jsdom(),
+                    results = [];
+                $('body').html(
+                    '&lt;div id="placeholder" class="hidden"&gt;+++ no paste text ' +
+                    '+++&lt;/div&gt;&lt;div id="prettymessage" class="hidden"&gt;&lt;pre ' +
+                    'id="prettyprint" class="prettyprint linenums:1"&gt;&lt;/pre&gt;' +
+                    '&lt;/div&gt;&lt;div id="plaintext" class="hidden"&gt;&lt;/div&gt;'
+                );
+                $.PrivateBin.PasteViewer.init();
+                $.PrivateBin.PasteViewer.setFormat(format);
+                $.PrivateBin.PasteViewer.setText('');
+                results.push(
+                    $('#placeholder').hasClass('hidden') &amp;&amp;
+                    $('#prettymessage').hasClass('hidden') &amp;&amp;
+                    $('#plaintext').hasClass('hidden') &amp;&amp;
+                    $.PrivateBin.PasteViewer.getFormat() == format &amp;&amp;
+                    $.PrivateBin.PasteViewer.getText() == ''
+                );
+                $.PrivateBin.PasteViewer.run();
+                results.push(
+                    !$('#placeholder').hasClass('hidden') &amp;&amp;
+                    $('#prettymessage').hasClass('hidden') &amp;&amp;
+                    $('#plaintext').hasClass('hidden')
+                );
+                $.PrivateBin.PasteViewer.hide();
+                results.push(
+                    $('#placeholder').hasClass('hidden') &amp;&amp;
+                    $('#prettymessage').hasClass('hidden') &amp;&amp;
+                    $('#plaintext').hasClass('hidden')
+                );
+                $.PrivateBin.PasteViewer.setText(text);
+                $.PrivateBin.PasteViewer.run();
+                results.push(
+                    $('#placeholder').hasClass('hidden') &amp;&amp;
+                    !$.PrivateBin.PasteViewer.isPrettyPrinted() &amp;&amp;
+                    $.PrivateBin.PasteViewer.getText() == text
+                );
+                if (format == 'markdown') {
+                    results.push(
+                        $('#prettymessage').hasClass('hidden') &amp;&amp;
+                        !$('#plaintext').hasClass('hidden')
+                    );
+                } else {
+                    results.push(
+                        !$('#prettymessage').hasClass('hidden') &amp;&amp;
+                        $('#plaintext').hasClass('hidden')
+                    );
+                }
+                clean();
+                return results.every(element =&gt; element);
+            }
+        );
+&nbsp;
+        jsc.property(
+            'sanitizes XSS',
+            jsc.elements(['plaintext', 'markdown', 'syntaxhighlighting']),
+            'string',
+            // @see    {@link https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet}
+            jsc.elements([
+                '&lt;PLAINTEXT&gt;',
+                '&gt;&lt;/SCRIPT&gt;"&gt;\'&gt;&lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt;',
+                '\'\';!--"&lt;XSS&gt;=&amp;{()}',
+                '&lt;SCRIPT SRC=http://example.com/xss.js&gt;&lt;/SCRIPT&gt;',
+                '\'"&gt;&gt;&lt;marquee&gt;&lt;img src=x onerror=confirm(1)&gt;&lt;/marquee&gt;"&gt;&lt;/plaintext\\&gt;&lt;/|\\&gt;&lt;plaintext/onmouseover=prompt(1)&gt;&lt;script&gt;prompt(1)&lt;/script&gt;@gmail.com&lt;isindex formaction=javascript:alert(/XSS/) type=submit&gt;\'--&gt;"&gt;&lt;/script&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;"&gt;&lt;img/id="confirm&amp;lpar;1)"/alt="/"src="/"onerror=eval(id)&gt;\'"&gt;',
+                '&lt;IMG SRC="javascript:alert(\'XSS\');"&gt;',
+                '&lt;IMG SRC=javascript:alert(\'XSS\')&gt;',
+                '&lt;IMG SRC=JaVaScRiPt:alert(\'XSS\')&gt;',
+                '&lt;IMG SRC=javascript:alert(&amp;quot;XSS&amp;quot;)&gt;',
+                '&lt;IMG SRC=`javascript:alert("RSnake says, \'XSS\'")`&gt;',
+                '&lt;a onmouseover="alert(document.cookie)"&gt;xxs link&lt;/a&gt;',
+                '&lt;a onmouseover=alert(document.cookie)&gt;xxs link&lt;/a&gt;',
+                '&lt;IMG """&gt;&lt;SCRIPT&gt;alert("XSS")&lt;/SCRIPT&gt;"&gt;',
+                '&lt;IMG SRC=javascript:alert(String.fromCharCode(88,83,83))&gt;',
+                '&lt;IMG STYLE="xss:expr/*XSS*/ession(alert(\'XSS\'))"&gt;',
+                '&lt;FRAMESET&gt;&lt;FRAME SRC="javascript:alert(\'XSS\');"&gt;&lt;/FRAMESET&gt;',
+                '&lt;TABLE BACKGROUND="javascript:alert(\'XSS\')"&gt;',
+                '&lt;TABLE&gt;&lt;TD BACKGROUND="javascript:alert(\'XSS\')"&gt;',
+                '&lt;SCRIPT&gt;document.write("&lt;SCRI");&lt;/SCRIPT&gt;PT SRC="httx://xss.rocks/xss.js"&gt;&lt;/SCRIPT&gt;'
+            ]),
+            'string',
+            function (format, prefix, xss, suffix) {
+                var clean = jsdom(),
+                    text = prefix + xss + suffix;
+                $('body').html(
+                    '&lt;div id="placeholder" class="hidden"&gt;+++ no paste text ' +
+                    '+++&lt;/div&gt;&lt;div id="prettymessage" class="hidden"&gt;&lt;pre ' +
+                    'id="prettyprint" class="prettyprint linenums:1"&gt;&lt;/pre&gt;' +
+                    '&lt;/div&gt;&lt;div id="plaintext" class="hidden"&gt;&lt;/div&gt;'
+                );
+                $.PrivateBin.PasteViewer.init();
+                $.PrivateBin.PasteViewer.setFormat(format);
+                $.PrivateBin.PasteViewer.setText(text);
+                $.PrivateBin.PasteViewer.run();
+                var result = $('body').html().indexOf(xss) === -1;
+                clean();
+                return result;
+            }
+        );
+    });
+});
+&nbsp;
+describe('AttachmentViewer', function () {
+    describe('setAttachment, showAttachment, removeAttachment, hideAttachment, hideAttachmentPreview, hasAttachment, getAttachment &amp; moveAttachmentTo', function () {
+        this.timeout(30000);
+        before(function () {
+            cleanup();
+        });
+&nbsp;
+        jsc.property(
+            'displays &amp; hides data as requested',
+            jsc.elements(mimeTypes),
+            jsc.nearray(jsc.elements(base64String)),
+            'string',
+            'string',
+            'string',
+            function (mimeType, base64, filename, prefix, postfix) {
+                var clean = jsdom(),
+                    data = 'data:' + mimeType + ';base64,' + base64.join(''),
+                    isImage = mimeType.substring(0, 6) === 'image/',
+                    results = [];
+                prefix = prefix.replace(/%(s|d)/g, '%%');
+                postfix = postfix.replace(/%(s|d)/g, '%%');
+                $('body').html(
+                    '&lt;div id="attachment" role="alert" class="hidden alert ' +
+                    'alert-info"&gt;&lt;span class="glyphicon glyphicon-download-' +
+                    'alt" aria-hidden="true"&gt;&lt;/span&gt; &lt;a class="alert-link"&gt;' +
+                    'Download attachment&lt;/a&gt;&lt;/div&gt;&lt;div id="attachmentPrevie' +
+                    'w" class="hidden"&gt;&lt;/div&gt;'
+                );
+                $.PrivateBin.AttachmentViewer.init();
+                results.push(
+                    !$.PrivateBin.AttachmentViewer.hasAttachment() &amp;&amp;
+                    $('#attachment').hasClass('hidden') &amp;&amp;
+                    $('#attachmentPreview').hasClass('hidden')
+                );
+                if (filename.length) {
+                    $.PrivateBin.AttachmentViewer.setAttachment(data, filename);
+                } else {
+                    $.PrivateBin.AttachmentViewer.setAttachment(data);
+                }
+                var attachement = $.PrivateBin.AttachmentViewer.getAttachment()
+                results.push(
+                    $.PrivateBin.AttachmentViewer.hasAttachment() &amp;&amp;
+                    $('#attachment').hasClass('hidden') &amp;&amp;
+                    $('#attachmentPreview').hasClass('hidden') &amp;&amp;
+                    attachement[0] === data &amp;&amp;
+                    attachement[1] === filename
+                );
+                $.PrivateBin.AttachmentViewer.showAttachment();
+                results.push(
+                    !$('#attachment').hasClass('hidden') &amp;&amp;
+                    (isImage ? !$('#attachmentPreview').hasClass('hidden') : $('#attachmentPreview').hasClass('hidden'))
+                );
+                $.PrivateBin.AttachmentViewer.hideAttachment();
+                results.push(
+                    $('#attachment').hasClass('hidden') &amp;&amp;
+                    (isImage ? !$('#attachmentPreview').hasClass('hidden') : $('#attachmentPreview').hasClass('hidden'))
+                );
+                if (isImage) {
+                    $.PrivateBin.AttachmentViewer.hideAttachmentPreview();
+                    results.push($('#attachmentPreview').hasClass('hidden'));
+                }
+                $.PrivateBin.AttachmentViewer.showAttachment();
+                results.push(
+                    !$('#attachment').hasClass('hidden') &amp;&amp;
+                    (isImage ? !$('#attachmentPreview').hasClass('hidden') : $('#attachmentPreview').hasClass('hidden'))
+                );
+                var element = $('&lt;div&gt;&lt;/div&gt;');
+                $.PrivateBin.AttachmentViewer.moveAttachmentTo(element, prefix + '%s' + postfix);
+                if (filename.length) {
+                    results.push(
+                        element.children()[0].href === data &amp;&amp;
+                        element.children()[0].getAttribute('download') === filename &amp;&amp;
+                        element.children()[0].text === prefix + filename + postfix
+                    );
+                } else {
+                    results.push(element.children()[0].href === data);
+                }
+                $.PrivateBin.AttachmentViewer.removeAttachment();
+                results.push(
+                    $('#attachment').hasClass('hidden') &amp;&amp;
+                    $('#attachmentPreview').hasClass('hidden')
+                );
+                clean();
+                return results.every(element =&gt; element);
+            }
+        );
+    });
+});
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Dec 03 2017 14:25:35 GMT+0100 (CET)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

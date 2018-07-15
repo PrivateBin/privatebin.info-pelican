@@ -7,13 +7,14 @@
  * @link      https://github.com/PrivateBin/PrivateBin
  * @copyright 2012 Sébastien SAUVAGE (sebsauvage.net)
  * @license   https://www.opensource.org/licenses/zlib-license.php The zlib/libpng License
- * @version   1.1.1
+ * @version   1.2
  */
 
 namespace PrivateBin;
 
 use Exception;
 use PDO;
+use PrivateBin\Persistence\DataStore;
 
 /**
  * Configuration
@@ -22,13 +23,6 @@ use PDO;
  */
 class Configuration
 {
-    /**
-     * First line in INI file, to hide contents
-     *
-     * @const string
-     */
-    const PROTECTION_LINE = ';<?php http_response_code(403); /*';
-
     /**
      * parsed configuration
      *
@@ -43,6 +37,7 @@ class Configuration
      */
     private static $_defaults = array(
         'main' => array(
+            'name'                     => 'PrivateBin',
             'discussion'               => true,
             'opendiscussion'           => false,
             'password'                 => true,
@@ -56,13 +51,13 @@ class Configuration
             'languageselection'        => false,
             'languagedefault'          => '',
             'urlshortener'             => '',
+            'qrcode'                   => true,
             'icon'                     => 'identicon',
-            'cspheader'                => 'default-src \'none\'; manifest-src \'self\'; connect-src *; script-src \'self\'; style-src \'self\'; font-src \'self\'; img-src \'self\' data:; referrer no-referrer;',
+            'cspheader'                => 'default-src \'none\'; manifest-src \'self\'; connect-src *; script-src \'self\'; style-src \'self\'; font-src \'self\'; img-src \'self\' data:; media-src data:; object-src data:; Referrer-Policy: \'no-referrer\'; sandbox allow-same-origin allow-scripts allow-forms allow-popups',
             'zerobincompatibility'     => false,
         ),
         'expire' => array(
             'default' => '1week',
-            'clone'   => true,
         ),
         'expire_options' => array(
             '5min'   => 300,
@@ -110,27 +105,12 @@ class Configuration
 
         // rename INI files to avoid configuration leakage
         if (is_readable($configIni)) {
-            $context = stream_context_create();
-            // don't overwrite already converted file
-            if (!is_file($configFile)) {
-                $iniHandle = fopen($configIni, 'r', false, $context);
-                file_put_contents($configFile, self::PROTECTION_LINE . PHP_EOL);
-                file_put_contents($configFile, $iniHandle, FILE_APPEND);
-                fclose($iniHandle);
-            }
-            unlink($configIni);
+            DataStore::prependRename($configIni, $configFile, ';');
 
             // cleanup sample, too
-            $configSample    = PATH . 'cfg' . DIRECTORY_SEPARATOR . 'conf.sample.php';
-            $configIniSample = PATH . 'cfg' . DIRECTORY_SEPARATOR . 'conf.ini.sample';
+            $configIniSample = $configIni . '.sample';
             if (is_readable($configIniSample)) {
-                if (!is_readable($configSample)) {
-                    $iniSampleHandle = fopen($configIniSample, 'r', false, $context);
-                    file_put_contents($configSample, self::PROTECTION_LINE . PHP_EOL);
-                    file_put_contents($configSample, $iniSampleHandle, FILE_APPEND);
-                    fclose($iniSampleHandle);
-                }
-                unlink($configIniSample);
+                DataStore::prependRename($configIniSample, PATH . 'cfg' . DIRECTORY_SEPARATOR . 'conf.sample.php', ';');
             }
         }
 
@@ -231,7 +211,7 @@ class Configuration
     /**
      * get configuration as array
      *
-     * return array
+     * @return array
      */
     public function get()
     {
@@ -241,7 +221,7 @@ class Configuration
     /**
      * get default configuration as array
      *
-     * return array
+     * @return array
      */
     public static function getDefaults()
     {
@@ -254,7 +234,7 @@ class Configuration
      * @param string $key
      * @param string $section defaults to main
      * @throws Exception
-     * return mixed
+     * @return mixed
      */
     public function getKey($key, $section = 'main')
     {
@@ -270,12 +250,12 @@ class Configuration
      *
      * @param string $section
      * @throws Exception
-     * return mixed
+     * @return mixed
      */
     public function getSection($section)
     {
         if (!array_key_exists($section, $this->_configuration)) {
-            throw new Exception(I18n::_('PrivateBin requires configuration section [%s] to be present in configuration file.', $section), 3);
+            throw new Exception(I18n::_('%s requires configuration section [%s] to be present in configuration file.', I18n::_($this->getKey('name')), $section), 3);
         }
         return $this->_configuration[$section];
     }

@@ -8,7 +8,7 @@
  * @link      http://sebsauvage.net/wiki/doku.php?id=php:vizhash_gd
  * @copyright 2012 Sébastien SAUVAGE (sebsauvage.net)
  * @license   https://www.opensource.org/licenses/zlib-license.php The zlib/libpng License
- * @version   0.0.5 beta PrivateBin 1.1.1
+ * @version   0.0.5 beta PrivateBin 1.2
  */
 
 namespace PrivateBin;
@@ -61,7 +61,6 @@ class Vizhash16x16
      * constructor
      *
      * @access public
-     * @return void
      */
     public function __construct()
     {
@@ -210,7 +209,6 @@ class Vizhash16x16
      * @param  resource $image
      * @param  int $action
      * @param  int $color
-     * @return void
      */
     private function drawshape($image, $action, $color)
     {
