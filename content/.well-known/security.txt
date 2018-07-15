@@ -1,0 +1,5 @@
+Contact: security@privatebin.org
+Encryption: https://privatebin.info/key/security.asc
+Acknowledgements: https://privatebin.info/category/reports.html
+Signature: https://privatebin.info/.well-known/security.txt.sig
+

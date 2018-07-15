@@ -9,7 +9,7 @@ SITEURL = ''
 
 
 PATH = 'content'
-STATIC_PATHS = ['codedoc','coverage','img','jscoverage','jsdoc','key']
+STATIC_PATHS = ['codedoc','coverage','img','jscoverage','jsdoc','key','.well-known']
 ARTICLE_EXCLUDES = ['codedoc','coverage','jscoverage','jsdoc']
 THEME = 'themes/privatebin-bootstrap'
 
