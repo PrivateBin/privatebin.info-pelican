@@ -6,8 +6,8 @@ save_as: credits.html
 
 ## Active contributors
 
-Simon Rupf - current developer and maintainer (git signing key [4096R/6BD81F92]({filename}/key/elrido.asc))  
-rugk - security review, doc improvment & various other stuff (git signing key [4096R/6AFAB34D]({filename}/key/rugk.asc))
+Simon Rupf - current developer and maintainer (git signing key [4096R/0F5C940A6BD81F92]({filename}/key/elrido.asc))  
+rugk - security review, doc improvment & various other stuff (git signing key [4096R/05D40A636AFAB34D]({filename}/key/rugk.asc))
 
 ## Past contributions
 
@@ -26,6 +26,7 @@ Sébastien Sauvage - original idea and main developer
 * Nathaniel Olsen - jQuery upgrade
 * Alexander Demenshin - modal password dialog
 * PunKeel - Dockerfile
+* thororm - Display of video, audio & PDF, drag & drop, preview of attachments
 
 ## Translations
 * Hexalyse - French
@@ -36,3 +37,9 @@ Sébastien Sauvage - original idea and main developer
 * Jiawei Zhou - Chinese
 * Stefano Marty - Italian
 * R4SAS - Russian
+* Alfredo Fabián Altamirano Tena - Spanish
+* Quent-in - Occitan
+* idarlund - Norwegian
+* Tulio Leao - Portuguese
+* Michael van Schaik - Dutch
+* Péter Tabajdi - Hungarian
