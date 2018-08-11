@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">85.81% </span>
+        <span class="strong">85.15% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>260/303</span>
+        <span class='fraction'>258/303</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">63.46% </span>
+        <span class="strong">62.82% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>198/312</span>
+        <span class='fraction'>196/312</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">86.67% </span>
@@ -78,18 +78,18 @@
 <span class="cline-any cline-yes">517×</span>
 <span class="cline-any cline-yes">2261×</span>
 <span class="cline-any cline-yes">2261×</span>
-<span class="cline-any cline-yes">270×</span>
-<span class="cline-any cline-yes">85×</span>
-<span class="cline-any cline-yes">3184×</span>
+<span class="cline-any cline-yes">302×</span>
+<span class="cline-any cline-yes">83×</span>
+<span class="cline-any cline-yes">2784×</span>
 <span class="cline-any cline-yes">205×</span>
 <span class="cline-any cline-yes">11×</span>
 <span class="cline-any cline-yes">11×</span>
 <span class="cline-any cline-yes">11×</span>
-<span class="cline-any cline-yes">136×</span>
-<span class="cline-any cline-yes">67×</span>
+<span class="cline-any cline-yes">159×</span>
 <span class="cline-any cline-yes">79×</span>
-<span class="cline-any cline-yes">545×</span>
-<span class="cline-any cline-yes">468×</span>
+<span class="cline-any cline-yes">79×</span>
+<span class="cline-any cline-yes">462×</span>
+<span class="cline-any cline-yes">401×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -98,11 +98,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">67×</span>
-<span class="cline-any cline-yes">67×</span>
+<span class="cline-any cline-yes">72×</span>
+<span class="cline-any cline-yes">72×</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">201×</span>
-<span class="cline-any cline-yes">67×</span>
+<span class="cline-any cline-yes">216×</span>
+<span class="cline-any cline-yes">72×</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">!function(){"undefined"!==typeof window&amp;&amp;(window.PR_SHOULD_USE_CONTINUATION=!0);
 (function(){function T(a){function d(e){var a=e.charCodeAt(0);if(92!==a)return a;var c=e.charAt(1);return(a=w[c])?<span class="branch-0 cbranch-no" title="branch not covered" >a:</span>"0"&lt;=c&amp;&amp;<span class="branch-1 cbranch-no" title="branch not covered" >"7"&gt;=c?<span class="branch-0 cbranch-no" title="branch not covered" ></span>parseInt(e.substring(1),8):</span>"u"===c||"x"===c?<span class="branch-0 cbranch-no" title="branch not covered" >parseInt(e.substring(2),16):</span>e.charCodeAt(1)}function f(e){<span class="missing-if-branch" title="if path not taken" >I</span>if(32&gt;e)<span class="cstat-no" title="statement not covered" >return(16&gt;e?"\\x0":"\\x")+e.toString(16);e</span>=String.fromCharCode(e);return"\\"===e||"-"===e||"]"===e||"^"===e?"\\"+e:e}function c(e){var c=e.substring(1,e.length-1).match(RegExp("\\\\u[0-9A-Fa-f]{4}|\\\\x[0-9A-Fa-f]{2}|\\\\[0-3][0-7]{0,2}|\\\\[0-7]{1,2}|\\\\[\\s\\S]|-|[^-\\\\]","g"));
 e=[];var a="^"===c[0],b=["["];a&amp;&amp;<span class="branch-1 cbranch-no" title="branch not covered" >b.push("^");</span>for(var a=a?1:0,g=c.length;a&lt;g;++a){var h=c[a];<span class="missing-if-branch" title="if path not taken" >I</span>if(/\\[bdsw]/i.test(h))<span class="cstat-no" title="statement not covered" >b.push(h);e</span>lse{var h=d(h),k;a+2&lt;g&amp;&amp;"-"===c[a+1]?(k=d(c[a+2]),a+=2):k=h;e.push([h,k]);65&gt;k||122&lt;h||(65&gt;k||90&lt;h||<span class="branch-2 cbranch-no" title="branch not covered" >e.push([Math.max(65,h)|32,Math.min(k,90)|32]),</span>97&gt;k||122&lt;h||e.push([Math.max(97,h)&amp;-33,Math.min(k,122)&amp;-33]))}}e.sort(function(e,a){return e[0]-a[0]||<span class="branch-1 cbranch-no" title="branch not covered" >a[1]-e[1]}</span>);c=[];g=[];for(a=0;a&lt;e.length;++a)h=e[a],h[0]&lt;=g[1]+1?g[1]=Math.max(g[1],h[1]):c.push(g=h);for(a=0;a&lt;c.length;++a)h=
@@ -110,13 +110,13 @@ c[a],b.push(f(h[0])),h[1]&gt;h[0]&amp;&amp;(h[1]+1&gt;h[0]&amp;&amp;b.push("-"),
 "("===k?(++h,d[h]||(a[g]="(?:")):"\\"===k.charAt(0)&amp;&amp;(k=+k.substring(1))&amp;&amp;<span class="branch-2 cbranch-no" title="branch not covered" >k&lt;=h&amp;</span>&amp;(<span class="branch-3 cbranch-no" title="branch not covered" >a[g]="\\"+d[k])</span>;for(g=0;g&lt;b;++g)"^"===a[g]&amp;&amp;"^"!==a[g+1]&amp;&amp;(a[g]="");if(e.ignoreCase&amp;&amp;q)for(g=0;g&lt;b;++g)k=a[g],e=k.charAt(0),2&lt;=k.length&amp;&amp;"["===e?a[g]=c(k):"\\"!==e&amp;&amp;(a[g]=k.replace(/[a-zA-Z]/g,function(a){a=a.charCodeAt(0);return"["+String.fromCharCode(a&amp;-33,a|32)+"]"}));return a.join("")}for(var E=0,q=!1,l=!1,n=0,b=a.length;n&lt;b;++n){var p=a[n];if(p.ignoreCase)l=!0;else if(/[a-z]/i.test(p.source.replace(/\\u[0-9a-f]{4}|\\x[0-9a-f]{2}|\\[^ux]/gi,
 ""))){q=!0;l=!1;break}}for(var w={b:8,t:9,n:10,v:11,f:12,r:13},r=[],n=0,b=a.length;n&lt;b;++n){p=a[n];<span class="missing-if-branch" title="if path not taken" >I</span>if(p.global||p.multiline)<span class="cstat-no" title="statement not covered" >throw Error(""+p);r</span>.push("(?:"+m(p)+")")}return new RegExp(r.join("|"),l?"gi":"g")}function U(a,d){function f(a){var b=a.nodeType;if(1==b){<span class="missing-if-branch" title="else path not taken" >E</span>if(!c.test(a.className)){for(b=a.firstChild;b;b=b.nextSibling)f(b);b=a.nodeName.toLowerCase();if("br"===b||"li"===b)m[l]="\n",q[l&lt;&lt;1]=E++,q[l++&lt;&lt;1|1]=a}}else <span class="missing-if-branch" title="else path not taken" >E</span>if(3==b||<span class="branch-1 cbranch-no" title="branch not covered" >4==b)</span>b=a.nodeValue,b.length&amp;&amp;(b=d?b.replace(/\r\n?/g,"\n"):<span class="branch-1 cbranch-no" title="branch not covered" >b.replace(/[ \t\r\n]+/g,</span>
 " "),m[l]=b,q[l&lt;&lt;1]=E,E+=b.length,q[l++&lt;&lt;1|1]=a)}var c=/(?:^|\s)nocode(?:\s|$)/,m=[],E=0,q=[],l=0;f(a);return{a:m.join("").replace(/\n$/,""),c:q}}function J(a,d,f,c,m){f&amp;&amp;(a={h:a,l:1,j:null,m:null,a:f,c:null,i:d,g:null},c(a),m.push.apply(m,a.g))}<span class="fstat-no" title="function not covered" >function V(a){<span class="cstat-no" title="statement not covered" ></span>for(var d=void 0,f=a.firstChild;f;f=f.nextSibling)<span class="cstat-no" title="statement not covered" >var c=f.nodeType,d=1===c?d?a:f:3===c?W.test(f.nodeValue)?a:d:d;<span class="cstat-no" title="statement not covered" >r</span></span>eturn d===a?void 0:d}</span>function G(a,d){function f(a){for(var l=a.i,n=a.h,b=[l,"pln"],p=0,q=a.a.match(m)||[],r={},e=0,t=q.length;e&lt;
-t;++e){var z=q[e],v=r[z],g=void 0,h;if("string"===typeof v)h=!1;else{var k=c[z.charAt(0)];if(k)g=z.match(k[1]),v=k[0];else{for(h=0;h&lt;E;++h)if(k=d[h],g=z.match(k[1])){v=k[0];break}g||(v="pln")}!(h=5&lt;=v.length&amp;&amp;"lang-"===v.substring(0,5))||g&amp;&amp;"string"===typeof g[1]||(<span class="branch-3 cbranch-no" title="branch not covered" >h=!1,v="src")</span>;h||(r[z]=v)}k=p;p+=z.length;if(h){h=g[1];var A=z.indexOf(h),C=A+h.length;g[2]&amp;&amp;(<span class="branch-1 cbranch-no" title="branch not covered" >C=z.length-g[2].length,A=C-h.length)</span>;v=v.substring(5);J(n,l+k,z.substring(0,A),f,b);J(n,l+k+A,h,K(v,h),b);J(n,l+k+C,z.substring(C),f,b)}else b.push(l+
+t;++e){var z=q[e],v=r[z],g=void 0,h;if("string"===typeof v)h=!1;else{var k=c[z.charAt(0)];if(k)g=z.match(k[1]),v=k[0];else{for(h=0;h&lt;E;++h)if(k=d[h],g=z.match(k[1])){v=k[0];break}g||(<span class="branch-1 cbranch-no" title="branch not covered" >v="pln")</span>}!(h=5&lt;=v.length&amp;&amp;"lang-"===v.substring(0,5))||g&amp;&amp;"string"===typeof g[1]||(<span class="branch-3 cbranch-no" title="branch not covered" >h=!1,v="src")</span>;h||(r[z]=v)}k=p;p+=z.length;if(h){h=g[1];var A=z.indexOf(h),C=A+h.length;g[2]&amp;&amp;(<span class="branch-1 cbranch-no" title="branch not covered" >C=z.length-g[2].length,A=C-h.length)</span>;v=v.substring(5);J(n,l+k,z.substring(0,A),f,b);J(n,l+k+A,h,K(v,h),b);J(n,l+k+C,z.substring(C),f,b)}else b.push(l+
 k,v)}a.g=b}var c={},m;(function(){for(var f=a.concat(d),l=[],n={},b=0,p=f.length;b&lt;p;++b){var w=f[b],r=w[3];if(r)for(var e=r.length;0&lt;=--e;)c[r.charAt(e)]=w;w=w[1];r=""+w;n.hasOwnProperty(r)||(l.push(w),n[r]=null)}l.push(/[\0-\uffff]/);m=T(l)})();var E=d.length;return f}function x(a){var d=[],f=[];a.tripleQuotedStrings?d.push(["str",/^(?:\'\'\'(?:[^\'\\]|\\[\s\S]|\'{1,2}(?=[^\']))*(?:\'\'\'|$)|\"\"\"(?:[^\"\\]|\\[\s\S]|\"{1,2}(?=[^\"]))*(?:\"\"\"|$)|\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$))/,
 null,"'\""]):a.multiLineStrings?d.push(["str",/^(?:\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$)|\`(?:[^\\\`]|\\[\s\S])*(?:\`|$))/,null,"'\"`"]):d.push(["str",/^(?:\'(?:[^\\\'\r\n]|\\.)*(?:\'|$)|\"(?:[^\\\"\r\n]|\\.)*(?:\"|$))/,null,"\"'"]);a.verbatimStrings&amp;&amp;f.push(["str",/^@\"(?:[^\"]|\"\")*(?:\"|$)/,null]);var c=a.hashComments;c&amp;&amp;(a.cStyleComments?(1&lt;c?d.push(["com",/^#(?:##(?:[^#]|#(?!##))*(?:###|$)|.*)/,null,"#"]):d.push(["com",/^#(?:(?:define|e(?:l|nd)if|else|error|ifn?def|include|line|pragma|undef|warning)\b|[^\r\n]*)/,
 null,"#"]),f.push(["str",/^&lt;(?:(?:(?:\.\.\/)*|\/?)(?:[\w-]+(?:\/[\w-]+)+)?[\w-]+\.h(?:h|pp|\+\+)?|[a-z]\w*)&gt;/,null])):d.push(["com",/^#[^\r\n]*/,null,"#"]));a.cStyleComments&amp;&amp;(f.push(["com",/^\/\/[^\r\n]*/,null]),f.push(["com",/^\/\*[\s\S]*?(?:\*\/|$)/,null]));if(c=a.regexLiterals){var m=(c=1&lt;c?"":"\n\r")?".":"[\\S\\s]";f.push(["lang-regex",RegExp("^(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&amp;&amp;?=?|\\(|\\*=?|[+\\-]=|-&gt;|\\/=?|::?|&lt;&lt;?=?|&gt;&gt;?&gt;?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*("+
 ("/(?=[^/*"+c+"])(?:[^/\\x5B\\x5C"+c+"]|\\x5C"+m+"|\\x5B(?:[^\\x5C\\x5D"+c+"]|\\x5C"+m+")*(?:\\x5D|$))+/")+")")])}(c=a.types)&amp;&amp;f.push(["typ",c]);c=(""+a.keywords).replace(/^ | $/g,"");c.length&amp;&amp;f.push(["kwd",new RegExp("^(?:"+c.replace(/[\s,]+/g,"|")+")\\b"),null]);d.push(["pln",/^\s+/,null," \r\n\t\u00a0"]);c="^.[^\\s\\w.$@'\"`/\\\\]*";a.regexLiterals&amp;&amp;(c+="(?!s*/)");f.push(["lit",/^@[a-z_$][a-z_$@0-9]*/i,null],["typ",/^(?:[@_]?[A-Z]+[a-z][A-Za-z_$@0-9]*|\w+_t\b)/,null],["pln",/^[a-z_$][a-z_$@0-9]*/i,
 null],["lit",/^(?:0x[a-f0-9]+|(?:\d(?:_\d+)*\d*(?:\.\d*)?|\.\d\+)(?:e[+\-]?\d+)?)[a-z]*/i,null,"0123456789"],["pln",/^\\[\s\S]?/,null],["pun",new RegExp(c),null]);return G(d,f)}function L(a,d,f){function c(a){var b=a.nodeType;if(1==b&amp;&amp;!t.test(a.className))<span class="missing-if-branch" title="if path not taken" >I</span>if("br"===a.nodeName.toLowerCase())<span class="cstat-no" title="statement not covered" >m(a),a.parentNode&amp;&amp;a.parentNode.removeChild(a);e</span>lse for(a=a.firstChild;a;a=a.nextSibling)c(a);else <span class="missing-if-branch" title="else path not taken" >E</span>if((3==b||<span class="branch-1 cbranch-no" title="branch not covered" >4==b)</span>&amp;&amp;f){var e=a.nodeValue,d=e.match(q);d&amp;&amp;(b=e.substring(0,d.index),a.nodeValue=b,(e=e.substring(d.index+
-d[0].length))&amp;&amp;a.parentNode.insertBefore(l.createTextNode(e),a.nextSibling),m(a),b||<span class="branch-1 cbranch-no" title="branch not covered" >a.parentNode.removeChild(a))</span>}}function m(a){function c(a,b){var e=b?a.cloneNode(!1):a,k=a.parentNode;if(k){var k=c(k,1),d=a.nextSibling;k.appendChild(e);for(var f=d;f;f=d)<span class="cstat-no" title="statement not covered" >d=f.nextSibling,k.appendChild(f)}</span>return e}for(;!a.nextSibling;)if(a=a.parentNode,!a)return;a=c(a.nextSibling,0);for(var e;(e=a.parentNode)&amp;&amp;1===e.nodeType;)a=e;b.push(a)}for(var t=/(?:^|\s)nocode(?:\s|$)/,q=/\r\n?|\n/,l=a.ownerDocument,n=l.createElement("li");a.firstChild;)n.appendChild(a.firstChild);
+d[0].length))&amp;&amp;a.parentNode.insertBefore(l.createTextNode(e),a.nextSibling),m(a),b||a.parentNode.removeChild(a))}}function m(a){function c(a,b){var e=b?a.cloneNode(!1):a,k=a.parentNode;if(k){var k=c(k,1),d=a.nextSibling;k.appendChild(e);for(var f=d;f;f=d)<span class="cstat-no" title="statement not covered" >d=f.nextSibling,k.appendChild(f)}</span>return e}for(;!a.nextSibling;)<span class="cstat-no" title="statement not covered" >if(a=a.parentNode,!a)<span class="cstat-no" title="statement not covered" >return;a</span></span>=c(a.nextSibling,0);for(var e;(e=a.parentNode)&amp;&amp;1===e.nodeType;)a=e;b.push(a)}for(var t=/(?:^|\s)nocode(?:\s|$)/,q=/\r\n?|\n/,l=a.ownerDocument,n=l.createElement("li");a.firstChild;)n.appendChild(a.firstChild);
 for(var b=[n],p=0;p&lt;b.length;++p)c(b[p]);d===(d|0)&amp;&amp;<span class="branch-1 cbranch-no" title="branch not covered" >b[0].setAttribute("value",d);</span>var w=l.createElement("ol");w.className="linenums";d=Math.max(0,d-1|0)||0;for(var p=0,r=b.length;p&lt;r;++p)n=b[p],n.className="L"+(p+d)%10,n.firstChild||<span class="branch-1 cbranch-no" title="branch not covered" >n.appendChild(l.createTextNode("\u00a0")),</span>w.appendChild(n);a.appendChild(w)}function t(a,d){for(var f=d.length;0&lt;=--f;){var c=d[f];I.hasOwnProperty(c)?<span class="branch-0 cbranch-no" title="branch not covered" >D.console&amp;&amp;console.warn("cannot override language handler %s",c):</span>I[c]=a}}function K(a,d){a&amp;&amp;I.hasOwnProperty(a)||(a=/^\s*&lt;/.test(d)?
 "default-markup":"default-code");return I[a]}function M(a){var d=a.j;try{var f=U(a.h,a.l),c=f.a;a.a=c;a.c=f.c;a.i=0;K(d,c)(a);var m=/\bMSIE\s(\d+)/.exec(navigator.userAgent),m=m&amp;&amp;<span class="branch-1 cbranch-no" title="branch not covered" >8&gt;=+m[1],</span>d=/\n/g,t=a.a,q=t.length,f=0,l=a.c,n=l.length,c=0,b=a.g,p=b.length,w=0;b[p]=q;var r,e;for(e=r=0;e&lt;p;)b[e]!==b[e+2]?(b[r++]=b[e++],b[r++]=b[e++]):e+=2;p=r;for(e=r=0;e&lt;p;){for(var x=b[e],z=b[e+1],v=e+2;v+2&lt;=p&amp;&amp;b[v+1]===z;)v+=2;b[r++]=x;b[r++]=z;e=v}b.length=r;var g=a.h;a="";g&amp;&amp;(a=g.style.display,g.style.display="none");
 try{for(;c&lt;n;){var h=l[c+2]||q,k=b[w+2]||q,v=Math.min(h,k),A=l[c+1],C;if(1!==A.nodeType&amp;&amp;(C=t.substring(f,v))){m&amp;&amp;(<span class="branch-1 cbranch-no" title="branch not covered" >C=C.replace(d,"\r"))</span>;A.nodeValue=C;var N=A.ownerDocument,u=N.createElement("span");u.className=b[w+1];var B=A.parentNode;B.replaceChild(u,A);u.appendChild(A);f&lt;h&amp;&amp;(l[c+1]=A=N.createTextNode(t.substring(v,h)),B.insertBefore(A,u.nextSibling))}f=v;f&gt;=h&amp;&amp;(c+=2);f&gt;=k&amp;&amp;(w+=2)}}finally{g&amp;&amp;(g.style.display=a)}}catch(y){<span class="cstat-no" title="statement not covered" >D.console&amp;&amp;console.log(y&amp;&amp;y.stack||y)}</span>}var D="undefined"!==typeof window?
@@ -139,7 +139,7 @@ e=/\bprettyprinted\b/,B=/pre|xmp/i,z=/^code$/i,v=/^(?:pre|code|xmp)$/i,g={};f()}
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Jul 22 2018 10:42:33 GMT+0200 (CEST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Aug 11 2018 19:47:41 GMT+0200 (CEST)
 </div>
 </div>
 <script src="../prettify.js"></script>

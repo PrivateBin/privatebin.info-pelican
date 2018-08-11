@@ -7,7 +7,7 @@
  * @link      https://github.com/PrivateBin/PrivateBin
  * @copyright 2012 Sébastien SAUVAGE (sebsauvage.net)
  * @license   https://www.opensource.org/licenses/zlib-license.php The zlib/libpng License
- * @version   1.2
+ * @version   1.2.1
  */
 
 namespace PrivateBin\Persistence;
@@ -83,7 +83,7 @@ class ServerSalt extends AbstractPersistence
             self::$_salt = self::generate();
             self::_store(
                 self::$_file,
-                '<?php /* |' . self::$_salt . '| */ ?>'
+                '<?php # |' . self::$_salt . '|'
             );
         }
         return self::$_salt;

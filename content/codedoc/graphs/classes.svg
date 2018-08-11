@@ -142,40 +142,40 @@
 <polygon fill="none" stroke="black" points="336.5,-438 272.5,-438 272.5,-402 336.5,-402 336.5,-438"/>
 <text text-anchor="middle" x="304.5" y="-417.2" font-family="Courier,monospace" font-size="11.00">Request</text>
 </g>
-<!-- \\PrivateBin\\PrivateBin -->
-<g id="node15" class="node"><title>\\PrivateBin\\PrivateBin</title>
-<polygon fill="none" stroke="black" points="346.5,-384 262.5,-384 262.5,-348 346.5,-348 346.5,-384"/>
-<text text-anchor="middle" x="304.5" y="-363.2" font-family="Courier,monospace" font-size="11.00">PrivateBin</text>
-</g>
 <!-- \\PrivateBin\\View -->
-<g id="node16" class="node"><title>\\PrivateBin\\View</title>
-<polygon fill="none" stroke="black" points="331.5,-330 277.5,-330 277.5,-294 331.5,-294 331.5,-330"/>
-<text text-anchor="middle" x="304.5" y="-309.2" font-family="Courier,monospace" font-size="11.00">View</text>
+<g id="node15" class="node"><title>\\PrivateBin\\View</title>
+<polygon fill="none" stroke="black" points="331.5,-384 277.5,-384 277.5,-348 331.5,-348 331.5,-384"/>
+<text text-anchor="middle" x="304.5" y="-363.2" font-family="Courier,monospace" font-size="11.00">View</text>
 </g>
 <!-- \\PrivateBin\\Vizhash16x16 -->
-<g id="node17" class="node"><title>\\PrivateBin\\Vizhash16x16</title>
-<polygon fill="none" stroke="black" points="353.5,-276 255.5,-276 255.5,-240 353.5,-240 353.5,-276"/>
-<text text-anchor="middle" x="304.5" y="-255.2" font-family="Courier,monospace" font-size="11.00">Vizhash16x16</text>
+<g id="node16" class="node"><title>\\PrivateBin\\Vizhash16x16</title>
+<polygon fill="none" stroke="black" points="353.5,-330 255.5,-330 255.5,-294 353.5,-294 353.5,-330"/>
+<text text-anchor="middle" x="304.5" y="-309.2" font-family="Courier,monospace" font-size="11.00">Vizhash16x16</text>
 </g>
 <!-- \\PrivateBin\\Filter -->
-<g id="node18" class="node"><title>\\PrivateBin\\Filter</title>
-<polygon fill="none" stroke="black" points="333,-222 276,-222 276,-186 333,-186 333,-222"/>
-<text text-anchor="middle" x="304.5" y="-201.2" font-family="Courier,monospace" font-size="11.00">Filter</text>
+<g id="node17" class="node"><title>\\PrivateBin\\Filter</title>
+<polygon fill="none" stroke="black" points="333,-276 276,-276 276,-240 333,-240 333,-276"/>
+<text text-anchor="middle" x="304.5" y="-255.2" font-family="Courier,monospace" font-size="11.00">Filter</text>
 </g>
 <!-- \\PrivateBin\\Model -->
-<g id="node19" class="node"><title>\\PrivateBin\\Model</title>
-<polygon fill="none" stroke="black" points="331.5,-168 277.5,-168 277.5,-132 331.5,-132 331.5,-168"/>
-<text text-anchor="middle" x="304.5" y="-147.2" font-family="Courier,monospace" font-size="11.00">Model</text>
+<g id="node18" class="node"><title>\\PrivateBin\\Model</title>
+<polygon fill="none" stroke="black" points="331.5,-222 277.5,-222 277.5,-186 331.5,-186 331.5,-222"/>
+<text text-anchor="middle" x="304.5" y="-201.2" font-family="Courier,monospace" font-size="11.00">Model</text>
 </g>
 <!-- \\PrivateBin\\I18n -->
-<g id="node20" class="node"><title>\\PrivateBin\\I18n</title>
-<polygon fill="none" stroke="black" points="331.5,-114 277.5,-114 277.5,-78 331.5,-78 331.5,-114"/>
-<text text-anchor="middle" x="304.5" y="-93.2" font-family="Courier,monospace" font-size="11.00">I18n</text>
+<g id="node19" class="node"><title>\\PrivateBin\\I18n</title>
+<polygon fill="none" stroke="black" points="331.5,-168 277.5,-168 277.5,-132 331.5,-132 331.5,-168"/>
+<text text-anchor="middle" x="304.5" y="-147.2" font-family="Courier,monospace" font-size="11.00">I18n</text>
 </g>
 <!-- \\PrivateBin\\Sjcl -->
-<g id="node21" class="node"><title>\\PrivateBin\\Sjcl</title>
-<polygon fill="none" stroke="black" points="331.5,-60 277.5,-60 277.5,-24 331.5,-24 331.5,-60"/>
-<text text-anchor="middle" x="304.5" y="-39.2" font-family="Courier,monospace" font-size="11.00">Sjcl</text>
+<g id="node20" class="node"><title>\\PrivateBin\\Sjcl</title>
+<polygon fill="none" stroke="black" points="331.5,-114 277.5,-114 277.5,-78 331.5,-78 331.5,-114"/>
+<text text-anchor="middle" x="304.5" y="-93.2" font-family="Courier,monospace" font-size="11.00">Sjcl</text>
+</g>
+<!-- \\PrivateBin\\Controller -->
+<g id="node21" class="node"><title>\\PrivateBin\\Controller</title>
+<polygon fill="none" stroke="black" points="346.5,-60 262.5,-60 262.5,-24 346.5,-24 346.5,-60"/>
+<text text-anchor="middle" x="304.5" y="-39.2" font-family="Courier,monospace" font-size="11.00">Controller</text>
 </g>
 </g>
 </svg>
