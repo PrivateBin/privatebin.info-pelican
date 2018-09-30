@@ -9,6 +9,8 @@ save_as: credits.html
 Simon Rupf - current developer and maintainer (git signing key [4096R/0F5C940A6BD81F92]({filename}/key/elrido.asc))  
 rugk - security review, doc improvment & various other stuff (git signing key [4096R/05D40A636AFAB34D]({filename}/key/rugk.asc))
 
+Releases are signed with the key [git@privatebin.net]({filename}/key/release.asc), `28CA 7C96 4938 EA5C 1481  D42A E11B 7950 E9E1 83DB`.
+
 For any **security issues** please contact us via [security@privatebin.org](mailto:security@privatebin.org) (PGP key [4096R/0C78CF39B20D890B]({filename}/key/security.asc)).
 
 ## Past contributions
