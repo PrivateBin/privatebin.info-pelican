@@ -1,0 +1,6 @@
+Dockerfile
+output
+*.pyc
+README.md
+.git
+.gitignore
