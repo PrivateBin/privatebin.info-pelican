@@ -7,7 +7,8 @@ save_as: credits.html
 ## Active contributors
 
 Simon Rupf - current developer and maintainer (git signing key [4096R/0F5C940A6BD81F92]({static}/key/elrido.asc))  
-rugk - security review, doc improvment & various other stuff (git signing key [4096R/05D40A636AFAB34D]({static}/key/rugk.asc))
+rugk - security review, doc improvment & various other stuff (git signing key [4096R/05D40A636AFAB34D]({static}/key/rugk.asc))  
+R4SAS - python client, compression, blob URI to support larger attachments
 
 Releases are signed with the key [git@privatebin.net]({static}/key/release.asc), `28CA 7C96 4938 EA5C 1481  D42A E11B 7950 E9E1 83DB`.
 
@@ -20,7 +21,7 @@ Sébastien Sauvage - original idea and main developer
 * Alexey Gladkov - syntax highlighting
 * Greg Knaddison - robots.txt
 * MrKooky - HTML5 markup, CSS cleanup
-* Simon Rupf - MVC refactoring, configuration, i18n and unit tests
+* Simon Rupf - WebCrypto, unit tests, current docker containers, MVC, configuration, i18n
 * Hexalyse - Password protection
 * Viktor Stanchev - File upload support
 * azlux - Tab character input support
@@ -29,8 +30,9 @@ Sébastien Sauvage - original idea and main developer
 * Sobak - PSR-4 and PSR-2 refactoring
 * Nathaniel Olsen - jQuery upgrade
 * Alexander Demenshin - modal password dialog
-* PunKeel - Dockerfile
+* PunKeel - first docker container
 * thororm - Display of video, audio & PDF, drag & drop, preview of attachments
+* Harald Leithner - base58 encoding of key
 
 ## Translations
 * Hexalyse - French
@@ -47,3 +49,4 @@ Sébastien Sauvage - original idea and main developer
 * Tulio Leao - Portuguese
 * Michael van Schaik - Dutch
 * Péter Tabajdi - Hungarian
+* info-path - Czech
