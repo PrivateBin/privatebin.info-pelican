@@ -144,28 +144,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1686041060"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-875140254"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1686041060" class="accordion-body collapse in">
+            <div id="namespace-875140254" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-691575870"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1317487023"></a>
                                 <a href="../namespaces/PrivateBin.html" style="margin-left: 30px; padding-left: 0">PrivateBin</a>
             </div>
-            <div id="namespace-691575870" class="accordion-body collapse ">
+            <div id="namespace-1317487023" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-351819962"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2039400729"></a>
                                 <a href="../namespaces/PrivateBin.Data.html" style="margin-left: 30px; padding-left: 0">Data</a>
             </div>
-            <div id="namespace-351819962" class="accordion-body collapse ">
+            <div id="namespace-2039400729" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -182,10 +182,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1031248970"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-818286263"></a>
                                 <a href="../namespaces/PrivateBin.Model.html" style="margin-left: 30px; padding-left: 0">Model</a>
             </div>
-            <div id="namespace-1031248970" class="accordion-body collapse ">
+            <div id="namespace-818286263" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -202,10 +202,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1705290258"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1597254216"></a>
                                 <a href="../namespaces/PrivateBin.Persistence.html" style="margin-left: 30px; padding-left: 0">Persistence</a>
             </div>
-            <div id="namespace-1705290258" class="accordion-body collapse ">
+            <div id="namespace-1597254216" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -226,11 +226,11 @@
                                                                                                     <li class="class"><a href="../classes/PrivateBin.Configuration.html">Configuration</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Controller.html">Controller</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Filter.html">Filter</a></li>
+                                                    <li class="class"><a href="../classes/PrivateBin.FormatV2.html">FormatV2</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.I18n.html">I18n</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Json.html">Json</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Model.html">Model</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Request.html">Request</a></li>
-                                                    <li class="class"><a href="../classes/PrivateBin.Sjcl.html">Sjcl</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.View.html">View</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Vizhash16x16.html">Vizhash16x16</a></li>
                                             </ul>
@@ -668,6 +668,11 @@
                 
 
                 
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Exception</dt>
+                            <dd></dd>
+                                                                    </dl>
                 
                 				
                             </article>
@@ -692,15 +697,15 @@
                 <pre class="signature" style="margin-right: 54px;">_create() : string</pre>
                 <p><em>Store new paste or comment</em></p>
                 <p>POST contains one or both:
-data = json encoded SJCL encrypted text (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)
-attachment = json encoded SJCL encrypted text (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)</p>
+data = json encoded FormatV2 encrypted text (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)
+attachment = json encoded FormatV2 encrypted text (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)</p>
 <p>All optional data will go to meta information:
 expire (optional) = expiration delay (never,5min,10min,1hour,1day,1week,1month,1year,burn) (default:never)
 formatter (optional) = format to display the paste as (plaintext,syntaxhighlighting,markdown) (default:syntaxhighlighting)
 burnafterreading (optional) = if this paste may only viewed once ? (0/1) (default:0)
 opendiscusssion (optional) = is the discussion allowed on this paste ? (0/1) (default:0)
-attachmentname = json encoded SJCL encrypted text (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)
-nickname (optional) = in discussion, encoded SJCL encrypted text nickname of author of comment (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)
+attachmentname = json encoded FormatV2 encrypted text (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)
+nickname (optional) = in discussion, encoded FormatV2 encrypted text nickname of author of comment (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)
 parentid (optional) = in discussion, which comment this comment replies to.
 pasteid (optional) = in discussion, which paste this comment belongs to.</p>
 
@@ -949,7 +954,7 @@ pasteid (optional) = in discussion, which paste this comment belongs to.</p>
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on August 11th, 2018 at 17:47.
+                    on July 9th, 2019 at 16:06.
                 </section>
             </section>
         </section>

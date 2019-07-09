@@ -93,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line526">line 526</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line651">line 651</a>
     </li></ul></dd>
     
 
@@ -147,7 +147,7 @@
     
 
     
-    <h4 class="name" id=".addEntropySeedListener"><span class="type-signature">(static) </span>addEntropySeedListener<span class="signature">(func)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".arraybufferToString"><span class="type-signature">(private, static) </span>arraybufferToString<span class="signature">(messageArray)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -155,7 +155,9 @@
 
 
 <div class="description">
-    add a listener function, triggered when enough entropy is available
+    convert ArrayBuffer into a UTF-8 string
+
+Iterates over the bytes of the array, catenating them into a string
 </div>
 
 
@@ -191,13 +193,13 @@
 
         <tr>
             
-                <td class="name"><code>func</code></td>
+                <td class="name"><code>messageArray</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">ArrayBuffer</span>
 
 
             
@@ -248,7 +250,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line625">line 625</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line714">line 714</a>
     </li></ul></dd>
     
 
@@ -271,6 +273,28 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    message
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -282,7 +306,321 @@
     
 
     
-    <h4 class="name" id=".cipher"><span class="type-signature">(static) </span>cipher<span class="signature">(key, password, message)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id=".base58decode"><span class="type-signature">(static) </span>base58decode<span class="signature">(input)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    base58 decode a DOMString (UTF-16)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>input</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1065">line 1065</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    output
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".base58encode"><span class="type-signature">(static) </span>base58encode<span class="signature">(input)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    base58 encode a DOMString (UTF-16)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>input</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1050">line 1050</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    output
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".cipher"><span class="type-signature">(async, static) </span>cipher<span class="signature">(key, password, message, adata)</span><span class="type-signature"> &rarr; {array}</span></h4>
     
 
     
@@ -392,6 +730,29 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>adata</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -429,7 +790,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line563">line 563</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line927">line 927</a>
     </li></ul></dd>
     
 
@@ -456,7 +817,7 @@
 
         
 <div class="param-desc">
-    data - JSON with encrypted data
+    encrypted message in base64 encoding & adata containing encryption spec
 </div>
 
 
@@ -467,7 +828,7 @@
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type">array</span>
 
 
     </dd>
@@ -485,7 +846,367 @@
     
 
     
-    <h4 class="name" id=".decipher"><span class="type-signature">(static) </span>decipher<span class="signature">(key, password, data)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id=".compress"><span class="type-signature">(async, private, static) </span>compress<span class="signature">(message, mode)</span><span class="type-signature"> &rarr; {ArrayBuffer}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    compress a string (deflate compression), returns buffer
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line756">line 756</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    data
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">ArrayBuffer</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".cryptoSettings"><span class="type-signature">(private, static) </span>cryptoSettings<span class="signature">(adata, spec)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    gets crypto settings from specification and authenticated data
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>adata</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">authenticated data</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>spec</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">cryptographic specification</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line907">line 907</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    crypto settings
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".decipher"><span class="type-signature">(async, static) </span>decipher<span class="signature">(key, password, data)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -582,6 +1303,9 @@
             
                 
 <span class="param-type">string</span>
+|
+
+<span class="param-type">object</span>
 
 
             
@@ -591,7 +1315,7 @@
 
             
 
-            <td class="description last">JSON with encrypted data</td>
+            <td class="description last">encrypted message</td>
         </tr>
 
     
@@ -632,7 +1356,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line588">line 588</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line979">line 979</a>
     </li></ul></dd>
     
 
@@ -688,7 +1412,7 @@
     
 
     
-    <h4 class="name" id=".getSymmetricKey"><span class="type-signature">(static) </span>getSymmetricKey<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id=".decompress"><span class="type-signature">(async, private, static) </span>decompress<span class="signature">(data, mode)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -696,7 +1420,7 @@
 
 
 <div class="description">
-    returns a random symmetric key
+    decompress potentially base64 encoded, deflate compressed buffer, returns string
 </div>
 
 
@@ -705,6 +1429,78 @@
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ArrayBuffer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -740,7 +1536,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line637">line 637</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line778">line 778</a>
     </li></ul></dd>
     
 
@@ -767,7 +1563,7 @@
 
         
 <div class="param-desc">
-    func
+    message
 </div>
 
 
@@ -796,7 +1592,7 @@
     
 
     
-    <h4 class="name" id=".isEntropyReady"><span class="type-signature">(static) </span>isEntropyReady<span class="signature">()</span><span class="type-signature"> &rarr; {bool}</span></h4>
+    <h4 class="name" id=".deriveKey"><span class="type-signature">(async, private, static) </span>deriveKey<span class="signature">(key, password, spec)</span><span class="type-signature"> &rarr; {CryptoKey}</span></h4>
     
 
     
@@ -804,7 +1600,384 @@
 
 
 <div class="description">
-    checks whether the crypt tool has collected enough entropy
+    derive cryptographic key from key string and password
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>key</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>spec</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">cryptographic specification</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line844">line 844</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    derived key
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">CryptoKey</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getRandomBytes"><span class="type-signature">(private, static) </span>getRandomBytes<span class="signature">(length)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    returns specified number of random bytes
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>length</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">int</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">number of random bytes to fetch</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line823">line 823</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc">
+    
+        
+<span class="param-type">string</span>
+
+
+    
+    </div>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    random bytes
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getSymmetricKey"><span class="type-signature">(static) </span>getSymmetricKey<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    returns a random symmetric key
+
+generates 256 bit long keys (8 Bits * 32) for AES with 256 bit long blocks
 </div>
 
 
@@ -848,7 +2021,181 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line613">line 613</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1035">line 1035</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc">
+    
+        
+<span class="param-type">string</span>
+
+
+    
+    </div>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    raw bytes
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".stringToArraybuffer"><span class="type-signature">(private, static) </span>stringToArraybuffer<span class="signature">(message)</span><span class="type-signature"> &rarr; {Uint8Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    convert UTF-8 string into a Uint8Array
+
+Iterates over the bytes of the message, writing them to the array
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">UTF-8 string</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line736">line 736</a>
     </li></ul></dd>
     
 
@@ -874,6 +2221,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    array
+</div>
+
 
 
 <dl>
@@ -882,7 +2233,327 @@
     </dt>
     <dd>
         
-<span class="param-type">bool</span>
+<span class="param-type">Uint8Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".utf8To16"><span class="type-signature">(private, static) </span>utf8To16<span class="signature">(message)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    convert UTF-8 string stored in a DOMString to a standard UTF-16 DOMString
+
+Iterates over the bytes of the message, converting them all hexadecimal
+percent encoded representations, then URI decodes them all
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">UTF-8 string</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line667">line 667</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    UTF-16 string
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".utf16To8"><span class="type-signature">(private, static) </span>utf16To8<span class="signature">(message)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    convert DOMString (UTF-16) to a UTF-8 string stored in a DOMString
+
+URI encodes the message, then finds the percent encoded characters
+and transforms these hexadecimal representation back into bytes
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">UTF-16 string</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line691">line 691</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    UTF-8 string
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
 
 
     </dd>
@@ -910,13 +2581,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="Model.html">Model</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li><li><a href="Uploader.html">Uploader</a></li></ul><h3>Namespaces</h3><ul><li><a href="PrivateBin.html">PrivateBin</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Comment.html">Comment</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CryptoData.html">CryptoData</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="InitialCheck.html">InitialCheck</a></li><li><a href="Model.html">Model</a></li><li><a href="Paste.html">Paste</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="ServerInteraction.html">ServerInteraction</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li></ul><h3>Namespaces</h3><ul><li><a href="PrivateBin.html">PrivateBin</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Aug 11 2018 19:47:33 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 09 2019 18:05:40 GMT+0200 (CEST)
 </footer>
 
 <script> prettyPrint(); </script>

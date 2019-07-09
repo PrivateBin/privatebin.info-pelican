@@ -93,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line41">line 41</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line170">line 170</a>
     </li></ul></dd>
     
 
@@ -136,6 +136,85 @@
 
     
 
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".baseUri"><span class="type-signature">(private, static) </span>baseUri<span class="type-signature"> :string|null</span></h4>
+
+
+
+
+<div class="description">
+    cache for script location
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+|
+
+<span class="param-type">null</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line179">line 179</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
     
 
     
@@ -200,7 +279,7 @@ eg. https://example.com/path/?aaaa#bbbb --> https://example.com/path/
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line219">line 219</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line337">line 337</a>
     </li></ul></dd>
     
 
@@ -235,6 +314,159 @@ eg. https://example.com/path/?aaaa#bbbb --> https://example.com/path/
     <dd>
         
 <span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".CommentFactory"><span class="type-signature">(static) </span>CommentFactory<span class="signature">(data)</span><span class="type-signature"> &rarr; {<a href="Comment.html">Comment</a>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    wrap an object into a Comment, used for mocking in the unit tests
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line369">line 369</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Comment.html">Comment</a></span>
 
 
     </dd>
@@ -353,7 +585,7 @@ eg. https://example.com/path/?aaaa#bbbb --> https://example.com/path/
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line193">line 193</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line311">line 311</a>
     </li></ul></dd>
     
 
@@ -412,7 +644,7 @@ eg. https://example.com/path/?aaaa#bbbb --> https://example.com/path/
     
 
     
-    <h4 class="name" id=".isBadBot"><span class="type-signature">(static) </span>isBadBot<span class="signature">()</span><span class="type-signature"> &rarr; {bool}</span></h4>
+    <h4 class="name" id=".PasteFactory"><span class="type-signature">(static) </span>PasteFactory<span class="signature">(data)</span><span class="type-signature"> &rarr; {<a href="Paste.html">Paste</a>}</span></h4>
     
 
     
@@ -420,7 +652,7 @@ eg. https://example.com/path/?aaaa#bbbb --> https://example.com/path/
 
 
 <div class="description">
-    checks whether this is a bot we dislike
+    wrap an object into a Paste, used for mocking in the unit tests
 </div>
 
 
@@ -429,6 +661,55 @@ eg. https://example.com/path/?aaaa#bbbb --> https://example.com/path/
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -464,7 +745,7 @@ eg. https://example.com/path/?aaaa#bbbb --> https://example.com/path/
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line250">line 250</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line356">line 356</a>
     </li></ul></dd>
     
 
@@ -498,7 +779,7 @@ eg. https://example.com/path/?aaaa#bbbb --> https://example.com/path/
     </dt>
     <dd>
         
-<span class="param-type">bool</span>
+<span class="param-type"><a href="Paste.html">Paste</a></span>
 
 
     </dd>
@@ -568,7 +849,7 @@ eg. https://example.com/path/?aaaa#bbbb --> https://example.com/path/
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line239">line 239</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line382">line 382</a>
     </li></ul></dd>
     
 
@@ -703,7 +984,7 @@ eg. https://example.com/path/?aaaa#bbbb --> https://example.com/path/
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line71">line 71</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line188">line 188</a>
     </li></ul></dd>
     
 
@@ -856,7 +1137,7 @@ eg. https://example.com/path/?aaaa#bbbb --> https://example.com/path/
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line107">line 107</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line224">line 224</a>
     </li></ul></dd>
     
 
@@ -1044,7 +1325,7 @@ format strings appear in the string, contrary to the original.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line155">line 155</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line273">line 273</a>
     </li></ul></dd>
     
 
@@ -1112,6 +1393,7 @@ format strings appear in the string, contrary to the original.
 
 <div class="description">
     convert URLs to clickable links.
+
 URLs to handle:
 <pre>
     magnet:?xt.1=urn:sha1:YNCKHTQCWBTRNJIV4WNAE52SJUQCZO5C&xt.2=urn:sha1:TXGCZQTH26NL6OUQAJJPFALHG2LTGBC7
@@ -1210,7 +1492,7 @@ URLs to handle:
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line133">line 133</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line250">line 250</a>
     </li></ul></dd>
     
 
@@ -1272,13 +1554,13 @@ URLs to handle:
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="Model.html">Model</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li><li><a href="Uploader.html">Uploader</a></li></ul><h3>Namespaces</h3><ul><li><a href="PrivateBin.html">PrivateBin</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Comment.html">Comment</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CryptoData.html">CryptoData</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="InitialCheck.html">InitialCheck</a></li><li><a href="Model.html">Model</a></li><li><a href="Paste.html">Paste</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="ServerInteraction.html">ServerInteraction</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li></ul><h3>Namespaces</h3><ul><li><a href="PrivateBin.html">PrivateBin</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Aug 11 2018 19:47:33 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 09 2019 18:05:40 GMT+0200 (CEST)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -93,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1990">line 1990</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2426">line 2426</a>
     </li></ul></dd>
     
 
@@ -140,6 +140,178 @@
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".addClipboardEventHandler"><span class="type-signature">(private, static) </span>addClipboardEventHandler<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    attaches the clipboard attachment handler to the page
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2788">line 2788</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".addDragDropHandler"><span class="type-signature">(private, static) </span>addDragDropHandler<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    attaches the file attachment drag & drop handler to the page
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2746">line 2746</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
             
@@ -199,7 +371,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2109">line 2109</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2546">line 2546</a>
     </li></ul></dd>
     
 
@@ -285,7 +457,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2179">line 2179</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2616">line 2616</a>
     </li></ul></dd>
     
 
@@ -389,7 +561,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2393">line 2393</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2811">line 2811</a>
     </li></ul></dd>
     
 
@@ -493,7 +665,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2404">line 2404</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2822">line 2822</a>
     </li></ul></dd>
     
 
@@ -597,7 +769,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2415">line 2415</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2833">line 2833</a>
     </li></ul></dd>
     
 
@@ -701,7 +873,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2426">line 2426</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2844">line 2844</a>
     </li></ul></dd>
     
 
@@ -753,7 +925,7 @@
     
 
     
-    <h4 class="name" id=".handleAttachmentPreview"><span class="type-signature">(static) </span>handleAttachmentPreview<span class="signature">($targetElement, file)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".handleBlobAttachmentPreview"><span class="type-signature">(static) </span>handleBlobAttachmentPreview<span class="signature">($targetElement, file, mime)</span><span class="type-signature"></span></h4>
     
 
     
@@ -761,7 +933,7 @@
 
 
 <div class="description">
-    handle the preview of files that can either be an image, video, audio or pdf element
+    handle the preview of files decoded to blob that can either be an image, video, audio or pdf element
 </div>
 
 
@@ -836,7 +1008,30 @@
 
             
 
-            <td class="description last">as a data URL</td>
+            <td class="description last">as a blob URL</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mime</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">type</td>
         </tr>
 
     
@@ -877,7 +1072,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2253">line 2253</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2690">line 2690</a>
     </li></ul></dd>
     
 
@@ -963,7 +1158,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2148">line 2148</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2585">line 2585</a>
     </li></ul></dd>
     
 
@@ -1051,7 +1246,7 @@ It returns true, when there is data that needs to be encrypted.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2163">line 2163</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2600">line 2600</a>
     </li></ul></dd>
     
 
@@ -1141,7 +1336,7 @@ else (see AttachmentViewer.moveAttachmentTo).
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2120">line 2120</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2557">line 2557</a>
     </li></ul></dd>
     
 
@@ -1227,7 +1422,7 @@ else (see AttachmentViewer.moveAttachmentTo).
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2135">line 2135</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2572">line 2572</a>
     </li></ul></dd>
     
 
@@ -1315,7 +1510,7 @@ preloads jQuery elements
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2437">line 2437</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2855">line 2855</a>
     </li></ul></dd>
     
 
@@ -1475,12 +1670,154 @@ It is advisable to hide the attachment afterwards (AttachmentViewer.hideAttachme
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2194">line 2194</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2631">line 2631</a>
     </li></ul></dd>
     
 
     
 
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".readFileData"><span class="type-signature">(private, static) </span>readFileData<span class="signature">(loadedFile)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    read file data as data URL using the FileReader API
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>loadedFile</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">(optional) loaded file object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2650">line 2650</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader#readAsDataURL()">https://developer.mozilla.org/en-US/docs/Web/API/FileReader#readAsDataURL()</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -1564,7 +1901,7 @@ prevent an inconsistent display.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2071">line 2071</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2508">line 2508</a>
     </li></ul></dd>
     
 
@@ -1652,7 +1989,7 @@ This removes the data, which would be uploaded otherwise.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2095">line 2095</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2532">line 2532</a>
     </li></ul></dd>
     
 
@@ -1810,7 +2147,7 @@ This removes the data, which would be uploaded otherwise.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2008">line 2008</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2444">line 2444</a>
     </li></ul></dd>
     
 
@@ -1896,7 +2233,7 @@ This removes the data, which would be uploaded otherwise.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2056">line 2056</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line2493">line 2493</a>
     </li></ul></dd>
     
 
@@ -1940,13 +2277,13 @@ This removes the data, which would be uploaded otherwise.
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="Model.html">Model</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li><li><a href="Uploader.html">Uploader</a></li></ul><h3>Namespaces</h3><ul><li><a href="PrivateBin.html">PrivateBin</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Comment.html">Comment</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CryptoData.html">CryptoData</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="InitialCheck.html">InitialCheck</a></li><li><a href="Model.html">Model</a></li><li><a href="Paste.html">Paste</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="ServerInteraction.html">ServerInteraction</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li></ul><h3>Namespaces</h3><ul><li><a href="PrivateBin.html">PrivateBin</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Aug 11 2018 19:47:33 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 09 2019 18:05:40 GMT+0200 (CEST)
 </footer>
 
 <script> prettyPrint(); </script>

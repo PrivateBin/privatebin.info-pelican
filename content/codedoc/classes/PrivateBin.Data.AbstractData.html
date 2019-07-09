@@ -144,28 +144,28 @@
                                 <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1941512695"></a>
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1643696905"></a>
                                 <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
             </div>
-            <div id="namespace-1941512695" class="accordion-body collapse in">
+            <div id="namespace-1643696905" class="accordion-body collapse in">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2037439867"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1851084493"></a>
                                 <a href="../namespaces/PrivateBin.html" style="margin-left: 30px; padding-left: 0">PrivateBin</a>
             </div>
-            <div id="namespace-2037439867" class="accordion-body collapse ">
+            <div id="namespace-1851084493" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1114784104"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-113470608"></a>
                                 <a href="../namespaces/PrivateBin.Data.html" style="margin-left: 30px; padding-left: 0">Data</a>
             </div>
-            <div id="namespace-1114784104" class="accordion-body collapse ">
+            <div id="namespace-113470608" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -182,10 +182,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-820840757"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-697770482"></a>
                                 <a href="../namespaces/PrivateBin.Model.html" style="margin-left: 30px; padding-left: 0">Model</a>
             </div>
-            <div id="namespace-820840757" class="accordion-body collapse ">
+            <div id="namespace-697770482" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -202,10 +202,10 @@
                                                     <div class="accordion" style="margin-bottom: 0">
         <div class="accordion-group">
             <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-932783527"></a>
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-372855999"></a>
                                 <a href="../namespaces/PrivateBin.Persistence.html" style="margin-left: 30px; padding-left: 0">Persistence</a>
             </div>
-            <div id="namespace-932783527" class="accordion-body collapse ">
+            <div id="namespace-372855999" class="accordion-body collapse ">
                 <div class="accordion-inner">
 
                     
@@ -226,11 +226,11 @@
                                                                                                     <li class="class"><a href="../classes/PrivateBin.Configuration.html">Configuration</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Controller.html">Controller</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Filter.html">Filter</a></li>
+                                                    <li class="class"><a href="../classes/PrivateBin.FormatV2.html">FormatV2</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.I18n.html">I18n</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Json.html">Json</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Model.html">Model</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Request.html">Request</a></li>
-                                                    <li class="class"><a href="../classes/PrivateBin.Sjcl.html">Sjcl</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.View.html">View</a></li>
                                                     <li class="class"><a href="../classes/PrivateBin.Vizhash16x16.html">Vizhash16x16</a></li>
                                             </ul>
@@ -300,6 +300,7 @@
                                                                     <a href="../classes/PrivateBin.Data.AbstractData.html#method___construct" class="">__construct()</a><br />
                                                                     <a href="../classes/PrivateBin.Data.AbstractData.html#method__getExpiredPastes" class="">_getExpiredPastes()</a><br />
                                                                     <a href="../classes/PrivateBin.Data.AbstractData.html#method_getOpenSlot" class="">getOpenSlot()</a><br />
+                                                                    <a href="../classes/PrivateBin.Data.AbstractData.html#method_upgradePreV1Format" class="">upgradePreV1Format()</a><br />
                                                             </section>
                             <section class="span4">
                                                                     <a href="../classes/PrivateBin.Data.AbstractData.html#property__instance" class="">$_instance</a><br />
@@ -486,7 +487,7 @@
             <article class="method">
                 <h3 class="public ">read()</h3>
                 <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">read(string  <span class="argument">$pasteid</span>) : \stdClass|false</pre>
+                <pre class="signature" style="margin-right: 54px;">read(string  <span class="argument">$pasteid</span>) : array|false</pre>
                 <p><em>Read a paste.</em></p>
                 
 
@@ -501,7 +502,7 @@
                 
                 
                                     <h4>Returns</h4>
-                    \stdClass|false
+                    array|false
                                     				
                             </article>
         </div>
@@ -863,6 +864,50 @@
         </aside>
     </div>
 
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_upgradePreV1Format" name="method_upgradePreV1Format" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">upgradePreV1Format()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">upgradePreV1Format(array  <span class="argument">$paste</span>) : array</pre>
+                <p><em>Upgrade pre-version 1 pastes with attachment to version 1 format.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$paste </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            static
+                        </th>
+                        <td>
+                                                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
                                                     <div class="row-fluid">
         <div class="span8 content class">
             <a id="method___clone" name="method___clone" class="anchor"></a>
@@ -939,7 +984,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on August 11th, 2018 at 17:47.
+                    on July 9th, 2019 at 16:06.
                 </section>
             </section>
         </section>
