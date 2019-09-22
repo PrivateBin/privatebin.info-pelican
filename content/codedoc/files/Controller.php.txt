@@ -7,7 +7,7 @@
  * @link      https://github.com/PrivateBin/PrivateBin
  * @copyright 2012 Sébastien SAUVAGE (sebsauvage.net)
  * @license   https://www.opensource.org/licenses/zlib-license.php The zlib/libpng License
- * @version   1.3
+ * @version   1.3.1
  */
 
 namespace PrivateBin;
@@ -28,7 +28,7 @@ class Controller
      *
      * @const string
      */
-    const VERSION = '1.3';
+    const VERSION = '1.3.1';
 
     /**
      * minimal required PHP version
@@ -388,6 +388,7 @@ class Controller
         $page->assign('URLSHORTENER', $this->_conf->getKey('urlshortener'));
         $page->assign('QRCODE', $this->_conf->getKey('qrcode'));
         $page->assign('HTTPWARNING', $this->_conf->getKey('httpwarning'));
+        $page->assign('HTTPSLINK', 'https://' . $this->_request->getHost() . $this->_request->getRequestUri());
         $page->assign('COMPRESSION', $this->_conf->getKey('compression'));
         $page->draw($this->_conf->getKey('template'));
     }

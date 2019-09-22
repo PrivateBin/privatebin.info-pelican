@@ -7,7 +7,7 @@
  * @link      https://github.com/PrivateBin/PrivateBin
  * @copyright 2012 Sébastien SAUVAGE (sebsauvage.net)
  * @license   https://www.opensource.org/licenses/zlib-license.php The zlib/libpng License
- * @version   1.3
+ * @version   1.3.1
  */
 
 namespace PrivateBin;
@@ -45,7 +45,7 @@ class Configuration
             'burnafterreadingselected' => false,
             'defaultformatter'         => 'plaintext',
             'syntaxhighlightingtheme'  => null,
-            'sizelimit'                => 2097152,
+            'sizelimit'                => 10485760,
             'template'                 => 'bootstrap',
             'notice'                   => '',
             'languageselection'        => false,
@@ -53,7 +53,7 @@ class Configuration
             'urlshortener'             => '',
             'qrcode'                   => true,
             'icon'                     => 'identicon',
-            'cspheader'                => 'default-src \'none\'; manifest-src \'self\'; connect-src *; script-src \'self\' \'unsafe-eval\'; style-src \'self\'; font-src \'self\'; img-src \'self\' data: blob:; media-src blob:; object-src blob:; sandbox allow-same-origin allow-scripts allow-forms allow-popups allow-modals',
+            'cspheader'                => 'default-src \'none\'; manifest-src \'self\'; connect-src * blob:; script-src \'self\' \'unsafe-eval\'; style-src \'self\'; font-src \'self\'; img-src \'self\' data: blob:; media-src blob:; object-src blob:; sandbox allow-same-origin allow-scripts allow-forms allow-popups allow-modals',
             'zerobincompatibility'     => false,
             'httpwarning'              => true,
             'compression'              => 'zlib',

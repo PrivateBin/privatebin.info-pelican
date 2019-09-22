@@ -93,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line651">line 651</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line661">line 661</a>
     </li></ul></dd>
     
 
@@ -250,7 +250,7 @@ Iterates over the bytes of the array, catenating them into a string
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line714">line 714</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line724">line 724</a>
     </li></ul></dd>
     
 
@@ -407,7 +407,7 @@ Iterates over the bytes of the array, catenating them into a string
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1065">line 1065</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1101">line 1101</a>
     </li></ul></dd>
     
 
@@ -564,7 +564,7 @@ Iterates over the bytes of the array, catenating them into a string
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1050">line 1050</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1086">line 1086</a>
     </li></ul></dd>
     
 
@@ -790,7 +790,7 @@ Iterates over the bytes of the array, catenating them into a string
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line927">line 927</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line947">line 947</a>
     </li></ul></dd>
     
 
@@ -846,7 +846,7 @@ Iterates over the bytes of the array, catenating them into a string
     
 
     
-    <h4 class="name" id=".compress"><span class="type-signature">(async, private, static) </span>compress<span class="signature">(message, mode)</span><span class="type-signature"> &rarr; {ArrayBuffer}</span></h4>
+    <h4 class="name" id=".compress"><span class="type-signature">(async, private, static) </span>compress<span class="signature">(message, mode, zlib)</span><span class="type-signature"> &rarr; {ArrayBuffer}</span></h4>
     
 
     
@@ -933,6 +933,29 @@ Iterates over the bytes of the array, catenating them into a string
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>zlib</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -970,7 +993,7 @@ Iterates over the bytes of the array, catenating them into a string
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line756">line 756</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line766">line 766</a>
     </li></ul></dd>
     
 
@@ -991,6 +1014,21 @@ Iterates over the bytes of the array, catenating them into a string
 
 
 
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc">
+    
+        
+<span class="param-type">string</span>
+
+
+    
+    </div>
+
+
+    
 
 
 <h5>Returns:</h5>
@@ -1150,7 +1188,7 @@ Iterates over the bytes of the array, catenating them into a string
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line907">line 907</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line927">line 927</a>
     </li></ul></dd>
     
 
@@ -1356,7 +1394,7 @@ Iterates over the bytes of the array, catenating them into a string
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line979">line 979</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1005">line 1005</a>
     </li></ul></dd>
     
 
@@ -1412,7 +1450,7 @@ Iterates over the bytes of the array, catenating them into a string
     
 
     
-    <h4 class="name" id=".decompress"><span class="type-signature">(async, private, static) </span>decompress<span class="signature">(data, mode)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id=".decompress"><span class="type-signature">(async, private, static) </span>decompress<span class="signature">(data, mode, zlib)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -1499,6 +1537,29 @@ Iterates over the bytes of the array, catenating them into a string
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>zlib</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -1536,7 +1597,7 @@ Iterates over the bytes of the array, catenating them into a string
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line778">line 778</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line793">line 793</a>
     </li></ul></dd>
     
 
@@ -1557,6 +1618,21 @@ Iterates over the bytes of the array, catenating them into a string
 
 
 
+<h5>Throws:</h5>
+
+        
+
+    <div class="param-desc">
+    
+        
+<span class="param-type">string</span>
+
+
+    
+    </div>
+
+
+    
 
 
 <h5>Returns:</h5>
@@ -1739,7 +1815,7 @@ Iterates over the bytes of the array, catenating them into a string
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line844">line 844</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line864">line 864</a>
     </li></ul></dd>
     
 
@@ -1896,7 +1972,7 @@ Iterates over the bytes of the array, catenating them into a string
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line823">line 823</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line843">line 843</a>
     </li></ul></dd>
     
 
@@ -2021,7 +2097,7 @@ generates 256 bit long keys (8 Bits * 32) for AES with 256 bit long blocks
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1035">line 1035</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1071">line 1071</a>
     </li></ul></dd>
     
 
@@ -2195,7 +2271,7 @@ Iterates over the bytes of the message, writing them to the array
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line736">line 736</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line746">line 746</a>
     </li></ul></dd>
     
 
@@ -2355,7 +2431,7 @@ percent encoded representations, then URI decodes them all
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line667">line 667</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line677">line 677</a>
     </li></ul></dd>
     
 
@@ -2515,7 +2591,7 @@ and transforms these hexadecimal representation back into bytes
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line691">line 691</a>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line701">line 701</a>
     </li></ul></dd>
     
 
@@ -2581,13 +2657,13 @@ and transforms these hexadecimal representation back into bytes
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Comment.html">Comment</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CryptoData.html">CryptoData</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="InitialCheck.html">InitialCheck</a></li><li><a href="Model.html">Model</a></li><li><a href="Paste.html">Paste</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="ServerInteraction.html">ServerInteraction</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li></ul><h3>Namespaces</h3><ul><li><a href="PrivateBin.html">PrivateBin</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Check.html">Check</a></li><li><a href="Comment.html">Comment</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CryptoData.html">CryptoData</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="Model.html">Model</a></li><li><a href="Paste.html">Paste</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="ServerInteraction.html">ServerInteraction</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li></ul><h3>Namespaces</h3><ul><li><a href="Legacy.html">Legacy</a></li><li><a href="PrivateBin.html">PrivateBin</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jul 09 2019 18:05:40 GMT+0200 (CEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Sep 22 2019 21:05:24 GMT+0200 (CEST)
 </footer>
 
 <script> prettyPrint(); </script>

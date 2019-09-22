@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: PasteStatus</title>
+    <title>JSDoc: Class: Check</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: PasteStatus</h1>
+    <h1 class="page-title">Class: Check</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>PasteStatus<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Check<span class="signature">()</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,7 +41,7 @@
     
 
     
-    <h4 class="name" id="PasteStatus"><span class="type-signature"></span>new PasteStatus<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Check"><span class="type-signature"></span>new Check<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -49,7 +49,7 @@
 
 
 <div class="description">
-    handles paste status/result
+    compatibility check
 </div>
 
 
@@ -93,7 +93,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1752">line 1752</a>
+        <a href="legacy.js.html">legacy.js</a>, <a href="legacy.js.html#line30">line 30</a>
     </li></ul></dd>
     
 
@@ -147,7 +147,7 @@
     
 
     
-    <h4 class="name" id=".createPasteNotification"><span class="type-signature">(static) </span>createPasteNotification<span class="signature">(url, deleteUrl)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".getInit"><span class="type-signature">(static) </span>getInit<span class="signature">()</span><span class="type-signature"> &rarr; {bool}</span></h4>
     
 
     
@@ -155,165 +155,7 @@
 
 
 <div class="description">
-    creates a notification after a successfull paste upload
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>url</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>deleteUrl</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1847">line 1847</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id=".hideMessages"><span class="type-signature">(static) </span>hideMessages<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    hides the remaining time and successful upload notification
+    returns if the check has concluded
 </div>
 
 
@@ -357,7 +199,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1916">line 1916</a>
+        <a href="legacy.js.html">legacy.js</a>, <a href="legacy.js.html#line230">line 230</a>
     </li></ul></dd>
     
 
@@ -380,6 +222,128 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">bool</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".getStatus"><span class="type-signature">(static) </span>getStatus<span class="signature">()</span><span class="type-signature"> &rarr; {bool}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    returns the current status of the check
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="legacy.js.html">legacy.js</a>, <a href="legacy.js.html#line242">line 242</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">bool</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -399,9 +363,7 @@
 
 
 <div class="description">
-    init status manager
-
-preloads jQuery elements
+    init on application start, returns an all-clear signal
 </div>
 
 
@@ -445,7 +407,7 @@ preloads jQuery elements
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1928">line 1928</a>
+        <a href="legacy.js.html">legacy.js</a>, <a href="legacy.js.html#line254">line 254</a>
     </li></ul></dd>
     
 
@@ -479,7 +441,7 @@ preloads jQuery elements
     
 
     
-    <h4 class="name" id=".pasteLinkClick"><span class="type-signature">(static) </span>pasteLinkClick<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".isBadBot"><span class="type-signature">(private, static) </span>isBadBot<span class="signature">()</span><span class="type-signature"> &rarr; {bool}</span></h4>
     
 
     
@@ -487,10 +449,7 @@ preloads jQuery elements
 
 
 <div class="description">
-    Forces opening the paste if the link does not do this automatically.
-
-This is necessary as browsers will not reload the page when it is
-already loaded (which is fake as it is set via history.pushState()).
+    checks whether this is a bot we dislike
 </div>
 
 
@@ -534,7 +493,7 @@ already loaded (which is fake as it is set via history.pushState()).
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1829">line 1829</a>
+        <a href="legacy.js.html">legacy.js</a>, <a href="legacy.js.html#line138">line 138</a>
     </li></ul></dd>
     
 
@@ -557,6 +516,24 @@ already loaded (which is fake as it is set via history.pushState()).
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">bool</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -568,7 +545,7 @@ already loaded (which is fake as it is set via history.pushState()).
     
 
     
-    <h4 class="name" id=".sendToShortener"><span class="type-signature">(private, static) </span>sendToShortener<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".isOldBrowser"><span class="type-signature">(private, static) </span>isOldBrowser<span class="signature">()</span><span class="type-signature"> &rarr; {bool}</span></h4>
     
 
     
@@ -576,7 +553,7 @@ already loaded (which is fake as it is set via history.pushState()).
 
 
 <div class="description">
-    forward to URL shortener
+    checks whether this is an unsupported browser, via feature detection
 </div>
 
 
@@ -620,7 +597,7 @@ already loaded (which is fake as it is set via history.pushState()).
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1766">line 1766</a>
+        <a href="legacy.js.html">legacy.js</a>, <a href="legacy.js.html#line157">line 157</a>
     </li></ul></dd>
     
 
@@ -643,6 +620,24 @@ already loaded (which is fake as it is set via history.pushState()).
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">bool</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -654,7 +649,7 @@ already loaded (which is fake as it is set via history.pushState()).
     
 
     
-    <h4 class="name" id=".showRemainingTime"><span class="type-signature">(static) </span>showRemainingTime<span class="signature">(paste)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".isSecureContext"><span class="type-signature">(private, static) </span>isSecureContext<span class="signature">()</span><span class="type-signature"> &rarr; {bool}</span></h4>
     
 
     
@@ -662,7 +657,111 @@ already loaded (which is fake as it is set via history.pushState()).
 
 
 <div class="description">
-    shows the remaining time
+    check if the context is secure
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="legacy.js.html">legacy.js</a>, <a href="legacy.js.html#line95">line 95</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">bool</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".removeHiddenFromId"><span class="type-signature">(private, static) </span>removeHiddenFromId<span class="signature">(id)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    removes "hidden" CSS class from element with given ID
 </div>
 
 
@@ -698,13 +797,13 @@ already loaded (which is fake as it is set via history.pushState()).
 
         <tr>
             
-                <td class="name"><code>paste</code></td>
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="Paste.html">Paste</a></span>
+<span class="param-type">string</span>
 
 
             
@@ -755,7 +854,142 @@ already loaded (which is fake as it is set via history.pushState()).
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line1880">line 1880</a>
+        <a href="legacy.js.html">legacy.js</a>, <a href="legacy.js.html#line214">line 214</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".showError"><span class="type-signature">(private, static) </span>showError<span class="signature">(message)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    shows an error message
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="legacy.js.html">legacy.js</a>, <a href="legacy.js.html#line193">line 193</a>
     </li></ul></dd>
     
 
