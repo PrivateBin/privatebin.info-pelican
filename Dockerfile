@@ -1,11 +1,11 @@
-FROM alpine:3.10
+FROM alpine:3.11
 WORKDIR /srv
 RUN apk add --no-cache python3 make
 RUN pip3 install pelican markdown
 COPY . /srv/
 RUN make publish
 
-FROM nginx:1.17.5-alpine
+FROM nginx:1.17.6-alpine
 LABEL maintainer="elrido@gmx.net"
 WORKDIR /srv
 COPY --from=0 /srv/output/ /usr/share/nginx/html/
