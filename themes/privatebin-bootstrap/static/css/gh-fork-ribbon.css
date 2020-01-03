@@ -82,7 +82,7 @@
 
   /* Add "stitching" effect */
   border-width: .08em 0;
-  border-style: dotted;
+  border-style: dashed;
   border-color: #fff;
   border-color: rgba(255, 255, 255, 0.7);
 }
