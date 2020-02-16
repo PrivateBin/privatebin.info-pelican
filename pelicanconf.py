@@ -33,11 +33,11 @@ MENUITEMS = (('FAQ', 'https://github.com/PrivateBin/PrivateBin/wiki/FAQ'),
              ('Issues', 'https://github.com/PrivateBin/PrivateBin/issues'),)
 
 # Blogroll
-LINKS = (('PrivateBin Directory', 'https://github.com/PrivateBin/PrivateBin/wiki/PrivateBin-Directory'),
-         ('Installation guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Installation'),
-         ('Upgrading from ZeroBin 0.19 Alpha', 'https://github.com/PrivateBin/PrivateBin/wiki/Upgrading-from-ZeroBin-0.19-Alpha'),
+LINKS = (('PrivateBin Directory', 'https://github.com/PrivateBin/PrivateBin/wiki/PrivateBin-Instances-Directory'),
+         ('Installation guide', 'https://github.com/PrivateBin/PrivateBin/blob/master/INSTALL.md#installation'),
          ('Configuration guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Configuration'),
          ('Template guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Templates'),
+         ('Upgrading from ZeroBin 0.19 Alpha', 'https://github.com/PrivateBin/PrivateBin/wiki/Upgrading-from-ZeroBin-0.19-Alpha'),
          ('Developer guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Development'),
          ('PHP Code Documentation', '/codedoc/'),
          ('PHP Unit Test Coverage', '/coverage/'),
