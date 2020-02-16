@@ -7,7 +7,7 @@ save_as: index.html
 
 # ![PrivateBin]({static}/img/logo.png)
 
-*Current version: 1.3.2*
+*Current version: 1.3.3*
 
 **PrivateBin** is a minimalist, open source online [pastebin](https://en.wikipedia.org/wiki/Pastebin)
 where the server has zero knowledge of pasted data.
@@ -102,9 +102,9 @@ file](https://github.com/PrivateBin/PrivateBin/wiki/Configuration):
 
 ## Further resources
 
-* [Installation guide](https://github.com/PrivateBin/PrivateBin/blob/master/INSTALL.md#installation)
+* [FAQ](https://github.com/PrivateBin/PrivateBin/wiki/FAQ)
 
-* [Upgrading from ZeroBin 0.19 Alpha](https://github.com/PrivateBin/PrivateBin/wiki/Upgrading-from-ZeroBin-0.19-Alpha)
+* [Installation guide](https://github.com/PrivateBin/PrivateBin/blob/master/INSTALL.md#installation)
 
 * [Configuration guide](https://github.com/PrivateBin/PrivateBin/wiki/Configuration)
 
