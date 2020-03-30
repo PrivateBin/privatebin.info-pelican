@@ -33,7 +33,7 @@ MENUITEMS = (('FAQ', 'https://github.com/PrivateBin/PrivateBin/wiki/FAQ'),
              ('Issues', 'https://github.com/PrivateBin/PrivateBin/issues'),)
 
 # Blogroll
-LINKS = (('PrivateBin Directory', 'https://github.com/PrivateBin/PrivateBin/wiki/PrivateBin-Instances-Directory'),
+LINKS = (('PrivateBin Directory', '/directory/'),
          ('Installation guide', 'https://github.com/PrivateBin/PrivateBin/blob/master/INSTALL.md#installation'),
          ('Configuration guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Configuration'),
          ('Template guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Templates'),
