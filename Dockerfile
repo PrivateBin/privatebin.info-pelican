@@ -1,6 +1,6 @@
-FROM alpine:3.11
+FROM alpine:3.12
 WORKDIR /srv
-RUN apk add --no-cache python3 make
+RUN apk add --no-cache python3 py3-pip make
 RUN pip3 install pelican markdown
 COPY . /srv/
 RUN make publish
