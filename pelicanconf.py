@@ -30,11 +30,11 @@ AUTHOR_FEED_RSS = None
 # Navigation
 MENUITEMS = (('FAQ', 'https://github.com/PrivateBin/PrivateBin/wiki/FAQ'),
              ('Wiki', 'https://github.com/PrivateBin/PrivateBin/wiki'),
-             ('Issues', 'https://github.com/PrivateBin/PrivateBin/issues'),)
+             ('Issues', 'https://github.com/PrivateBin/PrivateBin/issues'),
+             ('Find instance', '/directory/'))
 
 # Blogroll
-LINKS = (('PrivateBin Directory', '/directory/'),
-         ('Installation guide', 'https://github.com/PrivateBin/PrivateBin/blob/master/INSTALL.md#installation'),
+LINKS = (('Installation guide', 'https://github.com/PrivateBin/PrivateBin/blob/master/INSTALL.md#installation'),
          ('Configuration guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Configuration'),
          ('Template guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Templates'),
          ('Upgrading from ZeroBin 0.19 Alpha', 'https://github.com/PrivateBin/PrivateBin/wiki/Upgrading-from-ZeroBin-0.19-Alpha'),
