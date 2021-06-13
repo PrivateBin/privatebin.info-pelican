@@ -5,7 +5,7 @@ RUN pip3 install pelican markdown
 COPY . /srv/
 RUN make publish
 
-FROM nginx:1.20.0-alpine
+FROM nginx:1.20.1-alpine
 LABEL maintainer="elrido@gmx.net"
 WORKDIR /srv
 COPY --from=0 /srv/output/ /usr/share/nginx/html/
