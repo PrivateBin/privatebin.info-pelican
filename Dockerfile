@@ -1,4 +1,4 @@
-FROM alpine:3.13
+FROM alpine:3.14
 WORKDIR /srv
 RUN apk add --no-cache python3 py3-pip make
 RUN pip3 install pelican markdown
