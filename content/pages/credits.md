@@ -6,9 +6,9 @@ save_as: credits.html
 
 ## Active contributors
 
-Simon Rupf - current developer and maintainer (git signing key [4096R/0F5C940A6BD81F92]({static}/key/elrido.asc))  
-rugk - security review, doc improvment & various other stuff (git signing key [4096R/05D40A636AFAB34D]({static}/key/rugk.asc))  
-R4SAS - python client, compression, blob URI to support larger attachments
+* Simon Rupf - current developer and maintainer (git signing key [4096R/0F5C940A6BD81F92]({static}/key/elrido.asc))
+* rugk - security review, doc improvment, JS refactoring & various other stuff(git signing key [4096R/05D40A636AFAB34D]({static}/key/rugk.asc))
+* R4SAS - python client, compression, blob URI to support larger attachments
 
 Releases are signed with the key [git@privatebin.net]({static}/key/release.asc), `28CA 7C96 4938 EA5C 1481  D42A E11B 7950 E9E1 83DB`.
 
@@ -16,12 +16,11 @@ For any **security issues** please contact us via [security@privatebin.org](mail
 
 ## Past contributions
 
-Sébastien Sauvage - original idea and main developer
-
+* Sébastien Sauvage - original idea and main developer
 * Alexey Gladkov - syntax highlighting
 * Greg Knaddison - robots.txt
 * MrKooky - HTML5 markup, CSS cleanup
-* Simon Rupf - WebCrypto, unit tests, current docker containers, MVC, configuration, i18n
+* Simon Rupf - WebCrypto, unit tests, container images, database backend, MVC, configuration, i18n
 * Hexalyse - Password protection
 * Viktor Stanchev - File upload support
 * azlux - Tab character input support
@@ -35,6 +34,9 @@ Sébastien Sauvage - original idea and main developer
 * Harald Leithner - base58 encoding of key
 * Haocen - lots of bugfixes and UI improvements
 * Lucas Savva - configurable config file location, NixOS packaging
+* rodehoed - option to exempt ips from the rate-limiter
+* Mark van Holsteijn - Google Cloud Storage backend
+* Austin Huang - Oracle database support
 
 ## Translations
 * Hexalyse - French
@@ -58,4 +60,7 @@ Sébastien Sauvage - original idea and main developer
 * Moo - Lithuanian
 * whenwesober - Indonesian
 * retiolus - Catalan
-
+* sarnane - Estonian
+* foxsouns - Lojban
+* Patriccollu di Santa Maria è Sichè - Corsican
+* Markus Mikkonen - Finnish
