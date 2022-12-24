@@ -34,48 +34,48 @@
 <path fill="none" stroke="gray" d="M56.5,-610C56.5,-610 346,-610 346,-610 352,-610 358,-616 358,-622 358,-622 358,-724 358,-724 358,-730 352,-736 346,-736 346,-736 56.5,-736 56.5,-736 50.5,-736 44.5,-730 44.5,-724 44.5,-724 44.5,-622 44.5,-622 44.5,-616 50.5,-610 56.5,-610"/>
 <text text-anchor="middle" x="201.25" y="-723.2" font-family="Times,serif" font-size="11.00" fill="gray">Model</text>
 </g>
-<!-- \\PrivateBin\\Data\\GoogleCloudStorage -->
+<!-- \\PrivateBin\\Data\\Filesystem -->
 <g id="node1" class="node">
-<title>\\PrivateBin\\Data\\GoogleCloudStorage</title>
-<polygon fill="none" stroke="black" points="387,-1138 249,-1138 249,-1102 387,-1102 387,-1138"/>
-<text text-anchor="middle" x="318" y="-1117.2" font-family="Courier,monospace" font-size="11.00">GoogleCloudStorage</text>
+<title>\\PrivateBin\\Data\\Filesystem</title>
+<polygon fill="none" stroke="black" points="360,-1138 276,-1138 276,-1102 360,-1102 360,-1138"/>
+<text text-anchor="middle" x="318" y="-1117.2" font-family="Courier,monospace" font-size="11.00">Filesystem</text>
 </g>
 <!-- \\PrivateBin\\Data\\AbstractData -->
-<g id="node2" class="node">
+<g id="node4" class="node">
 <title>\\PrivateBin\\Data\\AbstractData</title>
 <polygon fill="none" stroke="black" points="153.5,-1057 55.5,-1057 55.5,-1021 153.5,-1021 153.5,-1057"/>
 <text text-anchor="start" x="70.5" y="-1042.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
 <text text-anchor="start" x="63.5" y="-1030.2" font-family="Courier,monospace" font-size="11.00">AbstractData</text>
 </g>
-<!-- \\PrivateBin\\Data\\GoogleCloudStorage&#45;&gt;\\PrivateBin\\Data\\AbstractData -->
-<g id="edge1" class="edge">
-<title>\\PrivateBin\\Data\\GoogleCloudStorage&#45;&gt;\\PrivateBin\\Data\\AbstractData</title>
-<path fill="none" stroke="black" d="M269.8,-1101.92C238,-1089.74 195.88,-1073.61 162.25,-1060.73"/>
-<polygon fill="none" stroke="black" points="163.15,-1057.33 152.56,-1057.02 160.64,-1063.87 163.15,-1057.33"/>
-</g>
-<!-- \\PrivateBin\\Data\\Filesystem -->
-<g id="node3" class="node">
-<title>\\PrivateBin\\Data\\Filesystem</title>
-<polygon fill="none" stroke="black" points="360,-1084 276,-1084 276,-1048 360,-1048 360,-1084"/>
-<text text-anchor="middle" x="318" y="-1063.2" font-family="Courier,monospace" font-size="11.00">Filesystem</text>
-</g>
 <!-- \\PrivateBin\\Data\\Filesystem&#45;&gt;\\PrivateBin\\Data\\AbstractData -->
-<g id="edge4" class="edge">
+<g id="edge1" class="edge">
 <title>\\PrivateBin\\Data\\Filesystem&#45;&gt;\\PrivateBin\\Data\\AbstractData</title>
-<path fill="none" stroke="black" d="M275.97,-1060.76C244.15,-1056.7 199.64,-1051.02 164.07,-1046.48"/>
-<polygon fill="none" stroke="black" points="164.19,-1042.96 153.83,-1045.17 163.3,-1049.91 164.19,-1042.96"/>
+<path fill="none" stroke="black" d="M275.97,-1104.29C243.55,-1091.87 197.94,-1074.4 162.06,-1060.66"/>
+<polygon fill="none" stroke="black" points="163.28,-1057.38 152.69,-1057.07 160.77,-1063.92 163.28,-1057.38"/>
 </g>
 <!-- \\PrivateBin\\Data\\Database -->
-<g id="node4" class="node">
+<g id="node2" class="node">
 <title>\\PrivateBin\\Data\\Database</title>
-<polygon fill="none" stroke="black" points="353.5,-1030 282.5,-1030 282.5,-994 353.5,-994 353.5,-1030"/>
-<text text-anchor="middle" x="318" y="-1009.2" font-family="Courier,monospace" font-size="11.00">Database</text>
+<polygon fill="none" stroke="black" points="353.5,-1084 282.5,-1084 282.5,-1048 353.5,-1048 353.5,-1084"/>
+<text text-anchor="middle" x="318" y="-1063.2" font-family="Courier,monospace" font-size="11.00">Database</text>
 </g>
 <!-- \\PrivateBin\\Data\\Database&#45;&gt;\\PrivateBin\\Data\\AbstractData -->
-<g id="edge6" class="edge">
+<g id="edge2" class="edge">
 <title>\\PrivateBin\\Data\\Database&#45;&gt;\\PrivateBin\\Data\\AbstractData</title>
-<path fill="none" stroke="black" d="M282.08,-1016.46C250.01,-1020.55 201.86,-1026.7 163.94,-1031.54"/>
-<polygon fill="none" stroke="black" points="163.01,-1028.13 153.54,-1032.87 163.9,-1035.07 163.01,-1028.13"/>
+<path fill="none" stroke="black" d="M282.08,-1061.54C250.01,-1057.45 201.86,-1051.3 163.94,-1046.46"/>
+<polygon fill="none" stroke="black" points="163.9,-1042.93 153.54,-1045.13 163.01,-1049.87 163.9,-1042.93"/>
+</g>
+<!-- \\PrivateBin\\Data\\GoogleCloudStorage -->
+<g id="node3" class="node">
+<title>\\PrivateBin\\Data\\GoogleCloudStorage</title>
+<polygon fill="none" stroke="black" points="387,-1030 249,-1030 249,-994 387,-994 387,-1030"/>
+<text text-anchor="middle" x="318" y="-1009.2" font-family="Courier,monospace" font-size="11.00">GoogleCloudStorage</text>
+</g>
+<!-- \\PrivateBin\\Data\\GoogleCloudStorage&#45;&gt;\\PrivateBin\\Data\\AbstractData -->
+<g id="edge3" class="edge">
+<title>\\PrivateBin\\Data\\GoogleCloudStorage&#45;&gt;\\PrivateBin\\Data\\AbstractData</title>
+<path fill="none" stroke="black" d="M248.92,-1020.69C221.52,-1024.19 190.24,-1028.18 163.9,-1031.54"/>
+<polygon fill="none" stroke="black" points="163.17,-1028.11 153.69,-1032.85 164.06,-1035.05 163.17,-1028.11"/>
 </g>
 <!-- \\PrivateBin\\Data\\S3Storage -->
 <g id="node5" class="node">
@@ -84,7 +84,7 @@
 <text text-anchor="middle" x="318" y="-955.2" font-family="Courier,monospace" font-size="11.00">S3Storage</text>
 </g>
 <!-- \\PrivateBin\\Data\\S3Storage&#45;&gt;\\PrivateBin\\Data\\AbstractData -->
-<g id="edge9" class="edge">
+<g id="edge4" class="edge">
 <title>\\PrivateBin\\Data\\S3Storage&#45;&gt;\\PrivateBin\\Data\\AbstractData</title>
 <path fill="none" stroke="black" d="M279.19,-972.48C246.68,-984.93 199.33,-1003.06 162.28,-1017.26"/>
 <polygon fill="none" stroke="black" points="160.69,-1014.11 152.61,-1020.96 163.2,-1020.65 160.69,-1014.11"/>
@@ -96,26 +96,26 @@
 <text text-anchor="middle" x="318" y="-875.2" font-family="Courier,monospace" font-size="11.00">TrafficLimiter</text>
 </g>
 <!-- \\PrivateBin\\Persistence\\AbstractPersistence -->
-<g id="node8" class="node">
+<g id="node7" class="node">
 <title>\\PrivateBin\\Persistence\\AbstractPersistence</title>
 <polygon fill="none" stroke="black" points="177,-842 32,-842 32,-806 177,-806 177,-842"/>
 <text text-anchor="start" x="70.5" y="-827.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
 <text text-anchor="start" x="40" y="-815.2" font-family="Courier,monospace" font-size="11.00">AbstractPersistence</text>
 </g>
 <!-- \\PrivateBin\\Persistence\\TrafficLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence -->
-<g id="edge2" class="edge">
+<g id="edge5" class="edge">
 <title>\\PrivateBin\\Persistence\\TrafficLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence</title>
 <path fill="none" stroke="black" d="M262.26,-864.02C239.14,-858.12 211.73,-851.12 186.36,-844.64"/>
 <polygon fill="none" stroke="black" points="186.93,-841.18 176.38,-842.1 185.2,-847.96 186.93,-841.18"/>
 </g>
 <!-- \\PrivateBin\\Persistence\\PurgeLimiter -->
-<g id="node7" class="node">
+<g id="node8" class="node">
 <title>\\PrivateBin\\Persistence\\PurgeLimiter</title>
 <polygon fill="none" stroke="black" points="367,-842 269,-842 269,-806 367,-806 367,-842"/>
 <text text-anchor="middle" x="318" y="-821.2" font-family="Courier,monospace" font-size="11.00">PurgeLimiter</text>
 </g>
 <!-- \\PrivateBin\\Persistence\\PurgeLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence -->
-<g id="edge3" class="edge">
+<g id="edge6" class="edge">
 <title>\\PrivateBin\\Persistence\\PurgeLimiter&#45;&gt;\\PrivateBin\\Persistence\\AbstractPersistence</title>
 <path fill="none" stroke="black" d="M268.74,-824C244.64,-824 214.81,-824 187.26,-824"/>
 <polygon fill="none" stroke="black" points="187.24,-820.5 177.24,-824 187.24,-827.5 187.24,-820.5"/>
@@ -132,11 +132,11 @@
 <path fill="none" stroke="black" d="M275.97,-780.48C250.5,-786.98 216.88,-795.56 186.24,-803.39"/>
 <polygon fill="none" stroke="black" points="185.23,-800.03 176.41,-805.9 186.97,-806.81 185.23,-800.03"/>
 </g>
-<!-- \\PrivateBin\\Model\\Paste -->
+<!-- \\PrivateBin\\Model\\Comment -->
 <g id="node10" class="node">
-<title>\\PrivateBin\\Model\\Paste</title>
-<polygon fill="none" stroke="black" points="345,-708 291,-708 291,-672 345,-672 345,-708"/>
-<text text-anchor="middle" x="318" y="-687.2" font-family="Courier,monospace" font-size="11.00">Paste</text>
+<title>\\PrivateBin\\Model\\Comment</title>
+<polygon fill="none" stroke="black" points="350,-708 286,-708 286,-672 350,-672 350,-708"/>
+<text text-anchor="middle" x="318" y="-687.2" font-family="Courier,monospace" font-size="11.00">Comment</text>
 </g>
 <!-- \\PrivateBin\\Model\\AbstractModel -->
 <g id="node11" class="node">
@@ -145,41 +145,41 @@
 <text text-anchor="start" x="70.5" y="-666.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
 <text text-anchor="start" x="60.5" y="-654.2" font-family="Courier,monospace" font-size="11.00">AbstractModel</text>
 </g>
-<!-- \\PrivateBin\\Model\\Paste&#45;&gt;\\PrivateBin\\Model\\AbstractModel -->
-<g id="edge5" class="edge">
-<title>\\PrivateBin\\Model\\Paste&#45;&gt;\\PrivateBin\\Model\\AbstractModel</title>
-<path fill="none" stroke="black" d="M290.64,-686.64C259.75,-682.69 207.55,-676.03 166.44,-670.78"/>
-<polygon fill="none" stroke="black" points="166.87,-667.31 156.51,-669.51 165.99,-674.25 166.87,-667.31"/>
-</g>
-<!-- \\PrivateBin\\Model\\Comment -->
-<g id="node12" class="node">
-<title>\\PrivateBin\\Model\\Comment</title>
-<polygon fill="none" stroke="black" points="350,-654 286,-654 286,-618 350,-618 350,-654"/>
-<text text-anchor="middle" x="318" y="-633.2" font-family="Courier,monospace" font-size="11.00">Comment</text>
-</g>
 <!-- \\PrivateBin\\Model\\Comment&#45;&gt;\\PrivateBin\\Model\\AbstractModel -->
 <g id="edge8" class="edge">
 <title>\\PrivateBin\\Model\\Comment&#45;&gt;\\PrivateBin\\Model\\AbstractModel</title>
-<path fill="none" stroke="black" d="M285.79,-639.98C254.57,-643.97 205.71,-650.21 166.72,-655.18"/>
-<polygon fill="none" stroke="black" points="166.01,-651.75 156.53,-656.49 166.89,-658.69 166.01,-651.75"/>
+<path fill="none" stroke="black" d="M285.79,-686.02C254.57,-682.03 205.71,-675.79 166.72,-670.82"/>
+<polygon fill="none" stroke="black" points="166.89,-667.31 156.53,-669.51 166.01,-674.25 166.89,-667.31"/>
 </g>
-<!-- \\PrivateBin\\Json -->
+<!-- \\PrivateBin\\Model\\Paste -->
+<g id="node12" class="node">
+<title>\\PrivateBin\\Model\\Paste</title>
+<polygon fill="none" stroke="black" points="345,-654 291,-654 291,-618 345,-618 345,-654"/>
+<text text-anchor="middle" x="318" y="-633.2" font-family="Courier,monospace" font-size="11.00">Paste</text>
+</g>
+<!-- \\PrivateBin\\Model\\Paste&#45;&gt;\\PrivateBin\\Model\\AbstractModel -->
+<g id="edge9" class="edge">
+<title>\\PrivateBin\\Model\\Paste&#45;&gt;\\PrivateBin\\Model\\AbstractModel</title>
+<path fill="none" stroke="black" d="M290.64,-639.36C259.75,-643.31 207.55,-649.97 166.44,-655.22"/>
+<polygon fill="none" stroke="black" points="165.99,-651.75 156.51,-656.49 166.87,-658.69 165.99,-651.75"/>
+</g>
+<!-- \\PrivateBin\\Filter -->
 <g id="node13" class="node">
-<title>\\PrivateBin\\Json</title>
-<polygon fill="none" stroke="black" points="345,-600 291,-600 291,-564 345,-564 345,-600"/>
-<text text-anchor="middle" x="318" y="-579.2" font-family="Courier,monospace" font-size="11.00">Json</text>
+<title>\\PrivateBin\\Filter</title>
+<polygon fill="none" stroke="black" points="346.5,-600 289.5,-600 289.5,-564 346.5,-564 346.5,-600"/>
+<text text-anchor="middle" x="318" y="-579.2" font-family="Courier,monospace" font-size="11.00">Filter</text>
 </g>
-<!-- \\PrivateBin\\Configuration -->
+<!-- \\PrivateBin\\Model -->
 <g id="node14" class="node">
-<title>\\PrivateBin\\Configuration</title>
-<polygon fill="none" stroke="black" points="370,-546 266,-546 266,-510 370,-510 370,-546"/>
-<text text-anchor="middle" x="318" y="-525.2" font-family="Courier,monospace" font-size="11.00">Configuration</text>
+<title>\\PrivateBin\\Model</title>
+<polygon fill="none" stroke="black" points="345,-546 291,-546 291,-510 345,-510 345,-546"/>
+<text text-anchor="middle" x="318" y="-525.2" font-family="Courier,monospace" font-size="11.00">Model</text>
 </g>
-<!-- \\PrivateBin\\Request -->
+<!-- \\PrivateBin\\Controller -->
 <g id="node15" class="node">
-<title>\\PrivateBin\\Request</title>
-<polygon fill="none" stroke="black" points="350,-492 286,-492 286,-456 350,-456 350,-492"/>
-<text text-anchor="middle" x="318" y="-471.2" font-family="Courier,monospace" font-size="11.00">Request</text>
+<title>\\PrivateBin\\Controller</title>
+<polygon fill="none" stroke="black" points="360,-492 276,-492 276,-456 360,-456 360,-492"/>
+<text text-anchor="middle" x="318" y="-471.2" font-family="Courier,monospace" font-size="11.00">Controller</text>
 </g>
 <!-- \\PrivateBin\\View -->
 <g id="node16" class="node">
@@ -187,47 +187,47 @@
 <polygon fill="none" stroke="black" points="345,-438 291,-438 291,-402 345,-402 345,-438"/>
 <text text-anchor="middle" x="318" y="-417.2" font-family="Courier,monospace" font-size="11.00">View</text>
 </g>
-<!-- \\PrivateBin\\FormatV2 -->
+<!-- \\PrivateBin\\YourlsProxy -->
 <g id="node17" class="node">
-<title>\\PrivateBin\\FormatV2</title>
-<polygon fill="none" stroke="black" points="353.5,-384 282.5,-384 282.5,-348 353.5,-348 353.5,-384"/>
-<text text-anchor="middle" x="318" y="-363.2" font-family="Courier,monospace" font-size="11.00">FormatV2</text>
+<title>\\PrivateBin\\YourlsProxy</title>
+<polygon fill="none" stroke="black" points="363.5,-384 272.5,-384 272.5,-348 363.5,-348 363.5,-384"/>
+<text text-anchor="middle" x="318" y="-363.2" font-family="Courier,monospace" font-size="11.00">YourlsProxy</text>
 </g>
-<!-- \\PrivateBin\\Vizhash16x16 -->
+<!-- \\PrivateBin\\Request -->
 <g id="node18" class="node">
-<title>\\PrivateBin\\Vizhash16x16</title>
-<polygon fill="none" stroke="black" points="367,-330 269,-330 269,-294 367,-294 367,-330"/>
-<text text-anchor="middle" x="318" y="-309.2" font-family="Courier,monospace" font-size="11.00">Vizhash16x16</text>
-</g>
-<!-- \\PrivateBin\\Filter -->
-<g id="node19" class="node">
-<title>\\PrivateBin\\Filter</title>
-<polygon fill="none" stroke="black" points="346.5,-276 289.5,-276 289.5,-240 346.5,-240 346.5,-276"/>
-<text text-anchor="middle" x="318" y="-255.2" font-family="Courier,monospace" font-size="11.00">Filter</text>
-</g>
-<!-- \\PrivateBin\\Controller -->
-<g id="node20" class="node">
-<title>\\PrivateBin\\Controller</title>
-<polygon fill="none" stroke="black" points="360,-222 276,-222 276,-186 360,-186 360,-222"/>
-<text text-anchor="middle" x="318" y="-201.2" font-family="Courier,monospace" font-size="11.00">Controller</text>
-</g>
-<!-- \\PrivateBin\\Model -->
-<g id="node21" class="node">
-<title>\\PrivateBin\\Model</title>
-<polygon fill="none" stroke="black" points="345,-168 291,-168 291,-132 345,-132 345,-168"/>
-<text text-anchor="middle" x="318" y="-147.2" font-family="Courier,monospace" font-size="11.00">Model</text>
+<title>\\PrivateBin\\Request</title>
+<polygon fill="none" stroke="black" points="350,-330 286,-330 286,-294 350,-294 350,-330"/>
+<text text-anchor="middle" x="318" y="-309.2" font-family="Courier,monospace" font-size="11.00">Request</text>
 </g>
 <!-- \\PrivateBin\\I18n -->
-<g id="node22" class="node">
+<g id="node19" class="node">
 <title>\\PrivateBin\\I18n</title>
-<polygon fill="none" stroke="black" points="345,-114 291,-114 291,-78 345,-78 345,-114"/>
-<text text-anchor="middle" x="318" y="-93.2" font-family="Courier,monospace" font-size="11.00">I18n</text>
+<polygon fill="none" stroke="black" points="345,-276 291,-276 291,-240 345,-240 345,-276"/>
+<text text-anchor="middle" x="318" y="-255.2" font-family="Courier,monospace" font-size="11.00">I18n</text>
 </g>
-<!-- \\PrivateBin\\YourlsProxy -->
+<!-- \\PrivateBin\\Configuration -->
+<g id="node20" class="node">
+<title>\\PrivateBin\\Configuration</title>
+<polygon fill="none" stroke="black" points="370,-222 266,-222 266,-186 370,-186 370,-222"/>
+<text text-anchor="middle" x="318" y="-201.2" font-family="Courier,monospace" font-size="11.00">Configuration</text>
+</g>
+<!-- \\PrivateBin\\FormatV2 -->
+<g id="node21" class="node">
+<title>\\PrivateBin\\FormatV2</title>
+<polygon fill="none" stroke="black" points="353.5,-168 282.5,-168 282.5,-132 353.5,-132 353.5,-168"/>
+<text text-anchor="middle" x="318" y="-147.2" font-family="Courier,monospace" font-size="11.00">FormatV2</text>
+</g>
+<!-- \\PrivateBin\\Json -->
+<g id="node22" class="node">
+<title>\\PrivateBin\\Json</title>
+<polygon fill="none" stroke="black" points="345,-114 291,-114 291,-78 345,-78 345,-114"/>
+<text text-anchor="middle" x="318" y="-93.2" font-family="Courier,monospace" font-size="11.00">Json</text>
+</g>
+<!-- \\PrivateBin\\Vizhash16x16 -->
 <g id="node23" class="node">
-<title>\\PrivateBin\\YourlsProxy</title>
-<polygon fill="none" stroke="black" points="363.5,-60 272.5,-60 272.5,-24 363.5,-24 363.5,-60"/>
-<text text-anchor="middle" x="318" y="-39.2" font-family="Courier,monospace" font-size="11.00">YourlsProxy</text>
+<title>\\PrivateBin\\Vizhash16x16</title>
+<polygon fill="none" stroke="black" points="367,-60 269,-60 269,-24 367,-24 367,-60"/>
+<text text-anchor="middle" x="318" y="-39.2" font-family="Courier,monospace" font-size="11.00">Vizhash16x16</text>
 </g>
 </g>
 </svg>
