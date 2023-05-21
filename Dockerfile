@@ -1,11 +1,11 @@
-FROM alpine:3.17
+FROM alpine:3.18
 WORKDIR /srv
-RUN apk add --no-cache python3 py3-pip make
-RUN pip3 install pelican markdown
+RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+RUN apk add --no-cache py3-pelican@testing make
 COPY . /srv/
 RUN make publish
 
-FROM nginx:1.22.1-alpine
+FROM nginx:1.24.0-alpine-slim
 LABEL maintainer="elrido@gmx.net"
 WORKDIR /srv
 COPY --from=0 /srv/output/ /usr/share/nginx/html/
