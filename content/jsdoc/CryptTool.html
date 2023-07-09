@@ -121,6 +121,8 @@
 
 
 
+
+
     
     </div>
 
@@ -260,6 +262,8 @@ Iterates over the bytes of the array, catenating them into a string
 
     
 </dl>
+
+
 
 
 
@@ -430,6 +434,8 @@ Iterates over the bytes of the array, catenating them into a string
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -574,6 +580,8 @@ Iterates over the bytes of the array, catenating them into a string
 
     
 </dl>
+
+
 
 
 
@@ -813,6 +821,8 @@ Iterates over the bytes of the array, catenating them into a string
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -1014,6 +1024,8 @@ Iterates over the bytes of the array, catenating them into a string
 
 
 
+
+
 <h5>Throws:</h5>
 
         
@@ -1198,6 +1210,8 @@ Iterates over the bytes of the array, catenating them into a string
 
     
 </dl>
+
+
 
 
 
@@ -1417,6 +1431,8 @@ Iterates over the bytes of the array, catenating them into a string
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -1607,6 +1623,8 @@ Iterates over the bytes of the array, catenating them into a string
 
     
 </dl>
+
+
 
 
 
@@ -1838,6 +1856,8 @@ Iterates over the bytes of the array, catenating them into a string
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -1993,6 +2013,8 @@ Iterates over the bytes of the array, catenating them into a string
 
 
 
+
+
 <h5>Throws:</h5>
 
         
@@ -2107,6 +2129,8 @@ generates 256 bit long keys (8 Bits * 32) for AES with 256 bit long blocks
 
     
 </dl>
+
+
 
 
 
@@ -2294,6 +2318,8 @@ Iterates over the bytes of the message, writing them to the array
 
 
 
+
+
 <h5>Returns:</h5>
 
         
@@ -2310,166 +2336,6 @@ Iterates over the bytes of the message, writing them to the array
     <dd>
         
 <span class="param-type">Uint8Array</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id=".utf8To16"><span class="type-signature">(private, static) </span>utf8To16<span class="signature">(message)</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    convert UTF-8 string stored in a DOMString to a standard UTF-16 DOMString
-
-Iterates over the bytes of the message, converting them all hexadecimal
-percent encoded representations, then URI decodes them all
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>message</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">UTF-8 string</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line910">line 910</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    UTF-16 string
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
 
 
     </dd>
@@ -2614,11 +2480,175 @@ and transforms these hexadecimal representation back into bytes
 
 
 
+
+
 <h5>Returns:</h5>
 
         
 <div class="param-desc">
     UTF-8 string
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".utf8To16"><span class="type-signature">(private, static) </span>utf8To16<span class="signature">(message)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    convert UTF-8 string stored in a DOMString to a standard UTF-16 DOMString
+
+Iterates over the bytes of the message, converting them all hexadecimal
+percent encoded representations, then URI decodes them all
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">UTF-8 string</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="privatebin.js.html">privatebin.js</a>, <a href="privatebin.js.html#line910">line 910</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    UTF-16 string
 </div>
 
 
@@ -2657,13 +2687,13 @@ and transforms these hexadecimal representation back into bytes
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Check.html">Check</a></li><li><a href="Comment.html">Comment</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CryptoData.html">CryptoData</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="Model.html">Model</a></li><li><a href="Paste.html">Paste</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="ServerInteraction.html">ServerInteraction</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li></ul><h3>Namespaces</h3><ul><li><a href="Legacy.html">Legacy</a></li><li><a href="PrivateBin.html">PrivateBin</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="Legacy.html">Legacy</a></li><li><a href="PrivateBin.html">PrivateBin</a></li></ul><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Check.html">Check</a></li><li><a href="Comment.html">Comment</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="CryptoData.html">CryptoData</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="Model.html">Model</a></li><li><a href="Paste.html">Paste</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="ServerInteraction.html">ServerInteraction</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Dec 24 2022 05:57:06 GMT+0100 (Mitteleuropäische Normalzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Jul 09 2023 10:25:29 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>
