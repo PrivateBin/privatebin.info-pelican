@@ -5,7 +5,7 @@ RUN apk add --no-cache py3-pelican@testing make
 COPY . /srv/
 RUN make publish
 
-FROM nginx:1.24.0-alpine-slim
+FROM nginx:1.25.3-alpine-slim
 LABEL maintainer="elrido@gmx.net"
 WORKDIR /srv
 COPY --from=0 /srv/output/ /usr/share/nginx/html/
