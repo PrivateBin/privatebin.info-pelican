@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/base.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/template.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
                 <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     </head>
@@ -52,7 +53,7 @@
 <label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
     Menu
 </label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
@@ -95,8 +96,9 @@
     </section>
 </aside>
 
-            <div class="phpdocumentor-column -eight phpdocumentor-content">
-                    <ul class="phpdocumentor-breadcrumbs">
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/privatebin.html">PrivateBin</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/privatebin-data.html">Data</a></li>
     </ul>
@@ -119,6 +121,11 @@
     
     </h2>
 
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
     :
@@ -135,16 +142,27 @@
 
 
 
-
-
-
 <h3 id="toc">
     Table of Contents
-    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/PrivateBin-Data-S3Storage.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
 </h3>
 
+
+
+
+
+
+
+
+
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/PrivateBin-Data-S3Storage.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
 <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/PrivateBin-Data-AbstractData.html#property__last_cache">$_last_cache</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
@@ -179,7 +197,15 @@
 </dt>
 <dd>S3 prefix for all PrivateBin data in this bucket</dd>
 
-                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/PrivateBin-Data-S3Storage.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/PrivateBin-Data-S3Storage.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
@@ -313,7 +339,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
 </dt>
 <dd>Uploads the payload in the $this-&gt;_bucket under the specified key.</dd>
 
-        </dl>
+    </dl>
+
 
 
 
@@ -324,6 +351,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
             <a href="classes/PrivateBin-Data-S3Storage.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="
@@ -335,6 +363,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="property__last_cache">
         $_last_cache
         <a href="classes/PrivateBin-Data-AbstractData.html#property__last_cache" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
@@ -358,7 +387,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-AbstractData.html#property__last_cache#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -370,7 +400,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
 </section>
 
                                     </dd>
-                        </dl>
+                                            </dl>
 
 </article>
                     <article
@@ -383,6 +413,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="property__bucket">
         $_bucket
         <a href="classes/PrivateBin-Data-S3Storage.html#property__bucket" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
@@ -406,7 +437,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#property__bucket#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -418,7 +450,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
 </section>
 
                                     </dd>
-                        </dl>
+                                            </dl>
 
 </article>
                     <article
@@ -431,6 +463,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="property__client">
         $_client
         <a href="classes/PrivateBin-Data-S3Storage.html#property__client" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
@@ -454,7 +487,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#property__client#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -466,7 +500,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
 </section>
 
                                     </dd>
-                        </dl>
+                                            </dl>
 
 </article>
                     <article
@@ -479,6 +513,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="property__options">
         $_options
         <a href="classes/PrivateBin-Data-S3Storage.html#property__options" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
@@ -502,7 +537,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#property__options#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -514,7 +550,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
 </section>
 
                                     </dd>
-                        </dl>
+                                            </dl>
 
 </article>
                     <article
@@ -527,6 +563,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="property__prefix">
         $_prefix
         <a href="classes/PrivateBin-Data-S3Storage.html#property__prefix" class="headerlink"><i class="fas fa-link"></i></a>
+
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
@@ -550,7 +587,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#property__prefix#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -562,7 +600,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
 </section>
 
                                     </dd>
-                        </dl>
+                                            </dl>
 
 </article>
             </section>
@@ -571,6 +609,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
             <a href="classes/PrivateBin-Data-S3Storage.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
         </h3>
                     <article
         class="phpdocumentor-element
@@ -581,6 +620,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
         <a href="classes/PrivateBin-Data-S3Storage.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -595,6 +635,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -610,7 +652,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -622,12 +665,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
 </section>
 
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
     
 </article>
                     <article
@@ -639,6 +678,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_create">
         create()
         <a href="classes/PrivateBin-Data-S3Storage.html#method_create" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -653,6 +693,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pasteid</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$paste</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -675,7 +717,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method_create#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -685,13 +728,13 @@ namespaces traffic_limiter and purge_limiter.</dd>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -702,6 +745,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_createComment">
         createComment()
         <a href="classes/PrivateBin-Data-S3Storage.html#method_createComment" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -716,6 +760,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">createComment</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pasteid</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parentid</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$commentid</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$comment</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -752,7 +798,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method_createComment#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -762,13 +809,13 @@ namespaces traffic_limiter and purge_limiter.</dd>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -779,6 +826,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_delete">
         delete()
         <a href="classes/PrivateBin-Data-S3Storage.html#method_delete" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -793,6 +841,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">delete</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pasteid</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -808,7 +858,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method_delete#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -818,12 +869,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
     
 </article>
                     <article
@@ -835,6 +882,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_exists">
         exists()
         <a href="classes/PrivateBin-Data-S3Storage.html#method_exists" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -849,6 +897,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">exists</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pasteid</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -864,7 +914,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method_exists#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -874,13 +925,13 @@ namespaces traffic_limiter and purge_limiter.</dd>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -891,6 +942,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_existsComment">
         existsComment()
         <a href="classes/PrivateBin-Data-S3Storage.html#method_existsComment" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -905,6 +957,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">existsComment</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pasteid</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parentid</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$commentid</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -934,7 +988,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method_existsComment#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -944,13 +999,13 @@ namespaces traffic_limiter and purge_limiter.</dd>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -961,6 +1016,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_getAllPastes">
         getAllPastes()
         <a href="classes/PrivateBin-Data-S3Storage.html#method_getAllPastes" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -975,12 +1031,15 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getAllPastes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
     
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method_getAllPastes#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -990,13 +1049,13 @@ namespaces traffic_limiter and purge_limiter.</dd>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1007,6 +1066,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_getValue">
         getValue()
         <a href="classes/PrivateBin-Data-S3Storage.html#method_getValue" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -1021,6 +1081,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$namespace</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1043,7 +1105,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method_getValue#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1053,13 +1116,13 @@ namespaces traffic_limiter and purge_limiter.</dd>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1070,6 +1133,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_purge">
         purge()
         <a href="classes/PrivateBin-Data-AbstractData.html#method_purge" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/AbstractData.php"><a href="files/lib-data-abstractdata.html"><abbr title="lib/Data/AbstractData.php">AbstractData.php</abbr></a></abbr>
@@ -1084,6 +1148,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">purge</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$batchsize</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1099,7 +1165,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-AbstractData.html#method_purge#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1111,12 +1178,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
 </section>
 
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
     
 </article>
                     <article
@@ -1128,6 +1191,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_purgeValues">
         purgeValues()
         <a href="classes/PrivateBin-Data-S3Storage.html#method_purgeValues" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -1142,6 +1206,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">purgeValues</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$namespace</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$time</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1164,7 +1230,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method_purgeValues#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1174,12 +1241,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">void</span>
-            &mdash;
-        
     
 </article>
                     <article
@@ -1191,6 +1254,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_read">
         read()
         <a href="classes/PrivateBin-Data-S3Storage.html#method_read" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -1205,6 +1269,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">read</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pasteid</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|false</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1220,7 +1286,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method_read#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1230,13 +1297,13 @@ namespaces traffic_limiter and purge_limiter.</dd>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|false</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|false</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1247,6 +1314,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_readComments">
         readComments()
         <a href="classes/PrivateBin-Data-S3Storage.html#method_readComments" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -1261,6 +1329,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">readComments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pasteid</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1276,7 +1346,8 @@ namespaces traffic_limiter and purge_limiter.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method_readComments#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1286,13 +1357,13 @@ namespaces traffic_limiter and purge_limiter.</dd>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1303,6 +1374,7 @@ namespaces traffic_limiter and purge_limiter.</dd>
     <h4 class="phpdocumentor-element__name" id="method_setValue">
         setValue()
         <a href="classes/PrivateBin-Data-S3Storage.html#method_setValue" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -1318,6 +1390,8 @@ namespaces traffic_limiter and purge_limiter.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$namespace</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1347,7 +1421,8 @@ namespaces traffic_limiter and purge_limiter.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method_setValue#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1357,13 +1432,13 @@ namespaces traffic_limiter and purge_limiter.</p>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1374,6 +1449,7 @@ namespaces traffic_limiter and purge_limiter.</p>
     <h4 class="phpdocumentor-element__name" id="method__getExpiredPastes">
         _getExpiredPastes()
         <a href="classes/PrivateBin-Data-S3Storage.html#method__getExpiredPastes" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -1388,6 +1464,8 @@ namespaces traffic_limiter and purge_limiter.</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">_getExpiredPastes</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$batchsize</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1403,7 +1481,8 @@ namespaces traffic_limiter and purge_limiter.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method__getExpiredPastes#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1413,13 +1492,13 @@ namespaces traffic_limiter and purge_limiter.</p>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1430,6 +1509,7 @@ namespaces traffic_limiter and purge_limiter.</p>
     <h4 class="phpdocumentor-element__name" id="method_getOpenSlot">
         getOpenSlot()
         <a href="classes/PrivateBin-Data-AbstractData.html#method_getOpenSlot" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/AbstractData.php"><a href="files/lib-data-abstractdata.html"><abbr title="lib/Data/AbstractData.php">AbstractData.php</abbr></a></abbr>
@@ -1444,6 +1524,8 @@ namespaces traffic_limiter and purge_limiter.</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">getOpenSlot</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$comments</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$postdate</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1466,7 +1548,8 @@ namespaces traffic_limiter and purge_limiter.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-AbstractData.html#method_getOpenSlot#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1478,13 +1561,13 @@ namespaces traffic_limiter and purge_limiter.</p>
 </section>
 
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int|string</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">int|string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1495,6 +1578,7 @@ namespaces traffic_limiter and purge_limiter.</p>
     <h4 class="phpdocumentor-element__name" id="method_upgradePreV1Format">
         upgradePreV1Format()
         <a href="classes/PrivateBin-Data-AbstractData.html#method_upgradePreV1Format" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/AbstractData.php"><a href="files/lib-data-abstractdata.html"><abbr title="lib/Data/AbstractData.php">AbstractData.php</abbr></a></abbr>
@@ -1509,6 +1593,8 @@ namespaces traffic_limiter and purge_limiter.</p>
     <span class="phpdocumentor-signature__visibility">protected</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">upgradePreV1Format</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$paste</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
@@ -1524,7 +1610,8 @@ namespaces traffic_limiter and purge_limiter.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-AbstractData.html#method_upgradePreV1Format#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1543,13 +1630,13 @@ namespaces traffic_limiter and purge_limiter.</p>
                                                                                 
                                              
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1560,6 +1647,7 @@ namespaces traffic_limiter and purge_limiter.</p>
     <h4 class="phpdocumentor-element__name" id="method__getKey">
         _getKey()
         <a href="classes/PrivateBin-Data-S3Storage.html#method__getKey" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -1572,14 +1660,16 @@ namespaces traffic_limiter and purge_limiter.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">_getKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pasteid</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">_getKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pasteid</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$pasteid</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>string to get the key for</p>
@@ -1591,7 +1681,8 @@ namespaces traffic_limiter and purge_limiter.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method__getKey#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1603,13 +1694,13 @@ namespaces traffic_limiter and purge_limiter.</p>
 </section>
 
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
-    
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1620,6 +1711,7 @@ namespaces traffic_limiter and purge_limiter.</p>
     <h4 class="phpdocumentor-element__name" id="method__listAllObjects">
         _listAllObjects()
         <a href="classes/PrivateBin-Data-S3Storage.html#method__listAllObjects" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -1632,14 +1724,16 @@ namespaces traffic_limiter and purge_limiter.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">_listAllObjects</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">_listAllObjects</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$prefix</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>string with prefix</p>
@@ -1651,7 +1745,8 @@ namespaces traffic_limiter and purge_limiter.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-Data-S3Storage.html#method__listAllObjects#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
@@ -1663,15 +1758,17 @@ namespaces traffic_limiter and purge_limiter.</p>
 </section>
 
                                     </dd>
-                        </dl>
+                                            </dl>
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>all objects in the given prefix</p>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>all objects in the given prefix</p>
 </section>
 
-    
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1682,6 +1779,7 @@ namespaces traffic_limiter and purge_limiter.</p>
     <h4 class="phpdocumentor-element__name" id="method__upload">
         _upload()
         <a href="classes/PrivateBin-Data-S3Storage.html#method__upload" class="headerlink"><i class="fas fa-link"></i></a>
+
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Data/S3Storage.php"><a href="files/lib-data-s3storage.html"><abbr title="lib/Data/S3Storage.php">S3Storage.php</abbr></a></abbr>
@@ -1694,8 +1792,10 @@ namespaces traffic_limiter and purge_limiter.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">_upload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$payload</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">_upload</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href=""></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$payload</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
         <section class="phpdocumentor-description"><p>The entire payload is stored as a JSON document. The metadata is replicated
 as the S3 object's metadata except for the fields attachment, attachmentname
 and salt.</p>
@@ -1705,7 +1805,7 @@ and salt.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>string to store the payload under</p>
@@ -1714,7 +1814,7 @@ and salt.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$payload</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href=""><abbr title=""></abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href=""></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>array to store</p>
@@ -1725,80 +1825,167 @@ and salt.</p>
 
     
 
+            <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>true if successful, otherwise false.</p>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>true if successful, otherwise false.</p>
 </section>
 
-    
+            </section>
+
 </article>
             </section>
 
-        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/lib/Data/S3Storage.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
     <script type="text/javascript">
-        function loadExternalCodeSnippets(line) {
-            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
-                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                var language = 'php';
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
 
-                var code = document.createElement('code');
-                code.className = 'language-' + language;
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
 
-                pre.textContent = '';
+                    var xhr = new XMLHttpRequest();
 
-                pre.setAttribute('data-line', line)
-                code.textContent = 'Loading…';
+                    xhr.open('GET', src, true);
 
-                pre.appendChild(code);
-
-                var xhr = new XMLHttpRequest();
-
-                xhr.open('GET', src, true);
-
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState == 4) {
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
 
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
-
                             Prism.highlightElement(code);
+                            return;
                         }
-                        else if (xhr.status >= 400) {
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
                         }
-                        else {
-                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
-                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
                     }
-                };
+                    modal.classList.add("phpdocumentor-modal__open");
 
-                xhr.send(null);
-            });
-        }
-
-        var modals = document.querySelectorAll("[data-modal]");
-
-        modals.forEach(function (trigger) {
-            trigger.addEventListener("click", function (event) {
-                //event.preventDefault();
-                const modal = document.getElementById(trigger.dataset.modal);
-                modal.classList.add("phpdocumentor-modal__open");
-                loadExternalCodeSnippets(trigger.dataset.line)
-                const exits = modal.querySelectorAll("[data-exit-button]");
-                exits.forEach(function (exit) {
-                    exit.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        modal.classList.remove("phpdocumentor-modal__open");
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
                     });
                 });
             });
-        });
+        })();
     </script>
 
     </article>
-                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li><a href="classes/PrivateBin-Data-AbstractData.html#property__last_cache">$_last_cache<a href="classes/PrivateBin-Data-S3Storage.html"></li>
+                                                    <li><a href="classes/PrivateBin-Data-S3Storage.html#property__bucket">$_bucket<a href="classes/PrivateBin-Data-S3Storage.html"></li>
+                                                    <li><a href="classes/PrivateBin-Data-S3Storage.html#property__client">$_client<a href="classes/PrivateBin-Data-S3Storage.html"></li>
+                                                    <li><a href="classes/PrivateBin-Data-S3Storage.html#property__options">$_options<a href="classes/PrivateBin-Data-S3Storage.html"></li>
+                                                    <li><a href="classes/PrivateBin-Data-S3Storage.html#property__prefix">$_prefix<a href="classes/PrivateBin-Data-S3Storage.html"></li>
+                                            </ul>
+                </li>
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method___construct">__construct()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method_create">create()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method_createComment">createComment()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method_delete">delete()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method_exists">exists()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method_existsComment">existsComment()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method_getAllPastes">getAllPastes()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method_getValue">getValue()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-AbstractData.html#method_purge">purge()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method_purgeValues">purgeValues()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method_read">read()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method_readComments">readComments()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method_setValue">setValue()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method__getExpiredPastes">_getExpiredPastes()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-AbstractData.html#method_getOpenSlot">getOpenSlot()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-AbstractData.html#method_upgradePreV1Format">upgradePreV1Format()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method__getKey">_getKey()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method__listAllObjects">_listAllObjects()</a></li>
+                                            <li><a href="classes/PrivateBin-Data-S3Storage.html#method__upload">_upload()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">
         <header class="phpdocumentor-search-results__header">
             <h2 class="phpdocumentor-search-results__title">Search results</h2>
@@ -1809,7 +1996,6 @@ and salt.</p>
         </section>
     </section>
 </section>
-            </div>
         </div>
         <a href="classes/PrivateBin-Data-S3Storage.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 

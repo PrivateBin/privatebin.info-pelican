@@ -771,6 +771,11 @@ Search.appendIndex(
             "summary": "get\u0020list\u0020of\u0020language\u0020labels",
             "url": "classes/PrivateBin-I18n.html#method_getLanguageLabels"
         },                {
+            "fqsen": "\\PrivateBin\\I18n\u003A\u003AisRtl\u0028\u0029",
+            "name": "isRtl",
+            "summary": "determines\u0020if\u0020the\u0020current\u0020language\u0020is\u0020written\u0020right\u002Dto\u002Dleft\u0020\u0028RTL\u0029",
+            "url": "classes/PrivateBin-I18n.html#method_isRtl"
+        },                {
             "fqsen": "\\PrivateBin\\I18n\u003A\u003AsetLanguageFallback\u0028\u0029",
             "name": "setLanguageFallback",
             "summary": "set\u0020the\u0020default\u0020language",

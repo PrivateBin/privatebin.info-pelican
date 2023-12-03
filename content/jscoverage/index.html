@@ -1,51 +1,68 @@
+
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>Code coverage report for All files</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
             background-image: url(sort-arrow-sprite.png);
         }
     </style>
 </head>
+    
 <body>
 <div class='wrapper'>
-  <div class='pad1'>
-    <h1>
-      All files
-    </h1>
-    <div class='clearfix'>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">61.88% </span>
-        <span class="quiet">Statements</span>
-        <span class='fraction'>1013/1637</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">53.47% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>354/662</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">61.67% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>177/287</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">61.81% </span>
-        <span class="quiet">Lines</span>
-        <span class='fraction'>1002/1621</span>
-      </div>
+    <div class='pad1'>
+        <h1>All files</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">61.93% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>1017/1642</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">52.35% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>355/678</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">61.8% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>178/288</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">61.86% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>1006/1626</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input oninput="onInput()" type="search" id="fileSearch">
+            </div>
+        </template>
     </div>
-    <p class="quiet">
-      Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
-    </p>
-  </div>
-  <div class='status-line medium'></div>
-<div class="pad1">
+    <div class='status-line medium'></div>
+    <div class="pad1">
 <table class="coverage-summary">
 <thead>
 <tr>
@@ -63,7 +80,9 @@
 </thead>
 <tbody><tr>
 	<td class="file high" data-value="legacy.js"><a href="legacy.js.html">legacy.js</a></td>
-	<td data-value="85.71" class="pic high"><div class="chart"><div class="cover-fill" style="width: 85%;"></div><div class="cover-empty" style="width:15%;"></div></div></td>
+	<td data-value="85.71" class="pic high">
+	<div class="chart"><div class="cover-fill" style="width: 85%"></div><div class="cover-empty" style="width: 15%"></div></div>
+	</td>
 	<td data-value="85.71" class="pct high">85.71%</td>
 	<td data-value="70" class="abs high">60/70</td>
 	<td data-value="78.57" class="pct medium">78.57%</td>
@@ -76,35 +95,37 @@
 
 <tr>
 	<td class="file medium" data-value="privatebin.js"><a href="privatebin.js.html">privatebin.js</a></td>
-	<td data-value="60.82" class="pic medium"><div class="chart"><div class="cover-fill" style="width: 60%;"></div><div class="cover-empty" style="width:40%;"></div></div></td>
-	<td data-value="60.82" class="pct medium">60.82%</td>
-	<td data-value="1567" class="abs medium">953/1567</td>
-	<td data-value="51.77" class="pct medium">51.77%</td>
-	<td data-value="620" class="abs medium">321/620</td>
-	<td data-value="60.29" class="pct medium">60.29%</td>
-	<td data-value="277" class="abs medium">167/277</td>
-	<td data-value="60.81" class="pct medium">60.81%</td>
-	<td data-value="1554" class="abs medium">945/1554</td>
+	<td data-value="60.87" class="pic medium">
+	<div class="chart"><div class="cover-fill" style="width: 60%"></div><div class="cover-empty" style="width: 40%"></div></div>
+	</td>
+	<td data-value="60.87" class="pct medium">60.87%</td>
+	<td data-value="1572" class="abs medium">957/1572</td>
+	<td data-value="50.62" class="pct medium">50.62%</td>
+	<td data-value="636" class="abs medium">322/636</td>
+	<td data-value="60.43" class="pct medium">60.43%</td>
+	<td data-value="278" class="abs medium">168/278</td>
+	<td data-value="60.87" class="pct medium">60.87%</td>
+	<td data-value="1559" class="abs medium">949/1559</td>
 	</tr>
 
 </tbody>
 </table>
-</div><div class='push'></div><!-- for sticky footer -->
-</div><!-- /wrapper -->
-<div class='footer quiet pad2 space-top1 center small'>
-  Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jul 09 2023 10:32:47 GMT+0200 (Mitteleuropäische Sommerzeit)
 </div>
-</div>
-<script src="prettify.js"></script>
-<script>
-window.onload = function () {
-        if (typeof prettyPrint === 'function') {
-            prettyPrint();
-        }
-};
-</script>
-<script src="sorter.js"></script>
-<script src="block-navigation.js"></script>
-</body>
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2023-12-03T12:18:27.787Z
+            </div>
+        <script src="prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="sorter.js"></script>
+        <script src="block-navigation.js"></script>
+    </body>
 </html>
+    
