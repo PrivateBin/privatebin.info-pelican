@@ -7,7 +7,7 @@ save_as: index.html
 
 # ![PrivateBin]({static}/img/logo.png)
 
-*Current version: 1.6.0*
+*Current version: 1.6.1*
 
 **PrivateBin** is a minimalist, open source online
 [pastebin](https://en.wikipedia.org/wiki/Pastebin)
@@ -62,7 +62,7 @@ without losing any data.
   paste (first) might still be disclosed via access logs.
 
 - In case of a server breach your data is secure as it is only stored encrypted
-  on the server. However, the server could be absused or the server admin could
+  on the server. However, the server could be abused or the server admin could
   be legally forced into sending malicious code to their users, which logs
   the decryption key and sends it to a server when a user accesses a paste.
   Therefore, do not access any PrivateBin instance if you think it has been
@@ -103,7 +103,7 @@ file](https://github.com/PrivateBin/PrivateBin/wiki/Configuration):
 
 * [FAQ](https://github.com/PrivateBin/PrivateBin/wiki/FAQ)
 
-* [Installation guide](https://github.com/PrivateBin/PrivateBin/blob/master/doc/Installation.md)
+* [Installation guide](https://github.com/PrivateBin/PrivateBin/blob/master/doc/Installation.md#installation)
 
 * [Configuration guide](https://github.com/PrivateBin/PrivateBin/wiki/Configuration)
 

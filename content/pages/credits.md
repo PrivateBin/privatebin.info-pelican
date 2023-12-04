@@ -71,3 +71,5 @@ For any **security issues** please contact us via [security@privatebin.org](mail
 * Stevo984 - Slovak
 * Christos Karamolegkos - Greek
 * jaideejung007 - Thai
+* Nicolas Le Gall - Japanese
+* lazerns - Arabic
