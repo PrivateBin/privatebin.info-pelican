@@ -6,9 +6,18 @@ save_as: screenshots.html
 
 PrivateBin comes with multiple templates and of course you can also create your own to adjust the look of it to your site.
 
+### bootstrap5
+
+This is a [bootstrap CSS 5](http://getbootstrap.com/) based PrivateBin template introduced in 1.7.2 (but not yet the default) and includes a dark mode switch:
+
+![bootstrap5 PrivateBin template]({static}/img/1.7.2/bootstrap5.png)
+
+![bootstrap5 PrivateBin template in dark mode]({static}/img/1.7.2/bootstrap5-dark.png)
+
+
 ### bootstrap
 
-This is a [bootstrap CSS](http://getbootstrap.com/) based PrivateBin template and the default as of 0.20:
+This is a [bootstrap CSS 3](http://getbootstrap.com/) based PrivateBin template and the default as of 0.20:
 
 ![bootstrap PrivateBin template]({static}/img/1.0/bootstrap.png)
 

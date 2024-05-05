@@ -56,6 +56,11 @@ Search.appendIndex(
             "summary": "initialize\u0020PrivateBin",
             "url": "classes/PrivateBin-Controller.html#method__init"
         },                {
+            "fqsen": "\\PrivateBin\\Controller\u003A\u003A_setCacheHeaders\u0028\u0029",
+            "name": "_setCacheHeaders",
+            "summary": "Turn\u0020off\u0020browser\u0020caching",
+            "url": "classes/PrivateBin-Controller.html#method__setCacheHeaders"
+        },                {
             "fqsen": "\\PrivateBin\\Controller\u003A\u003A_create\u0028\u0029",
             "name": "_create",
             "summary": "Store\u0020new\u0020paste\u0020or\u0020comment",
