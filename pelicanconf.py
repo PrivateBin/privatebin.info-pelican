@@ -39,6 +39,7 @@ LINKS = (('Installation guide', 'https://github.com/PrivateBin/PrivateBin/blob/m
          ('Template guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Templates'),
          ('Upgrading from ZeroBin 0.19 Alpha', 'https://github.com/PrivateBin/PrivateBin/wiki/Upgrading-from-ZeroBin-0.19-Alpha'),
          ('Developer guide', 'https://github.com/PrivateBin/PrivateBin/wiki/Development'),
+         ('Third-party clients', 'https://github.com/PrivateBin/PrivateBin/wiki/Third-party-clients'),
          ('PHP Code Documentation', '/codedoc/'),
          ('PHP Unit Test Coverage', '/coverage/'),
          ('JS Code Documentation', '/jsdoc/'),
