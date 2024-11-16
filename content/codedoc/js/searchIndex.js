@@ -126,6 +126,11 @@ Search.appendIndex(
             "summary": "status\u0020message",
             "url": "classes/PrivateBin-Controller.html#property__status"
         },                {
+            "fqsen": "\\PrivateBin\\Controller\u003A\u003A\u0024_is_deleted",
+            "name": "_is_deleted",
+            "summary": "status\u0020message",
+            "url": "classes/PrivateBin-Controller.html#property__is_deleted"
+        },                {
             "fqsen": "\\PrivateBin\\Controller\u003A\u003A\u0024_json",
             "name": "_json",
             "summary": "JSON\u0020message",
@@ -1305,6 +1310,11 @@ Search.appendIndex(
             "name": "draw",
             "summary": "render\u0020a\u0020template",
             "url": "classes/PrivateBin-View.html#method_draw"
+        },                {
+            "fqsen": "\\PrivateBin\\View\u003A\u003A_scriptTag\u0028\u0029",
+            "name": "_scriptTag",
+            "summary": "echo\u0020script\u0020tag\u0020incl.\u0020SRI\u0020hash\u0020for\u0020given\u0020script\u0020file",
+            "url": "classes/PrivateBin-View.html#method__scriptTag"
         },                {
             "fqsen": "\\PrivateBin\\View\u003A\u003A\u0024_variables",
             "name": "_variables",
