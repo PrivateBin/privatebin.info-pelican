@@ -41,6 +41,7 @@ For any **security issues** please contact us via [security@privatebin.org](mail
 * Mounir Idrassi & J. Mozdzen - secure YOURLS integration
 * Felipe Nakandakari - enabled AWS SDK to use default credential provider chain in the S3 Storage backend
 * Aaron Sherber - cache control headers for API calls & use of `shortenviayourls` in query parameters
+* Mikhail Romanov - copying to clipboard, UI/UX improvements
 
 ## Translations
 * Hexalyse - French
