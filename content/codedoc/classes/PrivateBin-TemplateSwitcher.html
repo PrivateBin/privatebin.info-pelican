@@ -104,7 +104,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    View
+    TemplateSwitcher
 
     
             <div class="phpdocumentor-element__package">
@@ -123,15 +123,15 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="lib/View.php"><a href="files/lib-view.html"><abbr title="lib/View.php">View.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="lib/TemplateSwitcher.php"><a href="files/lib-templateswitcher.html"><abbr title="lib/TemplateSwitcher.php">TemplateSwitcher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">View</p>
+            <p class="phpdocumentor-summary">TemplateSwitcher</p>
 
-    <section class="phpdocumentor-description"><p>Displays the templates</p>
+    <section class="phpdocumentor-description"><p>Provides tool to change application template</p>
 </section>
 
 
@@ -140,7 +140,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/PrivateBin-View.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/PrivateBin-TemplateSwitcher.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -154,59 +154,73 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/PrivateBin-View.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/PrivateBin-TemplateSwitcher.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/PrivateBin-View.html#property__variables">$_variables</a>
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/PrivateBin-TemplateSwitcher.html#property__availableTemplates">$_availableTemplates</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
-<dd>variables available in the template</dd>
+<dd>available templates</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/PrivateBin-TemplateSwitcher.html#property__templateFallback">$_templateFallback</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>template fallback</dd>
 
     </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/PrivateBin-View.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/PrivateBin-TemplateSwitcher.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PrivateBin-View.html#method_assign">assign()</a>
+    <a href="classes/PrivateBin-TemplateSwitcher.html#method_getAvailableTemplates">getAvailableTemplates()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>assign variables to be used inside of the template</dd>
+<dd>get list of available templates</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PrivateBin-View.html#method_draw">draw()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>render a template</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PrivateBin-View.html#method_getTemplateFilePath">getTemplateFilePath()</a>
+    <a href="classes/PrivateBin-TemplateSwitcher.html#method_getTemplate">getTemplate()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Get template file path</dd>
+<dd>get currently loaded template</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/PrivateBin-View.html#method_isBootstrapTemplate">isBootstrapTemplate()</a>
+    <a href="classes/PrivateBin-TemplateSwitcher.html#method_isTemplateAvailable">isTemplateAvailable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Is the template a variation of the bootstrap template</dd>
+<dd>check if the provided template is available</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/PrivateBin-View.html#method__scriptTag">_scriptTag()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PrivateBin-TemplateSwitcher.html#method_setAvailableTemplates">setAvailableTemplates()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>echo script tag incl. SRI hash for given script file</dd>
+<dd>set available templates</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/PrivateBin-TemplateSwitcher.html#method_setTemplateFallback">setTemplateFallback()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>set the default template</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/PrivateBin-TemplateSwitcher.html#method_getSelectedByUserTemplate">getSelectedByUserTemplate()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>get the template selected by user</dd>
 
     </dl>
 
@@ -219,36 +233,36 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/PrivateBin-View.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/PrivateBin-TemplateSwitcher.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
         class="
             phpdocumentor-element
             -property
-            -private
-                                                        "
+            -protected
+            -static                                            "
 >
-    <h4 class="phpdocumentor-element__name" id="property__variables">
-        $_variables
-        <a href="classes/PrivateBin-View.html#property__variables" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property__availableTemplates">
+        $_availableTemplates
+        <a href="classes/PrivateBin-TemplateSwitcher.html#property__availableTemplates" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="lib/View.php"><a href="files/lib-view.html"><abbr title="lib/View.php">View.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="lib/TemplateSwitcher.php"><a href="files/lib-templateswitcher.html"><abbr title="lib/TemplateSwitcher.php">TemplateSwitcher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">variables available in the template</p>
+        <p class="phpdocumentor-summary">available templates</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
-    <span class="phpdocumentor-signature__name">$_variables</span>
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$_availableTemplates</span>
      = <span class="phpdocumentor-signature__default-value">array()</span></code>
 
     
@@ -256,7 +270,7 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/PrivateBin-View.html#property__variables#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-TemplateSwitcher.html#property__availableTemplates#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -265,9 +279,73 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>private</p>
+                                                 <section class="phpdocumentor-description"><p>protected</p>
 </section>
 
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">static</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property__templateFallback">
+        $_templateFallback
+        <a href="classes/PrivateBin-TemplateSwitcher.html#property__templateFallback" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="lib/TemplateSwitcher.php"><a href="files/lib-templateswitcher.html"><abbr title="lib/TemplateSwitcher.php">TemplateSwitcher.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">template fallback</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$_templateFallback</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;bootstrap&#039;</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/PrivateBin-TemplateSwitcher.html#property__templateFallback#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">access</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>protected</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">static</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
                                     </dd>
                                             </dl>
 
@@ -277,116 +355,41 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/PrivateBin-View.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/PrivateBin-TemplateSwitcher.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
         class="phpdocumentor-element
             -method
             -public
-                                                        "
+                                    -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_assign">
-        assign()
-        <a href="classes/PrivateBin-View.html#method_assign" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getAvailableTemplates">
+        getAvailableTemplates()
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_getAvailableTemplates" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="lib/View.php"><a href="files/lib-view.html"><abbr title="lib/View.php">View.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="lib/TemplateSwitcher.php"><a href="files/lib-templateswitcher.html"><abbr title="lib/TemplateSwitcher.php">TemplateSwitcher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">90</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">assign variables to be used inside of the template</p>
+        <p class="phpdocumentor-summary">get list of available templates</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">assign</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getAvailableTemplates</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
+    
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/PrivateBin-View.html#method_assign#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">access</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>public</p>
-</section>
-
-                                    </dd>
-                                            </dl>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_draw">
-        draw()
-        <a href="classes/PrivateBin-View.html#method_draw" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="lib/View.php"><a href="files/lib-view.html"><abbr title="lib/View.php">View.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">50</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">render a template</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">draw</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$template</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/PrivateBin-View.html#method_draw#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_getAvailableTemplates#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -400,16 +403,19 @@
 
                                     </dd>
                                                 <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
+                    <span class="phpdocumentor-tag__name">static</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
-                                                            
+                                                                                
                                              
                                     </dd>
                                             </dl>
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -417,42 +423,32 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getTemplateFilePath">
-        getTemplateFilePath()
-        <a href="classes/PrivateBin-View.html#method_getTemplateFilePath" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getTemplate">
+        getTemplate()
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_getTemplate" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="lib/View.php"><a href="files/lib-view.html"><abbr title="lib/View.php">View.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="lib/TemplateSwitcher.php"><a href="files/lib-templateswitcher.html"><abbr title="lib/TemplateSwitcher.php">TemplateSwitcher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get template file path</p>
+        <p class="phpdocumentor-summary">get currently loaded template</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getTemplateFilePath</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getTemplate</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$template</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
+    
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/PrivateBin-View.html#method_getTemplateFilePath#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_getTemplate#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -464,6 +460,13 @@
                                                  <section class="phpdocumentor-description"><p>public</p>
 </section>
 
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">static</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
                                     </dd>
                                             </dl>
 
@@ -479,23 +482,23 @@
             -public
                                     -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method_isBootstrapTemplate">
-        isBootstrapTemplate()
-        <a href="classes/PrivateBin-View.html#method_isBootstrapTemplate" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_isTemplateAvailable">
+        isTemplateAvailable()
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_isTemplateAvailable" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="lib/View.php"><a href="files/lib-view.html"><abbr title="lib/View.php">View.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="lib/TemplateSwitcher.php"><a href="files/lib-templateswitcher.html"><abbr title="lib/TemplateSwitcher.php">TemplateSwitcher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Is the template a variation of the bootstrap template</p>
+        <p class="phpdocumentor-summary">check if the provided template is available</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isBootstrapTemplate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isTemplateAvailable</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -514,7 +517,7 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/PrivateBin-View.html#method_isBootstrapTemplate#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_isTemplateAvailable#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -527,6 +530,13 @@
 </section>
 
                                     </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">static</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
                                             </dl>
 
             <section>
@@ -538,26 +548,26 @@
                     <article
         class="phpdocumentor-element
             -method
-            -private
-                                                        "
+            -public
+                                    -static                    "
 >
-    <h4 class="phpdocumentor-element__name" id="method__scriptTag">
-        _scriptTag()
-        <a href="classes/PrivateBin-View.html#method__scriptTag" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_setAvailableTemplates">
+        setAvailableTemplates()
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_setAvailableTemplates" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="lib/View.php"><a href="files/lib-view.html"><abbr title="lib/View.php">View.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="lib/TemplateSwitcher.php"><a href="files/lib-templateswitcher.html"><abbr title="lib/TemplateSwitcher.php">TemplateSwitcher.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">echo script tag incl. SRI hash for given script file</p>
+        <p class="phpdocumentor-summary">set available templates</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">_scriptTag</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$file</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$attributes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setAvailableTemplates</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$templates</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -565,27 +575,138 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$file</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                <span class="phpdocumentor-signature__argument__name">$templates</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$attributes</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>additional attributes to add into the script tag</p>
-</section>
-
             </dd>
             </dl>
 
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/PrivateBin-View.html#method__scriptTag#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_setAvailableTemplates#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">access</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>public</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">static</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setTemplateFallback">
+        setTemplateFallback()
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_setTemplateFallback" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="lib/TemplateSwitcher.php"><a href="files/lib-templateswitcher.html"><abbr title="lib/TemplateSwitcher.php">TemplateSwitcher.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">58</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">set the default template</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setTemplateFallback</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$template</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_setTemplateFallback#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">access</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>public</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">static</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getSelectedByUserTemplate">
+        getSelectedByUserTemplate()
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_getSelectedByUserTemplate" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="lib/TemplateSwitcher.php"><a href="files/lib-templateswitcher.html"><abbr title="lib/TemplateSwitcher.php">TemplateSwitcher.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">121</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">get the template selected by user</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getSelectedByUserTemplate</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/PrivateBin-TemplateSwitcher.html#method_getSelectedByUserTemplate#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -598,9 +719,20 @@
 </section>
 
                                     </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">static</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
                                             </dl>
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+            </section>
+
 </article>
             </section>
 
@@ -608,7 +740,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/lib/View.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/lib/TemplateSwitcher.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -707,26 +839,28 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/PrivateBin-View.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/PrivateBin-View.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/PrivateBin-TemplateSwitcher.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/PrivateBin-TemplateSwitcher.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/PrivateBin-View.html#property__variables">$_variables<a href="classes/PrivateBin-View.html"></li>
+                                                    <li><a href="classes/PrivateBin-TemplateSwitcher.html#property__availableTemplates">$_availableTemplates<a href="classes/PrivateBin-TemplateSwitcher.html"></li>
+                                                    <li><a href="classes/PrivateBin-TemplateSwitcher.html#property__templateFallback">$_templateFallback<a href="classes/PrivateBin-TemplateSwitcher.html"></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/PrivateBin-View.html#method_assign">assign()</a></li>
-                                            <li><a href="classes/PrivateBin-View.html#method_draw">draw()</a></li>
-                                            <li><a href="classes/PrivateBin-View.html#method_getTemplateFilePath">getTemplateFilePath()</a></li>
-                                            <li><a href="classes/PrivateBin-View.html#method_isBootstrapTemplate">isBootstrapTemplate()</a></li>
-                                            <li><a href="classes/PrivateBin-View.html#method__scriptTag">_scriptTag()</a></li>
+                                            <li><a href="classes/PrivateBin-TemplateSwitcher.html#method_getAvailableTemplates">getAvailableTemplates()</a></li>
+                                            <li><a href="classes/PrivateBin-TemplateSwitcher.html#method_getTemplate">getTemplate()</a></li>
+                                            <li><a href="classes/PrivateBin-TemplateSwitcher.html#method_isTemplateAvailable">isTemplateAvailable()</a></li>
+                                            <li><a href="classes/PrivateBin-TemplateSwitcher.html#method_setAvailableTemplates">setAvailableTemplates()</a></li>
+                                            <li><a href="classes/PrivateBin-TemplateSwitcher.html#method_setTemplateFallback">setTemplateFallback()</a></li>
+                                            <li><a href="classes/PrivateBin-TemplateSwitcher.html#method_getSelectedByUserTemplate">getSelectedByUserTemplate()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -746,7 +880,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/PrivateBin-View.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/PrivateBin-TemplateSwitcher.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

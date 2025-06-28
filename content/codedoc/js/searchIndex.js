@@ -56,6 +56,16 @@ Search.appendIndex(
             "summary": "initialize\u0020PrivateBin",
             "url": "classes/PrivateBin-Controller.html#method__init"
         },                {
+            "fqsen": "\\PrivateBin\\Controller\u003A\u003A_setDefaultLanguage\u0028\u0029",
+            "name": "_setDefaultLanguage",
+            "summary": "Set\u0020default\u0020language",
+            "url": "classes/PrivateBin-Controller.html#method__setDefaultLanguage"
+        },                {
+            "fqsen": "\\PrivateBin\\Controller\u003A\u003A_setDefaultTemplate\u0028\u0029",
+            "name": "_setDefaultTemplate",
+            "summary": "Set\u0020default\u0020template",
+            "url": "classes/PrivateBin-Controller.html#method__setDefaultTemplate"
+        },                {
             "fqsen": "\\PrivateBin\\Controller\u003A\u003A_setCacheHeaders\u0028\u0029",
             "name": "_setCacheHeaders",
             "summary": "Turn\u0020off\u0020browser\u0020caching",
@@ -1296,6 +1306,51 @@ Search.appendIndex(
             "summary": "If\u0020we\u0020are\u0020in\u0020a\u0020JSON\u0020API\u0020context",
             "url": "classes/PrivateBin-Request.html#property__isJsonApi"
         },                {
+            "fqsen": "\\PrivateBin\\TemplateSwitcher",
+            "name": "TemplateSwitcher",
+            "summary": "TemplateSwitcher",
+            "url": "classes/PrivateBin-TemplateSwitcher.html"
+        },                {
+            "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003AsetAvailableTemplates\u0028\u0029",
+            "name": "setAvailableTemplates",
+            "summary": "set\u0020available\u0020templates",
+            "url": "classes/PrivateBin-TemplateSwitcher.html#method_setAvailableTemplates"
+        },                {
+            "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003AsetTemplateFallback\u0028\u0029",
+            "name": "setTemplateFallback",
+            "summary": "set\u0020the\u0020default\u0020template",
+            "url": "classes/PrivateBin-TemplateSwitcher.html#method_setTemplateFallback"
+        },                {
+            "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003AgetTemplate\u0028\u0029",
+            "name": "getTemplate",
+            "summary": "get\u0020currently\u0020loaded\u0020template",
+            "url": "classes/PrivateBin-TemplateSwitcher.html#method_getTemplate"
+        },                {
+            "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003AgetAvailableTemplates\u0028\u0029",
+            "name": "getAvailableTemplates",
+            "summary": "get\u0020list\u0020of\u0020available\u0020templates",
+            "url": "classes/PrivateBin-TemplateSwitcher.html#method_getAvailableTemplates"
+        },                {
+            "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003AisTemplateAvailable\u0028\u0029",
+            "name": "isTemplateAvailable",
+            "summary": "check\u0020if\u0020the\u0020provided\u0020template\u0020is\u0020available",
+            "url": "classes/PrivateBin-TemplateSwitcher.html#method_isTemplateAvailable"
+        },                {
+            "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003AgetSelectedByUserTemplate\u0028\u0029",
+            "name": "getSelectedByUserTemplate",
+            "summary": "get\u0020the\u0020template\u0020selected\u0020by\u0020user",
+            "url": "classes/PrivateBin-TemplateSwitcher.html#method_getSelectedByUserTemplate"
+        },                {
+            "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003A\u0024_templateFallback",
+            "name": "_templateFallback",
+            "summary": "template\u0020fallback",
+            "url": "classes/PrivateBin-TemplateSwitcher.html#property__templateFallback"
+        },                {
+            "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003A\u0024_availableTemplates",
+            "name": "_availableTemplates",
+            "summary": "available\u0020templates",
+            "url": "classes/PrivateBin-TemplateSwitcher.html#property__availableTemplates"
+        },                {
             "fqsen": "\\PrivateBin\\View",
             "name": "View",
             "summary": "View",
@@ -1310,6 +1365,16 @@ Search.appendIndex(
             "name": "draw",
             "summary": "render\u0020a\u0020template",
             "url": "classes/PrivateBin-View.html#method_draw"
+        },                {
+            "fqsen": "\\PrivateBin\\View\u003A\u003AgetTemplateFilePath\u0028\u0029",
+            "name": "getTemplateFilePath",
+            "summary": "Get\u0020template\u0020file\u0020path",
+            "url": "classes/PrivateBin-View.html#method_getTemplateFilePath"
+        },                {
+            "fqsen": "\\PrivateBin\\View\u003A\u003AisBootstrapTemplate\u0028\u0029",
+            "name": "isBootstrapTemplate",
+            "summary": "Is\u0020the\u0020template\u0020a\u0020variation\u0020of\u0020the\u0020bootstrap\u0020template",
+            "url": "classes/PrivateBin-View.html#method_isBootstrapTemplate"
         },                {
             "fqsen": "\\PrivateBin\\View\u003A\u003A_scriptTag\u0028\u0029",
             "name": "_scriptTag",
