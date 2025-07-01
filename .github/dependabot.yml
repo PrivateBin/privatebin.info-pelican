@@ -9,3 +9,13 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    ignore:
+      - dependency-name: "nginx"
+        # odd minor versions are mainline and we'd like to remain on stable
+        versions:
+          - "1.29.*"
+          - "1.31.*"
+          - "1.33.*"
+          - "1.35.*"
+          - "1.37.*"
+          - "1.39.*"
