@@ -1,0 +1,13 @@
+/**
+ * PrivateBin
+ *
+ * Cascading style sheets for bootstrap 5 template.
+ *
+ * @link      https://github.com/PrivateBin/privatebin.info-pelican
+ */
+
+p img {
+	display: inline-block;
+	max-width: 100%;
+	height: auto;
+}

@@ -8,13 +8,13 @@
 							<div class="well well-sm">
 								<span class="label label-default">Date</span>
 								<span class="published">
-									<i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+									<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#calendar" /></svg><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
 								</span>
 				{% if SHOW_DATE_MODIFIED %}
 					{% if article.modified %}
 								<span class="label label-default">Modified</span>
 								<span class="modified">
-									<i class="fa fa-calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+									<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#calendar" /></svg><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
 								</span>
 					{% endif %}
 				{% endif %}
@@ -27,7 +27,7 @@
 				{% if SHOW_ARTICLE_AUTHOR %}
 					{% if article.author %}
 								<span class="label label-default">By</span>
-								<a href="{{ SITEURL }}/{{ article.author.url }}"><i class="fa fa-user"></i> {{ article.author }}</a>
+								<a href="{{ SITEURL }}/{{ article.author.url }}"><svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#person-fill" /></svg> {{ article.author }}</a>
 					{% endif %}
 				{% endif %}
 				{% if SHOW_ARTICLE_CATEGORY %}
