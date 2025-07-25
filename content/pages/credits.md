@@ -9,7 +9,8 @@ save_as: credits.html
 * Simon Rupf - current developer and maintainer (git signing key [4096R/0F5C940A6BD81F92]({static}/key/elrido.asc))
 * rugk - security review, doc improvment, JS refactoring & various other stuff(git signing key [4096R/05D40A636AFAB34D]({static}/key/rugk.asc))
 * R4SAS - python client, compression, blob URI to support larger attachments
-* Mikhail Romanov - UI improvements, theme switching, clipboard support, multi-file upload, bugfixes, code refactoring
+* Mikhail Romanov - UI improvements, theme switching, clipboard support, multi-file upload, bugfixes, code refactoring<br>
+(git signing key [4096R/ED4AE99DCA25A6BB]({static}/key/ribas160.asc))
 
 Releases are signed with the key [git@privatebin.net]({static}/key/release.asc), `28CA 7C96 4938 EA5C 1481  D42A E11B 7950 E9E1 83DB`.
 
