@@ -8,7 +8,7 @@ PrivateBin comes with multiple templates and of course you can also create your 
 
 ### bootstrap5
 
-This is a [bootstrap CSS 5](http://getbootstrap.com/) based PrivateBin template introduced in 1.7.2 (but not yet the default) and includes a dark mode switch:
+This is a [bootstrap CSS 5](http://getbootstrap.com/) based PrivateBin template introduced in 1.7.2, the default since 2.0.0 and includes a dark mode switch:
 
 ![bootstrap5 PrivateBin template]({static}/img/1.7.3/bootstrap5.png)
 
@@ -17,7 +17,7 @@ This is a [bootstrap CSS 5](http://getbootstrap.com/) based PrivateBin template 
 
 ### bootstrap
 
-This is a [bootstrap CSS 3](http://getbootstrap.com/) based PrivateBin template and the default as of 0.20:
+This is a [bootstrap CSS 3](http://getbootstrap.com/) based PrivateBin template and was the default one between 0.20 and 1.7.8:
 
 ![bootstrap PrivateBin template]({static}/img/1.0/bootstrap.png)
 
@@ -48,10 +48,3 @@ Based on the [darkstrap](https://github.com/danneu/darkstrap) bootstrap CSS them
 Not everybody liked the order of the "New" and "Send" buttons so they were switched for usability reasons. For those preferring the order as in the classic "page"-template there is this [darkstrap](https://github.com/danneu/darkstrap) based theme:
 
 ![bootstrap PrivateBin template]({static}/img/1.0/bootstrap-dark-page.png)
-
-
-### page
-
-This is the classic ZeroBin template as used until 0.19 Alpha:
-
-![page PrivateBin template]({static}/img/1.0/page.png)
