@@ -11,7 +11,7 @@ save_as: index.html
 
 **PrivateBin** is a minimalist, open source online
 [pastebin](https://en.wikipedia.org/wiki/Pastebin)
-where the server has zero knowledge of pasted data.
+where the server has zero knowledge of stored data.
 
 Data is encrypted and decrypted in the browser using 256bit AES in
 [Galois Counter mode](https://en.wikipedia.org/wiki/Galois/Counter_Mode).
