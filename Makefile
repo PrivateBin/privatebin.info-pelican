@@ -1,4 +1,3 @@
-PY?=python
 PELICAN?=pelican
 PELICANOPTS=
 
@@ -72,16 +71,16 @@ regenerate:
 
 serve:
 ifdef PORT
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server $(PORT)
+	$(PELICAN) --listen --port $(PORT)
 else
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server
+	$(PELICAN) --listen
 endif
 
 serve-global:
 ifdef SERVER
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server 80 $(SERVER)
+	$(PELICAN) --listen --port 80 --bind $(SERVER)
 else
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server 80 0.0.0.0
+	$(PELICAN) --listen --port 80 --bind 0.0.0.0
 endif
 
 

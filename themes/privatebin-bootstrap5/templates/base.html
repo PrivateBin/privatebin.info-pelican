@@ -9,8 +9,7 @@
 		<meta name="author" content="{{ AUTHOR }}" />
 {% endblock %}
 		<title>{% block title %}{{ SITENAME }}{% endblock %}</title>
-		<link type="text/css" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap-3.3.5.css" />
-		<link type="text/css" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap-theme-3.3.5.css" />
+		<link type="text/css" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap-5.3.7.css" />
 		<link type="text/css" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/privatebin.css" />
 {% if GITHUB_RIBBON_URL is defined %}
 		<link type="text/css" rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/gh-fork-ribbon.css" />
@@ -18,8 +17,8 @@
 {% if CUSTOM_CSS %}
 		<link type="text/css" rel="stylesheet" href="{{ SITEURL }}/{{ CUSTOM_CSS }}" />
 {% endif %}
-		<script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery-1.11.3.js" integrity="sha512-xAERw8wHVOkM9x9y9/FvQ7g1t+gIQj39mfkN1Rd1OLcC5k/x2e6NO8hq6qEbb3oO+CYYTjVLFiFYg5/7ddF0zA==" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap-3.3.5.js" integrity="sha512-/W33QnLmSAP1fwINS9iXgB6s/VOIG9GVdIuIYaUtbSvKPMv5S08PtT3PqnT2WjwBgB8DFeDN2nqJroqQYF7SwQ==" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap-5.3.7.js" integrity="sha512-UqmrCkPcp6WOB9cC/NB5GB7vQd2/sB70bLpFk0bqHz/WQIFucjAM0vFNI4xp8B7jJ8KIUWPblNAS/M30AHKSzA==" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/dark-mode-switch.js" integrity="sha512-6flK2KnvEm5En+qqRCZ55Qc6OI+BzbpcIhRNkWUMtYUcmE+HzxsQNDy/5MxpOv8eKP6ICqZddvVlFOiYhLjNGg==" crossorigin="anonymous"></script>
 {% block canonical_rel %}{% endblock %}
 		<link rel="apple-touch-icon" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/apple-touch-icon.png" sizes="180x180" />
 		<link rel="icon" type="image/png" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/favicon-32x32.png" sizes="32x32" />
@@ -44,52 +43,55 @@
 	</head>
 
 	<body role="document">
-		<nav class="navbar navbar-default navbar-static-top">
-			<div class="navbar-header">
+		<nav class="navbar navbar-expand-lg bg-body-tertiary text-nowrap mb-3">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="{{ SITEURL }}/">
+					<img alt="{{ SITENAME }}" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/icon.svg" height="38" />
+				</a>
 {% if MENUITEMS or (PAGES and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
 				</button>
 {% endif %}
-				<a class="reloadlink navbar-brand" href="{{ SITEURL }}/">
-					<img alt="{{ SITENAME }}" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/icon.svg" width="38" />
-				</a>
-{% if GITHUB_RIBBON_URL is defined %}
-				<a class="github-fork-ribbon" href="{{ GITHUB_RIBBON_URL }}" title="Fork me on GitHub">Fork me on GitHub</a>
-{% endif %}
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="navbar-nav me-auto gap-2 align-items-lg-center align-items-stretch">
 {% if TRYITOUT_BUTTON_URL is defined %}
-				<ul class="nav navbar-nav">
-					<li>
-						<a class="btn btn-default navbar-btn" href="{{ TRYITOUT_BUTTON_URL }}"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Try it out!</a>
-					</li>
-				</ul>
+						<li class="nav-item d-flex flex-lg-row flex-column gap-2">
+							<a class="btn btn-secondary flex-fill d-flex justify-content-center align-items-center gap-1" href="{{ TRYITOUT_BUTTON_URL }}">
+								<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#file-earmark" /></svg>
+								Try it out!
+							</a>
+						</li>
 {% endif %}
-				<ul class="nav navbar-nav">
 {% if DISPLAY_PAGES_ON_MENU %}
 	{% for p in pages|sort(attribute='sortorder') %}
-					<li{% if p == page %} class="active"{% endif %}>
-						<a href="{{ SITEURL }}/{{ p.url }}">{{ p.menulabel|default(p.title) }}</a>
-					</li>
+						<li class="nav-item">
+							<a class="nav-link{% if p == page %} active{% endif %}" href="{{ SITEURL }}/{{ p.url }}">{{ p.menulabel|default(p.title) }}</a>
+						</li>
 	{% endfor %}
 {% endif %}
 {% if DISPLAY_CATEGORIES_ON_MENU %}
 	{% for cat, null in categories %}
-					<li {% if cat == category %}class="active"{% endif %}>
-						<a href="{{ SITEURL }}/{{ cat.url }}">{{ cat | capitalize }}</a>
-					</li>
+						<li class="nav-item">
+							<a class="nav-link{% if cat == category %} active{% endif %}" href="{{ SITEURL }}/{{ cat.url }}">{{ cat | capitalize }}</a>
+						</li>
 	{% endfor %}
 {% endif %}
 {% for title, link in MENUITEMS %}
-					<li{% if output_file in link %} class="active"{% endif %}>
-						<a href="{{ link }}">{{ title }}</a>
-					</li>
+						<li class="nav-item">
+							<a class="nav-link{% if output_file in link %} active{% endif %}" href="{{ link }}">{{ title }}</a>
+						</li>
 {% endfor %}
-				</ul>
+					</ul>
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<div class="form-check form-switch navbar-text me-5 pe-5">
+								<input id="bd-theme" type="checkbox" class="form-check-input" />
+								<label for="bd-theme" class="form-check-label">Dark Mode</label>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 		<div class="container">
@@ -124,8 +126,11 @@
 							<ul class="list-group list-group-flush">
 		{% if SOCIAL %}
 								<li class="list-group-item">
-									<h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-									<ul class="list-group" id="social">
+									<h4>
+										<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#house" /></svg>
+										<span class="icon-label">Social</span>
+									</h4>
+									<div class="list-group" id="social">
 			{% for s in SOCIAL %}
 				{% if s[2] %}
 					{% set name_sanitized = s[2]|lower|replace('+','-plus')|replace(' ','-') %}
@@ -137,11 +142,9 @@
 				{% else %}
 					{% set iconattributes = '"fa fa-' ~ name_sanitized ~ '-square fa-lg"' %}
 				{% endif %}
-										<li class="list-group-item">
-											<a href="{{ s[1] }}"><i class={{ iconattributes }}></i> {{ s[0] }}</a>
-										</li>
+										<a class="list-group-item" href="{{ s[1] }}"><i class={{ iconattributes }}></i> {{ s[0] }}</a>
 			{% endfor %}
-									</ul>
+									</div>
 								</li>
 		{% endif %}
 		{% if DISPLAY_RECENT_POSTS_ON_SIDEBAR %}
@@ -149,26 +152,30 @@
 				{% set RECENT_POST_COUNT = 5 %}
 			{% endif %}
 								<li class="list-group-item">
-									<h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
-									<ul class="list-group" id="recentposts">
+									<h4>
+										<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#house" /></svg>
+										<span class="icon-label">Recent Posts</span>
+									</h4>
+									<div class="list-group" id="recentposts">
 			{% for article in articles[:RECENT_POST_COUNT] %}
-										<li class="list-group-item">
-											<a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-										</li>
+										<a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
 			{% endfor %}
-									</ul>
+									</div>
 								</li>
 		{% endif %}
 		{% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
 								<li class="list-group-item">
-									<a href="{{ SITEURL }}/{{ CATEGORIES_URL }}"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
-									<ul class="list-group" id="categories">
+									<a href="{{ SITEURL }}/{{ CATEGORIES_URL }}">
+										<h4>
+											<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#house" /></svg>
+											<span class="icon-label">Categories</span>
+										</h4>
+									</a>
+									<div class="list-group" id="categories">
 			{% for cat, null in categories %}
-										<li class="list-group-item">
-											<a href="{{ SITEURL }}/{{ cat.url }}"><i class="fa fa-folder-open fa-lg"></i> {{ cat }}</a>
-										</li>
+										<a class="list-group-item" href="{{ SITEURL }}/{{ cat.url }}"><svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#folder2-open" /></svg> {{ cat }}</a>
 			{% endfor %}
-									</ul>
+									</div>
 								</li>
 		{% endif %}
 		{% if PLUGINS and 'tag_cloud' in PLUGINS and DISPLAY_TAGS_ON_SIDEBAR %}
@@ -178,21 +185,27 @@
 				{% set tags = tag_cloud | sort(attribute='1') %}
 			{% endif %}
 								<li class="list-group-item">
-									<a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-									<ul class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline tagcloud{% endif %}" id="tags">
+									<a href="{{ SITEURL }}/{{ TAGS_URL }}">
+										<h4>
+											<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#tags" /></svg>
+											<span class="icon-label">Tags</span>
+										</h4>
+									</a>
+									<div class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline tagcloud{% endif %}" id="tags">
 			{% for tag in tags %}
-										<li class="list-group-item tag-{{ tag.1 }}">
-											<a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a>
-										</li>
+										<a class="list-group-item tag-{{ tag.1 }}" href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a>
 			{% endfor %}
-									</ul>
+									</div>
 								</li>
 		{% endif %}
 		{% if DISPLAY_SERIES_ON_SIDEBAR %}
 			{% if article %}
 				{% if article.series %}
 								<li class="list-group-item">
-									<h4><i class="fa fa-tags fa-list-ul"></i><span class="icon-label">Series</span></h4>
+									<h4>
+										<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#tags" /></svg>
+										<span class="icon-label">Series</span>
+									</h4>
 									<ul class="list-group">
 										<li class="list-group-item">
 					{% if article.series.previous %}
@@ -213,20 +226,24 @@
 		{% endif %}
 		{% if LINKS %}
 								<li class="list-group-item">
-									<h5><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h5>
-									<ul class="list-group" id="links">
+									<h5>
+										<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#box-arrow-up-right" /></svg>
+										<span class="icon-label">Links</span>
+									</h5>
+									<div class="list-group" id="links">
 			{% for name, link in LINKS %}
-										<li class="list-group-item">
-											<a href="{{ link }}" target="_blank" rel="noopener noreferrer">{{ name }}</a>
-										</li>
+										<a class="list-group-item" href="{{ link }}" target="_blank" rel="noopener noreferrer">{{ name }}</a>
 			{% endfor %}
-									</ul>
+									</div>
 								</li>
 		{% endif %}
 		{% if SIDEBAR_IMAGES %}
 								<li class="list-group-item">
 			{% if SIDEBAR_IMAGES_HEADER %}
-									<h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">{{ SIDEBAR_IMAGES_HEADER }}</span></h4>
+									<h4>
+										<svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#box-arrow-up-right" /></svg>
+										<span class="icon-label">{{ SIDEBAR_IMAGES_HEADER }}</span>
+									</h4>
 			{% endif %}
 			{% for image in SIDEBAR_IMAGES %}
 									<img width="100%" class="img-thumbnail" src="{{ image }}"/>
@@ -251,10 +268,13 @@
 	{% set copy_date = '' %}
 {% endif %}
 {#					<div class="col-xs-10">&copy; {{ copy_date }} {{ AUTHOR }}</div>#}
-					<div class="col-xs-12"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+					<div class="col-xs-12"><p class="pull-right"><svg width="16" height="16" fill="currentColor" aria-hidden="true"><use href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/img/bootstrap-icons.svg#arrow-up" /></svg> <a href="#">Back to top</a></p></div>
 				</div>
 			</div>
 		</footer>
 {% block scripts %}{% endblock %}
+{% if GITHUB_RIBBON_URL is defined %}
+		<a class="github-fork-ribbon" href="{{ GITHUB_RIBBON_URL }}" title="Fork me on GitHub">Fork me on GitHub</a>
+{% endif %}
 	</body>
 </html>
