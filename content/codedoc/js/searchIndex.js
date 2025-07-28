@@ -78,12 +78,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PrivateBin\\Controller\u003A\u003A_delete\u0028\u0029",
             "name": "_delete",
-            "summary": "Delete\u0020an\u0020existing\u0020paste",
+            "summary": "Delete\u0020an\u0020existing\u0020document",
             "url": "classes/PrivateBin-Controller.html#method__delete"
         },                {
             "fqsen": "\\PrivateBin\\Controller\u003A\u003A_read\u0028\u0029",
             "name": "_read",
-            "summary": "Read\u0020an\u0020existing\u0020paste\u0020or\u0020comment,\u0020only\u0020allowed\u0020via\u0020a\u0020JSON\u0020API\u0020call",
+            "summary": "Read\u0020an\u0020existing\u0020document,\u0020only\u0020allowed\u0020via\u0020a\u0020JSON\u0020API\u0020call",
             "url": "classes/PrivateBin-Controller.html#method__read"
         },                {
             "fqsen": "\\PrivateBin\\Controller\u003A\u003A_view\u0028\u0029",
@@ -118,7 +118,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PrivateBin\\Controller\u003A\u003AGENERIC_ERROR",
             "name": "GENERIC_ERROR",
-            "summary": "show\u0020the\u0020same\u0020error\u0020message\u0020if\u0020the\u0020paste\u0020expired\u0020or\u0020does\u0020not\u0020exist",
+            "summary": "show\u0020the\u0020same\u0020error\u0020message\u0020if\u0020the\u0020document\u0020expired\u0020or\u0020does\u0020not\u0020exist",
             "url": "classes/PrivateBin-Controller.html#constant_GENERIC_ERROR"
         },                {
             "fqsen": "\\PrivateBin\\Controller\u003A\u003A\u0024_conf",
@@ -233,13 +233,8 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PrivateBin\\Data\\AbstractData\u003A\u003AgetOpenSlot\u0028\u0029",
             "name": "getOpenSlot",
-            "summary": "Get\u0020next\u0020free\u0020slot\u0020for\u0020comment\u0020from\u0020postdate.",
+            "summary": "Get\u0020next\u0020free\u0020slot\u0020for\u0020comment\u0020from\u0020the\u0020creation\u0020timestamp",
             "url": "classes/PrivateBin-Data-AbstractData.html#method_getOpenSlot"
-        },                {
-            "fqsen": "\\PrivateBin\\Data\\AbstractData\u003A\u003AupgradePreV1Format\u0028\u0029",
-            "name": "upgradePreV1Format",
-            "summary": "Upgrade\u0020pre\u002Dversion\u00201\u0020pastes\u0020with\u0020attachment\u0020to\u0020version\u00201\u0020format.",
-            "url": "classes/PrivateBin-Data-AbstractData.html#method_upgradePreV1Format"
         },                {
             "fqsen": "\\PrivateBin\\Data\\AbstractData\u003A\u003A\u0024_last_cache",
             "name": "_last_cache",
@@ -321,11 +316,6 @@ Search.appendIndex(
             "summary": "run\u0020a\u0020select\u0020statement",
             "url": "classes/PrivateBin-Data-Database.html#method__select"
         },                {
-            "fqsen": "\\PrivateBin\\Data\\Database\u003A\u003A_getVersionedKeys\u0028\u0029",
-            "name": "_getVersionedKeys",
-            "summary": "get\u0020version\u0020dependent\u0020key\u0020names",
-            "url": "classes/PrivateBin-Data-Database.html#method__getVersionedKeys"
-        },                {
             "fqsen": "\\PrivateBin\\Data\\Database\u003A\u003A_getTableQuery\u0028\u0029",
             "name": "_getTableQuery",
             "summary": "get\u0020table\u0020list\u0020query,\u0020depending\u0020on\u0020the\u0020database\u0020type",
@@ -363,12 +353,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PrivateBin\\Data\\Database\u003A\u003A_createCommentTable\u0028\u0029",
             "name": "_createCommentTable",
-            "summary": "create\u0020the\u0020paste\u0020table",
+            "summary": "create\u0020the\u0020comment\u0020table",
             "url": "classes/PrivateBin-Data-Database.html#method__createCommentTable"
         },                {
             "fqsen": "\\PrivateBin\\Data\\Database\u003A\u003A_createConfigTable\u0028\u0029",
             "name": "_createConfigTable",
-            "summary": "create\u0020the\u0020paste\u0020table",
+            "summary": "create\u0020the\u0020config\u0020table",
             "url": "classes/PrivateBin-Data-Database.html#method__createConfigTable"
         },                {
             "fqsen": "\\PrivateBin\\Data\\Database\u003A\u003A_sanitizeClob\u0028\u0029",
@@ -380,6 +370,11 @@ Search.appendIndex(
             "name": "_sanitizeIdentifier",
             "summary": "sanitizes\u0020identifiers",
             "url": "classes/PrivateBin-Data-Database.html#method__sanitizeIdentifier"
+        },                {
+            "fqsen": "\\PrivateBin\\Data\\Database\u003A\u003A_supportsDropColumn\u0028\u0029",
+            "name": "_supportsDropColumn",
+            "summary": "check\u0020if\u0020the\u0020current\u0020database\u0020type\u0020supports\u0020dropping\u0020columns",
+            "url": "classes/PrivateBin-Data-Database.html#method__supportsDropColumn"
         },                {
             "fqsen": "\\PrivateBin\\Data\\Database\u003A\u003A_upgradeDatabase\u0028\u0029",
             "name": "_upgradeDatabase",
@@ -906,11 +901,6 @@ Search.appendIndex(
             "summary": "Store\u0020the\u0020instance\u0027s\u0020data.",
             "url": "classes/PrivateBin-Model-AbstractModel.html#method_store"
         },                {
-            "fqsen": "\\PrivateBin\\Model\\AbstractModel\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "Delete\u0020the\u0020current\u0020instance.",
-            "url": "classes/PrivateBin-Model-AbstractModel.html#method_delete"
-        },                {
             "fqsen": "\\PrivateBin\\Model\\AbstractModel\u003A\u003Aexists\u0028\u0029",
             "name": "exists",
             "summary": "Test\u0020if\u0020current\u0020instance\u0020exists\u0020in\u0020store.",
@@ -960,11 +950,6 @@ Search.appendIndex(
             "name": "store",
             "summary": "Store\u0020the\u0020comment\u0027s\u0020data.",
             "url": "classes/PrivateBin-Model-Comment.html#method_store"
-        },                {
-            "fqsen": "\\PrivateBin\\Model\\Comment\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "Delete\u0020the\u0020comment.",
-            "url": "classes/PrivateBin-Model-Comment.html#method_delete"
         },                {
             "fqsen": "\\PrivateBin\\Model\\Comment\u003A\u003Aexists\u0028\u0029",
             "name": "exists",
@@ -1055,6 +1040,21 @@ Search.appendIndex(
             "name": "_validate",
             "summary": "Validate\u0020data.",
             "url": "classes/PrivateBin-Model-Paste.html#method__validate"
+        },                {
+            "fqsen": "\\PrivateBin\\Model\\Paste\u003A\u003AADATA_FORMATTER",
+            "name": "ADATA_FORMATTER",
+            "summary": "authenticated\u0020data\u0020index\u0020of\u0020paste\u0020formatter\u0020\u0028plaintext\/syntaxhighlighting\/markdown\u0029",
+            "url": "classes/PrivateBin-Model-Paste.html#constant_ADATA_FORMATTER"
+        },                {
+            "fqsen": "\\PrivateBin\\Model\\Paste\u003A\u003AADATA_OPEN_DISCUSSION",
+            "name": "ADATA_OPEN_DISCUSSION",
+            "summary": "authenticated\u0020data\u0020index\u0020of\u0020open\u002Ddiscussion\u0020flag\u0020\u00280\/1\u0029",
+            "url": "classes/PrivateBin-Model-Paste.html#constant_ADATA_OPEN_DISCUSSION"
+        },                {
+            "fqsen": "\\PrivateBin\\Model\\Paste\u003A\u003AADATA_BURN_AFTER_READING",
+            "name": "ADATA_BURN_AFTER_READING",
+            "summary": "authenticated\u0020data\u0020index\u0020of\u0020burn\u002Dafter\u002Dreading\u0020flag\u0020\u00280\/1\u0029",
+            "url": "classes/PrivateBin-Model-Paste.html#constant_ADATA_BURN_AFTER_READING"
         },                {
             "fqsen": "\\PrivateBin\\Model",
             "name": "Model",
@@ -1223,7 +1223,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PrivateBin\\Request\u003A\u003AgetPasteId\u0028\u0029",
             "name": "getPasteId",
-            "summary": "Return\u0020the\u0020paste\u0020ID\u0020of\u0020the\u0020current\u0020paste.",
+            "summary": "Return\u0020the\u0020paste\u0020ID\u0020of\u0020the\u0020current\u0020document.",
             "url": "classes/PrivateBin-Request.html#method_getPasteId"
         },                {
             "fqsen": "\\PrivateBin\\Request\u003A\u003A__construct\u0028\u0029",

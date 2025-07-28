@@ -159,21 +159,21 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/PrivateBin-Controller.html#constant_GENERIC_ERROR">GENERIC_ERROR</a>
     <span>
-        &nbsp;= &#039;Paste does not exist, has expired or has been deleted.&#039;                            </span>
+        &nbsp;= &#039;Document does not exist, has expired or has been deleted.&#039;                            </span>
 </dt>
-<dd>show the same error message if the paste expired or does not exist</dd>
+<dd>show the same error message if the document expired or does not exist</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/PrivateBin-Controller.html#constant_MIN_PHP_VERSION">MIN_PHP_VERSION</a>
     <span>
-        &nbsp;= &#039;7.3.0&#039;                            </span>
+        &nbsp;= &#039;7.4.0&#039;                            </span>
 </dt>
 <dd>minimal required PHP version</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/PrivateBin-Controller.html#constant_VERSION">VERSION</a>
     <span>
-        &nbsp;= &#039;1.7.7&#039;                            </span>
+        &nbsp;= &#039;2.0.0&#039;                            </span>
 </dt>
 <dd>version</dd>
 
@@ -269,7 +269,7 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Delete an existing paste</dd>
+<dd>Delete an existing document</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/PrivateBin-Controller.html#method__init">_init()</a>
@@ -290,7 +290,7 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Read an existing paste or comment, only allowed via a JSON API call</dd>
+<dd>Read an existing document, only allowed via a JSON API call</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/PrivateBin-Controller.html#method__return_message">_return_message()</a>
@@ -360,13 +360,13 @@
 
     </aside>
 
-        <p class="phpdocumentor-summary">show the same error message if the paste expired or does not exist</p>
+        <p class="phpdocumentor-summary">show the same error message if the document expired or does not exist</p>
 
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">GENERIC_ERROR</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;Paste does not exist, has expired or has been deleted.&#039;</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;Document does not exist, has expired or has been deleted.&#039;</span>
 </code>
 
 
@@ -411,7 +411,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">MIN_PHP_VERSION</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;7.3.0&#039;</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;7.4.0&#039;</span>
 </code>
 
 
@@ -456,7 +456,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">VERSION</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;1.7.7&#039;</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;2.0.0&#039;</span>
 </code>
 
 
@@ -980,7 +980,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Controller.php"><a href="files/lib-controller.html"><abbr title="lib/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">259</span>
+    <span class="phpdocumentor-element-found-in__line">255</span>
 
     </aside>
 
@@ -992,18 +992,15 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><p>POST contains one or both:
-data = json encoded FormatV2 encrypted text (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)
-attachment = json encoded FormatV2 encrypted text (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)</p>
-<p>All optional data will go to meta information:
-expire (optional) = expiration delay (never,5min,10min,1hour,1day,1week,1month,1year,burn) (default:never)
-formatter (optional) = format to display the paste as (plaintext,syntaxhighlighting,markdown) (default:syntaxhighlighting)
-burnafterreading (optional) = if this paste may only viewed once ? (0/1) (default:0)
-opendiscusssion (optional) = is the discussion allowed on this paste ? (0/1) (default:0)
-attachmentname = json encoded FormatV2 encrypted text (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)
-nickname (optional) = in discussion, encoded FormatV2 encrypted text nickname of author of comment (containing keys: iv,v,iter,ks,ts,mode,adata,cipher,salt,ct)
-parentid (optional) = in discussion, which comment this comment replies to.
-pasteid (optional) = in discussion, which paste this comment belongs to.</p>
+        <section class="phpdocumentor-description"><p>POST contains:
+JSON encoded object with mandatory keys:
+v = 2 (version)
+adata (array)
+ct (base64 encoded, encrypted text)
+meta (optional):
+expire = expiration delay (never,5min,10min,1hour,1day,1week,1month,1year,burn) (default:1week)
+parentid (optional) = in discussions, which comment this comment replies to.
+pasteid (optional) = in discussions, which paste this comment belongs to.</p>
 </section>
 
     
@@ -1045,11 +1042,11 @@ pasteid (optional) = in discussion, which paste this comment belongs to.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Controller.php"><a href="files/lib-controller.html"><abbr title="lib/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">339</span>
+    <span class="phpdocumentor-element-found-in__line">336</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Delete an existing paste</p>
+        <p class="phpdocumentor-summary">Delete an existing document</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -1166,7 +1163,7 @@ pasteid (optional) = in discussion, which paste this comment belongs to.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Controller.php"><a href="files/lib-controller.html"><abbr title="lib/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">499</span>
+    <span class="phpdocumentor-element-found-in__line">495</span>
 
     </aside>
 
@@ -1224,11 +1221,11 @@ pasteid (optional) = in discussion, which paste this comment belongs to.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Controller.php"><a href="files/lib-controller.html"><abbr title="lib/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">376</span>
+    <span class="phpdocumentor-element-found-in__line">373</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Read an existing paste or comment, only allowed via a JSON API call</p>
+        <p class="phpdocumentor-summary">Read an existing document, only allowed via a JSON API call</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -1282,7 +1279,7 @@ pasteid (optional) = in discussion, which paste this comment belongs to.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Controller.php"><a href="files/lib-controller.html"><abbr title="lib/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">557</span>
+    <span class="phpdocumentor-element-found-in__line">553</span>
 
     </aside>
 
@@ -1498,7 +1495,7 @@ pasteid (optional) = in discussion, which paste this comment belongs to.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Controller.php"><a href="files/lib-controller.html"><abbr title="lib/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">403</span>
+    <span class="phpdocumentor-element-found-in__line">400</span>
 
     </aside>
 
@@ -1546,7 +1543,7 @@ pasteid (optional) = in discussion, which paste this comment belongs to.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="lib/Controller.php"><a href="files/lib-controller.html"><abbr title="lib/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">539</span>
+    <span class="phpdocumentor-element-found-in__line">535</span>
 
     </aside>
 
