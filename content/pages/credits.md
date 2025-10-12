@@ -13,6 +13,7 @@ save_as: credits.html
 * R4SAS - python client, compression, blob URI to support larger attachments
 * Mikhail Romanov - UI improvements, theme switching, clipboard support, multi-file upload, bugfixes, code refactoring<br />
   (git signing key [4096R/ED4AE99DCA25A6BB]({static}/key/ribas160.asc))
+* Karthik Kasturi - shlink proxy and url shortening bugfixes
 
 Releases are signed with the key [git@privatebin.net]({static}/key/release.asc), `28CA 7C96 4938 EA5C 1481  D42A E11B 7950 E9E1 83DB`.
 

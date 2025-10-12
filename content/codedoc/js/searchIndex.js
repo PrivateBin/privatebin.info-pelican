@@ -96,10 +96,10 @@ Search.appendIndex(
             "summary": "outputs\u0020requested\u0020JSON\u002DLD\u0020context",
             "url": "classes/PrivateBin-Controller.html#method__jsonld"
         },                {
-            "fqsen": "\\PrivateBin\\Controller\u003A\u003A_yourlsproxy\u0028\u0029",
-            "name": "_yourlsproxy",
-            "summary": "proxies\u0020link\u0020to\u0020YOURLS,\u0020updates\u0020status\u0020or\u0020error\u0020with\u0020response",
-            "url": "classes/PrivateBin-Controller.html#method__yourlsproxy"
+            "fqsen": "\\PrivateBin\\Controller\u003A\u003A_shortenerproxy\u0028\u0029",
+            "name": "_shortenerproxy",
+            "summary": "Proxies\u0020a\u0020link\u0020using\u0020the\u0020specified\u0020proxy\u0020class,\u0020and\u0020updates\u0020the\u0020status\u0020or\u0020error\u0020with\u0020the\u0020response.",
+            "url": "classes/PrivateBin-Controller.html#method__shortenerproxy"
         },                {
             "fqsen": "\\PrivateBin\\Controller\u003A\u003A_return_message\u0028\u0029",
             "name": "_return_message",
@@ -1216,6 +1216,101 @@ Search.appendIndex(
             "summary": "time\u0020limit\u0020in\u0020seconds,\u0020defaults\u0020to\u002010s",
             "url": "classes/PrivateBin-Persistence-TrafficLimiter.html#property__limit"
         },                {
+            "fqsen": "\\PrivateBin\\Proxy\\AbstractProxy",
+            "name": "AbstractProxy",
+            "summary": "AbstractProxy",
+            "url": "classes/PrivateBin-Proxy-AbstractProxy.html"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\AbstractProxy\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "constructor",
+            "url": "classes/PrivateBin-Proxy-AbstractProxy.html#method___construct"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\AbstractProxy\u003A\u003AlogErrorWithClassName\u0028\u0029",
+            "name": "logErrorWithClassName",
+            "summary": "",
+            "url": "classes/PrivateBin-Proxy-AbstractProxy.html#method_logErrorWithClassName"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\AbstractProxy\u003A\u003AgetError\u0028\u0029",
+            "name": "getError",
+            "summary": "Returns\u0020the\u0020\u0028untranslated\u0029\u0020error\u0020message",
+            "url": "classes/PrivateBin-Proxy-AbstractProxy.html#method_getError"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\AbstractProxy\u003A\u003AgetUrl\u0028\u0029",
+            "name": "getUrl",
+            "summary": "Returns\u0020the\u0020shortened\u0020URL",
+            "url": "classes/PrivateBin-Proxy-AbstractProxy.html#method_getUrl"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\AbstractProxy\u003A\u003AisError\u0028\u0029",
+            "name": "isError",
+            "summary": "Returns\u0020true\u0020if\u0020any\u0020error\u0020has\u0020occurred",
+            "url": "classes/PrivateBin-Proxy-AbstractProxy.html#method_isError"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\AbstractProxy\u003A\u003A_getProxyPayload\u0028\u0029",
+            "name": "_getProxyPayload",
+            "summary": "Abstract\u0020method\u0020to\u0020get\u0020the\u0020payload\u0020to\u0020send\u0020to\u0020the\u0020URL\u0020shortener",
+            "url": "classes/PrivateBin-Proxy-AbstractProxy.html#method__getProxyPayload"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\AbstractProxy\u003A\u003A_extractShortUrl\u0028\u0029",
+            "name": "_extractShortUrl",
+            "summary": "Abstract\u0020method\u0020to\u0020extract\u0020the\u0020shortUrl\u0020from\u0020the\u0020response",
+            "url": "classes/PrivateBin-Proxy-AbstractProxy.html#method__extractShortUrl"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\AbstractProxy\u003A\u003A_getProxyUrl\u0028\u0029",
+            "name": "_getProxyUrl",
+            "summary": "Abstract\u0020method\u0020to\u0020get\u0020the\u0020proxy\u0020URL",
+            "url": "classes/PrivateBin-Proxy-AbstractProxy.html#method__getProxyUrl"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\AbstractProxy\u003A\u003A\u0024_error",
+            "name": "_error",
+            "summary": "error\u0020message",
+            "url": "classes/PrivateBin-Proxy-AbstractProxy.html#property__error"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\AbstractProxy\u003A\u003A\u0024_url",
+            "name": "_url",
+            "summary": "shortened\u0020URL",
+            "url": "classes/PrivateBin-Proxy-AbstractProxy.html#property__url"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\ShlinkProxy",
+            "name": "ShlinkProxy",
+            "summary": "ShlinkProxy",
+            "url": "classes/PrivateBin-Proxy-ShlinkProxy.html"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\ShlinkProxy\u003A\u003A_getProxyUrl\u0028\u0029",
+            "name": "_getProxyUrl",
+            "summary": "Overrides\u0020the\u0020abstract\u0020parent\u0020function\u0020to\u0020get\u0020the\u0020proxy\u0020URL.",
+            "url": "classes/PrivateBin-Proxy-ShlinkProxy.html#method__getProxyUrl"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\ShlinkProxy\u003A\u003A_getProxyPayload\u0028\u0029",
+            "name": "_getProxyPayload",
+            "summary": "Overrides\u0020the\u0020abstract\u0020parent\u0020function\u0020to\u0020get\u0020contents\u0020from\u0020Shlink\u0020API.",
+            "url": "classes/PrivateBin-Proxy-ShlinkProxy.html#method__getProxyPayload"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\ShlinkProxy\u003A\u003A_extractShortUrl\u0028\u0029",
+            "name": "_extractShortUrl",
+            "summary": "Extracts\u0020the\u0020short\u0020URL\u0020from\u0020the\u0020shlink\u0020API\u0020response.",
+            "url": "classes/PrivateBin-Proxy-ShlinkProxy.html#method__extractShortUrl"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\YourlsProxy",
+            "name": "YourlsProxy",
+            "summary": "YourlsProxy",
+            "url": "classes/PrivateBin-Proxy-YourlsProxy.html"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\YourlsProxy\u003A\u003A_getProxyUrl\u0028\u0029",
+            "name": "_getProxyUrl",
+            "summary": "Overrides\u0020the\u0020abstract\u0020parent\u0020function\u0020to\u0020get\u0020the\u0020proxy\u0020URL.",
+            "url": "classes/PrivateBin-Proxy-YourlsProxy.html#method__getProxyUrl"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\YourlsProxy\u003A\u003A_getProxyPayload\u0028\u0029",
+            "name": "_getProxyPayload",
+            "summary": "Overrides\u0020the\u0020abstract\u0020parent\u0020function\u0020to\u0020get\u0020contents\u0020from\u0020YOURLS\u0020API.",
+            "url": "classes/PrivateBin-Proxy-YourlsProxy.html#method__getProxyPayload"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy\\YourlsProxy\u003A\u003A_extractShortUrl\u0028\u0029",
+            "name": "_extractShortUrl",
+            "summary": "Extracts\u0020the\u0020short\u0020URL\u0020from\u0020the\u0020YOURLS\u0020API\u0020response.",
+            "url": "classes/PrivateBin-Proxy-YourlsProxy.html#method__extractShortUrl"
+        },                {
             "fqsen": "\\PrivateBin\\Request",
             "name": "Request",
             "summary": "Request",
@@ -1446,41 +1541,6 @@ Search.appendIndex(
             "summary": "image\u0020height",
             "url": "classes/PrivateBin-Vizhash16x16.html#property_height"
         },                {
-            "fqsen": "\\PrivateBin\\YourlsProxy",
-            "name": "YourlsProxy",
-            "summary": "YourlsProxy",
-            "url": "classes/PrivateBin-YourlsProxy.html"
-        },                {
-            "fqsen": "\\PrivateBin\\YourlsProxy\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "constructor",
-            "url": "classes/PrivateBin-YourlsProxy.html#method___construct"
-        },                {
-            "fqsen": "\\PrivateBin\\YourlsProxy\u003A\u003AgetError\u0028\u0029",
-            "name": "getError",
-            "summary": "Returns\u0020the\u0020\u0028untranslated\u0029\u0020error\u0020message",
-            "url": "classes/PrivateBin-YourlsProxy.html#method_getError"
-        },                {
-            "fqsen": "\\PrivateBin\\YourlsProxy\u003A\u003AgetUrl\u0028\u0029",
-            "name": "getUrl",
-            "summary": "Returns\u0020the\u0020shortened\u0020URL",
-            "url": "classes/PrivateBin-YourlsProxy.html#method_getUrl"
-        },                {
-            "fqsen": "\\PrivateBin\\YourlsProxy\u003A\u003AisError\u0028\u0029",
-            "name": "isError",
-            "summary": "Returns\u0020true\u0020if\u0020any\u0020error\u0020has\u0020occurred",
-            "url": "classes/PrivateBin-YourlsProxy.html#method_isError"
-        },                {
-            "fqsen": "\\PrivateBin\\YourlsProxy\u003A\u003A\u0024_error",
-            "name": "_error",
-            "summary": "error\u0020message",
-            "url": "classes/PrivateBin-YourlsProxy.html#property__error"
-        },                {
-            "fqsen": "\\PrivateBin\\YourlsProxy\u003A\u003A\u0024_url",
-            "name": "_url",
-            "summary": "shortened\u0020URL",
-            "url": "classes/PrivateBin-YourlsProxy.html#property__url"
-        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -1505,5 +1565,10 @@ Search.appendIndex(
             "name": "Persistence",
             "summary": "",
             "url": "namespaces/privatebin-persistence.html"
+        },                {
+            "fqsen": "\\PrivateBin\\Proxy",
+            "name": "Proxy",
+            "summary": "",
+            "url": "namespaces/privatebin-proxy.html"
         }            ]
 );

@@ -38,8 +38,6 @@
  * @namespace
  */
 
-// global Base64, DOMPurify, FileReader, baseX, bootstrap, history, navigator, prettyPrint, prettyPrintOne, showdown, kjua
-
 jQuery.fn.draghover = function() {
     'use strict';
     return this.each(function() {
@@ -120,8 +118,10 @@ jQuery.PrivateBin = (function($) {
      */
     function CryptoData(data) {
         // store all keys in the default locations for drop-in replacement
-        for (let key in data) {
-            this[key] = data[key];
+        for (const key in data) {
+            if (Object.prototype.hasOwnProperty.call(data, key)) {
+                this[key] = data[key];
+            }
         }
 
         /**
@@ -755,7 +755,7 @@ jQuery.PrivateBin = (function($) {
          * @param  {...*} args - one or multiple parameters injected into placeholders
          * @return {string}
          */
-        me.translate = function()
+        me.translate = function() // eslint-disable-line complexity
         {
             // convert parameters to array
             let args = Array.prototype.slice.call(arguments),
@@ -883,7 +883,7 @@ jQuery.PrivateBin = (function($) {
          * @param  {int} n
          * @return {int} array key
          */
-        me.getPluralForm = function(n) {
+        me.getPluralForm = function(n) { // eslint-disable-line complexity
             switch (language)
             {
                 case 'ar':
@@ -958,7 +958,8 @@ jQuery.PrivateBin = (function($) {
             }
 
             // load strings from JSON
-            $.getJSON('i18n/' + newLanguage + '.json', function(data) {
+            const cacheBreaker = document.querySelector('script[src^="js/privatebin.js"]').getAttribute('src').split('.js')[1] || '';
+            $.getJSON('i18n/' + newLanguage + '.json' + cacheBreaker, function(data) {
                 language = newLanguage;
                 translations = data;
                 $(document).triggerHandler(languageLoadedEvent);
@@ -2149,6 +2150,21 @@ jQuery.PrivateBin = (function($) {
         };
 
         /**
+         * Checks if auto-shortening is enabled and sends the link to the shortener if it is.
+         *
+         * @name  PasteStatus.checkAutoShorten
+         * @function
+         */
+        me.checkAutoShorten = function() {
+            // check if auto-shortening is enabled
+            if ($shortenButton.data('autoshorten') === true) {
+                // if so, we send the link to the shortener
+                // we do not remove the button, in case shortener fails
+                sendToShortener();
+            }
+        }
+
+        /**
          * extracts URLs from given string
          *
          * if at least one is found, it disables the shortener button and
@@ -2186,6 +2202,7 @@ jQuery.PrivateBin = (function($) {
                     $pasteUrl.prop('href', shortUrl);
                     // we pre-select the link so that the user only has to [Ctrl]+[c] the link
                     Helper.selectText($pasteUrl[0]);
+                    CopyToClipboard.setUrl(shortUrl);
                     return;
                 }
             }
@@ -3099,7 +3116,7 @@ jQuery.PrivateBin = (function($) {
          * @param {array} fileNames
          */
         function printDragAndDropFileNames(fileNames) {
-            $dragAndDropFileNames.html(fileNames.join("&lt;br>"));
+            $dragAndDropFileNames.html(fileNames.join('&lt;br>'));
         }
 
         /**
@@ -3410,7 +3427,7 @@ jQuery.PrivateBin = (function($) {
          * @function
          */
         function addClipboardEventHandler() {
-            $(document).on('paste', function (event) {
+            $('#message').on('paste', function (event) {
                 const items = (event.clipboardData || event.originalEvent.clipboardData).items;
                 const files = [...items]
                                     .filter(item => item.kind === 'file')
@@ -3620,7 +3637,7 @@ jQuery.PrivateBin = (function($) {
 
             // set date
             const created = comment.getCreated();
-            const commentDate = created == 0 ? '' : ' (' + (new Date(created * 1000).toLocaleString()) + ')';
+            const commentDate = created === 0 ? '' : ' (' + (new Date(created * 1000).toLocaleString()) + ')';
             $commentEntry.find('span.commentdate')
                          .text(commentDate)
                          .attr('title', 'CommentID: ' + comment.id);
@@ -4189,7 +4206,7 @@ jQuery.PrivateBin = (function($) {
                         $emailconfirmmodal.modal('hide');
                     }
                     triggerEmailSend(emailBody);
-                };
+                }
 
                 $emailconfirmTimezoneCurrent.off('click.sendEmailCurrentTimezone');
                 $emailconfirmTimezoneCurrent.on('click.sendEmailCurrentTimezone', sendEmailAndHideModal);
@@ -5057,6 +5074,8 @@ jQuery.PrivateBin = (function($) {
             TopNav.hideDownloadButton();
             Editor.hide();
 
+            PasteStatus.checkAutoShorten();
+
             // parse and show text
             // (preparation already done in me.sendPaste())
             PasteViewer.run();
@@ -5170,7 +5189,7 @@ jQuery.PrivateBin = (function($) {
 
             // UI loading state
             TopNav.hideAllButtons();
-            Alert.showLoading('Sending paste…', 'cloud-upload');
+            Alert.showLoading('Sending document…', 'cloud-upload');
             TopNav.collapseBar();
 
             // get data
@@ -5441,7 +5460,7 @@ jQuery.PrivateBin = (function($) {
         {
             Alert.hideMessages();
             Alert.setCustomHandler(null);
-            Alert.showLoading('Decrypting paste…', 'cloud-download');
+            Alert.showLoading('Decrypting document…', 'cloud-download');
 
             if (typeof paste === 'undefined' || paste.type === 'click') {
                 // get cipher data and wait until it is available
@@ -5533,7 +5552,7 @@ jQuery.PrivateBin = (function($) {
                 toggleSuccessIcon();
                 showAlertMessage('Document copied to clipboard');
             });
-        };
+        }
 
         /**
          * Handle copy link to clipboard button click
@@ -5566,7 +5585,7 @@ jQuery.PrivateBin = (function($) {
                     showAlertMessage('Document copied to clipboard');
                 }
             });
-        };
+        }
 
         /**
          * Check if user selected some text on the page to copy it
@@ -5581,12 +5600,12 @@ jQuery.PrivateBin = (function($) {
 
             if (window.getSelection) {
                 text = window.getSelection().toString();
-            } else if (document.selection &amp;&amp; document.selection.type != 'Control') {
+            } else if (document.selection &amp;&amp; document.selection.type !== 'Control') {
                 text = document.selection.createRange().text;
             }
 
             return text.length > 0;
-        };
+        }
 
         /**
          * Save text to the clipboard
@@ -5598,7 +5617,7 @@ jQuery.PrivateBin = (function($) {
          */
         function saveToClipboard(text) {
             navigator.clipboard.writeText(text);
-        };
+        }
 
         /**
          * Show alert message after text copy
@@ -5610,7 +5629,7 @@ jQuery.PrivateBin = (function($) {
          */
         function showAlertMessage(message) {
             Alert.showStatus(message);
-        };
+        }
 
         /**
          * Toogle success icon after copy
@@ -5627,7 +5646,7 @@ jQuery.PrivateBin = (function($) {
                 $(copyIcon).css('display', 'block');
                 $(successIcon).css('display', 'none');
             }, 1000);
-        };
+        }
 
         /**
          * Show keyboard shortcut hint
@@ -5685,6 +5704,73 @@ jQuery.PrivateBin = (function($) {
     })();
 
     /**
+     *
+     * @name PasswordPeek
+     * @class
+     */
+    const PasswordPeek = (function () {
+        const me = {};
+
+        /**
+         * Switch between visible and hidden password
+         *
+         * @name PasswordPeek.handleRevealButtonClick
+         * @private
+         * @function
+         */
+        function handleRevealButtonClick() {
+            const element = $(this);
+            const passwordInput = element.siblings('.input-password');
+			const isHidden = passwordInput.attr('type') === 'password';
+
+            passwordInput.attr('type', isHidden ? 'text' : 'password');
+
+			const tooltip = I18n._(isHidden ? 'Hide password' : 'Show password');
+
+			element.attr('title', tooltip);
+			element.attr('aria-label', tooltip);
+
+            // handle bootstrap 5 icons: eye &amp; eye-slash
+            const buttonSvg = element.find('use');
+            if (buttonSvg.length) {
+                const iconHref = buttonSvg.attr('href');
+                if (isHidden) {
+                    buttonSvg.attr('href', iconHref + '-slash');
+                } else {
+                    buttonSvg.attr('href', iconHref.substring(0, iconHref.length - 6));
+                }
+                return;
+            }
+
+            // handle bootstrap 3 icons: eye-open &amp; eye-close
+            const buttonSpan = element.find('span');
+            if (buttonSpan.length) {
+                if (isHidden) {
+                    buttonSpan.addClass('glyphicon-eye-close');
+                    buttonSpan.removeClass('glyphicon-eye-open');
+                } else {
+                    buttonSpan.addClass('glyphicon-eye-open');
+                    buttonSpan.removeClass('glyphicon-eye-close');
+                }
+            }
+        }
+
+        /**
+         * Initialize
+         *
+         * @name PasswordPeek.init
+         * @function
+         */
+        me.init = function() {
+            const revealButton = $('.toggle-password');
+
+            revealButton.click(handleRevealButtonClick);
+        };
+
+        return me;
+    })();
+
+    /**
      * (controller) main PrivateBin logic
      *
      * @name   Controller
@@ -5719,7 +5805,7 @@ jQuery.PrivateBin = (function($) {
             // Important: This *must not* run Alert.hideMessages() as previous
             // errors from viewing a document should be shown.
             TopNav.hideAllButtons();
-            Alert.showLoading('Preparing new paste…', 'time');
+            Alert.showLoading('Preparing new document…', 'time');
 
             PasteStatus.hideMessages();
             PasteViewer.hide();
@@ -5738,7 +5824,7 @@ jQuery.PrivateBin = (function($) {
 
             Alert.hideLoading();
             // only push new state if we are coming from a different one
-            if (Helper.baseUri() != window.location) {
+            if (Helper.baseUri() !== window.location) {
                 history.pushState({type: 'create'}, document.title, Helper.baseUri());
             }
 
@@ -5851,7 +5937,7 @@ jQuery.PrivateBin = (function($) {
                 Alert.showStatus(
                     [
                         'The cloned file \'%s\' was attached to this document.',
-                        attachments.map(attachment => attachment[1]).join(', '),
+                        attachments.map(attachment => attachment[1]).join(', ')
                     ],
                     'copy'
                 );
@@ -5932,6 +6018,7 @@ jQuery.PrivateBin = (function($) {
             TopNav.init();
             UiHelper.init();
             CopyToClipboard.init();
+            PasswordPeek.init();
 
             // check for legacy browsers before going any further
             if (!Legacy.Check.getInit()) {
@@ -5948,7 +6035,7 @@ jQuery.PrivateBin = (function($) {
             // if delete token is passed (i.e. document has been deleted by this
             // access), add an event listener for the 'new' document button in the alert
             if (Model.hasDeleteToken()) {
-                $("#new-from-alert").on("click", function () {
+                $('#new-from-alert').on('click', function () {
                     UiHelper.reloadHome();
                 });
                 return;
@@ -5991,6 +6078,7 @@ jQuery.PrivateBin = (function($) {
         ServerInteraction: ServerInteraction,
         PasteEncrypter: PasteEncrypter,
         PasteDecrypter: PasteDecrypter,
+        PasswordPeek: PasswordPeek,
         CopyToClipboard: CopyToClipboard,
         Controller: Controller
     };
@@ -6005,13 +6093,13 @@ jQuery.PrivateBin = (function($) {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="Legacy.html">Legacy</a></li><li><a href="PrivateBin.html">PrivateBin</a></li></ul><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Check.html">Check</a></li><li><a href="Comment.html">Comment</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CopyToClipboard.html">CopyToClipboard</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="CryptoData.html">CryptoData</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="Model.html">Model</a></li><li><a href="Paste.html">Paste</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="ServerInteraction.html">ServerInteraction</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="Legacy.html">Legacy</a></li><li><a href="PrivateBin.html">PrivateBin</a></li></ul><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="AttachmentViewer.html">AttachmentViewer</a></li><li><a href="Check.html">Check</a></li><li><a href="Comment.html">Comment</a></li><li><a href="Controller.html">Controller</a></li><li><a href="CopyToClipboard.html">CopyToClipboard</a></li><li><a href="CryptTool.html">CryptTool</a></li><li><a href="CryptoData.html">CryptoData</a></li><li><a href="DiscussionViewer.html">DiscussionViewer</a></li><li><a href="Editor.html">Editor</a></li><li><a href="Helper.html">Helper</a></li><li><a href="I18n.html">I18n</a></li><li><a href="Model.html">Model</a></li><li><a href="PasswordPeek.html">PasswordPeek</a></li><li><a href="Paste.html">Paste</a></li><li><a href="PasteDecrypter.html">PasteDecrypter</a></li><li><a href="PasteEncrypter.html">PasteEncrypter</a></li><li><a href="PasteStatus.html">PasteStatus</a></li><li><a href="PasteViewer.html">PasteViewer</a></li><li><a href="Prompt.html">Prompt</a></li><li><a href="ServerInteraction.html">ServerInteraction</a></li><li><a href="TopNav.html">TopNav</a></li><li><a href="UiHelper.html">UiHelper</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Jul 28 2025 07:52:47 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sun Oct 12 2025 10:11:26 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
