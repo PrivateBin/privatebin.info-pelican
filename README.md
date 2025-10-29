@@ -3,7 +3,7 @@
 This repository hosts the files used to generate the PrivateBin website,
 hosted at https://privatebin.info.
 
-The files are generated with [Pelican](https://blog.getpelican.com/).
+The files are generated with [Pelican](https://getpelican.com/).
 
 ## Setup
 
