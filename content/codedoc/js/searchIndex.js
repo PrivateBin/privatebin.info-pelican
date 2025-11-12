@@ -1418,7 +1418,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003AgetTemplate\u0028\u0029",
             "name": "getTemplate",
-            "summary": "get\u0020currently\u0020loaded\u0020template",
+            "summary": "get\u0020user\u0020selected\u0020template\u0020or\u0020fallback",
             "url": "classes/PrivateBin-TemplateSwitcher.html#method_getTemplate"
         },                {
             "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003AgetAvailableTemplates\u0028\u0029",
@@ -1430,11 +1430,6 @@ Search.appendIndex(
             "name": "isTemplateAvailable",
             "summary": "check\u0020if\u0020the\u0020provided\u0020template\u0020is\u0020available",
             "url": "classes/PrivateBin-TemplateSwitcher.html#method_isTemplateAvailable"
-        },                {
-            "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003AgetSelectedByUserTemplate\u0028\u0029",
-            "name": "getSelectedByUserTemplate",
-            "summary": "get\u0020the\u0020template\u0020selected\u0020by\u0020user",
-            "url": "classes/PrivateBin-TemplateSwitcher.html#method_getSelectedByUserTemplate"
         },                {
             "fqsen": "\\PrivateBin\\TemplateSwitcher\u003A\u003A\u0024_templateFallback",
             "name": "_templateFallback",
@@ -1460,16 +1455,6 @@ Search.appendIndex(
             "name": "draw",
             "summary": "render\u0020a\u0020template",
             "url": "classes/PrivateBin-View.html#method_draw"
-        },                {
-            "fqsen": "\\PrivateBin\\View\u003A\u003AgetTemplateFilePath\u0028\u0029",
-            "name": "getTemplateFilePath",
-            "summary": "Get\u0020template\u0020file\u0020path",
-            "url": "classes/PrivateBin-View.html#method_getTemplateFilePath"
-        },                {
-            "fqsen": "\\PrivateBin\\View\u003A\u003AisBootstrapTemplate\u0028\u0029",
-            "name": "isBootstrapTemplate",
-            "summary": "Is\u0020the\u0020template\u0020a\u0020variation\u0020of\u0020the\u0020bootstrap\u0020template",
-            "url": "classes/PrivateBin-View.html#method_isBootstrapTemplate"
         },                {
             "fqsen": "\\PrivateBin\\View\u003A\u003A_scriptTag\u0028\u0029",
             "name": "_scriptTag",
