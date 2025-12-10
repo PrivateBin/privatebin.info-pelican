@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.23
 WORKDIR /srv
 RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN apk add --no-cache py3-pelican@testing make tzdata
