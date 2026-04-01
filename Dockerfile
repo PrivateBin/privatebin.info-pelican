@@ -1,6 +1,7 @@
 FROM alpine:edge
 WORKDIR /srv
-RUN apk add --no-cache py3-pelican make tzdata
+RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+RUN apk add --no-cache py3-pelican@testing make tzdata
 COPY . /srv/
 RUN make publish
 
