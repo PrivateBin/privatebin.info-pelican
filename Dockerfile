@@ -1,4 +1,4 @@
-FROM alpine:testing
+FROM alpine:edge
 WORKDIR /srv
 RUN apk add --no-cache py3-pelican make tzdata
 COPY . /srv/
