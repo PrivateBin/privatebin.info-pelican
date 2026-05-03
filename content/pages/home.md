@@ -7,7 +7,7 @@ save_as: index.html
 
 # ![PrivateBin]({static}/img/logo.png)
 
-*Current version: 2.0.3*
+*Current version: 2.0.4*
 
 **PrivateBin** is a minimalist, open source online
 [pastebin](https://en.wikipedia.org/wiki/Pastebin)
@@ -50,8 +50,10 @@ features.
   [DANE](https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities)
   record.
 
-- The "key" used to encrypt the paste is part of the URL. If you publicly post
-  the URL of a paste that is not password-protected, anyone can read it.
+- The “key” used to encrypt the paste is part of the URL (in
+  [the fragment part separated by the `#`](https://en.wikipedia.org/wiki/URL#fragment)).
+  If you publicly post the URL of a paste that is not password-protected, anyone
+  can read it.
   Use a password if you want your paste to remain private. In that case, make
   sure to use a strong password and share it privately and end-to-end-encrypted.
 

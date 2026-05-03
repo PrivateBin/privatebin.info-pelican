@@ -48,6 +48,7 @@ For any **security issues** please contact us via [security@privatebin.org](mail
 * Aaron Sherber - cache control headers for API calls & use of `shortenviayourls` in query parameters
 
 ## Translations
+
 * Hexalyse - French
 * Kuba Niewiarowski - Polish
 * Gabbalo - German
@@ -80,3 +81,5 @@ For any **security issues** please contact us via [security@privatebin.org](mail
 * Nicolas Le Gall - Japanese
 * lazerns - Arabic
 * Edward205 - Romanian
+* babiloof - Swedish
+* Ali Fani - Persian

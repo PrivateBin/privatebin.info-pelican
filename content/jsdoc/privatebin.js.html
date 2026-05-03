@@ -90,6 +90,20 @@ jQuery.PrivateBin = (function($) {
     };
 
     /**
+     * DOMpurify settings for HTML content, where only a strict subset is allowed.
+     *
+     * NOTE: The key {@link purifyHtmlConfig.USE_PROFILES} **must not** be included,
+     * as otherwise `USE_PROFILES` takes precedence over {@link purifyHtmlConfigStrictSubset.ALLOWED_TAGS}.
+     *
+     * @private
+     */
+   const purifyHtmlConfigStrictSubset = {
+        ALLOWED_URI_REGEXP: purifyHtmlConfig.ALLOWED_URI_REGEXP,
+        ALLOWED_TAGS: ['a', 'i', 'span', 'kbd'],
+        ALLOWED_ATTR: ['href', 'id']
+    };
+
+    /**
      * DOMpurify settings for SVG content
      *
      * @private
@@ -458,8 +472,9 @@ jQuery.PrivateBin = (function($) {
          * @name   Helper.urls2links
          * @function
          * @param  {HTMLElement} element
+         * @param  {bool} strict - optional
          */
-        me.urls2links = function(element)
+        me.urls2links = function(element, strict = true)
         {
             element.html(
                 DOMPurify.sanitize(
@@ -467,7 +482,7 @@ jQuery.PrivateBin = (function($) {
                         /(((https?|ftp):\/\/[\w?!=&amp;.\/-;#@~%+*-]+(?![\w\s?!&amp;.\/;#~%"=-]>))|((magnet):[\w?=&amp;.\/-;#@~%+*-]+))/ig,
                         '&lt;a href="$1" rel="nofollow noopener noreferrer">$1&lt;/a>'
                     ),
-                    purifyHtmlConfig
+                    strict ? purifyHtmlConfigStrictSubset : purifyHtmlConfig
                 )
             );
         };
@@ -583,13 +598,14 @@ jQuery.PrivateBin = (function($) {
          * @param  {string} str
          * @return {string} escaped HTML
          */
-        me.htmlEntities = function(str) {
+        me.htmlEntities = function(str)
+        {
             return String(str).replace(
                 /[&amp;&lt;>"'`=\/]/g, function(s) {
                     return entityMap[s];
                 }
             );
-        }
+        };
 
         /**
          * calculate expiration date given initial date and expiration period
@@ -600,7 +616,8 @@ jQuery.PrivateBin = (function($) {
          * @param  {string|number} expirationDisplayStringOrSecondsToExpire - may not be empty
          * @return {Date}
          */
-        me.calculateExpirationDate = function(initialDate, expirationDisplayStringOrSecondsToExpire) {
+        me.calculateExpirationDate = function(initialDate, expirationDisplayStringOrSecondsToExpire)
+        {
             let expirationDate      = new Date(initialDate),
                 secondsToExpiration = expirationDisplayStringOrSecondsToExpire;
             if (typeof expirationDisplayStringOrSecondsToExpire === 'string') {
@@ -645,7 +662,7 @@ jQuery.PrivateBin = (function($) {
             }
 
             return result;
-        }
+        };
 
         /**
          * resets state, used for unit testing
@@ -699,7 +716,7 @@ jQuery.PrivateBin = (function($) {
          * @prop   {string[]}
          * @readonly
          */
-        const supportedLanguages = ['ar', 'bg', 'ca', 'co', 'cs', 'de', 'el', 'es', 'et', 'fi', 'fr', 'he', 'hu', 'id', 'it', 'ja', 'jbo', 'lt', 'no', 'nl', 'pl', 'pt', 'oc', 'ro', 'ru', 'sk', 'sl', 'th', 'tr', 'uk', 'zh'];
+        const supportedLanguages = ['ar', 'bg', 'ca', 'co', 'cs', 'de', 'el', 'es', 'et', 'fa', 'fi', 'fr', 'he', 'hu', 'id', 'it', 'ja', 'jbo', 'lt', 'no', 'nl', 'pl', 'pt', 'oc', 'ro', 'ru', 'sk', 'sl', 'sv', 'th', 'tr', 'uk', 'zh'];
 
         /**
          * built in language
@@ -840,12 +857,7 @@ jQuery.PrivateBin = (function($) {
 
             if (containsHtml) {
                 // only allow tags/attributes we actually use in translations
-                output = DOMPurify.sanitize(
-                    output, {
-                        ALLOWED_TAGS: ['a', 'i', 'span', 'kbd'],
-                        ALLOWED_ATTR: ['href', 'id']
-                    }
-                );
+                output = DOMPurify.sanitize(output, purifyHtmlConfigStrictSubset);
             }
 
             // if $element is given, insert translation
@@ -892,6 +904,7 @@ jQuery.PrivateBin = (function($) {
                 case 'sk':
                     return n === 1 ? 0 : (n >= 2 &amp;&amp; n &lt;= 4 ? 1 : 2);
                 case 'co':
+                case 'fa':
                 case 'fr':
                 case 'oc':
                 case 'tr':
@@ -915,7 +928,7 @@ jQuery.PrivateBin = (function($) {
                     return n % 10 === 1 &amp;&amp; n % 100 !== 11 ? 0 : (n % 10 >= 2 &amp;&amp; n % 10 &lt;= 4 &amp;&amp; (n % 100 &lt; 10 || n % 100 >= 20) ? 1 : 2);
                 case 'sl':
                     return n % 100 === 1 ? 1 : (n % 100 === 2 ? 2 : (n % 100 === 3 || n % 100 === 4 ? 3 : 0));
-                // bg, ca, de, el, en, es, et, fi, hu, it, nl, no, pt
+                // bg, ca, de, el, en, es, et, fi, hu, it, nl, no, pt, sv
                 default:
                     return n !== 1 ? 1 : 0;
             }
@@ -991,13 +1004,9 @@ jQuery.PrivateBin = (function($) {
          * @returns {boolean}
          */
         function isStringContainsHtml(messageId) {
-            // An integer which specifies the type of the node. An Element node like &lt;p> or &lt;div>.
-            const elementNodeType = 1;
-
-            const div = document.createElement('div');
-            div.innerHTML = messageId;
-
-            return Array.from(div.childNodes).some(node => node.nodeType === elementNodeType);
+            // message IDs are allowed to contain anchors, spans, keyboard and emphasis tags
+            // we can recognize all of them by only checking for anchors and keyboard tags
+            return messageId.indexOf('&lt;a') !== -1 || messageId.indexOf('&lt;kbd') !== -1;
         }
 
         return me;
@@ -1340,7 +1349,7 @@ jQuery.PrivateBin = (function($) {
             spec[1] = atob(spec[1]);
             if (spec[7] === 'zlib') {
                 if (typeof zlib === 'undefined') {
-                    throw 'Error decompressing document, your browser does not support WebAssembly. Please use another browser to view this document.'
+                    throw 'Error decompressing document, your browser does not support WebAssembly. Please use another browser to view this document.';
                 }
             }
             try {
@@ -2763,7 +2772,7 @@ jQuery.PrivateBin = (function($) {
                     // = 'plaintext'
                     $prettyPrint.text(text);
                 }
-                Helper.urls2links($prettyPrint);
+                Helper.urls2links($prettyPrint, format !== 'syntaxhighlighting');
                 $prettyPrint.css('white-space', 'pre-wrap');
                 $prettyPrint.css('word-break', 'normal');
                 $prettyPrint.removeClass('prettyprint');
@@ -3020,8 +3029,9 @@ jQuery.PrivateBin = (function($) {
                 attachmentLink.attr('download', fileName);
 
                 const fileSize = Helper.formatBytes(decodedData.length);
-                const fileInfo = document.createTextNode(` (${fileName}, ${fileSize})`);
-                template[0].appendChild(fileInfo);
+                const spans = template[0].querySelectorAll('span');
+                const span = spans[spans.length - 1];
+                span.textContent += ` (${fileName}, ${fileSize})`;
             }
 
             // sanitize SVG preview
@@ -3176,6 +3186,11 @@ jQuery.PrivateBin = (function($) {
             if (!$attachment.length) {
                 return false;
             }
+            // Check if there are actual attachment data items (not just UI elements)
+            if (attachmentsData.length > 0) {
+                return true;
+            }
+            // Also check UI elements in case data was removed but UI wasn't updated
             return [...$attachment.children()].length > 0;
         };
 
@@ -3189,10 +3204,8 @@ jQuery.PrivateBin = (function($) {
          */
         me.hasAttachmentData = function()
         {
-            if ($attachment.length) {
-                return true;
-            }
-            return false;
+            // Check if there are actual attachment data items (not just UI elements)
+            return attachmentsData.length > 0;
         };
 
         /**
@@ -3262,7 +3275,7 @@ jQuery.PrivateBin = (function($) {
          * @param {FileList[]} loadedFiles (optional) loaded files array
          * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/FileReader#readAsDataURL()}
          */
-        function readFileData(loadedFiles) {
+        function readFileData(loadedFiles = []) {
             // Clear old cache
             me.removeAttachmentData();
 
@@ -3274,15 +3287,15 @@ jQuery.PrivateBin = (function($) {
                 return;
             }
 
-            if (loadedFiles === undefined) {
-                loadedFiles = [...$fileInput[0].files];
-                me.clearDragAndDrop();
-            } else {
+            if (loadedFiles &amp;&amp; loadedFiles.length > 0) {
                 const fileNames = loadedFiles.map((loadedFile => loadedFile.name));
                 printDragAndDropFileNames(fileNames);
+            } else {
+                loadedFiles = [...$fileInput[0].files];
+                me.clearDragAndDrop();
             }
 
-            if (typeof loadedFiles !== 'undefined') {
+            if (loadedFiles.length > 0) {
                 files = loadedFiles;
                 loadedFiles.forEach((loadedFile, index) => {
                     const fileReader = new FileReader();
@@ -3427,19 +3440,21 @@ jQuery.PrivateBin = (function($) {
          * @function
          */
         function addClipboardEventHandler() {
-            $('#message').on('paste', function (event) {
+            document.addEventListener('paste', (event) => {
                 const items = (event.clipboardData || event.originalEvent.clipboardData).items;
                 const files = [...items]
                                     .filter(item => item.kind === 'file')
                                     .map(item => item.getAsFile());
 
-                if (TopNav.isAttachmentReadonly()) {
+                if (TopNav.isAttachmentReadonly() &amp;&amp; files.length) {
                     event.stopPropagation();
                     event.preventDefault();
                     return false;
                 }
 
-                readFileData(files);
+                if (files.length) {
+                    readFileData(files);
+                }
             });
         }
 
@@ -4658,7 +4673,11 @@ jQuery.PrivateBin = (function($) {
          */
         me.setFormat = function(format)
         {
-            $formatter.parent().find(`a[data-format="${format}"]`).click();
+            if (Helper.isBootstrap5()) {
+                $formatter.find('select').val(format);
+            } else {
+                $formatter.parent().find(`a[data-format="${format}"]`).click();
+            }
         }
 
         /**
@@ -5194,7 +5213,7 @@ jQuery.PrivateBin = (function($) {
             const plainText = Editor.getText(),
                   format    = PasteViewer.getFormat(),
                   // the methods may return different values if no files are attached (null, undefined or false)
-                  files     = TopNav.getFileList() || AttachmentViewer.getFiles() || AttachmentViewer.hasAttachment();
+                  files     = TopNav.getFileList() || AttachmentViewer.getFiles() || AttachmentViewer.hasAttachmentData();
 
             // do not send if there is no data
             if (plainText.length === 0 &amp;&amp; !files) {
@@ -5240,7 +5259,7 @@ jQuery.PrivateBin = (function($) {
                 };
             if (attachmentsData.length) {
                 cipherMessage['attachment'] = attachmentsData;
-                cipherMessage['attachment_name'] = AttachmentViewer.getFiles().map((fileInfo => fileInfo.name));
+                cipherMessage['attachment_name'] = AttachmentViewer.getFiles()?.map((fileInfo => fileInfo.name)) ?? [];
             } else if (AttachmentViewer.hasAttachment()) {
                 // fall back to cloned part
                 let attachments = AttachmentViewer.getAttachments();
@@ -5818,6 +5837,10 @@ jQuery.PrivateBin = (function($) {
             AttachmentViewer.removeAttachment();
             TopNav.resetInput();
 
+            // reset format
+            PasteViewer.setFormat('plaintext');
+            TopNav.setFormat('plaintext');
+
             TopNav.showCreateButtons();
 
             // newPaste could be called when user is on document clone editing view
@@ -6102,7 +6125,7 @@ jQuery.PrivateBin = (function($) {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Wed Nov 12 2025 07:06:20 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Sun May 03 2026 07:04:13 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

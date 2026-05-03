@@ -96,15 +96,20 @@ Search.appendIndex(
             "summary": "outputs\u0020requested\u0020JSON\u002DLD\u0020context",
             "url": "classes/PrivateBin-Controller.html#method__jsonld"
         },                {
+            "fqsen": "\\PrivateBin\\Controller\u003A\u003A_json_error\u0028\u0029",
+            "name": "_json_error",
+            "summary": "prepares\u0020JSON\u0020encoded\u0020error\u0020message",
+            "url": "classes/PrivateBin-Controller.html#method__json_error"
+        },                {
+            "fqsen": "\\PrivateBin\\Controller\u003A\u003A_json_result\u0028\u0029",
+            "name": "_json_result",
+            "summary": "prepares\u0020JSON\u0020encoded\u0020result\u0020message",
+            "url": "classes/PrivateBin-Controller.html#method__json_result"
+        },                {
             "fqsen": "\\PrivateBin\\Controller\u003A\u003A_shortenerproxy\u0028\u0029",
             "name": "_shortenerproxy",
             "summary": "Proxies\u0020a\u0020link\u0020using\u0020the\u0020specified\u0020proxy\u0020class,\u0020and\u0020updates\u0020the\u0020status\u0020or\u0020error\u0020with\u0020the\u0020response.",
             "url": "classes/PrivateBin-Controller.html#method__shortenerproxy"
-        },                {
-            "fqsen": "\\PrivateBin\\Controller\u003A\u003A_return_message\u0028\u0029",
-            "name": "_return_message",
-            "summary": "prepares\u0020JSON\u0020encoded\u0020status\u0020message",
-            "url": "classes/PrivateBin-Controller.html#method__return_message"
         },                {
             "fqsen": "\\PrivateBin\\Controller\u003A\u003AVERSION",
             "name": "VERSION",
@@ -716,6 +721,26 @@ Search.appendIndex(
             "summary": "S3\u0020prefix\u0020for\u0020all\u0020PrivateBin\u0020data\u0020in\u0020this\u0020bucket",
             "url": "classes/PrivateBin-Data-S3Storage.html#property__prefix"
         },                {
+            "fqsen": "\\PrivateBin\\Exception\\JsonException",
+            "name": "JsonException",
+            "summary": "JsonException",
+            "url": "classes/PrivateBin-Exception-JsonException.html"
+        },                {
+            "fqsen": "\\PrivateBin\\Exception\\JsonException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Exception\u0020constructor\u0020with\u0020mandatory\u0020JSON\u0020error\u0020code.",
+            "url": "classes/PrivateBin-Exception-JsonException.html#method___construct"
+        },                {
+            "fqsen": "\\PrivateBin\\Exception\\TranslatedException",
+            "name": "TranslatedException",
+            "summary": "TranslatedException",
+            "url": "classes/PrivateBin-Exception-TranslatedException.html"
+        },                {
+            "fqsen": "\\PrivateBin\\Exception\\TranslatedException\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Translating\u0020exception\u0020constructor\u0020with\u0020mandatory\u0020messageId.",
+            "url": "classes/PrivateBin-Exception-TranslatedException.html#method___construct"
+        },                {
             "fqsen": "\\PrivateBin\\Filter",
             "name": "Filter",
             "summary": "Filter",
@@ -920,6 +945,16 @@ Search.appendIndex(
             "name": "_validate",
             "summary": "Validate\u0020data.",
             "url": "classes/PrivateBin-Model-AbstractModel.html#method__validate"
+        },                {
+            "fqsen": "\\PrivateBin\\Model\\AbstractModel\u003A\u003AINVALID_DATA_ERROR",
+            "name": "INVALID_DATA_ERROR",
+            "summary": "show\u0020the\u0020same\u0020error\u0020message\u0020if\u0020the\u0020data\u0020is\u0020invalid",
+            "url": "classes/PrivateBin-Model-AbstractModel.html#constant_INVALID_DATA_ERROR"
+        },                {
+            "fqsen": "\\PrivateBin\\Model\\AbstractModel\u003A\u003ACOLLISION_ERROR",
+            "name": "COLLISION_ERROR",
+            "summary": "show\u0020the\u0020same\u0020error\u0020message\u0020if\u0020the\u0020document\u0020ID\u0020already\u0020exists",
+            "url": "classes/PrivateBin-Model-AbstractModel.html#constant_COLLISION_ERROR"
         },                {
             "fqsen": "\\PrivateBin\\Model\\AbstractModel\u003A\u003A\u0024_id",
             "name": "_id",
@@ -1456,6 +1491,21 @@ Search.appendIndex(
             "summary": "render\u0020a\u0020template",
             "url": "classes/PrivateBin-View.html#method_draw"
         },                {
+            "fqsen": "\\PrivateBin\\View\u003A\u003A_getCacheBuster\u0028\u0029",
+            "name": "_getCacheBuster",
+            "summary": "get\u0020cache\u0020buster\u0020query\u0020string",
+            "url": "classes/PrivateBin-View.html#method__getCacheBuster"
+        },                {
+            "fqsen": "\\PrivateBin\\View\u003A\u003A_getSri\u0028\u0029",
+            "name": "_getSri",
+            "summary": "get\u0020SRI\u0020hash\u0020for\u0020given\u0020file",
+            "url": "classes/PrivateBin-View.html#method__getSri"
+        },                {
+            "fqsen": "\\PrivateBin\\View\u003A\u003A_linkTag\u0028\u0029",
+            "name": "_linkTag",
+            "summary": "echo\u0020module\u0020preload\u0020link\u0020tag\u0020incl.\u0020SRI\u0020hash\u0020for\u0020given\u0020script\u0020file",
+            "url": "classes/PrivateBin-View.html#method__linkTag"
+        },                {
             "fqsen": "\\PrivateBin\\View\u003A\u003A_scriptTag\u0028\u0029",
             "name": "_scriptTag",
             "summary": "echo\u0020script\u0020tag\u0020incl.\u0020SRI\u0020hash\u0020for\u0020given\u0020script\u0020file",
@@ -1540,6 +1590,11 @@ Search.appendIndex(
             "name": "Data",
             "summary": "",
             "url": "namespaces/privatebin-data.html"
+        },                {
+            "fqsen": "\\PrivateBin\\Exception",
+            "name": "Exception",
+            "summary": "",
+            "url": "namespaces/privatebin-exception.html"
         },                {
             "fqsen": "\\PrivateBin\\Model",
             "name": "Model",
