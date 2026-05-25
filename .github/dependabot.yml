@@ -19,3 +19,7 @@ updates:
           - "1.35.*"
           - "1.37.*"
           - "1.39.*"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
