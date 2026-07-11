@@ -816,6 +816,11 @@ Search.appendIndex(
             "summary": "determines\u0020if\u0020the\u0020current\u0020language\u0020is\u0020written\u0020right\u002Dto\u002Dleft\u0020\u0028RTL\u0029",
             "url": "classes/PrivateBin-I18n.html#method_isRtl"
         },                {
+            "fqsen": "\\PrivateBin\\I18n\u003A\u003AgetCopyHotkey\u0028\u0029",
+            "name": "getCopyHotkey",
+            "summary": "get\u0020OS\u002Dspecific\u0020copy\u0020hotkey\u0020modifier\u0020key\u0020name\u0020based\u0020on\u0020user\u0020agent",
+            "url": "classes/PrivateBin-I18n.html#method_getCopyHotkey"
+        },                {
             "fqsen": "\\PrivateBin\\I18n\u003A\u003AsetLanguageFallback\u0028\u0029",
             "name": "setLanguageFallback",
             "summary": "set\u0020the\u0020default\u0020language",
@@ -1383,7 +1388,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PrivateBin\\Request\u003A\u003AgetRequestUri\u0028\u0029",
             "name": "getRequestUri",
-            "summary": "Get\u0020request\u0020URI",
+            "summary": "Get\u0020request\u0020URI\u0020path\u0020without\u0020GET\u0020parameters",
             "url": "classes/PrivateBin-Request.html#method_getRequestUri"
         },                {
             "fqsen": "\\PrivateBin\\Request\u003A\u003AisJsonApiCall\u0028\u0029",
