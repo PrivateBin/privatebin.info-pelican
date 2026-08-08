@@ -721,16 +721,6 @@ Search.appendIndex(
             "summary": "S3\u0020prefix\u0020for\u0020all\u0020PrivateBin\u0020data\u0020in\u0020this\u0020bucket",
             "url": "classes/PrivateBin-Data-S3Storage.html#property__prefix"
         },                {
-            "fqsen": "\\PrivateBin\\Exception\\JsonException",
-            "name": "JsonException",
-            "summary": "JsonException",
-            "url": "classes/PrivateBin-Exception-JsonException.html"
-        },                {
-            "fqsen": "\\PrivateBin\\Exception\\JsonException\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Exception\u0020constructor\u0020with\u0020mandatory\u0020JSON\u0020error\u0020code.",
-            "url": "classes/PrivateBin-Exception-JsonException.html#method___construct"
-        },                {
             "fqsen": "\\PrivateBin\\Exception\\TranslatedException",
             "name": "TranslatedException",
             "summary": "TranslatedException",
@@ -890,11 +880,6 @@ Search.appendIndex(
             "name": "decode",
             "summary": "Returns\u0020an\u0020array\u0020with\u0020the\u0020contents\u0020as\u0020described\u0020in\u0020the\u0020given\u0020JSON\u0020input",
             "url": "classes/PrivateBin-Json.html#method_decode"
-        },                {
-            "fqsen": "\\PrivateBin\\Json\u003A\u003A_detectError\u0028\u0029",
-            "name": "_detectError",
-            "summary": "Detects\u0020JSON\u0020errors\u0020and\u0020raises\u0020an\u0020exception\u0020if\u0020one\u0020is\u0020found",
-            "url": "classes/PrivateBin-Json.html#method__detectError"
         },                {
             "fqsen": "\\PrivateBin\\Model\\AbstractModel",
             "name": "AbstractModel",
